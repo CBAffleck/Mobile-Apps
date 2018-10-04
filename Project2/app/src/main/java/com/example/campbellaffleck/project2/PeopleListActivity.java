@@ -109,7 +109,7 @@ public class PeopleListActivity extends AppCompatActivity {
                                 JSONObject legislator = peopleArray.getJSONObject(j);
                                 String type = legislator.getString("type");
                                 if (type.contains("rep")) {
-                                    type = "R" + type.substring(1);
+                                    type = "Rep.";
                                 } else {
                                     type = "S" + type.substring(1);
                                 }
@@ -135,7 +135,7 @@ public class PeopleListActivity extends AppCompatActivity {
                             JSONObject legislator = peopleArray.getJSONObject(0);
                             String type = legislator.getString("type");
                             if (type.contains("rep")) {
-                                type = "R" + type.substring(1);
+                                type = "Rep.";
                             } else {
                                 type = "S" + type.substring(1);
                             }
@@ -185,16 +185,16 @@ public class PeopleListActivity extends AppCompatActivity {
             name.setTextSize(24);
             name.setGravity(Gravity.TOP|Gravity.LEFT);
             name.setPadding(30,20,0,0);
-            name.setTextColor(Color.GRAY);
+            name.setTextColor(Color.parseColor("#595959"));
             name.setTypeface(null, Typeface.BOLD);
 
             //Formatting for displaying the legislator's party
             TextView party = new TextView(this);
             String legParty = legislators.get(i).get(1);
             if (legislators.get(i).get(1).contains("Dem")) {
-                party.setTextColor(Color.BLUE);
+                party.setTextColor(Color.parseColor("#00A2FF"));
             } else {
-                party.setTextColor(Color.RED);
+                party.setTextColor(Color.parseColor("#FF644E"));
             }
             party.setText(legParty);
             party.setTextSize(18);
