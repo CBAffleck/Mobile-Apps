@@ -1,15 +1,11 @@
 package com.example.campbellaffleck.project2;
 
-import android.graphics.Color;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -104,6 +100,11 @@ public class PeopleListActivity extends AppCompatActivity {
                                 ArrayList<String> person = new ArrayList<String>();
                                 JSONObject legislator = peopleArray.getJSONObject(j);
                                 String type = legislator.getString("type");
+                                if (type.contains("rep")) {
+                                    type = "R" + type.substring(1);
+                                } else {
+                                    type = "S" + type.substring(1);
+                                }
                                 JSONObject bio = legislator.getJSONObject("bio");
                                 String fname = bio.getString("first_name");
                                 String lname = bio.getString("last_name");
@@ -111,9 +112,6 @@ public class PeopleListActivity extends AppCompatActivity {
                                 JSONObject contact = legislator.getJSONObject("contact");
                                 String website = contact.getString("url");
                                 String email = contact.getString("contact_form");
-                                if (email.isEmpty()) {
-                                    email = "No public email.";
-                                }
                                 //Add all of the legislators info to an array solely for them
                                 person.add(type + " "  + fname + " " + lname);
                                 person.add(party);
@@ -128,6 +126,11 @@ public class PeopleListActivity extends AppCompatActivity {
                             ArrayList<String> person = new ArrayList<String>();
                             JSONObject legislator = peopleArray.getJSONObject(0);
                             String type = legislator.getString("type");
+                            if (type.contains("rep")) {
+                                type = "R" + type.substring(1);
+                            } else {
+                                type = "S" + type.substring(1);
+                            }
                             JSONObject bio = legislator.getJSONObject("bio");
                             String fname = bio.getString("first_name");
                             String lname = bio.getString("last_name");
@@ -135,9 +138,6 @@ public class PeopleListActivity extends AppCompatActivity {
                             JSONObject contact = legislator.getJSONObject("contact");
                             String website = contact.getString("url");
                             String email = contact.getString("contact_form");
-                            if (email.isEmpty()) {
-                                email = "No public email.";
-                            }
                             person.add(type + " "  + fname + " " + lname);
                             person.add(party);
                             person.add(website);
@@ -174,21 +174,36 @@ public class PeopleListActivity extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT);
             layoutParams.setMargins(0, 0, 0, 0);
 
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams2.setMargins(50, 0, 0, 0);
-
             TextView name = new TextView(this);
-            TextView party = new TextView(this);
             name.setText(legislators.get(i).get(0));
             name.setTextSize(24);
-            party.setText(legislators.get(i).get(1));
             name.setLayoutParams(layoutParams);
-            party.setLayoutParams(layoutParams2);
             display.addView(name);
-            display.addView(party);
             mylayout.addView(display);
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String legislator = ((TextView) v).getText().toString();
+                    String party = "";
+                    String website = "";
+                    String email = "";
+                    for (int j = 0; j < legislators.size(); j++) {
+                        if (legislators.get(j).get(0) == legislator) {
+                            party = legislators.get(j).get(1);
+                            website = legislators.get(j).get(2);
+                            email = legislators.get(j).get(3);
+                        }
+                    }
+                    Intent startlegislatorInfoActivity = new Intent(PeopleListActivity.this, LegislatorInfoActivity.class);
+                    Bundle b = new Bundle();
+                    b.putString("legislator", legislator);
+                    b.putString("party", party);
+                    b.putString("website", website);
+                    b.putString("email", email);
+                    startlegislatorInfoActivity.putExtras(b);
+                    startActivity(startlegislatorInfoActivity);
+                }
+            });
         }
     }
 
