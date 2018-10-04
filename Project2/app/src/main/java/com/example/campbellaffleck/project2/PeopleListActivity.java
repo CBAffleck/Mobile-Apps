@@ -1,10 +1,18 @@
 package com.example.campbellaffleck.project2;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -165,21 +173,50 @@ public class PeopleListActivity extends AppCompatActivity {
     private void addInfoBoxes() {
         mylayout = (LinearLayout) findViewById(R.id.linearLay);
         for (int i = 0; i < legislators.size(); i++) {
-            LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100);
-            LinearLayout display = new LinearLayout(this);
+            CardView.LayoutParams lparams = new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT, 200);
+            lparams.setMargins(0,0,0,100);
+            CardView display = new CardView(this);
+            display.setRadius(20);
             display.setLayoutParams(lparams);
 
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT);
-            layoutParams.setMargins(0, 0, 0, 0);
-
+            //Formatting for legislator's name
             TextView name = new TextView(this);
             name.setText(legislators.get(i).get(0));
             name.setTextSize(24);
-            name.setLayoutParams(layoutParams);
+            name.setGravity(Gravity.TOP|Gravity.LEFT);
+            name.setPadding(30,20,0,0);
+            name.setTextColor(Color.GRAY);
+            name.setTypeface(null, Typeface.BOLD);
+
+            //Formatting for displaying the legislator's party
+            TextView party = new TextView(this);
+            String legParty = legislators.get(i).get(1);
+            if (legislators.get(i).get(1).contains("Dem")) {
+                party.setTextColor(Color.BLUE);
+            } else {
+                party.setTextColor(Color.RED);
+            }
+            party.setText(legParty);
+            party.setTextSize(18);
+            party.setGravity(Gravity.BOTTOM|Gravity.LEFT);
+            party.setPadding(32,0,0,45);
+            party.setTypeface(null, Typeface.BOLD_ITALIC);
+
+            //Formatting for displaying the more info arrow icon
+            ImageView moreInfo = new ImageView(this);
+            moreInfo.setImageResource(R.drawable.rightarrow);
+            CardView.LayoutParams iconParams = new CardView.LayoutParams(100, 100);
+            iconParams.setMargins(840,50,0,0);
+            moreInfo.setLayoutParams(iconParams);
+
+            //Add views to main cardView
             display.addView(name);
+            display.addView(party);
+            display.addView(moreInfo);
+
+            //Add cardView to the layout
             mylayout.addView(display);
+
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -237,7 +274,7 @@ public class PeopleListActivity extends AppCompatActivity {
 //            @Override
 //            public Map getHeaders() throws AuthFailureError {
 //                HashMap headers = new HashMap();
-//                headers.put("X-API_Key", proPubKey);
+//                headers.put("X-API-Key", proPubKey);
 //                return headers;
 //            }
 //        };
