@@ -1,8 +1,15 @@
 package com.example.campbellaffleck.project2;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -30,6 +37,7 @@ public class PeopleListActivity extends AppCompatActivity {
     String proPubUrl;
     String state;
     String chamber;
+    LinearLayout mylayout;
     List<Integer> districts = new ArrayList<>();
     List<List<String>> legislators = new ArrayList<List<String>>();
     private RequestQueue queue;
@@ -51,13 +59,21 @@ public class PeopleListActivity extends AppCompatActivity {
         Integer userZip = b.getInt("userZip");
 
         //Use either zip code or lat/long to create a url from which to get GeoCodio data
-        if (userLat == 0) {
+        if (userZip != 0) {
             url = "https://api.geocod.io/v1.3/geocode?postal_code=" + userZip + "&fields=cd&api_key=" + geoCodKey;
         } else {
             url = "https://api.geocod.io/v1.3/reverse?q=" + userLat + "," + userLon + "&fields=cd&api_key=" + geoCodKey;
         }
+        System.out.println(url);
         queue = Volley.newRequestQueue(this);
         getGeoCodResponse();
+//        FrameLayout frame1 = (FrameLayout) findViewById(R.id.frame1);
+//        frame1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                jsonString.setText("CLICKED");
+//            }
+//        });
 //        chamber = "house";
 //        proPubUrl = "https://api.propublica.org/congress/v1/members/senate/" + state + "/current.json";
 //        getProPubResponse(proPubUrl);
@@ -65,19 +81,16 @@ public class PeopleListActivity extends AppCompatActivity {
 
     //Method to get the district numbers from the json object that's returned from the api call to geocodio
     private void getGeoCodResponse() {
-        final TextView jsonString = (TextView) findViewById(R.id.jsonString);
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
         new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     JSONArray jsonArray = response.getJSONArray("results");
-                    System.out.println(jsonArray);
                     JSONObject resultObj = jsonArray.getJSONObject(0);
                     JSONObject fields = resultObj.getJSONObject("fields");
                     JSONObject address = resultObj.getJSONObject("address_components");
                     state = address.getString("state");
-                    System.out.println("AAAAAAAAAAAAAA "+ state);
                     JSONArray newArray = fields.getJSONArray("congressional_districts");
                     //This loop goes over each district object in the congressional districts array
                     for (int i = 0; i < newArray.length(); i++) {
@@ -131,13 +144,11 @@ public class PeopleListActivity extends AppCompatActivity {
                             person.add(email);
                             legislators.add(person);
                         }
-                        jsonString.append("\n District: " + String.valueOf(districtNum));
-                        System.out.println(legislators);
-                        jsonString.append("\n Legislators: " + legislators);
                     }
 //                    //After getting the districts and state, make a call to the propublica api to get senator info
 //                    proPubUrl = "https://api.propublica.org/congress/v1/members/" + chamber + "/" + state + "/current.json";
 //                    getProPubResponse(proPubUrl);
+                    addInfoBoxes();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -151,8 +162,37 @@ public class PeopleListActivity extends AppCompatActivity {
         queue.add(request);
     }
 
+    private void addInfoBoxes() {
+        mylayout = (LinearLayout) findViewById(R.id.linearLay);
+        for (int i = 0; i < legislators.size(); i++) {
+            LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 100);
+            LinearLayout display = new LinearLayout(this);
+            display.setLayoutParams(lparams);
+
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(0, 0, 0, 0);
+
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams2.setMargins(50, 0, 0, 0);
+
+            TextView name = new TextView(this);
+            TextView party = new TextView(this);
+            name.setText(legislators.get(i).get(0));
+            name.setTextSize(24);
+            party.setText(legislators.get(i).get(1));
+            name.setLayoutParams(layoutParams);
+            party.setLayoutParams(layoutParams2);
+            display.addView(name);
+            display.addView(party);
+            mylayout.addView(display);
+        }
+    }
+
 //    private void getProPubResponse(String url) {
-//        final TextView jsonString = (TextView) findViewById(R.id.jsonString2);
 //        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
 //                new Response.Listener<JSONObject>() {
 //                    @Override
