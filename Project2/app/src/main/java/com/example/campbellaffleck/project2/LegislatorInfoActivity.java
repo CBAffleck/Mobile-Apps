@@ -235,7 +235,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 name.setText(committeeList.get(i));
                 name.setTextSize(15);
                 name.setGravity(Gravity.START);
-                name.setPadding(70, 0, 0, 0);
+                name.setPadding(70, 0, 30, 0);
                 display.addView(name);
                 mylayout.addView(display);
             }
