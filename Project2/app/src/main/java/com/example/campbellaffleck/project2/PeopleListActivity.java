@@ -47,10 +47,10 @@ public class PeopleListActivity extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         Double userLat = b.getDouble("userLat");
         Double userLon = b.getDouble("userLon");
-        Integer userZip = b.getInt("userZip");
+        String userZip = b.getString("userZip");
 
         //Use either zip code or lat/long to create a url from which to get GeoCodio data
-        if (userZip != 0) {
+        if (!userZip.equals("0")) {
             url = "https://api.geocod.io/v1.3/geocode?postal_code=" + userZip + "&fields=cd&api_key=" + geoCodKey;
         } else {
             url = "https://api.geocod.io/v1.3/reverse?q=" + userLat + "," + userLon + "&fields=cd&api_key=" + geoCodKey;
