@@ -3,15 +3,12 @@ package com.example.campbellaffleck.project2;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,19 +27,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 public class PeopleListActivity extends AppCompatActivity {
 
     String url;
-    String proPubUrl;
     String state;
-    String chamber;
     LinearLayout mylayout;
-    List<Integer> districts = new ArrayList<>();
     List<List<String>> legislators = new ArrayList<List<String>>();
     private RequestQueue queue;
     //GeoCodio API Key
@@ -54,7 +45,6 @@ public class PeopleListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_list);
-        chamber = "senate";
 
         //Set variables from the data passed in from the Home Activity
         Bundle b = getIntent().getExtras();
@@ -71,16 +61,6 @@ public class PeopleListActivity extends AppCompatActivity {
         System.out.println(url);
         queue = Volley.newRequestQueue(this);
         getGeoCodResponse();
-//        FrameLayout frame1 = (FrameLayout) findViewById(R.id.frame1);
-//        frame1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                jsonString.setText("CLICKED");
-//            }
-//        });
-//        chamber = "house";
-//        proPubUrl = "https://api.propublica.org/congress/v1/members/senate/" + state + "/current.json";
-//        getProPubResponse(proPubUrl);
     }
 
     //Method to get the district numbers from the json object that's returned from the api call to geocodio
@@ -99,8 +79,6 @@ public class PeopleListActivity extends AppCompatActivity {
                     //This loop goes over each district object in the congressional districts array
                     for (int i = 0; i < newArray.length(); i++) {
                         JSONObject congressional_district = newArray.getJSONObject(i);
-                        int districtNum = congressional_district.getInt("district_number");
-                        districts.add(districtNum);
                         JSONArray peopleArray = congressional_district.getJSONArray("current_legislators");
                         //On the first pass this for loop gets the district representative and the 2 state senators
                         if (i == 0) {
@@ -108,10 +86,13 @@ public class PeopleListActivity extends AppCompatActivity {
                                 ArrayList<String> person = new ArrayList<String>();
                                 JSONObject legislator = peopleArray.getJSONObject(j);
                                 String type = legislator.getString("type");
+                                String chamber = "";
                                 if (type.contains("rep")) {
                                     type = "Rep.";
+                                    chamber = "house";
                                 } else {
                                     type = "S" + type.substring(1);
+                                    chamber = "senate";
                                 }
                                 JSONObject bio = legislator.getJSONObject("bio");
                                 String fname = bio.getString("first_name");
@@ -120,11 +101,15 @@ public class PeopleListActivity extends AppCompatActivity {
                                 JSONObject contact = legislator.getJSONObject("contact");
                                 String website = contact.getString("url");
                                 String email = contact.getString("contact_form");
+                                int districtNum = congressional_district.getInt("district_number");
                                 //Add all of the legislators info to an array solely for them
                                 person.add(type + " "  + fname + " " + lname);
                                 person.add(party);
                                 person.add(website);
                                 person.add(email);
+                                person.add(String.valueOf(districtNum));
+                                person.add(state);
+                                person.add(chamber);
                                 //Add that legislator array to the array of all legislators to be displayed to the user
                                 legislators.add(person);
                             }
@@ -134,10 +119,13 @@ public class PeopleListActivity extends AppCompatActivity {
                             ArrayList<String> person = new ArrayList<String>();
                             JSONObject legislator = peopleArray.getJSONObject(0);
                             String type = legislator.getString("type");
+                            String chamber = "";
                             if (type.contains("rep")) {
                                 type = "Rep.";
+                                chamber = "house";
                             } else {
                                 type = "S" + type.substring(1);
+                                chamber = "senate";
                             }
                             JSONObject bio = legislator.getJSONObject("bio");
                             String fname = bio.getString("first_name");
@@ -146,10 +134,14 @@ public class PeopleListActivity extends AppCompatActivity {
                             JSONObject contact = legislator.getJSONObject("contact");
                             String website = contact.getString("url");
                             String email = contact.getString("contact_form");
+                            int districtNum = congressional_district.getInt("district_number");
                             person.add(type + " "  + fname + " " + lname);
                             person.add(party);
                             person.add(website);
                             person.add(email);
+                            person.add(String.valueOf(districtNum));
+                            person.add(state);
+                            person.add(chamber);
                             legislators.add(person);
                         }
                     }
@@ -175,7 +167,7 @@ public class PeopleListActivity extends AppCompatActivity {
         for (int i = 0; i < legislators.size(); i++) {
             CardView.LayoutParams lparams = new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT, 200);
             lparams.setMargins(0,0,0,100);
-            CardView display = new CardView(this);
+            final CardView display = new CardView(this);
             display.setRadius(20);
             display.setLayoutParams(lparams);
 
@@ -224,11 +216,17 @@ public class PeopleListActivity extends AppCompatActivity {
                     String party = "";
                     String website = "";
                     String email = "";
+                    int district = 0;
+                    String state = "";
+                    String chamber = "";
                     for (int j = 0; j < legislators.size(); j++) {
                         if (legislators.get(j).get(0) == legislator) {
                             party = legislators.get(j).get(1);
                             website = legislators.get(j).get(2);
                             email = legislators.get(j).get(3);
+                            district = Integer.parseInt(legislators.get(j).get(4));
+                            state = legislators.get(j).get(5);
+                            chamber = legislators.get(j).get(6);
                         }
                     }
                     Intent startlegislatorInfoActivity = new Intent(PeopleListActivity.this, LegislatorInfoActivity.class);
@@ -237,47 +235,13 @@ public class PeopleListActivity extends AppCompatActivity {
                     b.putString("party", party);
                     b.putString("website", website);
                     b.putString("email", email);
+                    b.putInt("district", district);
+                    b.putString("state", state);
+                    b.putString("chamber", chamber);
                     startlegislatorInfoActivity.putExtras(b);
                     startActivity(startlegislatorInfoActivity);
                 }
             });
         }
     }
-
-//    private void getProPubResponse(String url) {
-//        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
-//                new Response.Listener<JSONObject>() {
-//                    @Override
-//                    public void onResponse(JSONObject response) {
-//                        try {
-//                            if (chamber == "senate") {
-//                                JSONArray jsonArray = response.getJSONArray("results");
-//                                for (int i = 0; i < jsonArray.length(); i++) {
-//                                    JSONObject senator = jsonArray.getJSONObject(i);
-//                                    int districtNum = senator.getInt("district_number");
-//                                    districts.add(districtNum);
-//                                    jsonString.append("\n District: " + String.valueOf(districtNum));
-//                                }
-//                            } else {
-//
-//                            }
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                }, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                VolleyLog.e("Error: ", error.getMessage());
-//            }
-//        }) {
-//            @Override
-//            public Map getHeaders() throws AuthFailureError {
-//                HashMap headers = new HashMap();
-//                headers.put("X-API-Key", proPubKey);
-//                return headers;
-//            }
-//        };
-//        queue.add(request);
-//    }
 }
