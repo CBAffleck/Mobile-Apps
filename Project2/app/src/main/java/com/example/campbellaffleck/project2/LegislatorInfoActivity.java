@@ -190,6 +190,31 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 title.setPadding(30,0,0,0);
                 titleDisplay.addView(title);
                 mylayout.addView(titleDisplay);
+            } else if (committeeList.get(i).contains("0000") && i == 1) {
+                //Formatting for adding text when the legislator is on no committees
+                final LinearLayout titleDisplay3 = new LinearLayout(this);
+                titleDisplay3.setLayoutParams(lparams);
+                TextView title3 = new TextView(this);
+                String noCom = legislator + " is on no committees";
+                title3.setText(noCom);
+                title3.setTextColor(Color.parseColor("#FF644E"));
+                title3.setTextSize(15);
+                title3.setGravity(Gravity.START);
+                title3.setPadding(70,0,0,0);
+                titleDisplay3.addView(title3);
+                mylayout.addView(titleDisplay3);
+                //Formatting for "Subcommittee" title
+                final LinearLayout titleDisplay2 = new LinearLayout(this);
+                titleDisplay2.setLayoutParams(lparams);
+                TextView title2 = new TextView(this);
+                String subCom = "Subcommittees";
+                title2.setText(subCom);
+                title2.setTypeface(null, Typeface.BOLD);
+                title2.setTextSize(18);
+                title2.setGravity(Gravity.CENTER|Gravity.START);
+                title2.setPadding(30,0,0,0);
+                titleDisplay2.addView(title2);
+                mylayout.addView(titleDisplay2);
             } else if (committeeList.get(i).contains("0000")) {
                 //Formatting for "Subcommittee" title
                 final LinearLayout titleDisplay2 = new LinearLayout(this);
