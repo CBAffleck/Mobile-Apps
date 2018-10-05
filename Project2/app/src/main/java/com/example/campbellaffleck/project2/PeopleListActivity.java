@@ -178,7 +178,7 @@ public class PeopleListActivity extends AppCompatActivity {
             name.setTextSize(24);
             name.setGravity(Gravity.TOP|Gravity.START);
             name.setPadding(30,20,0,0);
-            name.setTextColor(Color.parseColor("#595959"));
+            name.setTextColor(Color.parseColor("#454545"));
             name.setTypeface(null, Typeface.BOLD);
 
             //Formatting for displaying the legislator's party

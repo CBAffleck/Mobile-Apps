@@ -73,6 +73,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
 
         //Configure formatting for legislator name and party
         nameView.setText(legislator);
+        nameView.setTextColor(Color.parseColor("#454545"));
         partyView.setText(party);
         if (party.contains("Dem")) {
             partyView.setTextColor(Color.parseColor("#00A2FF"));
@@ -118,11 +119,11 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         Picasso.get().load(photo_url).centerCrop().resize(400, 600).transform(transformation).into(profileView);
 
         //Get more detailed info such as bills and dates from propublica
-        getProPubID(url);
+        getCommitteeInfo(url);
     }
 
-    //Method for looking at response from propublica to get the legislator's member id
-    private void getProPubID(String url) {
+    //Method for looking at response from propublica to get the legislator's committee info
+    private void getCommitteeInfo(String url) {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override

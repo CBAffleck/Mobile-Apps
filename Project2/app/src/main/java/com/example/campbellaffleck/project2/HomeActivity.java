@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity {
         surpriseLocationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Make random zipcode and transition to list of reps and senators based on api call
+                //Get random zip code and transition to list of reps and senators representing that zip code
                 String randomZip = getZipCode();
                 Intent startPeopleListActivity = new Intent(HomeActivity.this, PeopleListActivity.class);
                 Bundle b = new Bundle();
@@ -126,6 +126,7 @@ public class HomeActivity extends AppCompatActivity {
     private String getZipCode() {
         //Make random zipcode and transition to list of reps and senators based on api call
         List<List<String>> zipRangeArray = new ArrayList<>();
+        //Website with zip code ranges
         String zipUrl = "https://www.phaster.com/zip_code.html";
         Document document = null;
         try {
@@ -133,7 +134,9 @@ public class HomeActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //Gets elements in the webpage html that contain "thru", which is unique to the zip code ranges
         Elements elems = document.select("td:contains(thru)");
+        //Separate out all of the zip codes into ranges and organize them into array lists
         for (Element element : elems) {
             String itemValue = element.toString();
             int start = itemValue.indexOf(">", itemValue.indexOf(">") + 1);
@@ -144,13 +147,14 @@ public class HomeActivity extends AppCompatActivity {
             zips.add(zipRange.substring(11, 16));
             zipRangeArray.add(zips);
         }
+        //Randomly select a zipcode range and then get a random zip code within that range
         List<String> random = zipRangeArray.get(new Random().nextInt(zipRangeArray.size()));
-        System.out.println(random);
         String firstzip = random.get(0);
         int max = Integer.valueOf(random.get(1));
         int min = Integer.valueOf(random.get(0));
         int rand = new Random().nextInt((max - min) + 1) + min;
         String randomZip = String.valueOf(rand);
+        //If the 0 leading a zip code was lost when converting between integer/string, add that 0 back to the start of the zip code string
         if (firstzip.substring(0,1).equals("0")) {
             randomZip = "0" + String.valueOf(rand);
         };
