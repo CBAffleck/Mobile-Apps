@@ -1,19 +1,13 @@
 package com.example.campbellaffleck.project2;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,7 +18,6 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
@@ -54,7 +47,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
     String legislator;
     String member_id;
     TextView nameView;
-    List<String> committeeList = new ArrayList<String>();
+    List<String> committeeList = new ArrayList<>();
     LinearLayout mylayout;
 
     @Override
@@ -72,11 +65,11 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         chamber = b.getString("chamber");
         member_id = b.getString("id");
 
-        ImageView profileView = (ImageView) findViewById(R.id.profileView);
-        nameView = (TextView) findViewById(R.id.nameView);
-        final TextView websiteView = (TextView) findViewById(R.id.websiteView);
-        final TextView emailView = (TextView) findViewById(R.id.emailView);
-        final TextView partyView = (TextView) findViewById(R.id.partyView);
+        ImageView profileView = findViewById(R.id.profileView);
+        nameView = findViewById(R.id.nameView);
+        final TextView websiteView = findViewById(R.id.websiteView);
+        final TextView emailView = findViewById(R.id.emailView);
+        final TextView partyView = findViewById(R.id.partyView);
 
         //Configure formatting for legislator name and party
         nameView.setText(legislator);
@@ -177,7 +170,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
     }
 
     private void addInfoBoxes() {
-        mylayout = (LinearLayout) findViewById(R.id.linearView);
+        mylayout = findViewById(R.id.linearView);
         for (int i = 0; i < committeeList.size(); i++) {
             LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,60);
             lparams.setMargins(0,10,0,10);
@@ -189,10 +182,11 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 final LinearLayout titleDisplay = new LinearLayout(this);
                 titleDisplay.setLayoutParams(lparams);
                 TextView title = new TextView(this);
-                title.setText("Committees");
+                String com = "Committees";
+                title.setText(com);
                 title.setTypeface(null, Typeface.BOLD);
                 title.setTextSize(18);
-                title.setGravity(Gravity.CENTER|Gravity.LEFT);
+                title.setGravity(Gravity.CENTER|Gravity.START);
                 title.setPadding(30,0,0,0);
                 titleDisplay.addView(title);
                 mylayout.addView(titleDisplay);
@@ -201,10 +195,11 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 final LinearLayout titleDisplay2 = new LinearLayout(this);
                 titleDisplay2.setLayoutParams(lparams);
                 TextView title2 = new TextView(this);
-                title2.setText("Subcommittees");
+                String subCom = "Subcommittees";
+                title2.setText(subCom);
                 title2.setTypeface(null, Typeface.BOLD);
                 title2.setTextSize(18);
-                title2.setGravity(Gravity.CENTER|Gravity.LEFT);
+                title2.setGravity(Gravity.CENTER|Gravity.START);
                 title2.setPadding(30,0,0,0);
                 titleDisplay2.addView(title2);
                 mylayout.addView(titleDisplay2);
@@ -213,7 +208,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 TextView name = new TextView(this);
                 name.setText(committeeList.get(i));
                 name.setTextSize(15);
-                name.setGravity(Gravity.LEFT);
+                name.setGravity(Gravity.START);
                 name.setPadding(70, 0, 0, 0);
                 display.addView(name);
                 mylayout.addView(display);

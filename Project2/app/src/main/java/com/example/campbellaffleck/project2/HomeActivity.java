@@ -1,12 +1,13 @@
 package com.example.campbellaffleck.project2;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Location;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,10 +19,10 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private FusedLocationProviderClient mFusedLocationClient;
     private double myLatitude;
     private double myLongitude;
     private int userZip;
+    private static final int requestGrant = 0;
     //GeoCodio API Key: 9ebb9f32bbeb5355fbbbb3f3ef3e9b53b7ee5bb
 
     @Override
@@ -30,10 +31,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         //Get user's current location on start of the app
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        String permission = "android.permission.ACCESS_COARSE_LOCATION";
-        int checkPermission = getApplicationContext().checkCallingOrSelfPermission(permission);
-        if (checkPermission == PackageManager.PERMISSION_GRANTED) {
+        FusedLocationProviderClient mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        if (ContextCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             mFusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
@@ -45,28 +44,28 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
             });
+        } else {
+            ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, requestGrant);
         }
 
         //Set button variables for homepage buttons
-        Button searchButton = (Button) findViewById(R.id.searchButton);
-        Button getLocationButton = (Button) findViewById(R.id.getLocationButton);
-        Button surpriseLocationButton = (Button) findViewById(R.id.surpriseLocationButton);
-        final EditText zipcodeEntry = (EditText) findViewById(R.id.zipcodeEntry);
-        zipcodeEntry.setHint("ZIP CODE");
-//        zipcodeEntry.setHintTextColor(Color.WHITE);
-//        zipcodeEntry.setTextColor(Color.WHITE);
-        final TextView zipcodeAlert = (TextView) findViewById(R.id.zipcodeAlert);
+        Button searchButton = findViewById(R.id.searchButton);
+        Button getLocationButton = findViewById(R.id.getLocationButton);
+        Button surpriseLocationButton = findViewById(R.id.surpriseLocationButton);
+        final EditText zipCodeEntry = findViewById(R.id.zipcodeEntry);
+        zipCodeEntry.setHint("ZIP CODE");
+        final TextView zipcodeAlert = findViewById(R.id.zipcodeAlert);
         zipcodeAlert.setVisibility(View.INVISIBLE);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (zipcodeEntry.getText().toString().matches("")) {
+                if (zipCodeEntry.getText().toString().matches("")) {
                     //If the zipCode entry hasn't been filled, display the alert to inform the user to fill it in
                     zipcodeAlert.setVisibility(View.VISIBLE);
                 } else {
                     //Get zipcode and transition to new activity with list of reps and senators based on api call
-                    userZip = Integer.parseInt(zipcodeEntry.getText().toString());
+                    userZip = Integer.parseInt(zipCodeEntry.getText().toString());
                     zipcodeAlert.setVisibility(View.INVISIBLE);
                     Intent startPeopleListActivity = new Intent(HomeActivity.this, PeopleListActivity.class);
                     Bundle b = new Bundle();

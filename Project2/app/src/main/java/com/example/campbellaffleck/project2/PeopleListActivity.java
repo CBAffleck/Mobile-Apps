@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
@@ -34,12 +33,10 @@ public class PeopleListActivity extends AppCompatActivity {
     String url;
     String state;
     LinearLayout mylayout;
-    List<List<String>> legislators = new ArrayList<List<String>>();
+    List<List<String>> legislators = new ArrayList<>();
     private RequestQueue queue;
     //GeoCodio API Key
     final String geoCodKey = "9ebb9f32bbeb5355fbbbb3f3ef3e9b53b7ee5bb";
-    //ProPublica Congress API Key
-    String proPubKey = "ueFwgvEE9RxTZelGlUgUIfPzk7dFJcIKdizU0Y9I";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,10 +80,10 @@ public class PeopleListActivity extends AppCompatActivity {
                         //On the first pass this for loop gets the district representative and the 2 state senators
                         if (i == 0) {
                             for (int j = 0; j < peopleArray.length(); j++) {
-                                ArrayList<String> person = new ArrayList<String>();
+                                ArrayList<String> person = new ArrayList<>();
                                 JSONObject legislator = peopleArray.getJSONObject(j);
                                 String type = legislator.getString("type");
-                                String chamber = "";
+                                String chamber;
                                 if (type.contains("rep")) {
                                     type = "Rep.";
                                     chamber = "house";
@@ -119,10 +116,10 @@ public class PeopleListActivity extends AppCompatActivity {
                         }
                         // After the first pass the state senators are already added, so we just need to representative for each district
                         else {
-                            ArrayList<String> person = new ArrayList<String>();
+                            ArrayList<String> person = new ArrayList<>();
                             JSONObject legislator = peopleArray.getJSONObject(0);
                             String type = legislator.getString("type");
-                            String chamber = "";
+                            String chamber;
                             if (type.contains("rep")) {
                                 type = "Rep.";
                                 chamber = "house";
@@ -167,10 +164,10 @@ public class PeopleListActivity extends AppCompatActivity {
     }
 
     private void addInfoBoxes() {
-        mylayout = (LinearLayout) findViewById(R.id.linearLay);
+        mylayout = findViewById(R.id.linearLay);
         for (int i = 0; i < legislators.size(); i++) {
             CardView.LayoutParams lparams = new CardView.LayoutParams(CardView.LayoutParams.MATCH_PARENT, 200);
-            lparams.setMargins(0,0,0,100);
+            lparams.setMargins(0,0,0,80);
             final CardView display = new CardView(this);
             display.setRadius(20);
             display.setLayoutParams(lparams);
@@ -179,7 +176,7 @@ public class PeopleListActivity extends AppCompatActivity {
             TextView name = new TextView(this);
             name.setText(legislators.get(i).get(0));
             name.setTextSize(24);
-            name.setGravity(Gravity.TOP|Gravity.LEFT);
+            name.setGravity(Gravity.TOP|Gravity.START);
             name.setPadding(30,20,0,0);
             name.setTextColor(Color.parseColor("#595959"));
             name.setTypeface(null, Typeface.BOLD);
@@ -194,7 +191,7 @@ public class PeopleListActivity extends AppCompatActivity {
             }
             party.setText(legParty);
             party.setTextSize(18);
-            party.setGravity(Gravity.BOTTOM|Gravity.LEFT);
+            party.setGravity(Gravity.BOTTOM|Gravity.START);
             party.setPadding(32,0,0,45);
             party.setTypeface(null, Typeface.BOLD_ITALIC);
 
@@ -225,7 +222,7 @@ public class PeopleListActivity extends AppCompatActivity {
                     String chamber = "";
                     String id = "";
                     for (int j = 0; j < legislators.size(); j++) {
-                        if (legislators.get(j).get(0) == legislator) {
+                        if (legislators.get(j).get(0).equals(legislator)) {
                             party = legislators.get(j).get(1);
                             website = legislators.get(j).get(2);
                             email = legislators.get(j).get(3);
