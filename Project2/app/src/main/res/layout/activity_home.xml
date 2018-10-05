@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
+    <!--android:background="@drawable/background_main">-->
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -22,6 +23,7 @@
 
     <EditText
         android:id="@+id/zipcodeEntry"
+        android:gravity="center_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -96,23 +98,6 @@
         app:layout_constraintTop_toBottomOf="@+id/zipcodeEntry"
         app:layout_constraintVertical_bias="0.435" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/congress_icon"
-        app:layout_constraintBottom_toTopOf="@+id/zipcodeEntry"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -124,15 +109,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="REPRESENT!"
-        android:textColor="@android:color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif"
-        app:layout_constraintBottom_toTopOf="@+id/zipcodeEntry"
+        android:textColor="#000000"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:fontFamily="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.266" />
 
     <TextView
         android:id="@+id/zipcodeAlert"
@@ -146,7 +131,7 @@
         android:layout_marginTop="8dp"
         android:text="Please enter a valid zipcode"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="10sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

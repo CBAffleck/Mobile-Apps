@@ -2,12 +2,20 @@ package com.example.campbellaffleck.project2;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.net.Uri;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -20,13 +28,18 @@ import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 public class LegislatorInfoActivity extends AppCompatActivity {
 
@@ -41,6 +54,8 @@ public class LegislatorInfoActivity extends AppCompatActivity {
     String legislator;
     String member_id;
     TextView nameView;
+    List<String> committeeList = new ArrayList<String>();
+    LinearLayout mylayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +88,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         }
 
         //Add external link for going to the legislator's website
+        websiteView.setTextColor(Color.parseColor("#929292"));
         websiteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +98,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         });
 
         //Set external link for clicking on contact
+        emailView.setTextColor(Color.parseColor("#929292"));
         emailView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,22 +119,13 @@ public class LegislatorInfoActivity extends AppCompatActivity {
 
         queue = Volley.newRequestQueue(this);
 
-        Picasso.get().load(photo_url).into(profileView);
-//        ImageRequest request = new ImageRequest(photo_url, new Response.Listener<Bitmap>() {
-//            @Override
-//            public void onResponse(Bitmap response) {
-//                profileView.setImageBitmap(response);
-//            }
-//        }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
-//            @Override
-//            public void onErrorResponse(VolleyError error) {
-//                profileView.setImageResource(R.drawable.rightarrow);
-//            }
-//        });
-//        queue.add(request);
+        final int radius = 20;
+        final int margin = 20;
+        final Transformation transformation = new RoundedCornersTransformation(radius, margin);
+        Picasso.get().load(photo_url).centerCrop().resize(400, 600).transform(transformation).into(profileView);
 
         //Get more detailed info such as bills and dates from propublica
-//        getProPubID(url);
+        getProPubID(url);
     }
 
     //Method for looking at response from propublica to get the legislator's member id
@@ -127,26 +135,27 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            //If we're looking for a senator then we need to get the senator id for the correct senator
-                            if (chamber == "senate") {
-                                String legSub = legislator.substring(legislator.length() - 4);
-                                JSONArray jsonArray = response.getJSONArray("results");
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject senator = jsonArray.getJSONObject(i);
-                                    if (senator.getString("name").contains(legSub)) {
-                                        member_id = senator.getString("id");
-                                    }
-                                }
+                            //Goes through json hierarchy in the json response from propublica
+                            JSONArray jsonArray = response.getJSONArray("results");
+                            JSONObject resultObj = jsonArray.getJSONObject(0);
+                            JSONArray roleArray = resultObj.getJSONArray("roles");
+                            JSONObject roleObj = roleArray.getJSONObject(0);
+                            JSONArray committeeArray = roleObj.getJSONArray("committees");
+                            for (int i = 0; i < committeeArray.length(); i++) {
+                                JSONObject committee = committeeArray.getJSONObject(i);
+                                String name = committee.getString("name");
+                                committeeList.add(name);
                             }
-                            //Otherwise propublica will only return one result, for the rep, so we can immediately get the id
-                            else {
-                                String legSub = legislator.substring(legislator.length() - 4);
-                                JSONArray jsonArray = response.getJSONArray("results");
-                                JSONObject senator = jsonArray.getJSONObject(0);
-                                if (senator.getString("name").contains(legSub)) {
-                                    member_id = senator.getString("id");
-                                }
+                            //Add easily noticeable break to list so we know when we switch to subcommittees when reading the list later
+                            committeeList.add("0000");
+                            JSONArray subCommitteeArray = roleObj.getJSONArray("subcommittees");
+                            for (int i = 0; i < subCommitteeArray.length(); i++) {
+                                JSONObject subcommittee = subCommitteeArray.getJSONObject(i);
+                                String name = subcommittee.getString("name");
+                                committeeList.add(name);
                             }
+                            //Add the committees to the activity for the user to see
+                            addInfoBoxes();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -165,5 +174,50 @@ public class LegislatorInfoActivity extends AppCompatActivity {
             }
         };
         queue.add(request);
+    }
+
+    private void addInfoBoxes() {
+        mylayout = (LinearLayout) findViewById(R.id.linearView);
+        for (int i = 0; i < committeeList.size(); i++) {
+            LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,60);
+            lparams.setMargins(0,10,0,10);
+            final LinearLayout display = new LinearLayout(this);
+            display.setLayoutParams(lparams);
+
+            if (i == 0) {
+                //Formatting for "Committee" title
+                final LinearLayout titleDisplay = new LinearLayout(this);
+                titleDisplay.setLayoutParams(lparams);
+                TextView title = new TextView(this);
+                title.setText("Committees");
+                title.setTypeface(null, Typeface.BOLD);
+                title.setTextSize(18);
+                title.setGravity(Gravity.CENTER|Gravity.LEFT);
+                title.setPadding(30,0,0,0);
+                titleDisplay.addView(title);
+                mylayout.addView(titleDisplay);
+            } else if (committeeList.get(i).contains("0000")) {
+                //Formatting for "Subcommittee" title
+                final LinearLayout titleDisplay2 = new LinearLayout(this);
+                titleDisplay2.setLayoutParams(lparams);
+                TextView title2 = new TextView(this);
+                title2.setText("Subcommittees");
+                title2.setTypeface(null, Typeface.BOLD);
+                title2.setTextSize(18);
+                title2.setGravity(Gravity.CENTER|Gravity.LEFT);
+                title2.setPadding(30,0,0,0);
+                titleDisplay2.addView(title2);
+                mylayout.addView(titleDisplay2);
+            } else {
+                //Formatting for committee/subcommittee names
+                TextView name = new TextView(this);
+                name.setText(committeeList.get(i));
+                name.setTextSize(15);
+                name.setGravity(Gravity.LEFT);
+                name.setPadding(70, 0, 0, 0);
+                display.addView(name);
+                mylayout.addView(display);
+            }
+        }
     }
 }

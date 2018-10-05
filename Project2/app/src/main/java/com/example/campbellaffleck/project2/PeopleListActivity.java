@@ -151,9 +151,7 @@ public class PeopleListActivity extends AppCompatActivity {
                             legislators.add(person);
                         }
                     }
-//                    //After getting the districts and state, make a call to the propublica api to get senator info
-//                    proPubUrl = "https://api.propublica.org/congress/v1/members/" + chamber + "/" + state + "/current.json";
-//                    getProPubResponse(proPubUrl);
+                    //Add the legislators to the screen by putting their info on cards
                     addInfoBoxes();
                 } catch (JSONException e) {
                     e.printStackTrace();

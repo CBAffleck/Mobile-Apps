@@ -2,6 +2,7 @@ package com.example.campbellaffleck.project2;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -51,6 +52,9 @@ public class HomeActivity extends AppCompatActivity {
         Button getLocationButton = (Button) findViewById(R.id.getLocationButton);
         Button surpriseLocationButton = (Button) findViewById(R.id.surpriseLocationButton);
         final EditText zipcodeEntry = (EditText) findViewById(R.id.zipcodeEntry);
+        zipcodeEntry.setHint("ZIP CODE");
+//        zipcodeEntry.setHintTextColor(Color.WHITE);
+//        zipcodeEntry.setTextColor(Color.WHITE);
         final TextView zipcodeAlert = (TextView) findViewById(R.id.zipcodeAlert);
         zipcodeAlert.setVisibility(View.INVISIBLE);
 
