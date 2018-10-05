@@ -1,11 +1,13 @@
 package com.example.campbellaffleck.project2;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -14,8 +16,10 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,9 +36,11 @@ public class LegislatorInfoActivity extends AppCompatActivity {
     String chamber;
     String state;
     String url;
+    String photo_url;
     int district;
     String legislator;
-    int member_id;
+    String member_id;
+    TextView nameView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +55,10 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         district = b.getInt("district");
         state = b.getString("state");
         chamber = b.getString("chamber");
+        member_id = b.getString("id");
 
-        final TextView nameView = (TextView) findViewById(R.id.nameView);
+        ImageView profileView = (ImageView) findViewById(R.id.profileView);
+        nameView = (TextView) findViewById(R.id.nameView);
         final TextView websiteView = (TextView) findViewById(R.id.websiteView);
         final TextView emailView = (TextView) findViewById(R.id.emailView);
         final TextView partyView = (TextView) findViewById(R.id.partyView);
@@ -88,14 +96,28 @@ public class LegislatorInfoActivity extends AppCompatActivity {
             }
         });
 
-        //Configures url for propublica based on the whether the legislator of interest is in the house or senate
-        if (chamber == "house") {
-            url = "https://api.propublica.org/congress/v1/members/house/" + state + "/" + district + "/current.json";
-        } else {
-            url = "https://api.propublica.org/congress/v1/members/senate/" + state + "/current.json";
-        }
+        //Configures url for propublica with member_id from previous activity
+        url = "https://api.propublica.org/congress/v1/members/" + member_id + ".json";
+        photo_url = "https://theunitedstates.io/images/congress/original/" + member_id + ".jpg";
+
         queue = Volley.newRequestQueue(this);
-        getProPubID(url);
+
+        Picasso.get().load(photo_url).into(profileView);
+//        ImageRequest request = new ImageRequest(photo_url, new Response.Listener<Bitmap>() {
+//            @Override
+//            public void onResponse(Bitmap response) {
+//                profileView.setImageBitmap(response);
+//            }
+//        }, 0, 0, Bitmap.Config.RGB_565, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                profileView.setImageResource(R.drawable.rightarrow);
+//            }
+//        });
+//        queue.add(request);
+
+        //Get more detailed info such as bills and dates from propublica
+//        getProPubID(url);
     }
 
     //Method for looking at response from propublica to get the legislator's member id
@@ -112,7 +134,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject senator = jsonArray.getJSONObject(i);
                                     if (senator.getString("name").contains(legSub)) {
-                                        member_id = senator.getInt("id");
+                                        member_id = senator.getString("id");
                                     }
                                 }
                             }
@@ -122,7 +144,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                                 JSONArray jsonArray = response.getJSONArray("results");
                                 JSONObject senator = jsonArray.getJSONObject(0);
                                 if (senator.getString("name").contains(legSub)) {
-                                    member_id = senator.getInt("id");
+                                    member_id = senator.getString("id");
                                 }
                             }
                         } catch (JSONException e) {

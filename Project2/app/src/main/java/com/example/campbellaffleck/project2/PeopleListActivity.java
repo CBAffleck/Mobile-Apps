@@ -102,6 +102,8 @@ public class PeopleListActivity extends AppCompatActivity {
                                 String website = contact.getString("url");
                                 String email = contact.getString("contact_form");
                                 int districtNum = congressional_district.getInt("district_number");
+                                JSONObject ref = legislator.getJSONObject("references");
+                                String id = ref.getString("bioguide_id");
                                 //Add all of the legislators info to an array solely for them
                                 person.add(type + " "  + fname + " " + lname);
                                 person.add(party);
@@ -110,6 +112,7 @@ public class PeopleListActivity extends AppCompatActivity {
                                 person.add(String.valueOf(districtNum));
                                 person.add(state);
                                 person.add(chamber);
+                                person.add(id);
                                 //Add that legislator array to the array of all legislators to be displayed to the user
                                 legislators.add(person);
                             }
@@ -135,6 +138,8 @@ public class PeopleListActivity extends AppCompatActivity {
                             String website = contact.getString("url");
                             String email = contact.getString("contact_form");
                             int districtNum = congressional_district.getInt("district_number");
+                            JSONObject ref = legislator.getJSONObject("references");
+                            String id = ref.getString("bioguide_id");
                             person.add(type + " "  + fname + " " + lname);
                             person.add(party);
                             person.add(website);
@@ -142,6 +147,7 @@ public class PeopleListActivity extends AppCompatActivity {
                             person.add(String.valueOf(districtNum));
                             person.add(state);
                             person.add(chamber);
+                            person.add(id);
                             legislators.add(person);
                         }
                     }
@@ -219,6 +225,7 @@ public class PeopleListActivity extends AppCompatActivity {
                     int district = 0;
                     String state = "";
                     String chamber = "";
+                    String id = "";
                     for (int j = 0; j < legislators.size(); j++) {
                         if (legislators.get(j).get(0) == legislator) {
                             party = legislators.get(j).get(1);
@@ -227,6 +234,7 @@ public class PeopleListActivity extends AppCompatActivity {
                             district = Integer.parseInt(legislators.get(j).get(4));
                             state = legislators.get(j).get(5);
                             chamber = legislators.get(j).get(6);
+                            id = legislators.get(j).get(7);
                         }
                     }
                     Intent startlegislatorInfoActivity = new Intent(PeopleListActivity.this, LegislatorInfoActivity.class);
@@ -238,6 +246,7 @@ public class PeopleListActivity extends AppCompatActivity {
                     b.putInt("district", district);
                     b.putString("state", state);
                     b.putString("chamber", chamber);
+                    b.putString("id", id);
                     startlegislatorInfoActivity.putExtras(b);
                     startActivity(startlegislatorInfoActivity);
                 }
