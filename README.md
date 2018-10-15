@@ -1,13 +1,13 @@
-# Mobile-Apps
+# Mobile Apps
 
 This repo contains my mobile app projects. Currently these projects have all been developed in Android Studio for Android smartphones.
 
 ### Projects
 
-* [Represent!](represent!) - An app for users to discover, learn about, and contact their local representatives in Congress.
-* [ElectricTime](electrictime) - An app that converts speeds and distance coverage between electric modes of transportation.
+* [Represent](#represent) - An app for users to discover, learn about, and contact their local representatives in Congress.
+* [ElectricTime](#electrictime) - An app that converts speeds and distance coverage between electric modes of transportation.
 
-<h1 align="center"> Represent! </h1>
+# Represent
 <p align="center">
   <img src = "https://i.imgur.com/AzuUpAO.png" width=350>
 </p>
@@ -29,9 +29,7 @@ Some things you can do with this app:
 * _Check if they're up for re-election [coming soon]_
 * _Discover the bills they've recently sponsored [coming soon]_
 
-----
-
-<h1 align="center"> ElectricTime </h1>
+# ElectricTime
 <p align="center">
   <img src = "https://i.imgur.com/6QzCdjm.jpg" width=350>
 </p>
