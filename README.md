@@ -26,7 +26,7 @@ Some things you can do with this app:
 * Discover their party
 * Go directly to their website or contact page
 * See what committees and subcommittees they're a part of
-* _Check if they're up for re-election [coming soon]_
+* Check if they're up for re-election
 * _Discover the bills they've recently sponsored [coming soon]_
 
 # ElectricTime
