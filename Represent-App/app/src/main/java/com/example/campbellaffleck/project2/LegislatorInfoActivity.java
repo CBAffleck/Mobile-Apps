@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -70,6 +71,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         final TextView websiteView = findViewById(R.id.websiteView);
         final TextView emailView = findViewById(R.id.emailView);
         final TextView partyView = findViewById(R.id.partyView);
+        final TextView reelectView = findViewById(R.id.reelectView);
 
         //Configure formatting for legislator name and party
         nameView.setText(legislator);
@@ -119,21 +121,29 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         Picasso.get().load(photo_url).centerCrop().resize(400, 600).transform(transformation).into(profileView);
 
         //Get more detailed info such as bills and dates from propublica
-        getCommitteeInfo(url);
+        getCommitteeInfo(url, reelectView);
     }
 
     //Method for looking at response from propublica to get the legislator's committee info
-    private void getCommitteeInfo(String url) {
+    private void getCommitteeInfo(String url, final TextView reelectView) {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             //Goes through json hierarchy in the json response from propublica
+                            System.out.println(response);
                             JSONArray jsonArray = response.getJSONArray("results");
                             JSONObject resultObj = jsonArray.getJSONObject(0);
                             JSONArray roleArray = resultObj.getJSONArray("roles");
                             JSONObject roleObj = roleArray.getJSONObject(0);
+                            String end_date = roleObj.getString("end_date").substring(0, 4);
+                            int year = Calendar.getInstance().get(Calendar.YEAR);
+                            if (Integer.parseInt(end_date) == year + 1) {
+                                String reelectText = "Up for reelection!";
+                                reelectView.setText(reelectText);
+                                reelectView.setTextColor(Color.parseColor("#FF9932"));
+                            }
                             JSONArray committeeArray = roleObj.getJSONArray("committees");
                             for (int i = 0; i < committeeArray.length(); i++) {
                                 JSONObject committee = committeeArray.getJSONObject(i);
@@ -172,6 +182,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
 
     private void addInfoBoxes() {
         mylayout = findViewById(R.id.linearView);
+        int count = 0;
         for (int i = 0; i < committeeList.size(); i++) {
             LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT,60);
             lparams.setMargins(0,10,0,10);
