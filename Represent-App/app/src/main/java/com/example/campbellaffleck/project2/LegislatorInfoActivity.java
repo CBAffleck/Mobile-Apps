@@ -44,12 +44,14 @@ public class LegislatorInfoActivity extends AppCompatActivity {
     String state;
     String url;
     String photo_url;
+    String retire_url;
     int district;
     String legislator;
     String member_id;
     TextView nameView;
     List<String> committeeList = new ArrayList<>();
     LinearLayout mylayout;
+    int year = Calendar.getInstance().get(Calendar.YEAR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +114,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         //Configures url for propublica with member_id from previous activity
         url = "https://api.propublica.org/congress/v1/members/" + member_id + ".json";
         photo_url = "https://theunitedstates.io/images/congress/original/" + member_id + ".jpg";
+        retire_url = "https://api.propublica.org/congress/v1/115/" + chamber + "/members/leaving.json";
 
         queue = Volley.newRequestQueue(this);
 
@@ -132,14 +135,13 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             //Goes through json hierarchy in the json response from propublica
-                            System.out.println(response);
                             JSONArray jsonArray = response.getJSONArray("results");
                             JSONObject resultObj = jsonArray.getJSONObject(0);
                             JSONArray roleArray = resultObj.getJSONArray("roles");
                             JSONObject roleObj = roleArray.getJSONObject(0);
                             String end_date = roleObj.getString("end_date").substring(0, 4);
-                            int year = Calendar.getInstance().get(Calendar.YEAR);
                             if (Integer.parseInt(end_date) == year + 1) {
+                                checkRetireStatus(retire_url, legislator, reelectView);
                                 String reelectText = "Up for reelection!";
                                 reelectView.setText(reelectText);
                                 reelectView.setTextColor(Color.parseColor("#FF9932"));
@@ -251,5 +253,53 @@ public class LegislatorInfoActivity extends AppCompatActivity {
                 mylayout.addView(display);
             }
         }
+    }
+
+    private void checkRetireStatus(String url, final String name, final TextView reelectView) {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            //Goes through json hierarchy in the json response from propublica
+                            JSONArray jsonArray = response.getJSONArray("results");
+                            JSONObject resultObj = jsonArray.getJSONObject(0);
+                            JSONArray memberArray = resultObj.getJSONArray("members");
+                            for (int num = 0; num < memberArray.length(); num++) {
+                                JSONObject memberObj = memberArray.getJSONObject(num);
+                                String fname = memberObj.getString("first_name");
+                                String lname = memberObj.getString("last_name");
+                                String leg_name = fname + " " + lname;
+                                String end_date = memberObj.getString("end_date").substring(0, 4);
+                                if (leg_name.equals(legislator.substring(legislator.indexOf(" ") + 1))) {
+                                    if (Integer.parseInt(end_date) == year + 1) {
+                                        String reelectText = "Retiring";
+                                        reelectView.setText(reelectText);
+                                        reelectView.setTextColor(Color.parseColor("#FF9932"));
+                                    } else if (Integer.parseInt(end_date) == year) {
+                                        String reelectText = "Retired";
+                                        reelectView.setText(reelectText);
+                                        reelectView.setTextColor(Color.parseColor("#FF9932"));
+                                    }
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                VolleyLog.e("Error: ", error.getMessage());
+            }
+        }) {
+            @Override
+            public Map getHeaders() throws AuthFailureError {
+                HashMap headers = new HashMap();
+                headers.put("X-API-Key", proPubKey);
+                return headers;
+            }
+        };
+        queue.add(request);
     }
 }
