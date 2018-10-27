@@ -17,6 +17,10 @@ This repo contains my mobile app projects. Currently these projects have all bee
 
 With this app, a user is able to discover the legislators that represent the district corresponding to either a zip code that can be input or the users' current location. A “surprise me” feature allows the user to view the legislators of districts corresponding to random zip codes around the United States.
 
+<p align="center">
+  <img src = "https://i.imgur.com/NoPjGL1.png" width=700>
+</p>
+
 ### Features
 
 Some things you can do with this app:
