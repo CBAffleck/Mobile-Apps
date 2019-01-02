@@ -86,7 +86,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         }
 
         //Add external link for going to the legislator's website
-        websiteView.setTextColor(Color.parseColor("#929292"));
+        websiteView.setTextColor(Color.parseColor("#FF3F51B5"));
         websiteView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +96,7 @@ public class LegislatorInfoActivity extends AppCompatActivity {
         });
 
         //Set external link for clicking on contact
-        emailView.setTextColor(Color.parseColor("#929292"));
+        emailView.setTextColor(Color.parseColor("#FF3F51B5"));
         emailView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
