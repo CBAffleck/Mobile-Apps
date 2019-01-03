@@ -62,17 +62,38 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     }
     
     //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
+    //Set placeholder text to red if what the user entered is invalid
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == firstNameField {
-            userFirstName = String(textField.text!)
+            if String(textField.text!) == "" {
+                firstNameField.attributedPlaceholder = NSAttributedString(string: "FIRST NAME", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+            } else {
+                userFirstName = String(textField.text!)
+            }
         } else if textField == lastNameField {
-            userLastName = String(textField.text!)
+            if String(textField.text!) == "" {
+                lastNameField.attributedPlaceholder = NSAttributedString(string: "LAST NAME", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+            } else {
+                userLastName = String(textField.text!)
+            }
         } else if textField == schoolField {
-            userSchool = String(textField.text!)
+            if String(textField.text!) == "" {
+                schoolField.attributedPlaceholder = NSAttributedString(string: "SCHOOL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+            } else {
+                userSchool = String(textField.text!)
+            }
         } else if textField == emailField {
-            userEmail = String(textField.text!)
+            if String(textField.text!) == "" {
+                emailField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+            } else {
+                userEmail = String(textField.text!)
+            }
         } else if textField == passwordField {
-            userPass = String(textField.text!)
+            if String(textField.text!) == "" {
+                passwordField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+            } else {
+                userPass = String(textField.text!)
+            }
         } else if textField == confirmPasswordField {
             if userPass != String(textField.text!) {
                 confirmPasswordField.text = ""
@@ -81,6 +102,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
                 userConfirmPass = String(textField.text!)
             }
         }
+        //Disables the sign up button if the text fields aren't all filled out
         signUpButton.isEnabled = true
         [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{
             if Bool(($0?.text?.isEmpty)!) {
