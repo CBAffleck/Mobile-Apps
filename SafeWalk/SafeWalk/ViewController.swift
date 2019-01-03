@@ -22,11 +22,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         // Handle the text field’s user input through delegate callbacks. Delegate is the viewcontroller
         emailTextField.delegate = self
         passTextField.delegate = self
         
-        //Text box color adjustment
+        //Text box color adjustments
         emailTextField.layer.borderWidth = 1
         emailTextField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
         passTextField.layer.borderWidth = 1
