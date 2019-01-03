@@ -39,7 +39,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         emailField.delegate = self
         passwordField.delegate = self
         confirmPasswordField.delegate = self
-        
+
         //Text box color adjustment
         firstNameField.layer.borderWidth = 1
         firstNameField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
@@ -80,6 +80,12 @@ class signUpClass: UIViewController, UITextFieldDelegate {
             } else {
                 confirmPasswordField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
                 userConfirmPass = String(textField.text!)
+            }
+        }
+        signUpButton.isEnabled = true
+        [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{
+            if Bool(($0?.text?.isEmpty)!) {
+                signUpButton.isEnabled = false
             }
         }
     }
