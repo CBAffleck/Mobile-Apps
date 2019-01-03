@@ -18,6 +18,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     
     //MARK: Variables
     var userFirstName = ""
@@ -29,6 +30,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signUpButton.isEnabled = false
         self.navigationController?.navigationBar.isHidden = true
         // Handle the text field’s user input through delegate callbacks. Delegate is the viewcontroller
         firstNameField.delegate = self
@@ -72,7 +74,13 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         } else if textField == passwordField {
             userPass = String(textField.text!)
         } else if textField == confirmPasswordField {
-            userConfirmPass = String(textField.text!)
+            if userPass != String(textField.text!) {
+                confirmPasswordField.text = ""
+                confirmPasswordField.layer.borderColor = UIColor.init(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0).cgColor
+            } else {
+                confirmPasswordField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
+                userConfirmPass = String(textField.text!)
+            }
         }
     }
 

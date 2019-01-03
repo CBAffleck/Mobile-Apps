@@ -277,6 +277,7 @@
                         <outlet property="lastNameField" destination="2cx-mw-yoh" id="hht-ER-yG7"/>
                         <outlet property="passwordField" destination="vue-R9-tfc" id="4oH-aP-Vej"/>
                         <outlet property="schoolField" destination="ckW-AH-S3m" id="8Xw-Zd-8U3"/>
+                        <outlet property="signUpButton" destination="gDT-aq-vec" id="WqF-c2-psI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZd-Ao-IKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
