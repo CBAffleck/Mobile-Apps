@@ -76,9 +76,8 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         } else if textField == confirmPasswordField {
             if userPass != String(textField.text!) {
                 confirmPasswordField.text = ""
-                confirmPasswordField.layer.borderColor = UIColor.init(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0).cgColor
+                confirmPasswordField.attributedPlaceholder = NSAttributedString(string: "CONFIRM PASSWORD", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
             } else {
-                confirmPasswordField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
                 userConfirmPass = String(textField.text!)
             }
         }
