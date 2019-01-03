@@ -223,6 +223,7 @@
                                 <connections>
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DwV-7l-ajK"/>
                                     <action selector="signUp:" destination="Mj0-Nr-gLx" eventType="touchUpInside" id="iMU-Rq-VSi"/>
+                                    <segue destination="OEp-TR-o25" kind="show" id="gTb-kX-1hX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYJ-4c-ACC">
@@ -280,7 +281,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZd-Ao-IKs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="850"/>
+            <point key="canvasLocation" x="1076" y="831"/>
+        </scene>
+        <!--Email Verification-->
+        <scene sceneID="uwe-pn-tB0">
+            <objects>
+                <viewController id="OEp-TR-o25" customClass="emailVerification" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zr7-l2-hv8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SafeWalk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vAl-BU-gqn">
+                                <rect key="frame" x="72" y="69" width="230" height="66"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="55"/>
+                                <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="VERIFICATION CODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqz-g4-Rat">
+                                <rect key="frame" x="65" y="274" width="245" height="55"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="mJe-FH-kgh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-Vw-EqB">
+                                <rect key="frame" x="65" y="337" width="245" height="55"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="2bl-Zg-cya"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="VERIFY EMAIL">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wgD-CP-bEm"/>
+                                    <action selector="signUp:" destination="Mj0-Nr-gLx" eventType="touchUpInside" id="2mZ-f0-fpt"/>
+                                    <action selector="verifyEmail:" destination="OEp-TR-o25" eventType="touchUpInside" id="XgF-p6-FnI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the verification code you should have received in an email." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwe-RL-RL4">
+                                <rect key="frame" x="69" y="232" width="237" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yXX-gz-zM8">
+                                <rect key="frame" x="104" y="400" width="167" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                <state key="normal" title="Back to sign up">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="OEp-TR-o25" eventType="touchUpInside" id="T9J-AW-JKe"/>
+                                    <action selector="backToSignIn:" destination="Mj0-Nr-gLx" eventType="touchUpInside" id="I4y-Ef-WyX"/>
+                                    <action selector="forgotPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Rp-bA-66X"/>
+                                    <segue destination="Mj0-Nr-gLx" kind="show" id="96H-rj-fVW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yqz-g4-Rat" firstAttribute="top" secondItem="wwe-RL-RL4" secondAttribute="bottom" constant="8.5" id="5Zy-UY-VGe"/>
+                            <constraint firstItem="edc-yL-uyN" firstAttribute="trailing" secondItem="wwe-RL-RL4" secondAttribute="trailing" constant="69" id="8Yq-Ba-Yw5"/>
+                            <constraint firstItem="edc-yL-uyN" firstAttribute="trailing" secondItem="yXX-gz-zM8" secondAttribute="trailing" constant="104" id="CrD-yY-3KG"/>
+                            <constraint firstItem="edc-yL-uyN" firstAttribute="trailing" secondItem="vAl-BU-gqn" secondAttribute="trailing" constant="73" id="KG0-a8-FSE"/>
+                            <constraint firstItem="yXX-gz-zM8" firstAttribute="top" secondItem="Tin-Vw-EqB" secondAttribute="bottom" constant="8" id="Oxa-fT-A7F"/>
+                            <constraint firstItem="yXX-gz-zM8" firstAttribute="leading" secondItem="edc-yL-uyN" secondAttribute="leading" constant="104" id="Poj-Mj-8eD"/>
+                            <constraint firstItem="yqz-g4-Rat" firstAttribute="leading" secondItem="edc-yL-uyN" secondAttribute="leading" constant="65" id="QHg-H6-aXn"/>
+                            <constraint firstItem="vAl-BU-gqn" firstAttribute="top" secondItem="edc-yL-uyN" secondAttribute="top" constant="49" id="SE0-Xb-CYU"/>
+                            <constraint firstItem="wwe-RL-RL4" firstAttribute="leading" secondItem="edc-yL-uyN" secondAttribute="leading" constant="69" id="djV-Ea-bb0"/>
+                            <constraint firstItem="Tin-Vw-EqB" firstAttribute="leading" secondItem="edc-yL-uyN" secondAttribute="leading" constant="65" id="dlC-1H-a1k"/>
+                            <constraint firstItem="Tin-Vw-EqB" firstAttribute="top" secondItem="yqz-g4-Rat" secondAttribute="bottom" constant="8" id="eBe-Qn-9es"/>
+                            <constraint firstItem="vAl-BU-gqn" firstAttribute="leading" secondItem="edc-yL-uyN" secondAttribute="leading" constant="72" id="hru-7L-NIK"/>
+                            <constraint firstItem="edc-yL-uyN" firstAttribute="trailing" secondItem="yqz-g4-Rat" secondAttribute="trailing" constant="65" id="iRi-3b-KFE"/>
+                            <constraint firstItem="edc-yL-uyN" firstAttribute="trailing" secondItem="Tin-Vw-EqB" secondAttribute="trailing" constant="65" id="oQs-sI-eQa"/>
+                            <constraint firstItem="wwe-RL-RL4" firstAttribute="top" secondItem="vAl-BU-gqn" secondAttribute="bottom" constant="97" id="rWK-dj-IMe"/>
+                            <constraint firstItem="yXX-gz-zM8" firstAttribute="top" secondItem="Tin-Vw-EqB" secondAttribute="bottom" constant="8" id="vvj-f4-fPI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="edc-yL-uyN"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="verificationField" destination="yqz-g4-Rat" id="cAV-L7-sxt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cqi-Z4-57V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="1525"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nFa-k5-N0n">
@@ -301,4 +392,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="96H-rj-fVW"/>
+    </inferredMetricsTieBreakers>
 </document>

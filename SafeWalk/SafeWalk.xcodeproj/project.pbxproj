@@ -15,6 +15,7 @@
 		C0CD1B0321DD4EF300B2D933 /* SafeWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1B0221DD4EF300B2D933 /* SafeWalkTests.swift */; };
 		C0CD1B0E21DD4EF300B2D933 /* SafeWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1B0D21DD4EF300B2D933 /* SafeWalkUITests.swift */; };
 		C0CD1B1E21DDBA3A00B2D933 /* signUpClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1B1D21DDBA3A00B2D933 /* signUpClass.swift */; };
+		C0CD1B2021DE9E7100B2D933 /* emailVerification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1B1F21DE9E7100B2D933 /* emailVerification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		C0CD1B0D21DD4EF300B2D933 /* SafeWalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeWalkUITests.swift; sourceTree = "<group>"; };
 		C0CD1B0F21DD4EF400B2D933 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CD1B1D21DDBA3A00B2D933 /* signUpClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpClass.swift; sourceTree = "<group>"; };
+		C0CD1B1F21DE9E7100B2D933 /* emailVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailVerification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				C0CD1AED21DD4EF200B2D933 /* AppDelegate.swift */,
 				C0CD1AEF21DD4EF200B2D933 /* ViewController.swift */,
 				C0CD1B1D21DDBA3A00B2D933 /* signUpClass.swift */,
+				C0CD1B1F21DE9E7100B2D933 /* emailVerification.swift */,
 				C0CD1AF121DD4EF200B2D933 /* Main.storyboard */,
 				C0CD1AF421DD4EF300B2D933 /* Assets.xcassets */,
 				C0CD1AF621DD4EF300B2D933 /* LaunchScreen.storyboard */,
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CD1AF021DD4EF200B2D933 /* ViewController.swift in Sources */,
+				C0CD1B2021DE9E7100B2D933 /* emailVerification.swift in Sources */,
 				C0CD1B1E21DDBA3A00B2D933 /* signUpClass.swift in Sources */,
 				C0CD1AEE21DD4EF200B2D933 /* AppDelegate.swift in Sources */,
 			);
