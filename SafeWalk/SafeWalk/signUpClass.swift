@@ -41,18 +41,10 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         confirmPasswordField.delegate = self
 
         //Text box color adjustment
-        firstNameField.layer.borderWidth = 1
-        firstNameField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
-        lastNameField.layer.borderWidth = 1
-        lastNameField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
-        schoolField.layer.borderWidth = 1
-        schoolField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
-        emailField.layer.borderWidth = 1
-        emailField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
-        passwordField.layer.borderWidth = 1
-        passwordField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
-        confirmPasswordField.layer.borderWidth = 1
-        confirmPasswordField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
+        [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{
+            $0?.layer.borderWidth = 1
+            $0?.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
+        }
     }
     
     //MARK: UITextDelegate
@@ -65,42 +57,25 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     //Set placeholder text to red if what the user entered is invalid
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == firstNameField {
-            if String(textField.text!) == "" {
-                firstNameField.attributedPlaceholder = NSAttributedString(string: "FIRST NAME", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
-            } else {
-                userFirstName = String(textField.text!)
-            }
+            userFirstName = String(textField.text!)
         } else if textField == lastNameField {
-            if String(textField.text!) == "" {
-                lastNameField.attributedPlaceholder = NSAttributedString(string: "LAST NAME", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
-            } else {
-                userLastName = String(textField.text!)
-            }
+            userLastName = String(textField.text!)
         } else if textField == schoolField {
-            if String(textField.text!) == "" {
-                schoolField.attributedPlaceholder = NSAttributedString(string: "SCHOOL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
-            } else {
-                userSchool = String(textField.text!)
-            }
+            userSchool = String(textField.text!)
         } else if textField == emailField {
-            if String(textField.text!) == "" {
-                emailField.attributedPlaceholder = NSAttributedString(string: "EMAIL", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
-            } else {
-                userEmail = String(textField.text!)
-            }
+            userEmail = String(textField.text!)
         } else if textField == passwordField {
-            if String(textField.text!) == "" {
-                passwordField.attributedPlaceholder = NSAttributedString(string: "PASSWORD", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
-            } else {
-                userPass = String(textField.text!)
-            }
+            userPass = String(textField.text!)
         } else if textField == confirmPasswordField {
             if userPass != String(textField.text!) {
                 confirmPasswordField.text = ""
-                confirmPasswordField.attributedPlaceholder = NSAttributedString(string: "CONFIRM PASSWORD", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
             } else {
                 userConfirmPass = String(textField.text!)
             }
+        }
+        //Make placeholder text red if box is empty/entry is invalid
+        if textField.text == "" {
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
         }
         //Disables the sign up button if the text fields aren't all filled out
         signUpButton.isEnabled = true
