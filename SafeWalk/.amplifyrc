@@ -1,0 +1,14 @@
+{
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "afealk-20190105143611-authRole",
+            "UnauthRoleArn": "arn:aws:iam::299413818212:role/afealk-20190105143611-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::299413818212:role/afealk-20190105143611-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "afealk-20190105143611-deployment",
+            "UnauthRoleName": "afealk-20190105143611-unauthRole",
+            "StackName": "afealk-20190105143611",
+            "StackId": "arn:aws:cloudformation:us-west-2:299413818212:stack/afealk-20190105143611/4dfde110-113a-11e9-afb0-0aeb9ab2aebe"
+        }
+    }
+}
