@@ -368,6 +368,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="verificationField" destination="yqz-g4-Rat" id="cAV-L7-sxt"/>
+                        <outlet property="verifyEmailButton" destination="Tin-Vw-EqB" id="FqO-WG-H12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqi-Z4-57V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,7 +395,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gTb-kX-1hX"/>
         <segue reference="96H-rj-fVW"/>
     </inferredMetricsTieBreakers>
 </document>

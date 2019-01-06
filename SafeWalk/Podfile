@@ -7,6 +7,9 @@ target 'SafeWalk' do
 
   pod 'AWSCore', '~> 2.8.0'
   pod 'AWSAppSync', '~> 2.8.0'
+  pod 'AWSMobileClient', '~> 2.8.0'
+  pod 'AWSAuthUI', '~> 2.8.0'
+  pod 'AWSUserPoolsSignIn', '~> 2.8.0'
 
   # Pods for SafeWalk
 

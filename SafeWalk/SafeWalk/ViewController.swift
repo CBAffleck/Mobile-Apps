@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import AWSMobileClient
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -32,6 +33,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         emailTextField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
         passTextField.layer.borderWidth = 1
         passTextField.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
+        
+        //AWS Authentication initialization
+        initializeAWSMobileClient()
+    }
+    
+    // Initializing the AWSMobileClient and take action based on current user state
+    func initializeAWSMobileClient() {
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            //self.addUserStateListener() // Register for user state changes
+            
+            if let userState = userState {
+                switch(userState){
+                case .signedIn: // is Signed IN
+                    print("Logged In")
+                    print("Cognito Identity Id (authenticated): \(String(describing: AWSMobileClient.sharedInstance().identityId)))")
+                case .signedOut: // is Signed OUT
+                    print("Logged Out")
+                case .signedOutUserPoolsTokenInvalid: // User Pools refresh token INVALID
+                    print("User Pools refresh token is invalid or expired.")
+                case .signedOutFederatedTokensInvalid: // Facebook or Google refresh token INVALID
+                    print("Federated refresh token is invalid or expired.")
+                default:
+                    AWSMobileClient.sharedInstance().signOut()
+                }
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
     }
     
     //MARK: UITextDelegate

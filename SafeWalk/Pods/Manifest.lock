@@ -3,7 +3,22 @@ PODS:
     - AWSCore (~> 2.8.0)
     - ReachabilitySwift (~> 4.3.0)
     - SQLite.swift (= 0.11.5)
+  - AWSAuthCore (2.8.2):
+    - AWSCore (= 2.8.2)
+  - AWSAuthUI (2.8.2):
+    - AWSAuthCore (= 2.8.2)
+    - AWSCore (= 2.8.2)
+  - AWSCognitoIdentityProvider (2.8.2):
+    - AWSCognitoIdentityProviderASF (= 1.0.1)
+    - AWSCore (= 2.8.2)
+  - AWSCognitoIdentityProviderASF (1.0.1)
   - AWSCore (2.8.2)
+  - AWSMobileClient (2.8.2):
+    - AWSAuthCore (= 2.8.2)
+    - AWSCognitoIdentityProvider (= 2.8.2)
+  - AWSUserPoolsSignIn (2.8.2):
+    - AWSAuthCore (= 2.8.2)
+    - AWSCognitoIdentityProvider (= 2.8.2)
   - ReachabilitySwift (4.3.0)
   - SQLite.swift (0.11.5):
     - SQLite.swift/standard (= 0.11.5)
@@ -11,21 +26,36 @@ PODS:
 
 DEPENDENCIES:
   - AWSAppSync (~> 2.8.0)
+  - AWSAuthUI (~> 2.8.0)
   - AWSCore (~> 2.8.0)
+  - AWSMobileClient (~> 2.8.0)
+  - AWSUserPoolsSignIn (~> 2.8.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AWSAppSync
+    - AWSAuthCore
+    - AWSAuthUI
+    - AWSCognitoIdentityProvider
+    - AWSCognitoIdentityProviderASF
     - AWSCore
+    - AWSMobileClient
+    - AWSUserPoolsSignIn
     - ReachabilitySwift
     - SQLite.swift
 
 SPEC CHECKSUMS:
   AWSAppSync: c00d00aed7d0491aa0ccc8f6f4d23c194d96c1c8
+  AWSAuthCore: 8c0eddbbac753aac0b52575719f5985197952cb5
+  AWSAuthUI: 465b79b9b442b32cdd6d570515b70233c3cbe063
+  AWSCognitoIdentityProvider: 0d51cf765c70dd180bad7683dabb7942c6ada768
+  AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
   AWSCore: b6448752e992345082d7bad29d86e4839b72b4ba
+  AWSMobileClient: fbecd70719cf424f146ba9e3751c9cb77d9e92e9
+  AWSUserPoolsSignIn: 8ea1242e076a3211dbec7cc3bf54324ee38edf1d
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-PODFILE CHECKSUM: b28318d0cf042bc39a6551359f3a75f925231e43
+PODFILE CHECKSUM: faa3abf066f405f5d64c62d3544b082c4c23d906
 
 COCOAPODS: 1.5.3

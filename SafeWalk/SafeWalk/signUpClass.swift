@@ -8,6 +8,8 @@
 
 import UIKit
 import QuartzCore
+import AWSMobileClient
+import os.log
 
 class signUpClass: UIViewController, UITextFieldDelegate {
 
@@ -44,6 +46,31 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
+        }
+    }
+    
+    func signUpUser() {
+        AWSMobileClient.sharedInstance().signUp(username: userEmail, password: userConfirmPass, userAttributes: ["email":userEmail, "given_name":userFirstName, "family_name": userLastName, "school":userSchool]) { (signUpResult, error) in
+                if let signUpResult = signUpResult {
+                    switch(signUpResult.signUpConfirmationState) {
+                        case .confirmed:
+                            print("User is signed up and confirmed.")
+                        case .unconfirmed:
+                            print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                        case .unknown:
+                            print("Unexpected case")
+                    }
+                } else if let error = error {
+                    if let error = error as? AWSMobileClientError {
+                        switch(error) {
+                            case .usernameExists(let message):
+                                print(message)
+                            default:
+                                break
+                        }
+                    }
+                    print("\(error.localizedDescription)")
+                }
         }
     }
     
@@ -86,18 +113,23 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         }
     }
 
-    /*
-    // MARK: - Navigation
+    //MARK: Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is emailVerification {
+            let view = segue.destination as? emailVerification
+            view?.email = userEmail
+        }
     }
-    */
     
     //MARK: Actions
     @IBAction func signUp(_ sender: UIButton) {
+        signUpUser()
     }
     
     @IBAction func backToSignIn(_ sender: UIButton) {

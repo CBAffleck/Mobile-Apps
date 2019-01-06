@@ -11,5 +11,13 @@
             "AuthMode": "API_KEY",
             "ApiKey": "da2-nvdligjbzffcxhxcb7xiku36fy"
         }
+    },
+    "CognitoUserPool": {
+        "Default": {
+            "PoolId": "us-west-2_yzdD0zOlE",
+            "AppClientId": "3n5bjmscql94v3tkkjbiql573d",
+            "AppClientSecret": "4qn77upark92sjbbv43jaeov5g83f6214r41bf83iuv2h49esed",
+            "Region": "us-west-2"
+        }
     }
 }
