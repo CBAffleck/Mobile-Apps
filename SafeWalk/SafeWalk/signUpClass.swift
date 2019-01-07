@@ -100,10 +100,12 @@ class signUpClass: UIViewController, UITextFieldDelegate {
                 userConfirmPass = String(textField.text!)
             }
         }
+        
         //Make placeholder text red if box is empty/entry is invalid
         if textField.text == "" {
             textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
         }
+        
         //Disables the sign up button if the text fields aren't all filled out
         signUpButton.isEnabled = true
         [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{

@@ -28,14 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        } catch {
 //            print("Error initializing appsync client. \(error)")
 //        }
-        //other methods
+        
         // Initialize the Amazon Cognito credentials provider
-        
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USWest2, identityPoolId:"us-west-2:81c8d90e-5875-4232-a60c-e6051c6f27cb")
-        
         let configuration = AWSServiceConfiguration(region:.USWest2, credentialsProvider:credentialsProvider)
-        
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
         return true
     }
     
