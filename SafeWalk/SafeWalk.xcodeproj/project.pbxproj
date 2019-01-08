@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0BFCFA7CADD34ECF43C0A48C /* Pods_SafeWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D25CC73CA909B6A4730CF0 /* Pods_SafeWalk.framework */; };
 		54A90D8C3B2D22DEBD4EEB32 /* Pods_SafeWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BEBA8B4AAA00C4128840D07 /* Pods_SafeWalkTests.framework */; };
 		5D2680C871EDEEB84B01B7C7 /* Pods_SafeWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0067535BD9E9793342B4F9BE /* Pods_SafeWalkUITests.framework */; };
+		7D03CF722BEA9DFFE7FAEE2D /* Pods_SafeWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D25CC73CA909B6A4730CF0 /* Pods_SafeWalk.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		C08B461321E169790017B2B2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C08B461221E169790017B2B2 /* awsconfiguration.json */; };
 		C08B461521E16B7C0017B2B2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B461421E16B7C0017B2B2 /* API.swift */; };
+		C08B464A21E41D140017B2B2 /* Pods_SafeWalk.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D1D25CC73CA909B6A4730CF0 /* Pods_SafeWalk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0CD1AEE21DD4EF200B2D933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1AED21DD4EF200B2D933 /* AppDelegate.swift */; };
 		C0CD1AF021DD4EF200B2D933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD1AEF21DD4EF200B2D933 /* ViewController.swift */; };
 		C0CD1AF321DD4EF200B2D933 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CD1AF121DD4EF200B2D933 /* Main.storyboard */; };
@@ -39,6 +40,19 @@
 			remoteInfo = SafeWalk;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C08B464921E41D060017B2B2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				C08B464A21E41D140017B2B2 /* Pods_SafeWalk.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0067535BD9E9793342B4F9BE /* Pods_SafeWalkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BFCFA7CADD34ECF43C0A48C /* Pods_SafeWalk.framework in Frameworks */,
+				7D03CF722BEA9DFFE7FAEE2D /* Pods_SafeWalk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +203,7 @@
 				C0CD1AE721DD4EF200B2D933 /* Frameworks */,
 				C0CD1AE821DD4EF200B2D933 /* Resources */,
 				9F7867F620129C6B667314B1 /* [CP] Embed Pods Frameworks */,
+				C08B464921E41D060017B2B2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -605,6 +620,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8YB85UQ9B;
 				INFOPLIST_FILE = SafeWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,6 +640,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8YB85UQ9B;
 				INFOPLIST_FILE = SafeWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

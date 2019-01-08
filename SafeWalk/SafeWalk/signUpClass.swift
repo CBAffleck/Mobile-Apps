@@ -41,6 +41,15 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         emailField.delegate = self
         passwordField.delegate = self
         confirmPasswordField.delegate = self
+        
+        //Initialize AWSMobileClient
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            if let userState = userState {
+                print("UserState: \(userState.rawValue)")
+            } else if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        }
 
         //Text box color adjustment
         [firstNameField, lastNameField, schoolField, emailField, passwordField, confirmPasswordField].forEach{
@@ -50,6 +59,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     }
     
     func signUpUser() {
+        print("Entered signUpUser function...")
         AWSMobileClient.sharedInstance().signUp(username: userEmail, password: userConfirmPass, userAttributes: ["email":userEmail, "given_name":userFirstName, "family_name": userLastName, "school":userSchool]) { (signUpResult, error) in
                 if let signUpResult = signUpResult {
                     switch(signUpResult.signUpConfirmationState) {

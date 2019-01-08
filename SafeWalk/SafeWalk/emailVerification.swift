@@ -26,6 +26,14 @@ class emailVerification: UIViewController, UITextFieldDelegate {
         verificationField.delegate = self
         verifyEmailButton.isEnabled = false
         
+        //Initialize AWSMobileClient
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            if let userState = userState {
+                print("UserState: \(userState.rawValue)")
+            } else if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        }
         
         //Text box color adjustment
         verificationField.layer.borderWidth = 1
