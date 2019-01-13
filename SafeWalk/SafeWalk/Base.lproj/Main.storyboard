@@ -18,24 +18,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="EMAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAV-23-g3h">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  EMAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nAV-23-g3h">
                                 <rect key="frame" x="65" y="180" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="C1Z-MS-ZNs"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0R-Mi-YOc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  PASSWORD" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M0R-Mi-YOc">
                                 <rect key="frame" x="65" y="234" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="0OZ-dS-WM6"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZq-Ue-axs">
@@ -144,64 +144,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="FIRST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="URH-22-Kd4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  FIRST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="URH-22-Kd4">
                                 <rect key="frame" x="65" y="122" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="kV8-46-6nt"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="name"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="LAST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-mw-yoh">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  LAST NAME" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cx-mw-yoh">
                                 <rect key="frame" x="65" y="176" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Jvw-FC-d2d"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="family-name"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" textContentType="family-name"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="SCHOOL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-AH-S3m">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  SCHOOL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ckW-AH-S3m">
                                 <rect key="frame" x="65" y="230" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="6tL-Co-6tN"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="EMAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHQ-WQ-8gY">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  EMAIL" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iHQ-WQ-8gY">
                                 <rect key="frame" x="65" y="284" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="bxu-IF-JuD"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vue-R9-tfc">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vue-R9-tfc">
                                 <rect key="frame" x="65" y="338" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="J06-i0-fob"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES" textContentType="password"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="CONFIRM PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oF1-qg-tJ4">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="  CONFIRM PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oF1-qg-tJ4">
                                 <rect key="frame" x="65" y="392" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="e1T-xp-jVq"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDT-aq-vec">
@@ -300,14 +300,14 @@
                                 <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="VERIFICATION CODE" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqz-g4-Rat">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="VERIFICATION CODE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yqz-g4-Rat">
                                 <rect key="frame" x="65" y="289" width="190" height="55"/>
                                 <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="mJe-FH-kgh"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-Vw-EqB">

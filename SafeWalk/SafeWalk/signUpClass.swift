@@ -56,6 +56,9 @@ class signUpClass: UIViewController, UITextFieldDelegate {
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.init(red: 210/255.00, green: 210/255.00, blue: 210/255.00, alpha: 1.0).cgColor
         }
+        
+        //Adding keyboard observers
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     func signUpUser() {
@@ -94,14 +97,61 @@ class signUpClass: UIViewController, UITextFieldDelegate {
         }
     }
     
-    //MARK: UITextDelegate
+    //MARK: Controlling Keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == firstNameField {
+            textField.resignFirstResponder()
+            lastNameField.becomeFirstResponder()
+        } else if textField == lastNameField {
+            textField.resignFirstResponder()
+            schoolField.becomeFirstResponder()
+        } else if textField == schoolField {
+            textField.resignFirstResponder()
+            emailField.becomeFirstResponder()
+        } else if textField == emailField {
+            textField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            textField.resignFirstResponder()
+            confirmPasswordField.becomeFirstResponder()
+        } else if textField == confirmPasswordField {
+            textField.resignFirstResponder()
+            self.view.frame.origin.y = 0
+        }
         return true
     }
     
+    //Move screen around so text views aren't blocked by the keyboard
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyBoardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if emailField.isFirstResponder {
+                let textPos = emailField.frame.origin.y
+                if self.view.frame.origin.y != 0 {
+                    self.view.frame.origin.y = keyBoardSize.height - textPos
+                } else {
+                    self.view.frame.origin.y += keyBoardSize.height - textPos
+                }
+            } else if passwordField.isFirstResponder {
+                let textPos = passwordField.frame.origin.y
+                if self.view.frame.origin.y != 0 {
+                    self.view.frame.origin.y = keyBoardSize.height - textPos
+                } else {
+                    self.view.frame.origin.y += keyBoardSize.height - textPos
+                }
+            } else if confirmPasswordField.isFirstResponder {
+                let textPos = confirmPasswordField.frame.origin.y
+                if self.view.frame.origin.y != 0 {
+                    self.view.frame.origin.y = keyBoardSize.height - textPos
+                } else {
+                    self.view.frame.origin.y += keyBoardSize.height - textPos
+                }
+            } else {
+                self.view.frame.origin.y = 0
+            }
+        }
+    }
+    
     //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
-    //Set placeholder text to red if what the user entered is invalid
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == firstNameField {
             userFirstName = String(textField.text!)
