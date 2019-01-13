@@ -60,7 +60,16 @@ class signUpClass: UIViewController, UITextFieldDelegate {
     
     func signUpUser() {
         print("Entered signUpUser function...")
-        AWSMobileClient.sharedInstance().signUp(username: userEmail, password: userConfirmPass, userAttributes: ["email":userEmail, "given_name":userFirstName, "family_name": userLastName, "school":userSchool]) { (signUpResult, error) in
+        print("Username: " + userEmail)
+        print("Pass: " + userConfirmPass)
+        print("Email: " + userEmail)
+        print("First name: " + userFirstName)
+        print("Last name: " + userLastName)
+        print("School: " + userSchool)
+        AWSMobileClient.sharedInstance().signUp(
+            username: userEmail,
+            password: userConfirmPass,
+            userAttributes: ["email":userEmail, "given_name":userFirstName, "family_name": userLastName, "custom:school":userSchool]) { (signUpResult, error) in
                 if let signUpResult = signUpResult {
                     switch(signUpResult.signUpConfirmationState) {
                         case .confirmed:
@@ -71,6 +80,7 @@ class signUpClass: UIViewController, UITextFieldDelegate {
                             print("Unexpected case")
                     }
                 } else if let error = error {
+                    print("WTFFF")
                     if let error = error as? AWSMobileClientError {
                         switch(error) {
                             case .usernameExists(let message):

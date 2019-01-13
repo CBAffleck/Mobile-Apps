@@ -12,6 +12,14 @@
             "ApiKey": "da2-nvdligjbzffcxhxcb7xiku36fy"
         }
     },
+    "CredentialsProvider": {
+        "CognitoIdentity": {
+            "Default": {
+                "PoolId": "us-west-2:81c8d90e-5875-4232-a60c-e6051c6f27cb",
+                "Region": "us-west-2"
+            }
+        }
+    },
     "CognitoUserPool": {
         "Default": {
             "PoolId": "us-west-2_yzdD0zOlE",
