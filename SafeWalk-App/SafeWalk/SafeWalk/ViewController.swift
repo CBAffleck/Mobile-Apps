@@ -17,6 +17,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var goToSignUpButton: UIButton!
+    @IBOutlet weak var forgotPassButton: UIButton!
     
     //MARK: Variables
     var userEmail = ""
@@ -68,6 +69,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func goToSignUpScreen(_ sender: UIButton) {
     }
     
-
+    @IBAction func goToResetPassScreen(_ sender: UIButton) {
+    }
+    
 }
 
