@@ -13,7 +13,6 @@ import AWSMobileClient
 class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
-    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var verificationField: UITextField!
     @IBOutlet weak var verifyEmailButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -37,7 +36,7 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     
     //MARK: AWS
     func confirmUser() {
-        AWSMobileClient.sharedInstance().confirmSignUp(username: String(emailField.text!), confirmationCode: String(verificationField.text!)) { (signUpResult, error) in
+        AWSMobileClient.sharedInstance().confirmSignUp(username: userEmail, confirmationCode: String(verificationField.text!)) { (signUpResult, error) in
             if let signUpResult = signUpResult {
                 switch(signUpResult.signUpConfirmationState) {
                 case .confirmed:

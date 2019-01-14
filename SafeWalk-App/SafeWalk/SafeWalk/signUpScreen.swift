@@ -148,6 +148,18 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is VerifyEmailScreen {
+            let view = segue.destination as? VerifyEmailScreen
+            view?.userEmail = userEmail
+        }
+    }
+    
     //MARK: Actions
     @IBAction func signUp(_ sender: UIButton) {
         signUpUser()

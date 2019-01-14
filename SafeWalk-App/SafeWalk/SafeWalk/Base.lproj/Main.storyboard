@@ -251,19 +251,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dqQ-AC-IbP">
-                                <rect key="frame" x="51" y="205" width="218" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yWF-yz-XT2">
                                 <rect key="frame" x="51" y="243" width="218" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i8-xP-M0H">
                                 <rect key="frame" x="51" y="281" width="218" height="30"/>
@@ -290,7 +283,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the verification code you should have received in an email." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztF-Qk-kcu">
-                                <rect key="frame" x="51" y="135" width="218" height="62"/>
+                                <rect key="frame" x="51" y="173" width="218" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -303,7 +296,6 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="fTy-DY-qxk" id="kZv-Ft-0bC"/>
-                        <outlet property="emailField" destination="dqQ-AC-IbP" id="MXv-6Z-W2i"/>
                         <outlet property="verificationField" destination="yWF-yz-XT2" id="Mbh-sI-uGE"/>
                         <outlet property="verifyEmailButton" destination="5i8-xP-M0H" id="bjl-2m-1Mj"/>
                     </connections>
@@ -332,7 +324,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dcg-S2-lZB"/>
+        <segue reference="kT0-fT-pdt"/>
         <segue reference="nPQ-3a-GNg"/>
     </inferredMetricsTieBreakers>
 </document>
