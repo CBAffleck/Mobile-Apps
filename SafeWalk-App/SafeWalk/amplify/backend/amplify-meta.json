@@ -1,0 +1,36 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "afealk-20190113164203-authRole",
+			"UnauthRoleArn": "arn:aws:iam::299413818212:role/afealk-20190113164203-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::299413818212:role/afealk-20190113164203-authRole",
+			"Region": "us-west-2",
+			"DeploymentBucketName": "afealk-20190113164203-deployment",
+			"UnauthRoleName": "afealk-20190113164203-unauthRole",
+			"StackName": "afealk-20190113164203",
+			"StackId": "arn:aws:cloudformation:us-west-2:299413818212:stack/afealk-20190113164203/36254950-1795-11e9-b023-0a58a0e3e17a"
+		}
+	},
+	"auth": {
+		"SafeWalkAuth": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/afealk-20190113164203-deployment/amplify-cfn-templates/auth/SafeWalkAuth-cloudformation-template.yml",
+				"logicalId": "authSafeWalkAuth"
+			},
+			"lastPushTimeStamp": "2019-01-14T00:55:13.265Z",
+			"output": {
+				"CreatedSNSRole": "arn:aws:iam::299413818212:role/SafeWalkAuth_sns-role",
+				"AppClientSecret": "16g32mrv3io0ep88mvh4ufn0lsp816mh5lum9v84neno360ljgcn",
+				"UserPoolId": "us-west-2_TKSzWbl1f",
+				"AppClientIDWeb": "7pdc1djc22iigpikhcg7j8rbdo",
+				"AppClientID": "6ic0gldu7eimq959q6r2831i2u",
+				"IdentityPoolId": "us-west-2:4fee80c0-fc3d-4c4e-a16a-2c6d30c61695",
+				"IdentityPoolName": "SafeWalkIdentityPool",
+				"UserPoolName": "SafeWalkUserPool"
+			},
+			"lastPushDirHash": "XSsDrbZ2ke7p1b1aAKVWJA9zH6Y="
+		}
+	}
+}

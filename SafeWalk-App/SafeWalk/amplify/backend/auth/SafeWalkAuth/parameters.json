@@ -1,0 +1,61 @@
+{
+    "identityPoolName": "SafeWalkIdentityPool",
+    "allowUnauthenticatedIdentities": true,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "SafeWalkAuth_lambda_log_policy",
+    "openIdLambdaRoleName": "SafeWalkAuth_openid_lambda_role",
+    "openIdRolePolicy": "SafeWalkAuth_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "SafeWalkAuth_openid_lambda_iam_policy",
+    "openIdLogPolicy": "SafeWalkAuth_openid_lambda_log_policy",
+    "userPoolName": "SafeWalkUserPool",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "ON",
+    "mfaTypes": [
+        "TOTP"
+    ],
+    "roleName": "SafeWalkAuth_sns-role",
+    "roleExternalId": "SafeWalkAuth_role_external_id",
+    "policyName": "SafeWalkAuth-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "family_name",
+        "given_name",
+        "phone_number",
+        "zoneinfo",
+        "email"
+    ],
+    "userpoolClientName": "SafeWalkAuth_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "SafeWalkAuth_totp_lambda_role",
+    "mfaLambdaLogPolicy": "SafeWalkAuth_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "SafeWalkAuth_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "SafeWalkAuth_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "SafeWalkAuth_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "SafeWalkAuth_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "SafeWalkAuth_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "useDefault": "manual",
+    "authSelections": "identityPoolAndUserPool",
+    "resourceName": "SafeWalkAuth",
+    "unAuthRoleName": "afealk-20190113164203-unauthRole",
+    "authRoleName": "afealk-20190113164203-authRole",
+    "unAuthRoleArn": "arn:aws:iam::299413818212:role/afealk-20190113164203-unauthRole",
+    "authRoleArn": "arn:aws:iam::299413818212:role/afealk-20190113164203-authRole"
+}

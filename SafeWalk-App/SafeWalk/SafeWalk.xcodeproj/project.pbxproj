@@ -1,0 +1,758 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C6A6B98C411358AB9FA21B3 /* Pods_SafeWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B90B6A97BE3527879902D8 /* Pods_SafeWalkUITests.framework */; };
+		265BB0559BC1FC25041594B4 /* Pods_SafeWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAF005248B06E4C6774DF3F /* Pods_SafeWalk.framework */; };
+		5281F874CF02493521800DDE /* Pods_SafeWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */; };
+		C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B469321EC11D70017B2B2 /* AppDelegate.swift */; };
+		C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B469521EC11D70017B2B2 /* ViewController.swift */; };
+		C08B469921EC11D70017B2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B469721EC11D70017B2B2 /* Main.storyboard */; };
+		C08B469B21EC11D80017B2B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C08B469A21EC11D80017B2B2 /* Assets.xcassets */; };
+		C08B469E21EC11D80017B2B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */; };
+		C08B46A921EC11D80017B2B2 /* SafeWalkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46A821EC11D80017B2B2 /* SafeWalkTests.swift */; };
+		C08B46B421EC11D80017B2B2 /* SafeWalkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46B321EC11D80017B2B2 /* SafeWalkUITests.swift */; };
+		C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C08B46C121EC18060017B2B2 /* awsconfiguration.json */; };
+		C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C321EC194B0017B2B2 /* signUpScreen.swift */; };
+		C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */; };
+		C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C721EC298E0017B2B2 /* signOutScreen.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C08B46A521EC11D80017B2B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08B468821EC11D70017B2B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08B468F21EC11D70017B2B2;
+			remoteInfo = SafeWalk;
+		};
+		C08B46B021EC11D80017B2B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C08B468821EC11D70017B2B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C08B468F21EC11D70017B2B2;
+			remoteInfo = SafeWalk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1CAF005248B06E4C6774DF3F /* Pods_SafeWalk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E48784D25E3AD8FF578A2B1 /* Pods-SafeWalk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalk/Pods-SafeWalk.debug.xcconfig"; sourceTree = "<group>"; };
+		37B90B6A97BE3527879902D8 /* Pods_SafeWalkUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80E9A52EF360FD8DF1E26D40 /* Pods-SafeWalkUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkUITests/Pods-SafeWalkUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		99472635525D24CA28726C43 /* Pods-SafeWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A2A095D4D22AC712011794F4 /* Pods-SafeWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalk/Pods-SafeWalk.release.xcconfig"; sourceTree = "<group>"; };
+		BA9C814621412CA703A6D394 /* Pods-SafeWalkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkUITests/Pods-SafeWalkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C08B469021EC11D70017B2B2 /* SafeWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08B469321EC11D70017B2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C08B469521EC11D70017B2B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C08B469821EC11D70017B2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C08B469A21EC11D80017B2B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C08B469D21EC11D80017B2B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C08B469F21EC11D80017B2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08B46A421EC11D80017B2B2 /* SafeWalkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeWalkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08B46A821EC11D80017B2B2 /* SafeWalkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeWalkTests.swift; sourceTree = "<group>"; };
+		C08B46AA21EC11D80017B2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08B46AF21EC11D80017B2B2 /* SafeWalkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SafeWalkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C08B46B321EC11D80017B2B2 /* SafeWalkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeWalkUITests.swift; sourceTree = "<group>"; };
+		C08B46B521EC11D80017B2B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C08B46C121EC18060017B2B2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
+		C08B46C321EC194B0017B2B2 /* signUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpScreen.swift; sourceTree = "<group>"; };
+		C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyEmailScreen.swift; sourceTree = "<group>"; };
+		C08B46C721EC298E0017B2B2 /* signOutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signOutScreen.swift; sourceTree = "<group>"; };
+		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C08B468D21EC11D70017B2B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				265BB0559BC1FC25041594B4 /* Pods_SafeWalk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46A121EC11D80017B2B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5281F874CF02493521800DDE /* Pods_SafeWalkTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46AC21EC11D80017B2B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C6A6B98C411358AB9FA21B3 /* Pods_SafeWalkUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F4E05237A6315C2F0FF69E1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1E48784D25E3AD8FF578A2B1 /* Pods-SafeWalk.debug.xcconfig */,
+				A2A095D4D22AC712011794F4 /* Pods-SafeWalk.release.xcconfig */,
+				99472635525D24CA28726C43 /* Pods-SafeWalkTests.debug.xcconfig */,
+				F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */,
+				80E9A52EF360FD8DF1E26D40 /* Pods-SafeWalkUITests.debug.xcconfig */,
+				BA9C814621412CA703A6D394 /* Pods-SafeWalkUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C08B468721EC11D70017B2B2 = {
+			isa = PBXGroup;
+			children = (
+				C08B469221EC11D70017B2B2 /* SafeWalk */,
+				C08B46A721EC11D80017B2B2 /* SafeWalkTests */,
+				C08B46B221EC11D80017B2B2 /* SafeWalkUITests */,
+				C08B469121EC11D70017B2B2 /* Products */,
+				8F4E05237A6315C2F0FF69E1 /* Pods */,
+				CB605DC20357C381B07DA2F4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C08B469121EC11D70017B2B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C08B469021EC11D70017B2B2 /* SafeWalk.app */,
+				C08B46A421EC11D80017B2B2 /* SafeWalkTests.xctest */,
+				C08B46AF21EC11D80017B2B2 /* SafeWalkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C08B469221EC11D70017B2B2 /* SafeWalk */ = {
+			isa = PBXGroup;
+			children = (
+				C08B46C121EC18060017B2B2 /* awsconfiguration.json */,
+				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
+				C08B469721EC11D70017B2B2 /* Main.storyboard */,
+				C08B469521EC11D70017B2B2 /* ViewController.swift */,
+				C08B46C321EC194B0017B2B2 /* signUpScreen.swift */,
+				C08B46C721EC298E0017B2B2 /* signOutScreen.swift */,
+				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
+				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
+				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
+				C08B469F21EC11D80017B2B2 /* Info.plist */,
+			);
+			path = SafeWalk;
+			sourceTree = "<group>";
+		};
+		C08B46A721EC11D80017B2B2 /* SafeWalkTests */ = {
+			isa = PBXGroup;
+			children = (
+				C08B46A821EC11D80017B2B2 /* SafeWalkTests.swift */,
+				C08B46AA21EC11D80017B2B2 /* Info.plist */,
+			);
+			path = SafeWalkTests;
+			sourceTree = "<group>";
+		};
+		C08B46B221EC11D80017B2B2 /* SafeWalkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C08B46B321EC11D80017B2B2 /* SafeWalkUITests.swift */,
+				C08B46B521EC11D80017B2B2 /* Info.plist */,
+			);
+			path = SafeWalkUITests;
+			sourceTree = "<group>";
+		};
+		CB605DC20357C381B07DA2F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CAF005248B06E4C6774DF3F /* Pods_SafeWalk.framework */,
+				C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */,
+				37B90B6A97BE3527879902D8 /* Pods_SafeWalkUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C08B468F21EC11D70017B2B2 /* SafeWalk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08B46B821EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalk" */;
+			buildPhases = (
+				BE440E3F1B743C9D046CA076 /* [CP] Check Pods Manifest.lock */,
+				C08B468C21EC11D70017B2B2 /* Sources */,
+				C08B468D21EC11D70017B2B2 /* Frameworks */,
+				C08B468E21EC11D70017B2B2 /* Resources */,
+				D2055BC07B4BE133606DC2CF /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SafeWalk;
+			productName = SafeWalk;
+			productReference = C08B469021EC11D70017B2B2 /* SafeWalk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C08B46A321EC11D80017B2B2 /* SafeWalkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08B46BB21EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalkTests" */;
+			buildPhases = (
+				C1876A9A55FE84FA9D433C4E /* [CP] Check Pods Manifest.lock */,
+				C08B46A021EC11D80017B2B2 /* Sources */,
+				C08B46A121EC11D80017B2B2 /* Frameworks */,
+				C08B46A221EC11D80017B2B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08B46A621EC11D80017B2B2 /* PBXTargetDependency */,
+			);
+			name = SafeWalkTests;
+			productName = SafeWalkTests;
+			productReference = C08B46A421EC11D80017B2B2 /* SafeWalkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C08B46AE21EC11D80017B2B2 /* SafeWalkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C08B46BE21EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalkUITests" */;
+			buildPhases = (
+				449C2C93E18E6D0A5B2B9BCC /* [CP] Check Pods Manifest.lock */,
+				C08B46AB21EC11D80017B2B2 /* Sources */,
+				C08B46AC21EC11D80017B2B2 /* Frameworks */,
+				C08B46AD21EC11D80017B2B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C08B46B121EC11D80017B2B2 /* PBXTargetDependency */,
+			);
+			name = SafeWalkUITests;
+			productName = SafeWalkUITests;
+			productReference = C08B46AF21EC11D80017B2B2 /* SafeWalkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C08B468821EC11D70017B2B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Campbell Affleck";
+				TargetAttributes = {
+					C08B468F21EC11D70017B2B2 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					C08B46A321EC11D80017B2B2 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C08B468F21EC11D70017B2B2;
+					};
+					C08B46AE21EC11D80017B2B2 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C08B468F21EC11D70017B2B2;
+					};
+				};
+			};
+			buildConfigurationList = C08B468B21EC11D70017B2B2 /* Build configuration list for PBXProject "SafeWalk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C08B468721EC11D70017B2B2;
+			productRefGroup = C08B469121EC11D70017B2B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C08B468F21EC11D70017B2B2 /* SafeWalk */,
+				C08B46A321EC11D80017B2B2 /* SafeWalkTests */,
+				C08B46AE21EC11D80017B2B2 /* SafeWalkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C08B468E21EC11D70017B2B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */,
+				C08B469E21EC11D80017B2B2 /* LaunchScreen.storyboard in Resources */,
+				C08B469B21EC11D80017B2B2 /* Assets.xcassets in Resources */,
+				C08B469921EC11D70017B2B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46A221EC11D80017B2B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46AD21EC11D80017B2B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		449C2C93E18E6D0A5B2B9BCC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafeWalkUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE440E3F1B743C9D046CA076 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafeWalk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1876A9A55FE84FA9D433C4E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SafeWalkTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2055BC07B4BE133606DC2CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SafeWalk/Pods-SafeWalk-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthCore/AWSAuthCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSAuthUI/AWSAuthUI.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSMobileClient/AWSMobileClient.framework",
+				"${BUILT_PRODUCTS_DIR}/AWSUserPoolsSignIn/AWSUserPoolsSignIn.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSAuthUI.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProvider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCognitoIdentityProviderASF.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSMobileClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSUserPoolsSignIn.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SafeWalk/Pods-SafeWalk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C08B468C21EC11D70017B2B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */,
+				C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */,
+				C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */,
+				C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */,
+				C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46A021EC11D80017B2B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08B46A921EC11D80017B2B2 /* SafeWalkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C08B46AB21EC11D80017B2B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C08B46B421EC11D80017B2B2 /* SafeWalkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C08B46A621EC11D80017B2B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08B468F21EC11D70017B2B2 /* SafeWalk */;
+			targetProxy = C08B46A521EC11D80017B2B2 /* PBXContainerItemProxy */;
+		};
+		C08B46B121EC11D80017B2B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C08B468F21EC11D70017B2B2 /* SafeWalk */;
+			targetProxy = C08B46B021EC11D80017B2B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C08B469721EC11D70017B2B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C08B469821EC11D70017B2B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C08B469D21EC11D80017B2B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C08B46B621EC11D80017B2B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C08B46B721EC11D80017B2B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C08B46B921EC11D80017B2B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E48784D25E3AD8FF578A2B1 /* Pods-SafeWalk.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = SafeWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C08B46BA21EC11D80017B2B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2A095D4D22AC712011794F4 /* Pods-SafeWalk.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = SafeWalk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C08B46BC21EC11D80017B2B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99472635525D24CA28726C43 /* Pods-SafeWalkTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SafeWalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeWalk.app/SafeWalk";
+			};
+			name = Debug;
+		};
+		C08B46BD21EC11D80017B2B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SafeWalkTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SafeWalk.app/SafeWalk";
+			};
+			name = Release;
+		};
+		C08B46BF21EC11D80017B2B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80E9A52EF360FD8DF1E26D40 /* Pods-SafeWalkUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SafeWalkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SafeWalk;
+			};
+			name = Debug;
+		};
+		C08B46C021EC11D80017B2B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA9C814621412CA703A6D394 /* Pods-SafeWalkUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SafeWalkUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.SafeWalkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SafeWalk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C08B468B21EC11D70017B2B2 /* Build configuration list for PBXProject "SafeWalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08B46B621EC11D80017B2B2 /* Debug */,
+				C08B46B721EC11D80017B2B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08B46B821EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08B46B921EC11D80017B2B2 /* Debug */,
+				C08B46BA21EC11D80017B2B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08B46BB21EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08B46BC21EC11D80017B2B2 /* Debug */,
+				C08B46BD21EC11D80017B2B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C08B46BE21EC11D80017B2B2 /* Build configuration list for PBXNativeTarget "SafeWalkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08B46BF21EC11D80017B2B2 /* Debug */,
+				C08B46C021EC11D80017B2B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C08B468821EC11D70017B2B2 /* Project object */;
+}

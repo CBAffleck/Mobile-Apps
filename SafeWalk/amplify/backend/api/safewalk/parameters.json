@@ -1,7 +1,0 @@
-{
-    "AppSyncApiName": "safewalk",
-    "schemaGraphql": "s3://afealk-20190105143611-deployment/amplify-appsync-files/schema.graphql.1546728259626",
-    "ResolverBucket": "afealk-20190105143611-deployment",
-    "ResolverRootKey": "amplify-appsync-files",
-    "DeploymentTimestamp": "1546728259626"
-}
