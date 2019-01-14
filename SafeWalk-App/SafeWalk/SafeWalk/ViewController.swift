@@ -18,6 +18,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var goToSignUpButton: UIButton!
     @IBOutlet weak var forgotPassButton: UIButton!
+    @IBOutlet weak var incorrectEntryNotice: UILabel!
     
     //MARK: Variables
     var userEmail = ""
@@ -49,17 +50,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         //Disable sign in button until all fields are properly filled in
         signInButton.isEnabled = false
+        
+        //Hide notice unless an incorrect email/password combination is entered
+        incorrectEntryNotice.isHidden = true
     }
     
     //MARK: AWS
-    func signInUser() {
+    func signInUser(errored: @escaping (Bool) -> Void) {
         AWSMobileClient.sharedInstance().signIn(username:String(emailField.text!), password:String(passwordField.text!)) { (signInResult, error) in
             if let error = error  {
                 print("\(error.localizedDescription)")
+                errored(true)
             } else if let signInResult = signInResult {
                 switch (signInResult.signInState) {
                 case .signedIn:
                     print("User is signed in.")
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "SignOutScreen", sender: self)
+                    }
                 case .smsMFA:
                     print("SMS message sent to \(signInResult.codeDetails!.destination!)")
                 default:
@@ -104,7 +112,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Actions
     @IBAction func signInUser(_ sender: UIButton) {
-        signInUser()
+        //If sign in fails, display incorrect email/pass label, empty password field, and change placeholder text to red
+        let ifErrored: (Bool) -> Void = {
+            if $0 {
+                DispatchQueue.main.async {
+                    self.passwordField.text = ""
+                    self.passwordField.attributedPlaceholder = NSAttributedString(string: self.passwordField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+                    self.incorrectEntryNotice.isHidden = false
+                }
+            }
+        }
+        signInUser(errored: ifErrored)
     }
     
     @IBAction func goToSignUpScreen(_ sender: UIButton) {

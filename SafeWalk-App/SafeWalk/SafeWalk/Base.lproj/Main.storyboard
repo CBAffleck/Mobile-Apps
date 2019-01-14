@@ -42,7 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signInUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B0b-Ow-e66"/>
-                                    <segue destination="aJU-ap-Dj7" kind="show" identifier="SignOutScreen" id="rnd-EQ-yNo"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTm-fS-Lyu">
@@ -82,6 +81,13 @@
                                 <color key="textColor" red="0.33725490196078434" green="0.33725490196078434" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Incorrect email or password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toz-5M-dkV">
+                                <rect key="frame" x="65" y="179" width="190" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -92,8 +98,10 @@
                         <outlet property="emailField" destination="gko-fh-UnN" id="HXT-i1-Izf"/>
                         <outlet property="forgotPassButton" destination="FSi-BX-yK4" id="n0o-Nd-ccb"/>
                         <outlet property="goToSignUpButton" destination="eTm-fS-Lyu" id="LwO-Rf-MAg"/>
+                        <outlet property="incorrectEntryNotice" destination="Toz-5M-dkV" id="mvt-LK-l8C"/>
                         <outlet property="passwordField" destination="wLj-Ae-A26" id="u7q-vC-5Kx"/>
                         <outlet property="signInButton" destination="4kb-jC-ayO" id="1eN-aV-gAK"/>
+                        <segue destination="aJU-ap-Dj7" kind="show" identifier="SignOutScreen" id="tOa-h1-Jd5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
