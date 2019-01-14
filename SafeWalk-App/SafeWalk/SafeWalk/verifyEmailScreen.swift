@@ -24,6 +24,7 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
@@ -32,6 +33,12 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
                 print("error: \(error.localizedDescription)")
             }
         }
+        
+        //Set text field delegates
+        verificationField.delegate = self
+        
+        //Disable sign in button until all fields are properly filled in
+        verifyEmailButton.isEnabled = false
     }
     
     //MARK: AWS
@@ -49,6 +56,28 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
             } else if let error = error {
                 print("\(error.localizedDescription)")
             }
+        }
+    }
+    
+    //MARK: Keyboard Controls
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        userCode = String(textField.text!)
+        
+        //Make placeholder text red if box is empty/entry is invalid
+        if textField.text == "" {
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+        }
+        
+        //Enable the sign up button if all text fields are filled out
+        verifyEmailButton.isEnabled = true
+        if (verificationField.text?.isEmpty)! {
+            verifyEmailButton.isEnabled = false
         }
     }
     
