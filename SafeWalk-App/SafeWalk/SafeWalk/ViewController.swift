@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
@@ -41,6 +42,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 print("error: \(error.localizedDescription)")
             }
         }
+        
+        //Set text field delegates
+        emailField.delegate = self
+        passwordField.delegate = self
+        
+        //Disable sign in button until all fields are properly filled in
+        signInButton.isEnabled = false
     }
     
     //MARK: AWS
@@ -61,6 +69,39 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
 
+    //MARK: Keyboard Controls
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailField {
+            textField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == emailField {
+            userEmail = String(textField.text!)
+        } else if textField == passwordField {
+            userPass = String(textField.text!)
+        }
+        
+        //Make placeholder text red if box is empty/entry is invalid
+        if textField.text == "" {
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+        }
+        
+        //Enable the sign up button if all text fields are filled out
+        signInButton.isEnabled = true
+        [emailField, passwordField].forEach{
+            if Bool(($0?.text?.isEmpty)!) {
+                signInButton.isEnabled = false
+            }
+        }
+    }
+    
     //MARK: Actions
     @IBAction func signInUser(_ sender: UIButton) {
         signInUser()
