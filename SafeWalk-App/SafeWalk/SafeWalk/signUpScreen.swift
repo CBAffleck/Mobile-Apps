@@ -34,6 +34,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
@@ -42,6 +43,18 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
                 print("error: \(error.localizedDescription)")
             }
         }
+        
+        //Set text field delegates
+        firstNameField.delegate = self
+        lastNameField.delegate = self
+        emailField.delegate = self
+        phoneNumberField.delegate = self
+        schoolField.delegate = self
+        passwordField.delegate = self
+        confirmPassField.delegate = self
+        
+        //Disable sign up button until all fields are properly filled in
+        signUpButton.isEnabled = false
     }
     
     //MARK: AWS
@@ -73,6 +86,67 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: Keyboard Controls
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstNameField {
+            textField.resignFirstResponder()
+            lastNameField.becomeFirstResponder()
+        } else if textField == lastNameField {
+            textField.resignFirstResponder()
+            emailField.becomeFirstResponder()
+        } else if textField == emailField {
+            textField.resignFirstResponder()
+            phoneNumberField.becomeFirstResponder()
+        } else if textField == phoneNumberField {
+            textField.resignFirstResponder()
+            schoolField.becomeFirstResponder()
+        } else if textField == schoolField {
+            textField.resignFirstResponder()
+            passwordField.becomeFirstResponder()
+        } else if textField == passwordField {
+            textField.resignFirstResponder()
+            confirmPassField.becomeFirstResponder()
+        } else if textField == confirmPassField {
+            textField.resignFirstResponder()
+        }
+        return true
+    }
+    
+    //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == firstNameField {
+            userFirstName = String(textField.text!)
+        } else if textField == lastNameField {
+            userLastName = String(textField.text!)
+        } else if textField == emailField {
+            userEmail = String(textField.text!)
+        } else if textField == phoneNumberField {
+            userPhone = String(textField.text!)
+        } else if textField == schoolField {
+            userSchool = String(textField.text!)
+        } else if textField == passwordField {
+            userPass = String(textField.text!)
+        } else if textField == confirmPassField {
+            if userPass != String(textField.text!) {
+                confirmPassField.text = ""
+            } else {
+                userConfirmPass = String(textField.text!)
+            }
+        }
+        
+        //Make placeholder text red if box is empty/entry is invalid
+        if textField.text == "" {
+            textField.attributedPlaceholder = NSAttributedString(string: textField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 255/255.00, green: 139/255.00, blue: 139/255.00, alpha: 1.0)])
+        }
+        
+        //Enable the sign up button if all text fields are filled out
+        signUpButton.isEnabled = true
+        [firstNameField, lastNameField, emailField, phoneNumberField, schoolField, passwordField, confirmPassField].forEach{
+            if Bool(($0?.text?.isEmpty)!) {
+                signUpButton.isEnabled = false
+            }
+        }
+    }
     
     //MARK: Actions
     @IBAction func signUp(_ sender: UIButton) {
