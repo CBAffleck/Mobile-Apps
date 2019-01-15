@@ -60,14 +60,31 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         
         //Hide notice unless an email is entered that already has an account associated with it
         emailTakenNotice.isHidden = true
+        
+        //Populate text fields with data user entered when back button on verifyEmailScreen is clicked
+        if !userFirstName.isEmpty {
+            firstNameField.text = userFirstName
+        }
+        if !userLastName.isEmpty {
+            lastNameField.text = userLastName
+        }
+        if !userEmail.isEmpty {
+            emailField.text = userEmail
+        }
+        if !userPhone.isEmpty {
+            phoneNumberField.text = userPhone
+        }
+        if !userSchool.isEmpty {
+            schoolField.text = userSchool
+        }
     }
     
     //MARK: AWS
     func signUpUser(errored: @escaping (Bool) -> Void) {
         AWSMobileClient.sharedInstance().signUp(
-            username: String(emailField.text!),
-            password: String(passwordField.text!),
-            userAttributes: ["email":String(emailField.text!), "given_name": String(firstNameField.text!), "family_name":String(lastNameField.text!), "zoneinfo":String(schoolField.text!), "phone_number":String(phoneNumberField.text!)]) { (signUpResult, error) in
+            username: userEmail,
+            password: userConfirmPass,
+            userAttributes: ["email":userEmail, "given_name": userFirstName, "family_name":userLastName, "zoneinfo":userSchool, "phone_number":userPhone]) { (signUpResult, error) in
                 if let signUpResult = signUpResult {
                     switch(signUpResult.signUpConfirmationState) {
                     case .confirmed:
@@ -166,6 +183,10 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         if segue.destination is VerifyEmailScreen {
             let view = segue.destination as? VerifyEmailScreen
             view?.userEmail = userEmail
+            view?.userFirstName = userFirstName
+            view?.userLastName = userLastName
+            view?.userPhone = userPhone
+            view?.userSchool = userSchool
         }
     }
     

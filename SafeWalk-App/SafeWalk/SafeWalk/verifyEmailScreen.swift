@@ -21,6 +21,11 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     //MARK: Variables
     var userEmail = ""
     var userCode = ""
+    //Other variables passed from signUp screen
+    var userFirstName = ""
+    var userLastName = ""
+    var userPhone = ""
+    var userSchool = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +87,21 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
         }
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is SignUpScreen {
+            let view = segue.destination as? SignUpScreen
+            view?.userEmail = userEmail
+            view?.userFirstName = userFirstName
+            view?.userLastName = userLastName
+            view?.userPhone = userPhone
+            view?.userSchool = userSchool
+        }
+    }
     
     //MARK: Actions
     @IBAction func verifyEmail(_ sender: UIButton) {
