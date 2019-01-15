@@ -147,7 +147,21 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         } else if textField == emailField {
             userEmail = String(textField.text!)
         } else if textField == phoneNumberField {
-            userPhone = String(textField.text!)
+            var typedPhone = String(textField.text!)
+            typedPhone = typedPhone.replacingOccurrences(of: "+", with: "")
+            typedPhone = typedPhone.replacingOccurrences(of: ",", with: "")
+            typedPhone = typedPhone.replacingOccurrences(of: ";", with: "")
+            typedPhone = typedPhone.replacingOccurrences(of: "#", with: "")
+            typedPhone = typedPhone.replacingOccurrences(of: "*", with: "")
+            if typedPhone.count < 10 {
+                phoneNumberField.text = ""
+            } else if typedPhone.prefix(2) != "+" && typedPhone.count == 11 {
+                typedPhone = "+" + typedPhone.prefix(11)
+            } else if typedPhone.prefix(2) != "+" {
+                typedPhone = "+1" + typedPhone.prefix(10)
+            }
+            print(typedPhone)
+            userPhone = typedPhone
         } else if textField == schoolField {
             userSchool = String(textField.text!)
         } else if textField == passwordField {
