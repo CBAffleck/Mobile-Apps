@@ -22,6 +22,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var confirmPassField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var emailTakenNotice: UILabel!
     
     //MARK: Variables
     var userFirstName = ""
@@ -55,10 +56,13 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         
         //Disable sign up button until all fields are properly filled in
         signUpButton.isEnabled = false
+        
+        //Hide notice unless an email is entered that already has an account associated with it
+        emailTakenNotice.isHidden = true
     }
     
     //MARK: AWS
-    func signUpUser() {
+    func signUpUser(errored: @escaping (Bool) -> Void) {
         AWSMobileClient.sharedInstance().signUp(
             username: String(emailField.text!),
             password: String(passwordField.text!),
@@ -69,6 +73,9 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
                         print("User is signed up and confirmed.")
                     case .unconfirmed:
                         print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: "ToVerifyScreen", sender: self)
+                        }
                     case .unknown:
                         print("Unexpected case")
                     }
@@ -77,6 +84,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
                         switch(error) {
                         case .usernameExists(let message):
                             print(message)
+                            errored(true)
                         default:
                             break
                         }
@@ -162,7 +170,14 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
     
     //MARK: Actions
     @IBAction func signUp(_ sender: UIButton) {
-        signUpUser()
+        let ifErrored: (Bool) -> Void = {
+            if $0 {
+                DispatchQueue.main.async {
+                    self.emailTakenNotice.isHidden = false
+                }
+            }
+        }
+        signUpUser(errored: ifErrored)
     }
     
     @IBAction func backToSignIn(_ sender: UIButton) {
