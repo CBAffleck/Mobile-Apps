@@ -21,6 +21,7 @@
 		C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C321EC194B0017B2B2 /* signUpScreen.swift */; };
 		C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */; };
 		C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C721EC298E0017B2B2 /* signOutScreen.swift */; };
+		C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		C08B46C321EC194B0017B2B2 /* signUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpScreen.swift; sourceTree = "<group>"; };
 		C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyEmailScreen.swift; sourceTree = "<group>"; };
 		C08B46C721EC298E0017B2B2 /* signOutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signOutScreen.swift; sourceTree = "<group>"; };
+		C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassScreen.swift; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,6 +142,7 @@
 				C08B469721EC11D70017B2B2 /* Main.storyboard */,
 				C08B469521EC11D70017B2B2 /* ViewController.swift */,
 				C08B46C321EC194B0017B2B2 /* signUpScreen.swift */,
+				C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */,
 				C08B46C721EC298E0017B2B2 /* signOutScreen.swift */,
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
@@ -419,6 +422,7 @@
 				C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */,
 				C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */,
 				C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */,
+				C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */,
 				C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */,
 				C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */,
 			);
