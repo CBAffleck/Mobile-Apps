@@ -106,6 +106,7 @@
                                 <connections>
                                     <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="D0S-Ez-gf7"/>
                                     <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="OUE-ew-qpa"/>
+                                    <segue destination="1qn-bY-3E7" kind="show" id="CoX-no-9fw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-Hd-97w">
@@ -135,6 +136,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5VN-9L-frB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989" y="-1508"/>
+        </scene>
+        <!--New Pass Screen-->
+        <scene sceneID="nC0-0x-sqO">
+            <objects>
+                <viewController id="1qn-bY-3E7" customClass="NewPassScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AdJ-Qi-ukx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your new password" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-so-3SF">
+                                <rect key="frame" x="51" y="73" width="218" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nyZ-BH-i0e">
+                                <rect key="frame" x="51" y="205" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uer-PH-OBa">
+                                <rect key="frame" x="51" y="243" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS9-GW-oAX">
+                                <rect key="frame" x="51" y="281" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Set Password">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="setNewPassButton:" destination="1qn-bY-3E7" eventType="touchUpInside" id="yMa-KM-rIJ"/>
+                                    <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="q0o-zd-nzh"/>
+                                    <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="uUz-tr-LWK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWU-ce-M9v">
+                                <rect key="frame" x="51" y="319" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="6ba-Vl-mmc"/>
+                                    <action selector="toForgotPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="veN-2J-TxR"/>
+                                    <action selector="toVerifyCodeScreen:" destination="1qn-bY-3E7" eventType="touchUpInside" id="hxJ-ug-W5l"/>
+                                    <segue destination="m6O-hg-Vqh" kind="show" id="z15-xm-KkK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="9x9-d5-6dq"/>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="uWU-ce-M9v" id="OkD-lO-L7O"/>
+                        <outlet property="confirmPassScreen" destination="uer-PH-OBa" id="6ci-HQ-Rb9"/>
+                        <outlet property="newPassField" destination="nyZ-BH-i0e" id="ZBk-gQ-cmF"/>
+                        <outlet property="setPassButton" destination="KS9-GW-oAX" id="wGy-Us-P1a"/>
+                        <segue destination="aJU-ap-Dj7" kind="show" identifier="NewPassToMain" id="Nop-se-2Gn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AVG-9g-5u2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2672" y="-1508"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -459,7 +533,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="z15-xm-KkK"/>
         <segue reference="kT0-fT-pdt"/>
+        <segue reference="Nop-se-2Gn"/>
         <segue reference="6b0-as-qK2"/>
         <segue reference="dme-ZB-LT9"/>
     </inferredMetricsTieBreakers>
