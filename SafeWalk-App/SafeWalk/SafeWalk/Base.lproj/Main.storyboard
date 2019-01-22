@@ -55,6 +55,7 @@
                                 <connections>
                                     <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="HSX-rb-uOc"/>
                                     <action selector="goToSignIn:" destination="3gR-qp-Ll1" eventType="touchUpInside" id="l9u-am-hgI"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="6b0-as-qK2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,7 +71,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVT-9p-AXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="-1461"/>
+            <point key="canvasLocation" x="1313" y="-1508"/>
+        </scene>
+        <!--Verify Pass Screen-->
+        <scene sceneID="HXb-Ec-wRf">
+            <objects>
+                <viewController id="m6O-hg-Vqh" customClass="VerifyPassScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DDh-Id-G1d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the verification code you should have received in an email." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37l-18-sWk">
+                                <rect key="frame" x="51" y="73" width="218" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.33725490200000002" green="0.33725490200000002" blue="0.33725490200000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Verification Code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A5U-Xl-oXH">
+                                <rect key="frame" x="51" y="243" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-Ia-Ugx">
+                                <rect key="frame" x="51" y="281" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="D0S-Ez-gf7"/>
+                                    <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="OUE-ew-qpa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-Hd-97w">
+                                <rect key="frame" x="51" y="319" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="j5e-ef-KHT"/>
+                                    <action selector="toForgotPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="Jco-TZ-scE"/>
+                                    <segue destination="3gR-qp-Ll1" kind="show" id="dme-ZB-LT9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RMz-8H-QWf"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="backButton" destination="Drd-Hd-97w" id="jj2-bm-4ng"/>
+                        <outlet property="verificationCodeField" destination="A5U-Xl-oXH" id="9aE-bU-77B"/>
+                        <outlet property="verifyCodeButton" destination="VXF-Ia-Ugx" id="E7T-oN-hyN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5VN-9L-frB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989" y="-1508"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -127,6 +191,7 @@
                                 </state>
                                 <connections>
                                     <action selector="goToResetPassScreen:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dpf-uH-TxR"/>
+                                    <segue destination="3gR-qp-Ll1" kind="show" id="jak-W2-Xqi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XRT-ob-r4q">
@@ -394,7 +459,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dcg-S2-lZB"/>
-        <segue reference="nPQ-3a-GNg"/>
+        <segue reference="kT0-fT-pdt"/>
+        <segue reference="6b0-as-qK2"/>
+        <segue reference="dme-ZB-LT9"/>
     </inferredMetricsTieBreakers>
 </document>

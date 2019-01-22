@@ -1,8 +1,8 @@
 //
-//  forgotPassScreen.swift
+//  newPassScreen.swift
 //  SafeWalk
 //
-//  Created by Campbell Affleck on 1/21/19.
+//  Created by Campbell Affleck on 1/22/19.
 //  Copyright © 2019 Campbell Affleck. All rights reserved.
 //
 
@@ -10,15 +10,15 @@ import UIKit
 import AWSAuthCore
 import AWSMobileClient
 
-class ForgotPassScreen: UIViewController, UITextFieldDelegate {
+class NewPassScreen: UIViewController, UITextFieldDelegate {
     
-    //MARK: Properties    
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    //MARK: Properties
     
     //MARK: Variables
     var userEmail = ""
+    var userPass = ""
+    var userConfirmPass = ""
+    var confirmCode = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,24 +33,21 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
         }
         
         //Set text field delegates
-        emailField.delegate = self
+//        emailField.delegate = self
         
         //Disable sign in button until all fields are properly filled in
-        sendButton.isEnabled = false
+//        sendButton.isEnabled = false
     }
     
     //MARK: AWS
-    func resetPassword() {
-        AWSMobileClient.sharedInstance().forgotPassword(username: userEmail) { (forgotPasswordResult, error) in
+    func makeNewPassword() {
+        AWSMobileClient.sharedInstance().confirmForgotPassword(username: userEmail, newPassword: userPass, confirmationCode: confirmCode) { (forgotPasswordResult, error) in
             if let forgotPasswordResult = forgotPasswordResult {
                 switch(forgotPasswordResult.forgotPasswordState) {
-                case .confirmationCodeSent:
-                    print("Confirmation code sent via \(forgotPasswordResult.codeDeliveryDetails!.deliveryMedium) to: \(forgotPasswordResult.codeDeliveryDetails!.destination!)")
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ToNewPassScreen", sender: self)
-                    }
+                case .done:
+                    print("Password changed successfully")
                 default:
-                    print("Error: Invalid case.")
+                    print("Error: Could not change password.")
                 }
             } else if let error = error {
                 print("Error occurred: \(error.localizedDescription)")
@@ -74,30 +71,12 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
         }
         
         //Enable the sign up button if all text fields are filled out
-        sendButton.isEnabled = true
-        if (emailField.text?.isEmpty)! {
-            sendButton.isEnabled = false
-        }
-    }
-    
-    //MARK: Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        super.prepare(for: segue, sender: sender)
-        // Configure the destination view controller only when the save button is pressed.
-        if segue.destination is VerifyPassScreen {
-            let view = segue.destination as? VerifyPassScreen
-            view?.userEmail = userEmail
-        }
+//        sendButton.isEnabled = true
+//        if (emailField.text?.isEmpty)! {
+//            sendButton.isEnabled = false
+//        }
     }
     
     //MARK: Actions
-    @IBAction func sendResetCode(_ sender: UIButton) {
-        resetPassword()
-    }
-    
-    @IBAction func goToSignIn(_ sender: UIButton) {
-    }
     
 }

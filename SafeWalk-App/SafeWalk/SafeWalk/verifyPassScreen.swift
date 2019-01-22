@@ -1,8 +1,8 @@
 //
-//  forgotPassScreen.swift
+//  verifyPassScreen.swift
 //  SafeWalk
 //
-//  Created by Campbell Affleck on 1/21/19.
+//  Created by Campbell Affleck on 1/22/19.
 //  Copyright © 2019 Campbell Affleck. All rights reserved.
 //
 
@@ -10,19 +10,21 @@ import UIKit
 import AWSAuthCore
 import AWSMobileClient
 
-class ForgotPassScreen: UIViewController, UITextFieldDelegate {
+class VerifyPassScreen: UIViewController, UITextFieldDelegate {
     
-    //MARK: Properties    
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var sendButton: UIButton!
+    //MARK: Properties
+    @IBOutlet weak var verificationCodeField: UITextField!
+    @IBOutlet weak var verifyCodeButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     //MARK: Variables
+    var userCode = ""
     var userEmail = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
+        
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
             if let userState = userState {
@@ -33,29 +35,10 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
         }
         
         //Set text field delegates
-        emailField.delegate = self
+        verificationCodeField.delegate = self
         
         //Disable sign in button until all fields are properly filled in
-        sendButton.isEnabled = false
-    }
-    
-    //MARK: AWS
-    func resetPassword() {
-        AWSMobileClient.sharedInstance().forgotPassword(username: userEmail) { (forgotPasswordResult, error) in
-            if let forgotPasswordResult = forgotPasswordResult {
-                switch(forgotPasswordResult.forgotPasswordState) {
-                case .confirmationCodeSent:
-                    print("Confirmation code sent via \(forgotPasswordResult.codeDeliveryDetails!.deliveryMedium) to: \(forgotPasswordResult.codeDeliveryDetails!.destination!)")
-                    DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ToNewPassScreen", sender: self)
-                    }
-                default:
-                    print("Error: Invalid case.")
-                }
-            } else if let error = error {
-                print("Error occurred: \(error.localizedDescription)")
-            }
-        }
+        verifyCodeButton.isEnabled = false
     }
     
     //MARK: Keyboard Controls
@@ -66,7 +49,7 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
     
     //When the textfield being edited is ready to be read, set the corresponding variable's text to the user input
     func textFieldDidEndEditing(_ textField: UITextField) {
-        userEmail = String(textField.text!)
+        userCode = String(textField.text!)
         
         //Make placeholder text red if box is empty/entry is invalid
         if textField.text == "" {
@@ -74,9 +57,9 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
         }
         
         //Enable the sign up button if all text fields are filled out
-        sendButton.isEnabled = true
-        if (emailField.text?.isEmpty)! {
-            sendButton.isEnabled = false
+        verifyCodeButton.isEnabled = true
+        if (verificationCodeField.text?.isEmpty)! {
+            verifyCodeButton.isEnabled = false
         }
     }
     
@@ -86,18 +69,19 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
         super.prepare(for: segue, sender: sender)
         // Configure the destination view controller only when the save button is pressed.
-        if segue.destination is VerifyPassScreen {
-            let view = segue.destination as? VerifyPassScreen
+        if segue.destination is NewPassScreen {
+            let view = segue.destination as? NewPassScreen
+            view?.confirmCode = userCode
             view?.userEmail = userEmail
         }
     }
     
     //MARK: Actions
-    @IBAction func sendResetCode(_ sender: UIButton) {
-        resetPassword()
+    @IBAction func toNewPassScreen(_ sender: UIButton) {
     }
     
-    @IBAction func goToSignIn(_ sender: UIButton) {
+    @IBAction func toForgotPassScreen(_ sender: UIButton) {
     }
     
 }
+
