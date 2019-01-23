@@ -47,7 +47,7 @@ class ForgotPassScreen: UIViewController, UITextFieldDelegate {
                 case .confirmationCodeSent:
                     print("Confirmation code sent via \(forgotPasswordResult.codeDeliveryDetails!.deliveryMedium) to: \(forgotPasswordResult.codeDeliveryDetails!.destination!)")
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "ToNewPassScreen", sender: self)
+                        self.performSegue(withIdentifier: "ToConfirmCodeScreen", sender: self)
                     }
                 default:
                     print("Error: Invalid case.")

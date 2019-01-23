@@ -16,7 +16,7 @@ class NewPassScreen: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var newPassField: UITextField!
     @IBOutlet weak var confirmPassField: UITextField!
     @IBOutlet weak var setPassButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backToVerifyButton: UIButton!
     
     //MARK: Variables
     var userEmail = ""
@@ -46,7 +46,7 @@ class NewPassScreen: UIViewController, UITextFieldDelegate {
     
     //MARK: AWS
     func makeNewPassword() {
-        AWSMobileClient.sharedInstance().confirmForgotPassword(username: userEmail, newPassword: userPass, confirmationCode: confirmCode) { (forgotPasswordResult, error) in
+        AWSMobileClient.sharedInstance().confirmForgotPassword(username: userEmail, newPassword: userConfirmPass, confirmationCode: confirmCode) { (forgotPasswordResult, error) in
             if let forgotPasswordResult = forgotPasswordResult {
                 switch(forgotPasswordResult.forgotPasswordState) {
                 case .done:

@@ -30,7 +30,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g98-bD-1MN">
                                 <rect key="frame" x="51" y="281" width="218" height="30"/>
@@ -42,7 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="sendResetCode:" destination="3gR-qp-Ll1" eventType="touchUpInside" id="wgL-hI-LPL"/>
-                                    <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="mxS-28-gSO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDE-Xp-jWC">
@@ -53,7 +52,6 @@
                                     <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="HSX-rb-uOc"/>
                                     <action selector="goToSignIn:" destination="3gR-qp-Ll1" eventType="touchUpInside" id="l9u-am-hgI"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="6b0-as-qK2"/>
                                 </connections>
@@ -67,6 +65,7 @@
                         <outlet property="backButton" destination="jDE-Xp-jWC" id="xiM-F3-6Ku"/>
                         <outlet property="emailField" destination="ILg-Gs-hJu" id="gy3-QO-WvM"/>
                         <outlet property="sendButton" destination="g98-bD-1MN" id="fpa-MR-wDa"/>
+                        <segue destination="m6O-hg-Vqh" kind="show" identifier="ToConfirmCodeScreen" id="Sdx-Jd-04i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVT-9p-AXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,7 +92,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXF-Ia-Ugx">
                                 <rect key="frame" x="51" y="281" width="218" height="30"/>
@@ -104,9 +103,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="D0S-Ez-gf7"/>
-                                    <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="OUE-ew-qpa"/>
-                                    <segue destination="1qn-bY-3E7" kind="show" id="CoX-no-9fw"/>
+                                    <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="jci-sz-241"/>
+                                    <segue destination="1qn-bY-3E7" kind="show" id="UE3-92-IrT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-Hd-97w">
@@ -117,8 +115,7 @@
                                     <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="j5e-ef-KHT"/>
-                                    <action selector="toForgotPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="Jco-TZ-scE"/>
+                                    <action selector="toForgotPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="nu0-Tw-sHM"/>
                                     <segue destination="3gR-qp-Ll1" kind="show" id="dme-ZB-LT9"/>
                                 </connections>
                             </button>
@@ -157,14 +154,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uer-PH-OBa">
                                 <rect key="frame" x="51" y="243" width="218" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KS9-GW-oAX">
                                 <rect key="frame" x="51" y="281" width="218" height="30"/>
@@ -176,8 +173,6 @@
                                 </state>
                                 <connections>
                                     <action selector="setNewPassButton:" destination="1qn-bY-3E7" eventType="touchUpInside" id="yMa-KM-rIJ"/>
-                                    <action selector="toNewPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="q0o-zd-nzh"/>
-                                    <action selector="verifyEmail:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="uUz-tr-LWK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uWU-ce-M9v">
@@ -188,8 +183,6 @@
                                     <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="backToSignUp:" destination="Ywo-Wb-duH" eventType="touchUpInside" id="6ba-Vl-mmc"/>
-                                    <action selector="toForgotPassScreen:" destination="m6O-hg-Vqh" eventType="touchUpInside" id="veN-2J-TxR"/>
                                     <action selector="toVerifyCodeScreen:" destination="1qn-bY-3E7" eventType="touchUpInside" id="hxJ-ug-W5l"/>
                                     <segue destination="m6O-hg-Vqh" kind="show" id="z15-xm-KkK"/>
                                 </connections>
@@ -199,10 +192,10 @@
                         <viewLayoutGuide key="safeArea" id="9x9-d5-6dq"/>
                     </view>
                     <connections>
-                        <outlet property="backButton" destination="uWU-ce-M9v" id="OkD-lO-L7O"/>
-                        <outlet property="confirmPassScreen" destination="uer-PH-OBa" id="6ci-HQ-Rb9"/>
+                        <outlet property="backToVerifyButton" destination="uWU-ce-M9v" id="55r-CN-chK"/>
+                        <outlet property="confirmPassField" destination="uer-PH-OBa" id="x9H-Sa-7qD"/>
                         <outlet property="newPassField" destination="nyZ-BH-i0e" id="ZBk-gQ-cmF"/>
-                        <outlet property="setPassButton" destination="KS9-GW-oAX" id="wGy-Us-P1a"/>
+                        <outlet property="setPassButton" destination="KS9-GW-oAX" id="0Bn-0U-4GH"/>
                         <segue destination="aJU-ap-Dj7" kind="show" identifier="NewPassToMain" id="Nop-se-2Gn"/>
                     </connections>
                 </viewController>
@@ -376,7 +369,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="School" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fWr-dc-8Dg">
                                 <rect key="frame" x="51" y="205" width="218" height="30"/>
@@ -465,7 +458,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i8-xP-M0H">
                                 <rect key="frame" x="51" y="281" width="218" height="30"/>
@@ -533,10 +526,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="z15-xm-KkK"/>
         <segue reference="kT0-fT-pdt"/>
         <segue reference="Nop-se-2Gn"/>
-        <segue reference="6b0-as-qK2"/>
+        <segue reference="nPQ-3a-GNg"/>
+        <segue reference="z15-xm-KkK"/>
         <segue reference="dme-ZB-LT9"/>
     </inferredMetricsTieBreakers>
 </document>
