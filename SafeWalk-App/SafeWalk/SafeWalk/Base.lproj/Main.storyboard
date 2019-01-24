@@ -360,16 +360,35 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-Il-qNW">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editable Pin" translatesAutoresizingMaskIntoConstraints="NO" id="Ero-83-CIM">
+                                <rect key="frame" x="140" y="244" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="IDT-75-HVI"/>
+                                    <constraint firstAttribute="height" constant="40" id="R3A-Bf-7v7"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9n-Av-ylG">
+                                <rect key="frame" x="45" y="508" width="230" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Set Meeting Point">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Ero-83-CIM" firstAttribute="centerX" secondItem="d1p-c0-KE6" secondAttribute="centerX" id="5iH-Nr-cho"/>
                             <constraint firstItem="PMd-Il-qNW" firstAttribute="trailing" secondItem="Ry1-Cx-S7v" secondAttribute="trailing" id="EK9-Dh-Zfp"/>
                             <constraint firstItem="PMd-Il-qNW" firstAttribute="top" secondItem="Ry1-Cx-S7v" secondAttribute="top" constant="-20" id="Gs9-xb-IAC"/>
                             <constraint firstItem="PMd-Il-qNW" firstAttribute="leading" secondItem="Ry1-Cx-S7v" secondAttribute="leading" id="IJi-cA-spz"/>
                             <constraint firstItem="PMd-Il-qNW" firstAttribute="bottom" secondItem="Ry1-Cx-S7v" secondAttribute="bottom" id="MDp-Bf-sYZ"/>
+                            <constraint firstItem="Ero-83-CIM" firstAttribute="centerY" secondItem="d1p-c0-KE6" secondAttribute="centerY" constant="-20" id="rzh-uK-W6p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ry1-Cx-S7v"/>
                     </view>
+                    <navigationItem key="navigationItem" id="37W-Yy-9BX"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="PMd-Il-qNW" id="Lsb-Ka-8D1"/>
@@ -561,19 +580,23 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Krx-4w-C3H"/>
+                        <segue destination="AtG-DW-mFg" kind="relationship" relationship="rootViewController" id="wIF-al-GND"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIe-QB-wDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="334" y="-681"/>
+            <point key="canvasLocation" x="227" y="-893"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Editable Pin" width="44" height="53"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kT0-fT-pdt"/>
+        <segue reference="dcg-S2-lZB"/>
+        <segue reference="wIF-al-GND"/>
         <segue reference="tOa-h1-Jd5"/>
-        <segue reference="Krx-4w-C3H"/>
+        <segue reference="Zkg-zo-qbb"/>
         <segue reference="z15-xm-KkK"/>
-        <segue reference="dme-ZB-LT9"/>
+        <segue reference="jak-W2-Xqi"/>
     </inferredMetricsTieBreakers>
 </document>
