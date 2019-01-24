@@ -322,18 +322,62 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Zkg-zo-qbb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikg-OG-GTE">
+                                <rect key="frame" x="51" y="146" width="218" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="To Home Screen">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToHomeScreen:" destination="aJU-ap-Dj7" eventType="touchUpInside" id="jn3-qG-x6s"/>
+                                    <action selector="signOut:" destination="aJU-ap-Dj7" eventType="touchUpInside" id="cjp-sl-O92"/>
+                                    <segue destination="AtG-DW-mFg" kind="show" id="4oC-Bf-fRX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Q58-Q0-n1a"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="homeScreenButton" destination="ikg-OG-GTE" id="egz-nD-kfb"/>
                         <outlet property="signOutButton" destination="TYp-1L-RJm" id="5Hq-nO-Bhp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HXQ-Kw-h99" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314" y="104"/>
+            <point key="canvasLocation" x="334" y="104"/>
+        </scene>
+        <!--Map Home Screen-->
+        <scene sceneID="bd9-Oi-LP1">
+            <objects>
+                <viewController id="AtG-DW-mFg" customClass="MapHomeScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d1p-c0-KE6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PMd-Il-qNW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PMd-Il-qNW" firstAttribute="trailing" secondItem="Ry1-Cx-S7v" secondAttribute="trailing" id="EK9-Dh-Zfp"/>
+                            <constraint firstItem="PMd-Il-qNW" firstAttribute="top" secondItem="Ry1-Cx-S7v" secondAttribute="top" constant="-20" id="Gs9-xb-IAC"/>
+                            <constraint firstItem="PMd-Il-qNW" firstAttribute="leading" secondItem="Ry1-Cx-S7v" secondAttribute="leading" id="IJi-cA-spz"/>
+                            <constraint firstItem="PMd-Il-qNW" firstAttribute="bottom" secondItem="Ry1-Cx-S7v" secondAttribute="bottom" id="MDp-Bf-sYZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ry1-Cx-S7v"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="PMd-Il-qNW" id="Lsb-Ka-8D1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CKp-91-M9a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.5" y="103.52112676056338"/>
         </scene>
         <!--Sign Up Screen-->
         <scene sceneID="KYk-FH-pqf">
@@ -527,8 +571,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="kT0-fT-pdt"/>
-        <segue reference="Nop-se-2Gn"/>
-        <segue reference="nPQ-3a-GNg"/>
+        <segue reference="tOa-h1-Jd5"/>
+        <segue reference="Krx-4w-C3H"/>
         <segue reference="z15-xm-KkK"/>
         <segue reference="dme-ZB-LT9"/>
     </inferredMetricsTieBreakers>

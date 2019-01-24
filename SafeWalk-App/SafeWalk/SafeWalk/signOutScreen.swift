@@ -14,6 +14,7 @@ class SignOutScreen: UIViewController, UITextFieldDelegate {
     
     //MARK: Properties
     @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var homeScreenButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,5 +38,7 @@ class SignOutScreen: UIViewController, UITextFieldDelegate {
         signOutUser()
     }
     
-
+    @IBAction func goToHomeScreen(_ sender: UIButton) {
+    }
+    
 }
