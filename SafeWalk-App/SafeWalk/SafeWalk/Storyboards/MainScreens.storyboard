@@ -95,7 +95,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-bo-fpU">
-                                <rect key="frame" x="45" y="607" width="285" height="40"/>
+                                <rect key="frame" x="20" y="607" width="335" height="40"/>
                                 <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7zm-OP-gQv"/>
@@ -104,18 +104,34 @@
                                 <state key="normal" title="Set Meeting Point">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="setMeetingPoint:" destination="190-H5-f6A" eventType="touchUpInside" id="MHH-aa-p9g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alD-3Z-I1G">
+                                <rect key="frame" x="20" y="40" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PFF-3M-QKE"/>
+                                    <constraint firstAttribute="width" constant="40" id="aed-16-ZC0"/>
+                                </constraints>
+                                <state key="normal" image="SidebarIcon"/>
+                                <connections>
+                                    <action selector="openSidebar:" destination="190-H5-f6A" eventType="touchUpInside" id="gvP-cr-BuZ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="PIh-bo-fpU" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" constant="45" id="Gnm-sf-7mN"/>
+                            <constraint firstItem="PIh-bo-fpU" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" constant="20" id="Gnm-sf-7mN"/>
                             <constraint firstAttribute="bottom" secondItem="CuO-Ga-q6l" secondAttribute="bottom" id="Iyt-KV-FaJ"/>
                             <constraint firstItem="lGB-hc-2vn" firstAttribute="bottom" secondItem="PIh-bo-fpU" secondAttribute="bottom" constant="20" id="K8N-vi-9WB"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-20" id="PKG-IR-1zZ"/>
+                            <constraint firstItem="alD-3Z-I1G" firstAttribute="top" secondItem="lGB-hc-2vn" secondAttribute="top" constant="20" id="Twj-vb-boq"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerX" secondItem="EYc-9Y-fgv" secondAttribute="centerX" id="Xli-qw-4Y3"/>
+                            <constraint firstItem="alD-3Z-I1G" firstAttribute="leading" secondItem="lGB-hc-2vn" secondAttribute="leading" constant="20" id="c7L-LS-JZY"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" id="dBX-um-gNI"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="npr-RS-lTc"/>
-                            <constraint firstAttribute="trailing" secondItem="PIh-bo-fpU" secondAttribute="trailing" constant="45" id="pxg-E6-mic"/>
+                            <constraint firstAttribute="trailing" secondItem="PIh-bo-fpU" secondAttribute="trailing" constant="20" id="pxg-E6-mic"/>
                             <constraint firstAttribute="trailing" secondItem="CuO-Ga-q6l" secondAttribute="trailing" id="wdW-RA-KFM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lGB-hc-2vn"/>
@@ -124,6 +140,8 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="CuO-Ga-q6l" id="DsR-3H-BOP"/>
+                        <outlet property="setMeetingPointButton" destination="PIh-bo-fpU" id="Pzj-bs-UeI"/>
+                        <outlet property="sidebarButton" destination="alD-3Z-I1G" id="zUC-Kk-R0e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRD-pw-pDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,5 +151,6 @@
     </scenes>
     <resources>
         <image name="Editable Pin" width="44" height="53"/>
+        <image name="SidebarIcon" width="80" height="80"/>
     </resources>
 </document>

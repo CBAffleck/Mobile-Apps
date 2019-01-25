@@ -16,6 +16,8 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
 
     //MARK: Properties
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var setMeetingPointButton: UIButton!
+    @IBOutlet weak var sidebarButton: UIButton!
     
     //MARK: Variables
     var locationManager = CLLocationManager()
@@ -97,5 +99,10 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     }
     
     //MARK: Actions
+    @IBAction func setMeetingPoint(_ sender: UIButton) {
+    }
+    
+    @IBAction func openSidebar(_ sender: UIButton) {
+    }
     
 }

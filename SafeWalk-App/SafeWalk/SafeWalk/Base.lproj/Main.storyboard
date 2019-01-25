@@ -160,7 +160,9 @@
         <!--MainScreens-->
         <scene sceneID="KLd-nR-Fra">
             <objects>
-                <viewControllerPlaceholder storyboardName="MainScreens" id="qjS-Em-osv" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="MainScreens" id="qjS-Em-osv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dxf-BL-kB7"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6d0-ec-X2B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1315" y="-167"/>
@@ -423,7 +425,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="TSe-6J-Q3F"/>
+                        <segue destination="qjS-Em-osv" kind="relationship" relationship="rootViewController" id="uUp-N2-Zdn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eIe-QB-wDf" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -433,6 +435,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dcg-S2-lZB"/>
-        <segue reference="TSe-6J-Q3F"/>
+        <segue reference="uUp-N2-Zdn"/>
     </inferredMetricsTieBreakers>
 </document>
