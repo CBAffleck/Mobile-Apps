@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FmF-0x-24r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign Out Screen-->
+        <scene sceneID="hqa-4d-8gz">
+            <objects>
+                <viewController storyboardIdentifier="SignOutScreen" id="FmF-0x-24r" customClass="SignOutScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4si-dh-ngG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udG-DR-KLn">
+                                <rect key="frame" x="78" y="171" width="218" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="m5q-aH-Pih"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="To Home Screen">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goToHomeScreen:" destination="FmF-0x-24r" eventType="touchUpInside" id="QmT-Tx-JpT"/>
+                                    <segue destination="190-H5-f6A" kind="show" id="VOa-Hd-faW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJT-Jv-q6t">
+                                <rect key="frame" x="78" y="318" width="218" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7IS-9P-rZw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Sign Out">
+                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="FmF-0x-24r" eventType="touchUpInside" id="mlA-As-47N"/>
+                                    <segue destination="N8E-8S-96I" kind="show" id="8Gf-0A-9VV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tdX-r2-yeB" firstAttribute="bottom" secondItem="IJT-Jv-q6t" secondAttribute="bottom" constant="319" id="1SD-zB-Mc2"/>
+                            <constraint firstItem="IJT-Jv-q6t" firstAttribute="leading" secondItem="tdX-r2-yeB" secondAttribute="leading" constant="78" id="4QA-2a-oMg"/>
+                            <constraint firstItem="udG-DR-KLn" firstAttribute="leading" secondItem="tdX-r2-yeB" secondAttribute="leading" constant="78" id="TPx-9B-Svm"/>
+                            <constraint firstItem="tdX-r2-yeB" firstAttribute="trailing" secondItem="IJT-Jv-q6t" secondAttribute="trailing" constant="79" id="fvX-ht-E6h"/>
+                            <constraint firstItem="IJT-Jv-q6t" firstAttribute="top" secondItem="udG-DR-KLn" secondAttribute="bottom" constant="117" id="n2t-6k-HVg"/>
+                            <constraint firstItem="tdX-r2-yeB" firstAttribute="trailing" secondItem="udG-DR-KLn" secondAttribute="trailing" constant="79" id="sDg-WH-k0h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tdX-r2-yeB"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="homeScreenButton" destination="udG-DR-KLn" id="3OC-Ds-v7j"/>
+                        <outlet property="signOutButton" destination="IJT-Jv-q6t" id="WFk-CW-neS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HvF-w7-nrv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="104"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="5jp-QT-CnN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="N8E-8S-96I" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ha1-VY-1xL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="333" y="627"/>
+        </scene>
+        <!--Map Home Screen-->
+        <scene sceneID="RgT-5y-3Sl">
+            <objects>
+                <viewController id="190-H5-f6A" customClass="MapHomeScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EYc-9Y-fgv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-Ga-q6l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editable Pin" translatesAutoresizingMaskIntoConstraints="NO" id="UKc-8A-fDQ">
+                                <rect key="frame" x="167.5" y="293.5" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZFp-aB-q9P"/>
+                                    <constraint firstAttribute="width" constant="40" id="b6E-Xx-S39"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-bo-fpU">
+                                <rect key="frame" x="45" y="607" width="285" height="40"/>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7zm-OP-gQv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Set Meeting Point">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PIh-bo-fpU" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" constant="45" id="Gnm-sf-7mN"/>
+                            <constraint firstAttribute="bottom" secondItem="CuO-Ga-q6l" secondAttribute="bottom" id="Iyt-KV-FaJ"/>
+                            <constraint firstItem="lGB-hc-2vn" firstAttribute="bottom" secondItem="PIh-bo-fpU" secondAttribute="bottom" constant="20" id="K8N-vi-9WB"/>
+                            <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-20" id="PKG-IR-1zZ"/>
+                            <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerX" secondItem="EYc-9Y-fgv" secondAttribute="centerX" id="Xli-qw-4Y3"/>
+                            <constraint firstItem="CuO-Ga-q6l" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" id="dBX-um-gNI"/>
+                            <constraint firstItem="CuO-Ga-q6l" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="npr-RS-lTc"/>
+                            <constraint firstAttribute="trailing" secondItem="PIh-bo-fpU" secondAttribute="trailing" constant="45" id="pxg-E6-mic"/>
+                            <constraint firstAttribute="trailing" secondItem="CuO-Ga-q6l" secondAttribute="trailing" id="wdW-RA-KFM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lGB-hc-2vn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kcO-h1-Mtr"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="mapView" destination="CuO-Ga-q6l" id="DsR-3H-BOP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hRD-pw-pDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.5" y="103.52112676056338"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Editable Pin" width="44" height="53"/>
+    </resources>
+</document>

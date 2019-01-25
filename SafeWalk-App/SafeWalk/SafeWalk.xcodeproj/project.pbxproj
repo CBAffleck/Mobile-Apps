@@ -25,6 +25,8 @@
 		C08B46CC21F7ADD60017B2B2 /* newPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */; };
 		C08B46CE21F7AEDF0017B2B2 /* verifyPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */; };
 		C08B46D021F94A230017B2B2 /* mapHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */; };
+		C08B46D321FAECB50017B2B2 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */; };
+		C08B46D521FAEF2F0017B2B2 /* MainScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPassScreen.swift; sourceTree = "<group>"; };
 		C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyPassScreen.swift; sourceTree = "<group>"; };
 		C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapHomeScreen.swift; sourceTree = "<group>"; };
+		C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreens.storyboard; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +147,7 @@
 		C08B469221EC11D70017B2B2 /* SafeWalk */ = {
 			isa = PBXGroup;
 			children = (
+				C08B46D121FAEC700017B2B2 /* Storyboards */,
 				C08B46C121EC18060017B2B2 /* awsconfiguration.json */,
 				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
 				C08B469721EC11D70017B2B2 /* Main.storyboard */,
@@ -177,6 +182,15 @@
 				C08B46B521EC11D80017B2B2 /* Info.plist */,
 			);
 			path = SafeWalkUITests;
+			sourceTree = "<group>";
+		};
+		C08B46D121FAEC700017B2B2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */,
+				C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		CB605DC20357C381B07DA2F4 /* Frameworks */ = {
@@ -299,8 +313,10 @@
 			files = (
 				C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */,
 				C08B469E21EC11D80017B2B2 /* LaunchScreen.storyboard in Resources */,
+				C08B46D321FAECB50017B2B2 /* ForgotPassword.storyboard in Resources */,
 				C08B469B21EC11D80017B2B2 /* Assets.xcassets in Resources */,
 				C08B469921EC11D70017B2B2 /* Main.storyboard in Resources */,
+				C08B46D521FAEF2F0017B2B2 /* MainScreens.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
