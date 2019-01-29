@@ -27,6 +27,8 @@
 		C08B46D021F94A230017B2B2 /* mapHomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */; };
 		C08B46D321FAECB50017B2B2 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */; };
 		C08B46D521FAEF2F0017B2B2 /* MainScreens.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */; };
+		C08B46D721FFE2EE0017B2B2 /* mapTimeNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */; };
+		C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapHomeScreen.swift; sourceTree = "<group>"; };
 		C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainScreens.storyboard; sourceTree = "<group>"; };
+		C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mapTimeNotes.swift; path = SafeWalk/mapTimeNotes.swift; sourceTree = SOURCE_ROOT; };
+		C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapSetDestination.swift; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +156,8 @@
 				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
 				C08B469721EC11D70017B2B2 /* Main.storyboard */,
 				C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */,
+				C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */,
+				C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */,
 				C08B469521EC11D70017B2B2 /* ViewController.swift */,
 				C08B46C321EC194B0017B2B2 /* signUpScreen.swift */,
 				C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */,
@@ -445,9 +451,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */,
+				C08B46D721FFE2EE0017B2B2 /* mapTimeNotes.swift in Sources */,
 				C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */,
 				C08B46D021F94A230017B2B2 /* mapHomeScreen.swift in Sources */,
 				C08B46CC21F7ADD60017B2B2 /* newPassScreen.swift in Sources */,
+				C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */,
 				C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */,
 				C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */,
 				C08B46CE21F7AEDF0017B2B2 /* verifyPassScreen.swift in Sources */,
