@@ -24,7 +24,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     var currLocation = CLLocation()
     var userNotes = ""
     var userDate = ""
-    var userTime = ""
     var meetingPoint : CLLocationCoordinate2D? = nil
     
     override func viewDidLoad() {

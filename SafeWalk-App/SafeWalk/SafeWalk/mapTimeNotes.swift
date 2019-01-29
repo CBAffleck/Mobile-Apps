@@ -12,23 +12,33 @@ import AWSMobileClient
 import MapKit
 import CoreLocation
 
-class mapTimeNotes: UIViewController, UITextViewDelegate {
+class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var setTimeNotesButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var notesField: UITextView!
     
     //MARK: Variables
     var userNotes = ""
     var userDate = ""
-    var userTime = ""
     var meetingPoint : CLLocationCoordinate2D? = nil
+    private var datePicker : UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardOnTap()
+        
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .dateAndTime
+        datePicker?.addTarget(self, action: #selector(mapTimeNotes.dateChanged(datePicker:)), for: .valueChanged)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tap(gestureReconizer:)))
+        dateLabel.addGestureRecognizer(tap)
+        dateLabel.isUserInteractionEnabled = true
+        datePicker?.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
+        datePicker?.isHidden = true
+        let closeTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureReconizer:)))
+        view.addSubview(datePicker!)
+        view.addGestureRecognizer(closeTap)
 
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -43,6 +53,27 @@ class mapTimeNotes: UIViewController, UITextViewDelegate {
         notesField.delegate = self
         notesField.text = "Add any meeting notes here..."
         notesField.textColor = UIColor.lightGray
+    }
+    
+    //Date picker stuff
+    @objc func tap(gestureReconizer: UITapGestureRecognizer) {
+        datePicker?.isHidden = false
+        setTimeNotesButton.isHidden = true
+    }
+    
+    @objc func viewTapped(gestureReconizer: UITapGestureRecognizer) {
+        datePicker?.isHidden = true
+        setTimeNotesButton.isHidden = false
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker : UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateLabel.text = dateFormatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
     
     //Handle textview stuff
@@ -72,7 +103,6 @@ class mapTimeNotes: UIViewController, UITextViewDelegate {
         if segue.destination is mapSetDestination {
             let view = segue.destination as? mapSetDestination
             view?.userDate = userDate
-            view?.userTime = userTime
             view?.userNotes = userNotes
             view?.meetingPoint = meetingPoint
         }
