@@ -63,15 +63,20 @@ class mapTimeNotes: UIViewController, UITextViewDelegate {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is mapSetDestination {
+            let view = segue.destination as? mapSetDestination
+            view?.userDate = userDate
+            view?.userTime = userTime
+            view?.userNotes = userNotes
+            view?.meetingPoint = meetingPoint
+        }
     }
-    */
     
     //MARK: Actions
     @IBAction func setTimeNotes(_ sender: UIButton) {

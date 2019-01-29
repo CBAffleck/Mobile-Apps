@@ -154,7 +154,6 @@
 				C08B46D121FAEC700017B2B2 /* Storyboards */,
 				C08B46C121EC18060017B2B2 /* awsconfiguration.json */,
 				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
-				C08B469721EC11D70017B2B2 /* Main.storyboard */,
 				C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */,
 				C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */,
 				C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */,
@@ -193,6 +192,7 @@
 		C08B46D121FAEC700017B2B2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				C08B469721EC11D70017B2B2 /* Main.storyboard */,
 				C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */,
 				C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */,
 			);
