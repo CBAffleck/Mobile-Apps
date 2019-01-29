@@ -98,6 +98,18 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
         checkLocationAuth()
     }
     
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is mapTimeNotes {
+            let view = segue.destination as? mapTimeNotes
+            view?.meetingPoint = mapView?.centerCoordinate
+        }
+    }
+    
     //MARK: Actions
     @IBAction func setMeetingPoint(_ sender: UIButton) {
     }

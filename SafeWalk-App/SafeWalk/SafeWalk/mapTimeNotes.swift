@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import AWSAuthCore
+import AWSMobileClient
+import MapKit
+import CoreLocation
 
-class mapTimeNotes: UIViewController {
+class mapTimeNotes: UIViewController, UITextViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var setTimeNotesButton: UIButton!
@@ -17,13 +21,47 @@ class mapTimeNotes: UIViewController {
     @IBOutlet weak var notesField: UITextView!
     
     //MARK: Variables
+    var userNotes = ""
+    var userDate = ""
+    var userTime = ""
+    var meetingPoint : CLLocationCoordinate2D? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardOnTap()
 
-        // Do any additional setup after loading the view.
+        //AWS Mobile Client initialization
+        AWSMobileClient.sharedInstance().initialize { (userState, error) in
+            if let userState = userState {
+                print("UserState: \(userState.rawValue)")
+            } else if let error = error {
+                print("error: \(error.localizedDescription)")
+            }
+        }
+        
+        //Set textview delegate
+        notesField.delegate = self
+        notesField.text = "Add any meeting notes here..."
+        notesField.textColor = UIColor.lightGray
     }
     
+    //Handle textview stuff
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if notesField.textColor == UIColor.lightGray {
+            notesField.text = nil
+            notesField.textColor = UIColor.black
+            
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if notesField.text.isEmpty {
+            textView.text = "Add any meeting notes here..."
+            textView.textColor = UIColor.lightGray
+        } else {
+            userNotes = notesField.text
+        }
+    }
 
     /*
     // MARK: - Navigation

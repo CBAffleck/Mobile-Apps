@@ -150,7 +150,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add any meeting notes here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-wO-DRM">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Sla-wO-DRM">
                                 <rect key="frame" x="20" y="220" width="335" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -339,6 +339,7 @@
         <image name="SidebarIcon" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4av-xL-agn"/>
         <segue reference="GyF-0j-XwS"/>
         <segue reference="Pzo-6T-nYI"/>
     </inferredMetricsTieBreakers>
