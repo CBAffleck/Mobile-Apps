@@ -12,6 +12,9 @@ class mapTimeNotes: UIViewController {
 
     //MARK: Properties
     @IBOutlet weak var setTimeNotesButton: UIButton!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var notesField: UITextView!
     
     //MARK: Variables
     
@@ -36,4 +39,6 @@ class mapTimeNotes: UIViewController {
     @IBAction func setTimeNotes(_ sender: UIButton) {
     }
     
+    @IBAction func backToMainMapScreen(_ sender: UIButton) {
+    }
 }

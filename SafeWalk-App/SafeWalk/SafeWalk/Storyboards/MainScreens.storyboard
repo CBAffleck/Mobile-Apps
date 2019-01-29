@@ -107,6 +107,7 @@
                                 </constraints>
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
+                                    <action selector="backToMainMapScreen:" destination="Hpj-sC-OXU" eventType="touchUpInside" id="hjV-oE-Q66"/>
                                     <segue destination="190-H5-f6A" kind="show" id="GyF-0j-XwS"/>
                                 </connections>
                             </button>
@@ -119,7 +120,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMH-IK-nD4">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMH-IK-nD4">
                                 <rect key="frame" x="263" y="145" width="92" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1c6-dA-cyM"/>
@@ -129,7 +130,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 28, 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-jm-rg1">
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 28, 2019" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-jm-rg1">
                                 <rect key="frame" x="20" y="145" width="168" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="Dfh-OI-la6"/>
@@ -184,7 +185,10 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="fVr-jm-rg1" id="tnq-wK-IxA"/>
+                        <outlet property="notesField" destination="Sla-wO-DRM" id="WdZ-ER-rTI"/>
                         <outlet property="setTimeNotesButton" destination="lym-Pq-A5p" id="Eo0-EO-0lk"/>
+                        <outlet property="timeLabel" destination="jMH-IK-nD4" id="PUb-ey-SPL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRV-fM-Joq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,6 +228,7 @@
                                 </constraints>
                                 <state key="normal" image="BackIcon-1"/>
                                 <connections>
+                                    <action selector="backToNotes:" destination="y9M-3t-2s7" eventType="touchUpInside" id="bGZ-oI-Pgh"/>
                                     <segue destination="Hpj-sC-OXU" kind="show" id="Pzo-6T-nYI"/>
                                 </connections>
                             </button>
@@ -244,6 +249,8 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="zOc-5K-Ags" id="d1V-1d-AWm"/>
+                        <outlet property="mapView" destination="OMD-Pi-tkj" id="pRy-Jq-3Zg"/>
                         <outlet property="setDestinationButton" destination="hYY-NN-cKC" id="JEd-FP-ouI"/>
                     </connections>
                 </viewController>
@@ -333,6 +340,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GyF-0j-XwS"/>
-        <segue reference="XrF-J4-unZ"/>
+        <segue reference="Pzo-6T-nYI"/>
     </inferredMetricsTieBreakers>
 </document>

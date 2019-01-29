@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import AWSAuthCore
+import AWSMobileClient
+import MapKit
+import CoreLocation
 
-class mapSetDestination: UIViewController {
+class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate {
 
     //MARK: Properties
     @IBOutlet weak var setDestinationButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var backButton: UIButton!
     
     //MARK: Variables
     
@@ -36,4 +42,6 @@ class mapSetDestination: UIViewController {
     @IBAction func setDestination(_ sender: UIButton) {
     }
     
+    @IBAction func backToNotes(_ sender: UIButton) {
+    }
 }
