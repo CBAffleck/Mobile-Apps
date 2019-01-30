@@ -37,6 +37,8 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
         dateLabel.isUserInteractionEnabled = true
         datePicker?.frame = CGRect(x: 0, y: self.view.frame.height - 200, width: self.view.frame.width, height: 200)
         datePicker?.isHidden = true
+        datePicker?.minimumDate = Date()
+        datePicker?.maximumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
         let closeTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(gestureReconizer:)))
         view.addSubview(datePicker!)
         view.addGestureRecognizer(closeTap)

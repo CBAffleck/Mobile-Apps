@@ -18,6 +18,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     @IBOutlet weak var setDestinationButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var destinationView: UIImageView!
     
     //MARK: Variables
     var locationManager = CLLocationManager()
@@ -61,7 +62,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     func checkLocationAuth() {
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
-            mapView.showsUserLocation = true
+            mapView.showsUserLocation = false
             centerViewOnUserLocation()
             locationManager.startUpdatingLocation()
             break

@@ -219,15 +219,24 @@
                                     <segue destination="Hpj-sC-OXU" kind="show" id="Pzo-6T-nYI"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DestinationBounds" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-Dc-8YU">
+                                <rect key="frame" x="87.5" y="233.5" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="IYx-tj-8AA"/>
+                                    <constraint firstAttribute="width" constant="200" id="sKP-tH-ajf"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zOc-5K-Ags" firstAttribute="leading" secondItem="mNk-Br-uJ2" secondAttribute="leading" constant="20" id="1XB-76-70p"/>
                             <constraint firstItem="OMD-Pi-tkj" firstAttribute="bottom" secondItem="mNk-Br-uJ2" secondAttribute="bottom" id="70d-ht-X7J"/>
                             <constraint firstItem="zOc-5K-Ags" firstAttribute="top" secondItem="mNk-Br-uJ2" secondAttribute="top" constant="20" id="AJZ-Vv-P71"/>
+                            <constraint firstItem="9Fh-Dc-8YU" firstAttribute="centerX" secondItem="Ldf-g4-aaZ" secondAttribute="centerX" id="GI7-1u-AFb"/>
                             <constraint firstItem="mNk-Br-uJ2" firstAttribute="bottom" secondItem="hYY-NN-cKC" secondAttribute="bottom" constant="20" id="H8Y-At-a7R"/>
                             <constraint firstItem="OMD-Pi-tkj" firstAttribute="trailing" secondItem="mNk-Br-uJ2" secondAttribute="trailing" id="TZ9-dg-St7"/>
                             <constraint firstItem="OMD-Pi-tkj" firstAttribute="top" secondItem="Ldf-g4-aaZ" secondAttribute="top" id="brk-hm-XMF"/>
+                            <constraint firstItem="9Fh-Dc-8YU" firstAttribute="centerY" secondItem="Ldf-g4-aaZ" secondAttribute="centerY" id="eAe-yd-A1f"/>
                             <constraint firstItem="OMD-Pi-tkj" firstAttribute="leading" secondItem="mNk-Br-uJ2" secondAttribute="leading" id="fXY-LW-TbB"/>
                             <constraint firstItem="mNk-Br-uJ2" firstAttribute="trailing" secondItem="hYY-NN-cKC" secondAttribute="trailing" constant="20" id="jzF-MT-53r"/>
                             <constraint firstItem="hYY-NN-cKC" firstAttribute="leading" secondItem="mNk-Br-uJ2" secondAttribute="leading" constant="20" id="tem-So-G1P"/>
@@ -237,6 +246,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="zOc-5K-Ags" id="d1V-1d-AWm"/>
+                        <outlet property="destinationView" destination="9Fh-Dc-8YU" id="i0h-px-17y"/>
                         <outlet property="mapView" destination="OMD-Pi-tkj" id="pRy-Jq-3Zg"/>
                         <outlet property="setDestinationButton" destination="hYY-NN-cKC" id="JEd-FP-ouI"/>
                     </connections>
@@ -322,11 +332,11 @@
     <resources>
         <image name="BackIcon-1" width="43" height="42"/>
         <image name="CloseIcon" width="66" height="66"/>
+        <image name="DestinationBounds" width="224" height="224"/>
         <image name="Editable Pin" width="44" height="53"/>
         <image name="SidebarIcon" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4av-xL-agn"/>
         <segue reference="GyF-0j-XwS"/>
         <segue reference="Pzo-6T-nYI"/>
     </inferredMetricsTieBreakers>
