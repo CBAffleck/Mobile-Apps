@@ -29,6 +29,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.showsCompass = false
 
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -112,7 +113,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
 
     //MARK: Actions
     @IBAction func setDestination(_ sender: UIButton) {
-        getCircleRadius()
     }
     
     @IBAction func backToNotes(_ sender: UIButton) {

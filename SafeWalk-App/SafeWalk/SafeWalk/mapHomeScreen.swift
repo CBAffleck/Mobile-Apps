@@ -25,7 +25,7 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardOnTap()
+        mapView.showsCompass = false
         
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
