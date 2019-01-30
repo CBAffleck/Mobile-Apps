@@ -28,6 +28,7 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Datepicker set up
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .dateAndTime
         datePicker?.addTarget(self, action: #selector(mapTimeNotes.dateChanged(datePicker:)), for: .valueChanged)
@@ -55,28 +56,31 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
         notesField.textColor = UIColor.lightGray
     }
     
-    //Date picker stuff
+    //MARK: Datepicker
+    //Open datepicker if date label is tapped
     @objc func tap(gestureReconizer: UITapGestureRecognizer) {
         datePicker?.isHidden = false
         setTimeNotesButton.isHidden = true
     }
     
+    //Close date picker or keyboard when background is tapped
     @objc func viewTapped(gestureReconizer: UITapGestureRecognizer) {
         datePicker?.isHidden = true
         setTimeNotesButton.isHidden = false
         view.endEditing(true)
     }
     
+    //Formatting for date label when the date in the date picker is changed
     @objc func dateChanged(datePicker : UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .medium
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         dateLabel.text = dateFormatter.string(from: datePicker.date)
         view.endEditing(true)
     }
     
-    //Handle textview stuff
+    //MARK: Textview formatting
     func textViewDidBeginEditing(_ textView: UITextView) {
         if notesField.textColor == UIColor.lightGray {
             notesField.text = nil
