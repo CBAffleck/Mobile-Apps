@@ -100,9 +100,19 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuth()
     }
+    
+    func getCircleRadius() -> Double {
+        let circleEdgePoint = CGPoint(x: (UIScreen.main.bounds.width / 2) + 100, y: UIScreen.main.bounds.height / 2)
+        let cirlceOuterCoordinate = mapView.convert(circleEdgePoint, toCoordinateFrom: mapView)
+        let circleOuterLocation = CLLocation(latitude: cirlceOuterCoordinate.latitude, longitude: cirlceOuterCoordinate.longitude)
+        let centerLocation = CLLocation(latitude: (mapView?.centerCoordinate.latitude)!, longitude: (mapView?.centerCoordinate.longitude)!)
+        let radius : CLLocationDistance = centerLocation.distance(from: circleOuterLocation)
+        return radius
+    }
 
     //MARK: Actions
     @IBAction func setDestination(_ sender: UIButton) {
+        getCircleRadius()
     }
     
     @IBAction func backToNotes(_ sender: UIButton) {
