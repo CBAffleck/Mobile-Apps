@@ -18,10 +18,14 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var setMeetingPointButton: UIButton!
     @IBOutlet weak var sidebarButton: UIButton!
+    @IBOutlet weak var leadingMenuConstraint: NSLayoutConstraint!
+    @IBOutlet weak var hideSidebarButton: UIButton!
+    @IBOutlet weak var sidebar: UIView!
     
     //MARK: Variables
     var locationManager = CLLocationManager()
     var currLocation = CLLocation()
+    var menuShowing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,12 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
         
         //Location services
         checkLocationServices()
+        
+        //Sidebar
+        hideSidebarButton.isHidden = true
+        hideSidebarButton.isEnabled = false
+        hideSidebarButton.alpha = 0.0
+        sidebar.isHidden = true
     }
     
     //User Location Functions
@@ -115,6 +125,27 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     }
     
     @IBAction func openSidebar(_ sender: UIButton) {
+        sidebar.isHidden = false
+        leadingMenuConstraint.constant = 0
+        hideSidebarButton.isHidden = false
+        hideSidebarButton.isEnabled = true
+        
+        //Animation for sidebar
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.hideSidebarButton.alpha = 1.0
+        })
     }
     
+    @IBAction func hideSidebar(_ sender: UIButton) {
+        leadingMenuConstraint.constant = -221
+        hideSidebarButton.isHidden = true
+        hideSidebarButton.isEnabled = false
+        
+        //Animation for sidebar
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.hideSidebarButton.alpha = 0.0
+        })
+    }
 }

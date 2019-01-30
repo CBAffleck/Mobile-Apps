@@ -299,16 +299,47 @@
                                     <action selector="openSidebar:" destination="190-H5-f6A" eventType="touchUpInside" id="gvP-cr-BuZ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvZ-oJ-J7d">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.40089897260273971" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="hideSidebar:" destination="190-H5-f6A" eventType="touchUpInside" id="vgA-Zp-YQe"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-TL-eqX">
+                                <rect key="frame" x="0.0" y="0.0" width="221" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oty-TH-zbE">
+                                        <rect key="frame" x="79" y="244" width="63" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="221" id="ex2-zL-FJF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ZvZ-oJ-J7d" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" id="4Z6-vd-rMr"/>
+                            <constraint firstItem="NV5-TL-eqX" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="BNl-cM-H2I"/>
                             <constraint firstItem="PIh-bo-fpU" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" constant="20" id="Gnm-sf-7mN"/>
+                            <constraint firstItem="NV5-TL-eqX" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" constant="-221" id="I8E-DH-yXn"/>
+                            <constraint firstAttribute="bottom" secondItem="NV5-TL-eqX" secondAttribute="bottom" id="INF-oX-nXT"/>
                             <constraint firstAttribute="bottom" secondItem="CuO-Ga-q6l" secondAttribute="bottom" id="Iyt-KV-FaJ"/>
                             <constraint firstItem="lGB-hc-2vn" firstAttribute="bottom" secondItem="PIh-bo-fpU" secondAttribute="bottom" constant="20" id="K8N-vi-9WB"/>
+                            <constraint firstAttribute="bottom" secondItem="ZvZ-oJ-J7d" secondAttribute="bottom" id="NKu-nI-a2l"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-20" id="PKG-IR-1zZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ZvZ-oJ-J7d" secondAttribute="trailing" id="Psg-YP-KbE"/>
                             <constraint firstItem="alD-3Z-I1G" firstAttribute="top" secondItem="lGB-hc-2vn" secondAttribute="top" constant="20" id="Twj-vb-boq"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerX" secondItem="EYc-9Y-fgv" secondAttribute="centerX" id="Xli-qw-4Y3"/>
                             <constraint firstItem="alD-3Z-I1G" firstAttribute="leading" secondItem="lGB-hc-2vn" secondAttribute="leading" constant="20" id="c7L-LS-JZY"/>
+                            <constraint firstItem="ZvZ-oJ-J7d" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="d6j-ik-4qM"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" id="dBX-um-gNI"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="npr-RS-lTc"/>
                             <constraint firstAttribute="trailing" secondItem="PIh-bo-fpU" secondAttribute="trailing" constant="20" id="pxg-E6-mic"/>
@@ -319,14 +350,17 @@
                     <navigationItem key="navigationItem" id="kcO-h1-Mtr"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="hideSidebarButton" destination="ZvZ-oJ-J7d" id="467-L0-p9r"/>
+                        <outlet property="leadingMenuConstraint" destination="I8E-DH-yXn" id="C6L-zV-xYa"/>
                         <outlet property="mapView" destination="CuO-Ga-q6l" id="DsR-3H-BOP"/>
                         <outlet property="setMeetingPointButton" destination="PIh-bo-fpU" id="Pzj-bs-UeI"/>
+                        <outlet property="sidebar" destination="NV5-TL-eqX" id="qXm-dp-bjj"/>
                         <outlet property="sidebarButton" destination="alD-3Z-I1G" id="zUC-Kk-R0e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRD-pw-pDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1312.5" y="103.52112676056338"/>
+            <point key="canvasLocation" x="1311.2" y="102.99850074962519"/>
         </scene>
     </scenes>
     <resources>
@@ -338,6 +372,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GyF-0j-XwS"/>
-        <segue reference="Pzo-6T-nYI"/>
+        <segue reference="XrF-J4-unZ"/>
     </inferredMetricsTieBreakers>
 </document>
