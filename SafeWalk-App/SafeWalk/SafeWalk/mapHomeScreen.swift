@@ -21,6 +21,12 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     @IBOutlet weak var leadingMenuConstraint: NSLayoutConstraint!
     @IBOutlet weak var hideSidebarButton: UIButton!
     @IBOutlet weak var sidebar: UIView!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var groupsButton: UIButton!
+    @IBOutlet weak var filtersButton: UIButton!
+    @IBOutlet weak var blacklistButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var signOutButton: UIButton!
     
     //MARK: Variables
     var locationManager = CLLocationManager()
@@ -148,4 +154,24 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
             self.hideSidebarButton.alpha = 0.0
         })
     }
+    
+    @IBAction func toProfile(_ sender: UIButton) {
+    }
+    
+    @IBAction func toGroups(_ sender: UIButton) {
+    }
+    
+    @IBAction func toFilters(_ sender: UIButton) {
+    }
+    
+    @IBAction func toBlacklist(_ sender: UIButton) {
+    }
+    
+    @IBAction func toHelp(_ sender: UIButton) {
+    }
+    
+    @IBAction func toSignInScreen(_ sender: UIButton) {
+        AWSMobileClient.sharedInstance().signOut()
+    }
+    
 }

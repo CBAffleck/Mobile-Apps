@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FmF-0x-24r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="190-H5-f6A">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,71 +10,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign Out Screen-->
-        <scene sceneID="hqa-4d-8gz">
-            <objects>
-                <viewController storyboardIdentifier="SignOutScreen" id="FmF-0x-24r" customClass="SignOutScreen" customModule="SafeWalk" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="4si-dh-ngG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udG-DR-KLn">
-                                <rect key="frame" x="78" y="171" width="218" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="m5q-aH-Pih"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="To Home Screen">
-                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToHomeScreen:" destination="FmF-0x-24r" eventType="touchUpInside" id="QmT-Tx-JpT"/>
-                                    <segue destination="190-H5-f6A" kind="show" id="VOa-Hd-faW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJT-Jv-q6t">
-                                <rect key="frame" x="78" y="318" width="218" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7IS-9P-rZw"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="Sign Out">
-                                    <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signOut:" destination="FmF-0x-24r" eventType="touchUpInside" id="mlA-As-47N"/>
-                                    <segue destination="N8E-8S-96I" kind="show" id="8Gf-0A-9VV"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="tdX-r2-yeB" firstAttribute="bottom" secondItem="IJT-Jv-q6t" secondAttribute="bottom" constant="319" id="1SD-zB-Mc2"/>
-                            <constraint firstItem="IJT-Jv-q6t" firstAttribute="leading" secondItem="tdX-r2-yeB" secondAttribute="leading" constant="78" id="4QA-2a-oMg"/>
-                            <constraint firstItem="udG-DR-KLn" firstAttribute="leading" secondItem="tdX-r2-yeB" secondAttribute="leading" constant="78" id="TPx-9B-Svm"/>
-                            <constraint firstItem="tdX-r2-yeB" firstAttribute="trailing" secondItem="IJT-Jv-q6t" secondAttribute="trailing" constant="79" id="fvX-ht-E6h"/>
-                            <constraint firstItem="IJT-Jv-q6t" firstAttribute="top" secondItem="udG-DR-KLn" secondAttribute="bottom" constant="117" id="n2t-6k-HVg"/>
-                            <constraint firstItem="tdX-r2-yeB" firstAttribute="trailing" secondItem="udG-DR-KLn" secondAttribute="trailing" constant="79" id="sDg-WH-k0h"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="tdX-r2-yeB"/>
-                    </view>
-                    <nil key="simulatedTopBarMetrics"/>
-                    <connections>
-                        <outlet property="homeScreenButton" destination="udG-DR-KLn" id="3OC-Ds-v7j"/>
-                        <outlet property="signOutButton" destination="IJT-Jv-q6t" id="WFk-CW-neS"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HvF-w7-nrv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="334" y="104"/>
-        </scene>
         <!--Main-->
         <scene sceneID="5jp-QT-CnN">
             <objects>
                 <viewControllerPlaceholder storyboardName="Main" id="N8E-8S-96I" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha1-VY-1xL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="627"/>
+            <point key="canvasLocation" x="1310" y="590"/>
         </scene>
         <!--Map Time Notes-->
         <scene sceneID="t5T-dN-LM1">
@@ -309,18 +251,107 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-TL-eqX">
                                 <rect key="frame" x="0.0" y="0.0" width="221" height="667"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oty-TH-zbE">
-                                        <rect key="frame" x="79" y="244" width="63" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                        <state key="normal" title="Back">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oty-TH-zbE">
+                                        <rect key="frame" x="29" y="28" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="97c-C3-kNE"/>
+                                            <constraint firstAttribute="width" constant="163" id="fGL-gW-gcr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="PROFILE">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="toProfile:" destination="190-H5-f6A" eventType="touchUpInside" id="y53-xA-eX2"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1P-4K-AiY">
+                                        <rect key="frame" x="29" y="81" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="163" id="Osx-Ou-871"/>
+                                            <constraint firstAttribute="height" constant="45" id="s4M-xI-3wy"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="GROUPS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toGroups:" destination="190-H5-f6A" eventType="touchUpInside" id="88f-Dr-bRB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wb3-sg-jSU">
+                                        <rect key="frame" x="29" y="134" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="163" id="Vi3-QZ-S67"/>
+                                            <constraint firstAttribute="height" constant="45" id="k9p-KV-D9v"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="FILTERS">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toFilters:" destination="190-H5-f6A" eventType="touchUpInside" id="yhQ-M3-2Wo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fm7-bW-fiq">
+                                        <rect key="frame" x="29" y="187" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="163" id="DON-fa-zBB"/>
+                                            <constraint firstAttribute="height" constant="45" id="fwg-Uh-c2R"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="BLACKLIST">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toBlacklist:" destination="190-H5-f6A" eventType="touchUpInside" id="e3n-79-u5d"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6E-bZ-EDI">
+                                        <rect key="frame" x="29" y="240" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="akA-Wm-hOL"/>
+                                            <constraint firstAttribute="width" constant="163" id="tcX-pd-4iE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="HELP">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toHelp:" destination="190-H5-f6A" eventType="touchUpInside" id="qu5-4g-YSk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqc-Km-gAc">
+                                        <rect key="frame" x="29" y="293" width="163" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="JoF-wA-D5B"/>
+                                            <constraint firstAttribute="width" constant="163" id="MrH-8N-Jus"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <state key="normal" title="SIGN OUT">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toSignInScreen:" destination="190-H5-f6A" eventType="touchUpInside" id="RqT-Q7-LO2"/>
+                                            <segue destination="N8E-8S-96I" kind="show" id="UTm-K0-sk0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Wb3-sg-jSU" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="5Ls-c3-l2O"/>
+                                    <constraint firstItem="S1P-4K-AiY" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="6cO-OT-8TP"/>
+                                    <constraint firstItem="fm7-bW-fiq" firstAttribute="top" secondItem="Wb3-sg-jSU" secondAttribute="bottom" constant="8" id="8RV-lI-XxU"/>
+                                    <constraint firstItem="x6E-bZ-EDI" firstAttribute="top" secondItem="fm7-bW-fiq" secondAttribute="bottom" constant="8" id="OUL-Zp-c2A"/>
+                                    <constraint firstItem="S1P-4K-AiY" firstAttribute="top" secondItem="Oty-TH-zbE" secondAttribute="bottom" constant="8" id="VHe-Bq-niW"/>
+                                    <constraint firstItem="Wb3-sg-jSU" firstAttribute="top" secondItem="S1P-4K-AiY" secondAttribute="bottom" constant="8" id="dxF-yF-Z7q"/>
+                                    <constraint firstItem="fm7-bW-fiq" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="et4-H5-9Vn"/>
                                     <constraint firstAttribute="width" constant="221" id="ex2-zL-FJF"/>
+                                    <constraint firstItem="Oty-TH-zbE" firstAttribute="top" secondItem="NV5-TL-eqX" secondAttribute="top" constant="28" id="k9l-D7-QMF"/>
+                                    <constraint firstItem="Oqc-Km-gAc" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="kEb-lq-ysl"/>
+                                    <constraint firstItem="Oty-TH-zbE" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="xTh-RS-Joj"/>
+                                    <constraint firstItem="Oqc-Km-gAc" firstAttribute="top" secondItem="x6E-bZ-EDI" secondAttribute="bottom" constant="8" id="yzp-nk-KFh"/>
+                                    <constraint firstItem="x6E-bZ-EDI" firstAttribute="leading" secondItem="NV5-TL-eqX" secondAttribute="leading" constant="29" id="zBl-8C-bnu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -350,12 +381,18 @@
                     <navigationItem key="navigationItem" id="kcO-h1-Mtr"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="blacklistButton" destination="fm7-bW-fiq" id="3RF-hp-Ad9"/>
+                        <outlet property="filtersButton" destination="Wb3-sg-jSU" id="4Gi-M3-OhY"/>
+                        <outlet property="groupsButton" destination="S1P-4K-AiY" id="AHc-FO-tNK"/>
+                        <outlet property="helpButton" destination="x6E-bZ-EDI" id="31f-7o-Cwx"/>
                         <outlet property="hideSidebarButton" destination="ZvZ-oJ-J7d" id="467-L0-p9r"/>
                         <outlet property="leadingMenuConstraint" destination="I8E-DH-yXn" id="C6L-zV-xYa"/>
                         <outlet property="mapView" destination="CuO-Ga-q6l" id="DsR-3H-BOP"/>
+                        <outlet property="profileButton" destination="Oty-TH-zbE" id="SK0-s0-G6W"/>
                         <outlet property="setMeetingPointButton" destination="PIh-bo-fpU" id="Pzj-bs-UeI"/>
                         <outlet property="sidebar" destination="NV5-TL-eqX" id="qXm-dp-bjj"/>
                         <outlet property="sidebarButton" destination="alD-3Z-I1G" id="zUC-Kk-R0e"/>
+                        <outlet property="signOutButton" destination="Oqc-Km-gAc" id="HCI-PE-qAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hRD-pw-pDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,7 +408,6 @@
         <image name="SidebarIcon" width="80" height="80"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GyF-0j-XwS"/>
         <segue reference="XrF-J4-unZ"/>
     </inferredMetricsTieBreakers>
 </document>

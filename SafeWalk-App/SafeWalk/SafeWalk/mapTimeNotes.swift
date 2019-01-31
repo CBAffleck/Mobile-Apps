@@ -109,6 +109,9 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
         if segue.destination is mapSetDestination {
             let view = segue.destination as? mapSetDestination
             view?.userDate = userDate
+            if notesField.textColor == UIColor.lightGray {
+                userNotes = "None"
+            }
             view?.userNotes = userNotes
             view?.meetingPoint = meetingPoint
         }

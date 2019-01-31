@@ -20,7 +20,6 @@
 		C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = C08B46C121EC18060017B2B2 /* awsconfiguration.json */; };
 		C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C321EC194B0017B2B2 /* signUpScreen.swift */; };
 		C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */; };
-		C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C721EC298E0017B2B2 /* signOutScreen.swift */; };
 		C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */; };
 		C08B46CC21F7ADD60017B2B2 /* newPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */; };
 		C08B46CE21F7AEDF0017B2B2 /* verifyPassScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */; };
@@ -72,7 +71,6 @@
 		C08B46C121EC18060017B2B2 /* awsconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = awsconfiguration.json; sourceTree = SOURCE_ROOT; };
 		C08B46C321EC194B0017B2B2 /* signUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signUpScreen.swift; sourceTree = "<group>"; };
 		C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyEmailScreen.swift; sourceTree = "<group>"; };
-		C08B46C721EC298E0017B2B2 /* signOutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signOutScreen.swift; sourceTree = "<group>"; };
 		C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forgotPassScreen.swift; sourceTree = "<group>"; };
 		C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPassScreen.swift; sourceTree = "<group>"; };
 		C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verifyPassScreen.swift; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				C08B46C921F6FDD40017B2B2 /* forgotPassScreen.swift */,
 				C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */,
 				C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */,
-				C08B46C721EC298E0017B2B2 /* signOutScreen.swift */,
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
 				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
@@ -452,7 +449,6 @@
 			files = (
 				C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */,
 				C08B46D721FFE2EE0017B2B2 /* mapTimeNotes.swift in Sources */,
-				C08B46C821EC298E0017B2B2 /* signOutScreen.swift in Sources */,
 				C08B46D021F94A230017B2B2 /* mapHomeScreen.swift in Sources */,
 				C08B46CC21F7ADD60017B2B2 /* newPassScreen.swift in Sources */,
 				C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */,
