@@ -227,7 +227,9 @@
                                 </state>
                                 <connections>
                                     <action selector="setMeetingPoint:" destination="190-H5-f6A" eventType="touchUpInside" id="MHH-aa-p9g"/>
-                                    <segue destination="Hpj-sC-OXU" kind="show" id="XrF-J4-unZ"/>
+                                    <segue destination="Hpj-sC-OXU" kind="popoverPresentation" popoverAnchorView="PIh-bo-fpU" id="XrF-J4-unZ">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alD-3Z-I1G">

@@ -10,6 +10,7 @@
 		0C6A6B98C411358AB9FA21B3 /* Pods_SafeWalkUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B90B6A97BE3527879902D8 /* Pods_SafeWalkUITests.framework */; };
 		265BB0559BC1FC25041594B4 /* Pods_SafeWalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CAF005248B06E4C6774DF3F /* Pods_SafeWalk.framework */; };
 		5281F874CF02493521800DDE /* Pods_SafeWalkTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */; };
+		C05B165322028B63002E6DFA /* SlideUpSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05B165222028B63002E6DFA /* SlideUpSegue.swift */; };
 		C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B469321EC11D70017B2B2 /* AppDelegate.swift */; };
 		C08B469621EC11D70017B2B2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B469521EC11D70017B2B2 /* ViewController.swift */; };
 		C08B469921EC11D70017B2B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C08B469721EC11D70017B2B2 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		99472635525D24CA28726C43 /* Pods-SafeWalkTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A2A095D4D22AC712011794F4 /* Pods-SafeWalk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalk.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalk/Pods-SafeWalk.release.xcconfig"; sourceTree = "<group>"; };
 		BA9C814621412CA703A6D394 /* Pods-SafeWalkUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkUITests/Pods-SafeWalkUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C05B165222028B63002E6DFA /* SlideUpSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideUpSegue.swift; sourceTree = "<group>"; };
 		C08B469021EC11D70017B2B2 /* SafeWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SafeWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C08B469321EC11D70017B2B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C08B469521EC11D70017B2B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +126,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C05B165422028B82002E6DFA /* Custom Segues */ = {
+			isa = PBXGroup;
+			children = (
+				C05B165222028B63002E6DFA /* SlideUpSegue.swift */,
+			);
+			path = "Custom Segues";
+			sourceTree = "<group>";
+		};
 		C08B468721EC11D70017B2B2 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C08B46D121FAEC700017B2B2 /* Storyboards */,
+				C05B165422028B82002E6DFA /* Custom Segues */,
 				C08B46C121EC18060017B2B2 /* awsconfiguration.json */,
 				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
 				C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */,
@@ -456,6 +467,7 @@
 				C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */,
 				C08B46CE21F7AEDF0017B2B2 /* verifyPassScreen.swift in Sources */,
 				C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */,
+				C05B165322028B63002E6DFA /* SlideUpSegue.swift in Sources */,
 				C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
