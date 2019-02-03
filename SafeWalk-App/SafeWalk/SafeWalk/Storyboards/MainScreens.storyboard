@@ -232,10 +232,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="alD-3Z-I1G">
-                                <rect key="frame" x="20" y="40" width="40" height="40"/>
+                                <rect key="frame" x="20" y="48" width="23" height="23"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="PFF-3M-QKE"/>
-                                    <constraint firstAttribute="width" constant="40" id="aed-16-ZC0"/>
+                                    <constraint firstAttribute="width" constant="23" id="FGn-T9-Nxc"/>
+                                    <constraint firstAttribute="height" constant="23" id="LQv-Xo-Wg9"/>
                                 </constraints>
                                 <state key="normal" image="SidebarIcon"/>
                                 <connections>
@@ -368,9 +368,9 @@
                             <constraint firstAttribute="bottom" secondItem="ZvZ-oJ-J7d" secondAttribute="bottom" id="NKu-nI-a2l"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-20" id="PKG-IR-1zZ"/>
                             <constraint firstAttribute="trailing" secondItem="ZvZ-oJ-J7d" secondAttribute="trailing" id="Psg-YP-KbE"/>
-                            <constraint firstItem="alD-3Z-I1G" firstAttribute="top" secondItem="lGB-hc-2vn" secondAttribute="top" constant="20" id="Twj-vb-boq"/>
+                            <constraint firstItem="alD-3Z-I1G" firstAttribute="top" secondItem="lGB-hc-2vn" secondAttribute="top" constant="28" id="X1Y-81-6Ug"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerX" secondItem="EYc-9Y-fgv" secondAttribute="centerX" id="Xli-qw-4Y3"/>
-                            <constraint firstItem="alD-3Z-I1G" firstAttribute="leading" secondItem="lGB-hc-2vn" secondAttribute="leading" constant="20" id="c7L-LS-JZY"/>
+                            <constraint firstItem="alD-3Z-I1G" firstAttribute="leading" secondItem="lGB-hc-2vn" secondAttribute="leading" constant="20" id="Y1O-BW-N1C"/>
                             <constraint firstItem="ZvZ-oJ-J7d" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="d6j-ik-4qM"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="leading" secondItem="EYc-9Y-fgv" secondAttribute="leading" id="dBX-um-gNI"/>
                             <constraint firstItem="CuO-Ga-q6l" firstAttribute="top" secondItem="EYc-9Y-fgv" secondAttribute="top" id="npr-RS-lTc"/>
@@ -406,7 +406,7 @@
         <image name="CloseIcon" width="66" height="66"/>
         <image name="DestinationBounds" width="224" height="224"/>
         <image name="Editable Pin" width="44" height="53"/>
-        <image name="SidebarIcon" width="80" height="80"/>
+        <image name="SidebarIcon" width="45" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="XrF-J4-unZ"/>
