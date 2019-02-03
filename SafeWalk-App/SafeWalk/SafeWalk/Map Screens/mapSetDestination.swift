@@ -30,14 +30,18 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     var userNotes = ""
     var userDate = Date()
     var meetingPoint : CLLocationCoordinate2D? = nil
+    var destination : CLLocationCoordinate2D? = nil
     let halfScreenSize = UIScreen.main.bounds.height / 2
     var counter = Timer()
+    var destinationSet = false
+    var annotations = [MKPointAnnotation()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsCompass = false
         infoView.isHidden = true
         closeButton.isHidden = true
+        mapView.delegate = self
 
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -75,7 +79,11 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = false
-            centerViewOnUserLocation()
+            if !destinationSet {
+                centerViewOnUserLocation()
+            } else {
+                centerViewAroundMarks()
+            }
             locationManager.startUpdatingLocation()
             break
         case .denied:
@@ -90,6 +98,13 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         case .authorizedAlways:
             break
         }
+    }
+    
+    func centerViewAroundMarks() {
+        let p1 = MKMapPoint(meetingPoint!)
+        let p2 = MKMapPoint(destination!)
+        let mapArea = MKMapRect(x: fmin(p1.x, p2.x), y: fmin(p1.y, p2.y), width: fabs(p1.x - p2.x), height: fabs(p1.y - p2.y))
+        mapView.setVisibleMapRect(mapArea, animated: true)
     }
     
     func centerViewOnUserLocation() {
@@ -154,9 +169,36 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         countdownLabel.text = countdown
     }
     
+    func addMapMarks() {
+        let circle = MKCircle(center: destination!, radius: getCircleRadius())
+        let circlePin = MKPointAnnotation()
+        circlePin.coordinate = destination!
+        mapView.addOverlay(circle)
+        annotations.append(circlePin)
+        
+        let startPin = MKPointAnnotation()
+        startPin.coordinate = meetingPoint!
+        mapView.addAnnotation(startPin)
+        annotations.append(startPin)
+        
+        
+//        let randomPoint = MKPointAnnotation()
+//        let a = Double.random(in: 0...1) * 2 * Double.pi
+//        let r = 100 * sqrt(Double.random(in: 0...1))
+//        let xpos = r * cos(a)
+//        let ypos = r * sin(a)
+//        let circleScreenPoint = CGPoint(x: (UIScreen.main.bounds.width / 2) + CGFloat(xpos), y: (UIScreen.main.bounds.height / 2) + CGFloat(ypos))
+//        let randomCircleCoord = mapView.convert(circleScreenPoint, toCoordinateFrom: mapView)
+//        randomPoint.coordinate = randomCircleCoord
+//        mapView.addAnnotation(randomPoint)
+    }
+    
     //MARK: Actions
     @IBAction func setDestination(_ sender: UIButton) {
+        destination = mapView?.centerCoordinate
+        destinationSet = true
         openJourneyView()
+        addMapMarks()
         destinationView.isHidden = true
         backButton.isHidden = true
         closeButton.isHidden = false
@@ -166,5 +208,27 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     }
     
     @IBAction func cancelGroupSearch(_ sender: UIButton) {
+    }
+}
+
+extension mapSetDestination : MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.fillColor = UIColor.init(displayP3Red: 75/255.00, green: 179/255.00, blue: 255/255.00, alpha: 0.2)
+            return circleRenderer
+        }
+        return MKCircleRenderer(overlay: overlay)
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        } else {
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "MKAnnotationView") ?? MKAnnotationView()
+            annotationView.image = UIImage(named: "Editable_pin.png")
+            annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
+            return annotationView
+        }
     }
 }

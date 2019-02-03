@@ -263,8 +263,8 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="CuO-Ga-q6l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editable Pin" translatesAutoresizingMaskIntoConstraints="NO" id="UKc-8A-fDQ">
-                                <rect key="frame" x="167.5" y="293.5" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Editable_pin" translatesAutoresizingMaskIntoConstraints="NO" id="UKc-8A-fDQ">
+                                <rect key="frame" x="167.5" y="301.5" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ZFp-aB-q9P"/>
                                     <constraint firstAttribute="width" constant="40" id="b6E-Xx-S39"/>
@@ -420,7 +420,7 @@
                             <constraint firstAttribute="bottom" secondItem="CuO-Ga-q6l" secondAttribute="bottom" id="Iyt-KV-FaJ"/>
                             <constraint firstItem="lGB-hc-2vn" firstAttribute="bottom" secondItem="PIh-bo-fpU" secondAttribute="bottom" constant="20" id="K8N-vi-9WB"/>
                             <constraint firstAttribute="bottom" secondItem="ZvZ-oJ-J7d" secondAttribute="bottom" id="NKu-nI-a2l"/>
-                            <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-20" id="PKG-IR-1zZ"/>
+                            <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerY" secondItem="EYc-9Y-fgv" secondAttribute="centerY" constant="-12" id="PKG-IR-1zZ"/>
                             <constraint firstAttribute="trailing" secondItem="ZvZ-oJ-J7d" secondAttribute="trailing" id="Psg-YP-KbE"/>
                             <constraint firstItem="alD-3Z-I1G" firstAttribute="top" secondItem="lGB-hc-2vn" secondAttribute="top" constant="28" id="X1Y-81-6Ug"/>
                             <constraint firstItem="UKc-8A-fDQ" firstAttribute="centerX" secondItem="EYc-9Y-fgv" secondAttribute="centerX" id="Xli-qw-4Y3"/>
@@ -459,10 +459,10 @@
         <image name="BackIcon-1" width="43" height="42"/>
         <image name="CloseIcon" width="66" height="66"/>
         <image name="DestinationBounds" width="224" height="224"/>
-        <image name="Editable Pin" width="44" height="53"/>
+        <image name="Editable_pin" width="44" height="53"/>
         <image name="SidebarIcon" width="45" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pzo-6T-nYI"/>
+        <segue reference="XrF-J4-unZ"/>
     </inferredMetricsTieBreakers>
 </document>
