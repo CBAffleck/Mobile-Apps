@@ -114,6 +114,11 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
         checkLocationAuth()
     }
     
+    override func unwind(for unwindSegue: UIStoryboardSegue, towards subsequentVC: UIViewController) {
+        let segue = UnwindSlideUpSegue(identifier: unwindSegue.identifier, source: unwindSegue.source, destination: unwindSegue.destination)
+        segue.perform()
+    }
+    
     //MARK: Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
@@ -172,6 +177,10 @@ class MapHomeScreen: UIViewController, UITextFieldDelegate, CLLocationManagerDel
     
     @IBAction func toSignInScreen(_ sender: UIButton) {
         AWSMobileClient.sharedInstance().signOut()
+    }
+    
+    @IBAction func prepareForUnwind(segue:UIStoryboardSegue) {
+        
     }
     
 }
