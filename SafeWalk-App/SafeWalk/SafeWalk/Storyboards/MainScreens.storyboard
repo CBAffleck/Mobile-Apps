@@ -171,7 +171,7 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="cancelGroupSearch:" destination="y9M-3t-2s7" eventType="touchUpInside" id="4sa-UN-jbC"/>
-                                    <segue destination="190-H5-f6A" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="TIJ-ZY-n8T"/>
+                                    <segue destination="190-H5-f6A" kind="show" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="TIJ-ZY-n8T"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DestinationBounds" translatesAutoresizingMaskIntoConstraints="NO" id="9Fh-Dc-8YU">
