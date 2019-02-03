@@ -21,7 +21,7 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
     
     //MARK: Variables
     var userNotes = ""
-    var userDate = ""
+    var userDate = Date()
     var meetingPoint : CLLocationCoordinate2D? = nil
     private var datePicker : UIDatePicker?
     
@@ -79,6 +79,7 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US")
         dateLabel.text = dateFormatter.string(from: datePicker.date)
+        userDate = dateFormatter.date(from: dateLabel.text!)!
         view.endEditing(true)
     }
     
