@@ -459,7 +459,7 @@
         <image name="BackIcon-1" width="43" height="42"/>
         <image name="CloseIcon" width="66" height="66"/>
         <image name="DestinationBounds" width="224" height="224"/>
-        <image name="Editable_pin" width="44" height="53"/>
+        <image name="Editable_pin" width="88" height="106"/>
         <image name="SidebarIcon" width="45" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>

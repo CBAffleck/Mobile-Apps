@@ -33,7 +33,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     var destination : CLLocationCoordinate2D? = nil
     let halfScreenSize = UIScreen.main.bounds.height / 2
     var counter = Timer()
-    var destinationSet = false
     var radius = Double()
     
     override func viewDidLoad() {
@@ -79,11 +78,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         switch CLLocationManager.authorizationStatus() {
         case .authorizedWhenInUse:
             mapView.showsUserLocation = false
-            if !destinationSet {
-                centerViewOnUserLocation()
-            } else {
-                centerViewAroundMarks()
-            }
+            centerViewOnUserLocation()
             locationManager.startUpdatingLocation()
             break
         case .denied:
@@ -98,13 +93,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         case .authorizedAlways:
             break
         }
-    }
-    
-    func centerViewAroundMarks() {
-        let p1 = MKMapPoint(meetingPoint!)
-        let p2 = MKMapPoint(destination!)
-        let mapArea = MKMapRect(x: fmin(p1.x, p2.x), y: fmin(p1.y, p2.y), width: fabs(p1.x - p2.x), height: fabs(p1.y - p2.y))
-        mapView.setVisibleMapRect(mapArea, animated: true)
     }
     
     func centerViewOnUserLocation() {
@@ -180,14 +168,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
 //        startPin.title = "Meeting Point"
 //        startPin.subtitle = "Meeting Time: \(userDate) \nNotes: \(userNotes)"
         mapView.addAnnotation(startPin)
-        
-//        let destinationPin = MKPointAnnotation()
-//        destinationPin.coordinate = coordinateFromBearing(p1: meetingPoint!, p2: destination!, radiusDist: radius)
-//        mapView.addAnnotation(destinationPin)
-        
-//        let randPin = MKPointAnnotation()
-//        randPin.coordinate = randomCoordinate(destination!)
-//        mapView.addAnnotation(randPin)
     }
     
     //Function that returns a random coordinate somewhere within the destination circlular area
@@ -260,7 +240,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     @IBAction func setDestination(_ sender: UIButton) {
         destination = mapView?.centerCoordinate
         radius = getCircleRadius()
-        destinationSet = true
         openJourneyView()
         addMapMarks()
         displayRoute(start: meetingPoint!, end: coordinateFromBearing(p1: meetingPoint!, p2: destination!, radiusDist: radius))
@@ -299,6 +278,7 @@ extension mapSetDestination : MKMapViewDelegate {
         } else {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "MKAnnotationView") ?? MKAnnotationView()
             annotationView.image = UIImage(named: "Editable_pin.png")
+            annotationView.frame.size = CGSize(width: 30, height: 35)
             annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
             annotationView.canShowCallout = true
             return annotationView
