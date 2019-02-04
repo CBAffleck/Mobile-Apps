@@ -56,6 +56,11 @@ class mapTimeNotes: UIViewController, UITextViewDelegate, UIPickerViewDelegate {
         notesField.delegate = self
         notesField.text = "Add any meeting notes here..."
         notesField.textColor = UIColor.lightGray
+        let dateFormat = DateFormatter()
+        dateFormat.dateStyle = .medium
+        dateFormat.timeStyle = .short
+        dateFormat.locale = Locale(identifier: "en_US")
+        dateLabel.text = dateFormat.string(from: Date())
     }
     
     //MARK: Datepicker

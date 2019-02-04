@@ -177,6 +177,8 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         
         let startPin = MKPointAnnotation()
         startPin.coordinate = meetingPoint!
+//        startPin.title = "Meeting Point"
+//        startPin.subtitle = "Meeting Time: \(userDate) \nNotes: \(userNotes)"
         mapView.addAnnotation(startPin)
         
 //        let destinationPin = MKPointAnnotation()
@@ -298,6 +300,7 @@ extension mapSetDestination : MKMapViewDelegate {
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "MKAnnotationView") ?? MKAnnotationView()
             annotationView.image = UIImage(named: "Editable_pin.png")
             annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
+            annotationView.canShowCallout = true
             return annotationView
         }
     }
