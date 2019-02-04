@@ -169,7 +169,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     }
     
     //Add meeting point pin and destination overlay to mapview
-    func addMapMarks() {
+    func addMapMarks() -> [MKPointAnnotation] {
         let circle = MKCircle(center: destination!, radius: radius)
         let circlePin = MKPointAnnotation()
         circlePin.coordinate = destination!
@@ -179,9 +179,14 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         startPin.coordinate = meetingPoint!
         mapView.addAnnotation(startPin)
         
-        let randPin = MKPointAnnotation()
-        randPin.coordinate = randomCoordinate(destination!)
-        mapView.addAnnotation(randPin)
+        let destinationPin = MKPointAnnotation()
+        destinationPin.coordinate = destination!
+        
+//        let randPin = MKPointAnnotation()
+//        randPin.coordinate = randomCoordinate(destination!)
+//        mapView.addAnnotation(randPin)
+        
+        return [startPin, destinationPin]
     }
     
     //Function that returns a random coordinate somewhere within the destination circlular area
@@ -199,13 +204,46 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         return CLLocationCoordinate2DMake(x_shrink + x0, y + y0)
     }
     
+    //Calculates route and adds route overlay to the mapview
+    func displayRoute(start : CLLocationCoordinate2D, end : CLLocationCoordinate2D) {
+        let points = addMapMarks()
+        let startMark = MKPlacemark(coordinate: start)
+        let endMark = MKPlacemark(coordinate: end)
+        let startItem = MKMapItem(placemark: startMark)
+        let endItem = MKMapItem(placemark: endMark)
+        
+//        self.mapView.showAnnotations(points, animated: true)
+        
+        let routeRequest = MKDirections.Request()
+        routeRequest.source = startItem
+        routeRequest.destination = endItem
+        routeRequest.transportType = .walking
+        
+        let route = MKDirections(request: routeRequest)
+        
+        route.calculate {
+            (response, error) -> Void in
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                return
+            }
+            let routeToShow = response.routes[0]
+            self.mapView.addOverlay(routeToShow.polyline, level: MKOverlayLevel.aboveRoads)
+            
+            let rect = routeToShow.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+        }
+    }
+    
     //MARK: Actions
     @IBAction func setDestination(_ sender: UIButton) {
         destination = mapView?.centerCoordinate
         radius = getCircleRadius()
         destinationSet = true
         openJourneyView()
-        addMapMarks()
+        displayRoute(start: meetingPoint!, end: destination!)
         destinationView.isHidden = true
         backButton.isHidden = true
         closeButton.isHidden = false
@@ -224,6 +262,13 @@ extension mapSetDestination : MKMapViewDelegate {
             let circleRenderer = MKCircleRenderer(overlay: overlay)
             circleRenderer.fillColor = UIColor.init(displayP3Red: 75/255.00, green: 179/255.00, blue: 255/255.00, alpha: 0.2)
             return circleRenderer
+        } else if overlay is MKPolyline {
+            let polylineRenderer = MKPolylineRenderer(overlay: overlay)
+            polylineRenderer.strokeColor = UIColor.init(displayP3Red: 75/255.00, green: 179/255.00, blue: 255/255.00, alpha: 0.8)
+            polylineRenderer.lineWidth = 3.0
+            polylineRenderer.lineDashPhase = 4
+            polylineRenderer.lineDashPattern = [NSNumber(value: 1), NSNumber(value: 5)]
+            return polylineRenderer
         }
         return MKCircleRenderer(overlay: overlay)
     }
