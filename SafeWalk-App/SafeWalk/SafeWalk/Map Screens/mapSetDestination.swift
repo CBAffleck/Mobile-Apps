@@ -23,6 +23,8 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     @IBOutlet weak var infoViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var endWalkButton: UIButton!
+    @IBOutlet weak var timeToDepartureLabel: UILabel!
     
     //MARK: Variables
     var locationManager = CLLocationManager()
@@ -70,6 +72,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     //Set up constraints for journeyview subviews and add multiple userlabels for testing purposes
     func setupLayout() {
         mapView.showsCompass = false
+        endWalkButton.isHidden = true
         infoView.isHidden = true
         infoView.topAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         infoView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
@@ -186,24 +189,31 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         return radius
     }
     
+    //Updates countdown label and shows the endWalk button once the countdown hits 0
     @objc func updateCountdown() {
         let end = userDate
         let today = Date()
         let diff = Calendar.current.dateComponents([.day, .hour, .minute, .second], from:today, to:end as Date)
         var countdown = ""
-        if diff.hour! < 10 {
-            countdown += "0"
+        if (diff.hour == 0 && diff.minute == 0 && diff.second == 0) || diff.second! < 0 {
+            countdownLabel.isHidden = true
+            timeToDepartureLabel.isHidden = true
+            endWalkButton.isHidden = false
+        } else {
+            if diff.hour! < 10 {
+                countdown += "0"
+            }
+            countdown += "\(diff.hour ?? 0):"
+            if diff.minute! < 10 {
+                countdown += "0"
+            }
+            countdown += "\(diff.minute ?? 0):"
+            if diff.second! < 10 {
+                countdown += "0"
+            }
+            countdown += "\(diff.second ?? 0)"
+            countdownLabel.text = countdown
         }
-        countdown += "\(diff.hour ?? 0):"
-        if diff.minute! < 10 {
-            countdown += "0"
-        }
-        countdown += "\(diff.minute ?? 0):"
-        if diff.second! < 10 {
-            countdown += "0"
-        }
-        countdown += "\(diff.second ?? 0)"
-        countdownLabel.text = countdown
     }
     
     //Add meeting point pin and destination overlay to mapview
@@ -332,6 +342,9 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     }
     
     @IBAction func cancelGroupSearch(_ sender: UIButton) {
+    }
+    
+    @IBAction func goToRatingScreen(_ sender: UIButton) {
     }
 }
 
