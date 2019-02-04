@@ -34,7 +34,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     let halfScreenSize = UIScreen.main.bounds.height / 2
     var counter = Timer()
     var destinationSet = false
-    var annotations = [MKPointAnnotation()]
+    var radius = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,7 +141,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         infoView.isHidden = false
         let newHeight = NSLayoutConstraint(item: mapView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: halfScreenSize)
         mapView.addConstraint(newHeight)
-//        infoViewBottomConstraint.constant = 0
         
         //Animation for sidebar
         UIView.animate(withDuration: 0.3, animations: {
@@ -169,33 +168,41 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         countdownLabel.text = countdown
     }
     
+    //Add meeting point pin and destination overlay to mapview
     func addMapMarks() {
-        let circle = MKCircle(center: destination!, radius: getCircleRadius())
+        let circle = MKCircle(center: destination!, radius: radius)
         let circlePin = MKPointAnnotation()
         circlePin.coordinate = destination!
         mapView.addOverlay(circle)
-        annotations.append(circlePin)
         
         let startPin = MKPointAnnotation()
         startPin.coordinate = meetingPoint!
         mapView.addAnnotation(startPin)
-        annotations.append(startPin)
         
-        
-//        let randomPoint = MKPointAnnotation()
-//        let a = Double.random(in: 0...1) * 2 * Double.pi
-//        let r = 100 * sqrt(Double.random(in: 0...1))
-//        let xpos = r * cos(a)
-//        let ypos = r * sin(a)
-//        let circleScreenPoint = CGPoint(x: (UIScreen.main.bounds.width / 2) + CGFloat(xpos), y: (UIScreen.main.bounds.height / 2) + CGFloat(ypos))
-//        let randomCircleCoord = mapView.convert(circleScreenPoint, toCoordinateFrom: mapView)
-//        randomPoint.coordinate = randomCircleCoord
-//        mapView.addAnnotation(randomPoint)
+        let randPin = MKPointAnnotation()
+        randPin.coordinate = randomCoordinate(destination!)
+        mapView.addAnnotation(randPin)
+    }
+    
+    //Function that returns a random coordinate somewhere within the destination circlular area
+    func randomCoordinate(_ center : CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        let r = radius/111300               //Converts radius from meters to degrees
+        let u = Double.random(in: 0...1)
+        let v = Double.random(in: 0...1)
+        let w = r * sqrt(u)
+        let t = 2 * Double.pi * v
+        let x = w * cos(t)
+        let y = w * sin(t)
+        let x0 = center.latitude
+        let y0 = center.longitude
+        let x_shrink = x/cos(y0)            //Accounts for shrinkage of east-west distances
+        return CLLocationCoordinate2DMake(x_shrink + x0, y + y0)
     }
     
     //MARK: Actions
     @IBAction func setDestination(_ sender: UIButton) {
         destination = mapView?.centerCoordinate
+        radius = getCircleRadius()
         destinationSet = true
         openJourneyView()
         addMapMarks()
