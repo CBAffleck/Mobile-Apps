@@ -34,15 +34,18 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     let halfScreenSize = UIScreen.main.bounds.height / 2
     var counter = Timer()
     var radius = Double()
-    var firstLoad = true
+    let scrollView : UIScrollView = {
+        let v = UIScrollView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.isScrollEnabled = true
+        return v
+    }()
+    var customUserView = customUserLabel(frame: CGRect(x: 0, y: 0, width: 20, height: 40), name: "Firstname Lastname")
+    var memberCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.showsCompass = false
-        infoView.isHidden = true
-        infoView.topAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        closeButton.isHidden = true
-        mapView.delegate = self
+        setupLayout()
 
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -58,6 +61,29 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         
         //Init countdown timer
         counter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
+    }
+    
+    func setupLayout() {
+        mapView.showsCompass = false
+        infoView.isHidden = true
+        infoView.topAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        infoView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width)
+        closeButton.isHidden = true
+        mapView.delegate = self
+        
+        //Add scrollview to infoView and setup constraints
+        infoView.addSubview(scrollView)
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.leftAnchor.constraint(equalTo: infoView.leftAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: countdownLabel.bottomAnchor, constant: 10).isActive = true
+        scrollView.rightAnchor.constraint(equalTo: infoView.rightAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: infoView.bottomAnchor).isActive = true
+        
+        scrollView.addSubview(customUserView)
+        customUserView.translatesAutoresizingMaskIntoConstraints = false
+        customUserView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        customUserView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        customUserView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
     }
     
     //MARK: Location Functions
