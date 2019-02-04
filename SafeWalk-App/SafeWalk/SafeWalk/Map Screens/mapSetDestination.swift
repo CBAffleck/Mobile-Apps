@@ -265,9 +265,9 @@ extension mapSetDestination : MKMapViewDelegate {
         } else if overlay is MKPolyline {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.init(displayP3Red: 75/255.00, green: 179/255.00, blue: 255/255.00, alpha: 0.8)
-            polylineRenderer.lineWidth = 3.0
+            polylineRenderer.lineWidth = 5.0
             polylineRenderer.lineDashPhase = 4
-            polylineRenderer.lineDashPattern = [NSNumber(value: 1), NSNumber(value: 5)]
+            polylineRenderer.lineDashPattern = [NSNumber(value: 1), NSNumber(value: 6)]
             return polylineRenderer
         }
         return MKCircleRenderer(overlay: overlay)
