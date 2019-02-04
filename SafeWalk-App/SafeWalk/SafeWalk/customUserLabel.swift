@@ -30,11 +30,11 @@ class customUserLabel: UIView {
     func setupConstraints() {
         self.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        contentView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30).isActive = true
         contentView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         contentView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 20).isActive = true
         contentView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
+        contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 50).isActive = true
         
         userImage.translatesAutoresizingMaskIntoConstraints = false
         userImage.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0).isActive = true

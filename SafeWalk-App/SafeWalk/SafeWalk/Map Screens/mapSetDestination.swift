@@ -40,8 +40,12 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         v.isScrollEnabled = true
         return v
     }()
-    var customUserView = customUserLabel(frame: CGRect(x: 0, y: 0, width: 20, height: 40), name: "Firstname Lastname")
+    let containerView : UIView = {
+        let c = UIView()
+        return c
+    }()
     var memberCount = 1
+    var memberLabelsHeight = CGFloat(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,11 +83,37 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         scrollView.rightAnchor.constraint(equalTo: infoView.rightAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: infoView.bottomAnchor).isActive = true
         
-        scrollView.addSubview(customUserView)
-        customUserView.translatesAutoresizingMaskIntoConstraints = false
-        customUserView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
-        customUserView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        customUserView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        scrollView.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
+        containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
+        
+        let userLabel = customUserLabel(frame: CGRect(), name: "Firstname Lastname")
+        containerView.addSubview(userLabel)
+        userLabel.translatesAutoresizingMaskIntoConstraints = false
+        userLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        userLabel.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        userLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        memberLabelsHeight += userLabel.frame.height + CGFloat(10)
+        
+        let num = 8
+        while memberCount < num {
+            let newLabel = customUserLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40), name: "Firstname Lastname: \(memberCount)")
+            let dist = memberCount * 40 + memberCount * 10
+            containerView.addSubview(newLabel)
+            newLabel.translatesAutoresizingMaskIntoConstraints = false
+            newLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+            newLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: CGFloat(dist)).isActive = true
+            newLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+            memberLabelsHeight += newLabel.frame.height + CGFloat(10)
+            memberCount += 1
+        }
+        
+        if memberLabelsHeight > scrollView.frame.height {
+            containerView.subviews[containerView.subviews.count - 1].bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -60).isActive = true
+        }
     }
     
     //MARK: Location Functions
