@@ -34,11 +34,13 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     let halfScreenSize = UIScreen.main.bounds.height / 2
     var counter = Timer()
     var radius = Double()
+    var firstLoad = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsCompass = false
         infoView.isHidden = true
+        infoView.topAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
         closeButton.isHidden = true
         mapView.delegate = self
 
@@ -58,7 +60,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         counter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
     
-    //User Location Functions
+    //MARK: Location Functions
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -116,6 +118,8 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         checkLocationAuth()
     }
     
+    //MARK: Map Functions
+    //Gets map radius in meters of the circle image that overlays the map
     func getCircleRadius() -> Double {
         let circleEdgePoint = CGPoint(x: (UIScreen.main.bounds.width / 2) + 100, y: UIScreen.main.bounds.height / 2)
         let cirlceOuterCoordinate = mapView.convert(circleEdgePoint, toCoordinateFrom: mapView)
@@ -123,17 +127,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         let centerLocation = CLLocation(latitude: (mapView?.centerCoordinate.latitude)!, longitude: (mapView?.centerCoordinate.longitude)!)
         let radius : CLLocationDistance = centerLocation.distance(from: circleOuterLocation)
         return radius
-    }
-
-    func openJourneyView() {
-        infoView.isHidden = false
-        let newHeight = NSLayoutConstraint(item: mapView, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: halfScreenSize)
-        mapView.addConstraint(newHeight)
-        
-        //Animation for sidebar
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-        })
     }
     
     @objc func updateCountdown() {
@@ -231,9 +224,28 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
             let routeToShow = response.routes[0]
             self.mapView.addOverlay(routeToShow.polyline, level: MKOverlayLevel.aboveRoads)
             
-            let rect = routeToShow.polyline.boundingMapRect
+            let rect = routeToShow.polyline.boundingMapRect.insetBy(dx: -200, dy: -200)
             self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
         }
+    }
+    
+    //Shows the journey view and sets up associated buttons
+    func openJourneyView() {
+        infoView.isHidden = false
+        mapView.heightAnchor.constraint(equalToConstant: halfScreenSize).isActive = true
+        infoView.topAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        infoView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        //Animation for sidebar
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
+        
+        //Deal with buttons on screen
+        destinationView.isHidden = true
+        backButton.isHidden = true
+        closeButton.isHidden = false
+        setDestinationButton.isHidden = true
     }
     
     //MARK: Actions
@@ -243,9 +255,6 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         openJourneyView()
         addMapMarks()
         displayRoute(start: meetingPoint!, end: coordinateFromBearing(p1: meetingPoint!, p2: destination!, radiusDist: radius))
-        destinationView.isHidden = true
-        backButton.isHidden = true
-        closeButton.isHidden = false
     }
     
     @IBAction func backToNotes(_ sender: UIButton) {
