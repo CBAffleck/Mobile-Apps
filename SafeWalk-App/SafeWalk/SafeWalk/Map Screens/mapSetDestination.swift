@@ -169,7 +169,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     }
     
     //Add meeting point pin and destination overlay to mapview
-    func addMapMarks() -> [MKPointAnnotation] {
+    func addMapMarks() {
         let circle = MKCircle(center: destination!, radius: radius)
         let circlePin = MKPointAnnotation()
         circlePin.coordinate = destination!
@@ -179,14 +179,13 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         startPin.coordinate = meetingPoint!
         mapView.addAnnotation(startPin)
         
-        let destinationPin = MKPointAnnotation()
-        destinationPin.coordinate = destination!
+//        let destinationPin = MKPointAnnotation()
+//        destinationPin.coordinate = coordinateFromBearing(p1: meetingPoint!, p2: destination!, radiusDist: radius)
+//        mapView.addAnnotation(destinationPin)
         
 //        let randPin = MKPointAnnotation()
 //        randPin.coordinate = randomCoordinate(destination!)
 //        mapView.addAnnotation(randPin)
-        
-        return [startPin, destinationPin]
     }
     
     //Function that returns a random coordinate somewhere within the destination circlular area
@@ -204,15 +203,33 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         return CLLocationCoordinate2DMake(x_shrink + x0, y + y0)
     }
     
+    //Gets coordinate positioned on the edge of the destination circle and linearly between the meeting point and destination circle center
+    func coordinateFromBearing(p1 : CLLocationCoordinate2D, p2 : CLLocationCoordinate2D, radiusDist : Double) -> CLLocationCoordinate2D {
+        let coord0 = CLLocation(latitude: p1.latitude, longitude: p1.longitude)
+        let coord1 = CLLocation(latitude: p2.latitude, longitude: p2.longitude)
+        let dist = (coord0.distance(from: coord1) - radiusDist) / 6371000
+        let lat1 = p1.latitude * Double.pi / 180
+        let lon1 = p1.longitude * Double.pi / 180
+        let lat2 = p2.latitude * Double.pi / 180
+        let lon2 = p2.longitude * Double.pi / 180
+        let dlon = lon2 - lon1
+        
+        let y = sin(dlon) * cos(lat2)
+        let x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dlon)
+        let radiansBearing = atan2(y, x)
+        
+        let newLat = (asin(sin(lat1) * cos(dist) + cos(lat1) * sin(dist) * cos(radiansBearing))) * 180 / .pi
+        let newLon = (lon1 + atan2(sin(radiansBearing) * sin(dist) * cos(lat1), cos(dist) - sin(lat1) * sin(lat2))) * 180 / .pi
+        
+        return CLLocationCoordinate2DMake(newLat, newLon)
+    }
+    
     //Calculates route and adds route overlay to the mapview
     func displayRoute(start : CLLocationCoordinate2D, end : CLLocationCoordinate2D) {
-        let points = addMapMarks()
         let startMark = MKPlacemark(coordinate: start)
         let endMark = MKPlacemark(coordinate: end)
         let startItem = MKMapItem(placemark: startMark)
         let endItem = MKMapItem(placemark: endMark)
-        
-//        self.mapView.showAnnotations(points, animated: true)
         
         let routeRequest = MKDirections.Request()
         routeRequest.source = startItem
@@ -243,7 +260,8 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         radius = getCircleRadius()
         destinationSet = true
         openJourneyView()
-        displayRoute(start: meetingPoint!, end: destination!)
+        addMapMarks()
+        displayRoute(start: meetingPoint!, end: coordinateFromBearing(p1: meetingPoint!, p2: destination!, radiusDist: radius))
         destinationView.isHidden = true
         backButton.isHidden = true
         closeButton.isHidden = false
