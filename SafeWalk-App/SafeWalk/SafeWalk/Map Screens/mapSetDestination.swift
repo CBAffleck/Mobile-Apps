@@ -67,6 +67,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         counter = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountdown), userInfo: nil, repeats: true)
     }
     
+    //Set up constraints for journeyview subviews and add multiple userlabels for testing purposes
     func setupLayout() {
         mapView.showsCompass = false
         infoView.isHidden = true
@@ -302,6 +303,20 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         backButton.isHidden = true
         closeButton.isHidden = false
         setDestinationButton.isHidden = true
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is mapTimeNotes {
+            let view = segue.destination as? mapTimeNotes
+            view?.userNotes = userNotes
+            view?.userDate = userDate
+            view?.meetingPoint = meetingPoint
+        }
     }
     
     //MARK: Actions
