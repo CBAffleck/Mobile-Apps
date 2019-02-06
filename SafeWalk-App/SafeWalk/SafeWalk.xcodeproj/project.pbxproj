@@ -30,8 +30,6 @@
 		C08B46D721FFE2EE0017B2B2 /* mapTimeNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */; };
 		C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */; };
 		C0B629A122082E7400BFA79B /* customUserLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629A022082E7400BFA79B /* customUserLabel.swift */; };
-		C0B629A3220A873000BFA79B /* MeetingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629A2220A873000BFA79B /* MeetingInfoView.swift */; };
-		C0B629A5220A879A00BFA79B /* MeetingInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0B629A4220A879A00BFA79B /* MeetingInfoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,8 +83,6 @@
 		C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mapTimeNotes.swift; path = "SafeWalk/Map Screens/mapTimeNotes.swift"; sourceTree = SOURCE_ROOT; };
 		C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapSetDestination.swift; sourceTree = "<group>"; };
 		C0B629A022082E7400BFA79B /* customUserLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUserLabel.swift; sourceTree = "<group>"; };
-		C0B629A2220A873000BFA79B /* MeetingInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfoView.swift; sourceTree = "<group>"; };
-		C0B629A4220A879A00BFA79B /* MeetingInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeetingInfoView.xib; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,8 +214,6 @@
 				C08B46CF21F94A230017B2B2 /* mapHomeScreen.swift */,
 				C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */,
 				C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */,
-				C0B629A2220A873000BFA79B /* MeetingInfoView.swift */,
-				C0B629A4220A879A00BFA79B /* MeetingInfoView.xib */,
 			);
 			path = "Map Screens";
 			sourceTree = "<group>";
@@ -342,7 +336,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0B629A5220A879A00BFA79B /* MeetingInfoView.xib in Resources */,
 				C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */,
 				C08B469E21EC11D80017B2B2 /* LaunchScreen.storyboard in Resources */,
 				C08B46D321FAECB50017B2B2 /* ForgotPassword.storyboard in Resources */,
@@ -483,7 +476,6 @@
 				C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */,
 				C08B469421EC11D70017B2B2 /* AppDelegate.swift in Sources */,
 				C08B46CA21F6FDD40017B2B2 /* forgotPassScreen.swift in Sources */,
-				C0B629A3220A873000BFA79B /* MeetingInfoView.swift in Sources */,
 				C08B46CE21F7AEDF0017B2B2 /* verifyPassScreen.swift in Sources */,
 				C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */,
 				C05B165322028B63002E6DFA /* SlideUpSegue.swift in Sources */,
