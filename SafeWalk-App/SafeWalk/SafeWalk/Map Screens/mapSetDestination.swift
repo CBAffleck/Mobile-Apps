@@ -225,8 +225,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         
         let startPin = MKPointAnnotation()
         startPin.coordinate = meetingPoint!
-//        startPin.title = "Meeting Point"
-//        startPin.subtitle = "Meeting Time: \(userDate) \nNotes: \(userNotes)"
+        startPin.title = "Meeting Point"
         mapView.addAnnotation(startPin)
     }
     
@@ -366,15 +365,14 @@ extension mapSetDestination : MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        if annotation is MKUserLocation {
-            return nil
-        } else {
-            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "MKAnnotationView") ?? MKAnnotationView()
-            annotationView.image = UIImage(named: "Editable_pin.png")
-            annotationView.frame.size = CGSize(width: 30, height: 35)
-            annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
-            annotationView.canShowCallout = true
-            return annotationView
-        }
+        if annotation is MKUserLocation { return nil }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customAnnotation")
+        annotationView.image = UIImage(named: "Editable_pin.png")
+        annotationView.frame.size = CGSize(width: 30, height: 35)
+        annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
+        annotationView.canShowCallout = true
+        let btn = UIButton(type: .infoLight)
+        annotationView.rightCalloutAccessoryView = btn
+        return annotationView
     }
 }
