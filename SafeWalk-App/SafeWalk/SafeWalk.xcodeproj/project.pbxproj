@@ -30,6 +30,8 @@
 		C08B46D721FFE2EE0017B2B2 /* mapTimeNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */; };
 		C08B46D921FFE3250017B2B2 /* mapSetDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */; };
 		C0B629A122082E7400BFA79B /* customUserLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629A022082E7400BFA79B /* customUserLabel.swift */; };
+		C0B629A7220AD2E300BFA79B /* meetingPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629A6220AD2E300BFA79B /* meetingPopUp.swift */; };
+		C0B629A9220ADD2600BFA79B /* meetingPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B629A8220ADD2600BFA79B /* meetingPopUp.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,8 @@
 		C08B46D621FFE2EE0017B2B2 /* mapTimeNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = mapTimeNotes.swift; path = "SafeWalk/Map Screens/mapTimeNotes.swift"; sourceTree = SOURCE_ROOT; };
 		C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapSetDestination.swift; sourceTree = "<group>"; };
 		C0B629A022082E7400BFA79B /* customUserLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customUserLabel.swift; sourceTree = "<group>"; };
+		C0B629A6220AD2E300BFA79B /* meetingPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meetingPopUp.swift; sourceTree = "<group>"; };
+		C0B629A8220ADD2600BFA79B /* meetingPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = meetingPopUp.storyboard; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +177,7 @@
 				C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */,
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
 				C0B629A022082E7400BFA79B /* customUserLabel.swift */,
+				C0B629A6220AD2E300BFA79B /* meetingPopUp.swift */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
 				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
 				C08B469F21EC11D80017B2B2 /* Info.plist */,
@@ -204,6 +209,7 @@
 				C08B469721EC11D70017B2B2 /* Main.storyboard */,
 				C08B46D221FAECB50017B2B2 /* ForgotPassword.storyboard */,
 				C08B46D421FAEF2F0017B2B2 /* MainScreens.storyboard */,
+				C0B629A8220ADD2600BFA79B /* meetingPopUp.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C08B46C221EC18060017B2B2 /* awsconfiguration.json in Resources */,
+				C0B629A9220ADD2600BFA79B /* meetingPopUp.storyboard in Resources */,
 				C08B469E21EC11D80017B2B2 /* LaunchScreen.storyboard in Resources */,
 				C08B46D321FAECB50017B2B2 /* ForgotPassword.storyboard in Resources */,
 				C08B469B21EC11D80017B2B2 /* Assets.xcassets in Resources */,
@@ -480,6 +487,7 @@
 				C08B46C421EC194B0017B2B2 /* signUpScreen.swift in Sources */,
 				C05B165322028B63002E6DFA /* SlideUpSegue.swift in Sources */,
 				C0B629A122082E7400BFA79B /* customUserLabel.swift in Sources */,
+				C0B629A7220AD2E300BFA79B /* meetingPopUp.swift in Sources */,
 				C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

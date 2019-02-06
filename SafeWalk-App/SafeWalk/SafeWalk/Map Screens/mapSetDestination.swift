@@ -29,7 +29,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     //MARK: Variables
     var locationManager = CLLocationManager()
     var currLocation = CLLocation()
-    var userNotes = ""
+    var userNotes = "None"
     var userDate = Date()
     var meetingPoint : CLLocationCoordinate2D? = nil
     var destination : CLLocationCoordinate2D? = nil
@@ -48,10 +48,12 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     }()
     var memberCount = 1
     var memberLabelsHeight = CGFloat(0)
+    let popUpButton = UIButton(type: .infoLight)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
+        popUpButton.addTarget(self, action: #selector(self.pressed), for: .touchUpInside)
 
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -94,7 +96,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         containerView.leftAnchor.constraint(equalTo: scrollView.leftAnchor).isActive = true
         containerView.rightAnchor.constraint(equalTo: scrollView.rightAnchor).isActive = true
         
-        let userLabel = customUserLabel(frame: CGRect(), name: "Firstname Lastname")
+        let userLabel = customUserLabel(frame: CGRect(), name: "Firstname Lastname", img: "AppIcon.png")
         containerView.addSubview(userLabel)
         userLabel.translatesAutoresizingMaskIntoConstraints = false
         userLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
@@ -104,7 +106,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         
         let num = 8
         while memberCount < num {
-            let newLabel = customUserLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40), name: "Firstname Lastname: \(memberCount)")
+            let newLabel = customUserLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40), name: "Firstname Lastname: \(memberCount)", img: "UserIcon.png")
             let dist = memberCount * 40 + memberCount * 10
             containerView.addSubview(newLabel)
             newLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -345,6 +347,18 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
     
     @IBAction func goToRatingScreen(_ sender: UIButton) {
     }
+    
+    @objc func pressed(sender : UIButton) {
+        let popUpStoryboard = UIStoryboard(name: "meetingPopUp", bundle: nil)
+        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "popUpID") as! meetingPopUp
+        popUp.modalTransitionStyle = .crossDissolve
+        popUp.userNotes = userNotes
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE HH:mm a"
+        let dateString = formatter.string(from: userDate)
+        popUp.userTime = dateString
+        self.present(popUp, animated: true, completion: nil)
+    }
 }
 
 extension mapSetDestination : MKMapViewDelegate {
@@ -371,8 +385,7 @@ extension mapSetDestination : MKMapViewDelegate {
         annotationView.frame.size = CGSize(width: 30, height: 35)
         annotationView.centerOffset = CGPoint(x: 0, y: -annotationView.frame.size.height / 2)
         annotationView.canShowCallout = true
-        let btn = UIButton(type: .infoLight)
-        annotationView.rightCalloutAccessoryView = btn
+        annotationView.rightCalloutAccessoryView = popUpButton
         return annotationView
     }
 }

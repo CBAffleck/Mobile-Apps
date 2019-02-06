@@ -181,8 +181,8 @@
                                     <constraint firstAttribute="width" constant="200" id="sKP-tH-ajf"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jvm-pk-H7d" userLabel="InfoView">
-                                <rect key="frame" x="0.0" y="337" width="375" height="334"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jvm-pk-H7d" userLabel="InfoView">
+                                <rect key="frame" x="0.0" y="667" width="375" height="334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Until Departure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fT-es-anL">
                                         <rect key="frame" x="29" y="27" width="317" height="24"/>
@@ -269,7 +269,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NY4-XY-3lf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3069.5999999999999" y="103.89805097451276"/>
+            <point key="canvasLocation" x="3070" y="103"/>
         </scene>
         <!--Map Home Screen-->
         <scene sceneID="RgT-5y-3Sl">

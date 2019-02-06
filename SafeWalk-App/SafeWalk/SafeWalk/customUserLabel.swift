@@ -10,9 +10,10 @@ import UIKit
 
 class customUserLabel: UIView {
     
-    init(frame: CGRect, name : String) {
+    init(frame: CGRect, name : String, img : String) {
         super.init(frame: frame)
         self.userName.text = name
+        self.userImage.image = UIImage(named: img)
         setupViews()
         setupConstraints()
     }
@@ -58,7 +59,7 @@ class customUserLabel: UIView {
         let img = UIImage(named: "UserIcon.png")
         let imgView = UIImageView(image: img)
         imgView.frame.size = CGSize(width: 20, height: 20)
-        imgView.layer.cornerRadius = imgView.frame.size.height / 2
+        imgView.layer.cornerRadius = 20
         imgView.clipsToBounds = true
         return imgView
     }()
