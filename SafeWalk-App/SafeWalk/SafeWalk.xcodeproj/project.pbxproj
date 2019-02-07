@@ -165,6 +165,7 @@
 		C08B469221EC11D70017B2B2 /* SafeWalk */ = {
 			isa = PBXGroup;
 			children = (
+				C0B629AA220BAC3D00BFA79B /* Custom Classes */,
 				C08B46D121FAEC700017B2B2 /* Storyboards */,
 				C05B165422028B82002E6DFA /* Custom Segues */,
 				C08B46C121EC18060017B2B2 /* awsconfiguration.json */,
@@ -176,8 +177,6 @@
 				C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */,
 				C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */,
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
-				C0B629A022082E7400BFA79B /* customUserLabel.swift */,
-				C0B629A6220AD2E300BFA79B /* meetingPopUp.swift */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
 				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
 				C08B469F21EC11D80017B2B2 /* Info.plist */,
@@ -222,6 +221,15 @@
 				C08B46D821FFE3250017B2B2 /* mapSetDestination.swift */,
 			);
 			path = "Map Screens";
+			sourceTree = "<group>";
+		};
+		C0B629AA220BAC3D00BFA79B /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C0B629A022082E7400BFA79B /* customUserLabel.swift */,
+				C0B629A6220AD2E300BFA79B /* meetingPopUp.swift */,
+			);
+			path = "Custom Classes";
 			sourceTree = "<group>";
 		};
 		CB605DC20357C381B07DA2F4 /* Frameworks */ = {

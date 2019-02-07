@@ -354,7 +354,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         popUp.modalTransitionStyle = .crossDissolve
         popUp.userNotes = userNotes
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE HH:mm a"
+        formatter.dateFormat = "EEEE h:mm a"
         let dateString = formatter.string(from: userDate)
         popUp.userTime = dateString
         self.present(popUp, animated: true, completion: nil)
