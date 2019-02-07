@@ -165,7 +165,11 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         } else if textField == schoolField {
             userSchool = String(textField.text!)
         } else if textField == passwordField {
-            userPass = String(textField.text!)
+            if isValidPassword(password: textField.text!) {
+                userPass = String(textField.text!)
+            } else {
+                passwordField.text = ""
+            }
         } else if textField == confirmPassField {
             if userPass != String(textField.text!) {
                 confirmPassField.text = ""
@@ -186,6 +190,11 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
                 signUpButton.isEnabled = false
             }
         }
+    }
+    
+    func isValidPassword(password : String) -> Bool {
+        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with:password)
     }
     
     //MARK: Navigation
