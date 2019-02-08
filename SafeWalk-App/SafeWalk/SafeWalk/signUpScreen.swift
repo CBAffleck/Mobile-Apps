@@ -131,7 +131,13 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
             textField.resignFirstResponder()
-            confirmPassField.becomeFirstResponder()
+            if isValidPassword(password: textField.text!) {
+                confirmPassField.becomeFirstResponder()
+            } else {
+                passwordField.text = ""
+                showPasswordPopUp()
+                return true
+            }
         } else if textField == confirmPassField {
             textField.resignFirstResponder()
         }
@@ -165,11 +171,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         } else if textField == schoolField {
             userSchool = String(textField.text!)
         } else if textField == passwordField {
-            if isValidPassword(password: textField.text!) {
-                userPass = String(textField.text!)
-            } else {
-                passwordField.text = ""
-            }
+            userPass = String(textField.text!)
         } else if textField == confirmPassField {
             if userPass != String(textField.text!) {
                 confirmPassField.text = ""
@@ -190,6 +192,13 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
                 signUpButton.isEnabled = false
             }
         }
+    }
+    
+    func showPasswordPopUp() {
+        let popUpStoryboard = UIStoryboard(name: "passwordPopUp", bundle: nil)
+        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "passPopUpID") as! passwordPopUp
+        popUp.modalTransitionStyle = .crossDissolve
+        self.present(popUp, animated: true, completion: nil)
     }
     
     func isValidPassword(password : String) -> Bool {
