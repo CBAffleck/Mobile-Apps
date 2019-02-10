@@ -27,13 +27,30 @@ class passwordPopUp: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        [upperLabel, lowerLabel, numLabel, specialLabel, minLabel].forEach {
-//            $0?.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
-//        }
         if upperCase {
             upperLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
         } else {
             upperLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        }
+        if lowerCase {
+            lowerLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
+        } else {
+            lowerLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        }
+        if number {
+            numLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
+        } else {
+            numLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        }
+        if specialChar {
+            specialLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
+        } else {
+            specialLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        }
+        if length {
+            minLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
+        } else {
+            minLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
         }
         upperLabel.text = "-one upper case letter\n"
         lowerLabel.text = "-one lower case letter\n"
