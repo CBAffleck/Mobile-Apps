@@ -32,6 +32,12 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
     var userSchool = ""
     var userPass = ""
     var userConfirmPass = ""
+    //Password Pop Up Variables
+    var passUpper = false
+    var passLower = false
+    var passNum = false
+    var passSpecial = false
+    var passMin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,11 +204,22 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         let popUpStoryboard = UIStoryboard(name: "passwordPopUp", bundle: nil)
         let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "passPopUpID") as! passwordPopUp
         popUp.modalTransitionStyle = .crossDissolve
+        popUp.upperCase = passUpper
+        popUp.lowerCase = passLower
+        popUp.number = passNum
+        popUp.specialChar = passSpecial
+        popUp.length = passMin
         self.present(popUp, animated: true, completion: nil)
     }
     
+    //Checks if entered password is valid, and sets bool value for each variable corresponding to the password requirements
     func isValidPassword(password : String) -> Bool {
-        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}"
+        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}$"
+        passUpper = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with:password)
+        passLower = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*").evaluate(with:password)
+        passNum = NSPredicate(format: "SELF MATCHES %@", ".*\\d+.*").evaluate(with:password)
+        passSpecial = NSPredicate(format: "SELF MATCHES %@", ".*[d$@$!%*?&#]+.*").evaluate(with:password)
+        passMin = NSPredicate(format: "SELF MATCHES %@", "[A-Za-z\\dd$@$!%*?&#]{8,}").evaluate(with:password)
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with:password)
     }
     

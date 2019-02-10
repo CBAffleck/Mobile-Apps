@@ -11,19 +11,35 @@ import UIKit
 class passwordPopUp: UIViewController {
     
     //MARK: Properties
-    @IBOutlet weak var requirementsView: UITextView!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var upperLabel: UILabel!
+    @IBOutlet weak var lowerLabel: UILabel!
+    @IBOutlet weak var numLabel: UILabel!
+    @IBOutlet weak var specialLabel: UILabel!
+    @IBOutlet weak var minLabel: UILabel!
     
     //MARK: Variables
-    var upperCase = true
-    var lowerCase = true
-    var number = true
-    var specialChar = true
-    var length = true
+    var upperCase = false
+    var lowerCase = false
+    var number = false
+    var specialChar = false
+    var length = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requirementsView.text = "-one upper case letter\n-one lower case letter\n-one number\n-one special character\n-a minimum length of 8"
+//        [upperLabel, lowerLabel, numLabel, specialLabel, minLabel].forEach {
+//            $0?.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+//        }
+        if upperCase {
+            upperLabel.textColor = UIColor.init(red: 130/255, green: 221/255, blue: 130/255, alpha: 1.0)
+        } else {
+            upperLabel.textColor = UIColor.init(red: 255/255, green: 139/255, blue: 139/255, alpha: 1.0)
+        }
+        upperLabel.text = "-one upper case letter\n"
+        lowerLabel.text = "-one lower case letter\n"
+        numLabel.text = "-one number\n"
+        specialLabel.text = "-one special character\n"
+        minLabel.text = "-a minimum length of 8"
     }
 
     @IBAction func closePopUp(_ sender: UIButton) {
