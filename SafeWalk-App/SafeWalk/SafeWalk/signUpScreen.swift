@@ -160,18 +160,10 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             userEmail = String(textField.text!)
         } else if textField == phoneNumberField {
             var typedPhone = String(textField.text!)
-            typedPhone = typedPhone.replacingOccurrences(of: "+", with: "")
-            typedPhone = typedPhone.replacingOccurrences(of: ",", with: "")
-            typedPhone = typedPhone.replacingOccurrences(of: ";", with: "")
-            typedPhone = typedPhone.replacingOccurrences(of: "#", with: "")
-            typedPhone = typedPhone.replacingOccurrences(of: "*", with: "")
             if typedPhone.count < 10 {
                 phoneNumberField.text = ""
-            } else if typedPhone.prefix(2) != "+" && typedPhone.count == 11 {
-                typedPhone = "+" + typedPhone.prefix(11)
-            } else if typedPhone.prefix(2) != "+" {
-                typedPhone = "+1" + typedPhone.prefix(10)
             }
+            typedPhone = "+1" + typedPhone
             print(typedPhone)
             userPhone = typedPhone
         } else if textField == schoolField {
@@ -217,7 +209,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}$"
         passUpper = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with:password)
         passLower = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*").evaluate(with:password)
-        passNum = NSPredicate(format: "SELF MATCHES %@", ".*\\d+.*").evaluate(with:password)
+        passNum = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*").evaluate(with:password)
         passSpecial = NSPredicate(format: "SELF MATCHES %@", ".*[d$@$!%*?&#]+.*").evaluate(with:password)
         passMin = NSPredicate(format: "SELF MATCHES %@", "[A-Za-z\\dd$@$!%*?&#]{8,}").evaluate(with:password)
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with:password)
