@@ -162,9 +162,10 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             var typedPhone = String(textField.text!)
             if typedPhone.count < 10 {
                 phoneNumberField.text = ""
+            } else if typedPhone.count > 10 {
+                typedPhone = String(typedPhone.prefix(10))
             }
             typedPhone = "+1" + typedPhone
-            print(typedPhone)
             userPhone = typedPhone
         } else if textField == schoolField {
             userSchool = String(textField.text!)
