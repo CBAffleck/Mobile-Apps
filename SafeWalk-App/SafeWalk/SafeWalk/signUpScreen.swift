@@ -128,6 +128,10 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             emailField.becomeFirstResponder()
         } else if textField == emailField {
             textField.resignFirstResponder()
+            if !isCalEmail(email: textField.text ?? "none") {
+                showEmailPopUp()
+                return true
+            }
             phoneNumberField.becomeFirstResponder()
         } else if textField == phoneNumberField {
             textField.resignFirstResponder()
@@ -137,7 +141,7 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
             passwordField.becomeFirstResponder()
         } else if textField == passwordField {
             textField.resignFirstResponder()
-            if isValidPassword(password: textField.text!) {
+            if isValidPassword(password: textField.text ?? "none") {
                 confirmPassField.becomeFirstResponder()
             } else {
                 passwordField.text = ""
@@ -205,15 +209,47 @@ class SignUpScreen: UIViewController, UITextFieldDelegate {
         self.present(popUp, animated: true, completion: nil)
     }
     
+    func showEmailPopUp() {
+        let popUpStoryboard = UIStoryboard(name: "emailPopUp", bundle: nil)
+        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "emailPopUpID") as! emailPopUp
+        popUp.modalTransitionStyle = .crossDissolve
+        self.present(popUp, animated: true, completion: nil)
+    }
+    
     //Checks if entered password is valid, and sets bool value for each variable corresponding to the password requirements
     func isValidPassword(password : String) -> Bool {
-        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[d$@$!%*?&#])[A-Za-z\\dd$@$!%*?&#]{8,}$"
+        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@$%*?&#]).{8,}$"
         passUpper = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*").evaluate(with:password)
         passLower = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*").evaluate(with:password)
         passNum = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*").evaluate(with:password)
-        passSpecial = NSPredicate(format: "SELF MATCHES %@", ".*[d$@$!%*?&#]+.*").evaluate(with:password)
-        passMin = NSPredicate(format: "SELF MATCHES %@", "[A-Za-z\\dd$@$!%*?&#]{8,}").evaluate(with:password)
+        passSpecial = NSPredicate(format: "SELF MATCHES %@", ".*[!@$%*?&#]+.*").evaluate(with:password)
+        passMin = NSPredicate(format: "SELF MATCHES %@", ".{8,}").evaluate(with:password)
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with:password)
+    }
+    
+    //Checks if the email entered is a @berkeley.edu email address
+    func isCalEmail(email : String) -> Bool {
+        let host = String(email.suffix(13))
+        print(host)
+        if host == "@berkeley.edu" {
+            return true
+        }
+        return false
+    }
+    
+    //Show pop up if necessary when keyboard is dismissed by tapping background
+    @objc override func dismissKeyboard() {
+        view.endEditing(true)
+        if passwordField.text != "" {
+            if !isValidPassword(password: passwordField.text!) {
+                passwordField.text = ""
+                showPasswordPopUp()
+            }
+        } else if emailField.text != "" {
+            if !isCalEmail(email: emailField.text!) {
+                showEmailPopUp()
+            }
+        }
     }
     
     //MARK: Navigation
