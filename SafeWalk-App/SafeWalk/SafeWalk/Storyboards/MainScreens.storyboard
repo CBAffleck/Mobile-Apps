@@ -482,6 +482,7 @@
         <image name="SidebarIcon" width="45" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4av-xL-agn"/>
         <segue reference="Pzo-6T-nYI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -36,6 +36,8 @@
 		C0B629AE220E1F4200BFA79B /* passwordPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629AD220E1F4200BFA79B /* passwordPopUp.swift */; };
 		C0B629B02214048300BFA79B /* emailPopUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B629AF2214048300BFA79B /* emailPopUp.storyboard */; };
 		C0B629B2221406FB00BFA79B /* emailPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629B1221406FB00BFA79B /* emailPopUp.swift */; };
+		C0B629B42214DD2500BFA79B /* profileScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B629B32214DD2500BFA79B /* profileScreen.storyboard */; };
+		C0B629B62214E6A100BFA79B /* profileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B629B52214E6A100BFA79B /* profileScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,8 @@
 		C0B629AD220E1F4200BFA79B /* passwordPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passwordPopUp.swift; sourceTree = "<group>"; };
 		C0B629AF2214048300BFA79B /* emailPopUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = emailPopUp.storyboard; sourceTree = "<group>"; };
 		C0B629B1221406FB00BFA79B /* emailPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = emailPopUp.swift; sourceTree = "<group>"; };
+		C0B629B32214DD2500BFA79B /* profileScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = profileScreen.storyboard; sourceTree = "<group>"; };
+		C0B629B52214E6A100BFA79B /* profileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileScreen.swift; sourceTree = "<group>"; };
 		C19DF9652BD02FCA87C5F426 /* Pods_SafeWalkTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SafeWalkTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F96BEA9A59EF8C7D9770CA3C /* Pods-SafeWalkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SafeWalkTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SafeWalkTests/Pods-SafeWalkTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,6 +189,7 @@
 				C08B46CD21F7AEDF0017B2B2 /* verifyPassScreen.swift */,
 				C08B46CB21F7ADD60017B2B2 /* newPassScreen.swift */,
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
+				C0B629B52214E6A100BFA79B /* profileScreen.swift */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
 				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
 				C08B469F21EC11D80017B2B2 /* Info.plist */,
@@ -219,6 +224,7 @@
 				C0B629A8220ADD2600BFA79B /* meetingPopUp.storyboard */,
 				C0B629AB220E1BFF00BFA79B /* passwordPopUp.storyboard */,
 				C0B629AF2214048300BFA79B /* emailPopUp.storyboard */,
+				C0B629B32214DD2500BFA79B /* profileScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				C08B469921EC11D70017B2B2 /* Main.storyboard in Resources */,
 				C0B629AC220E1BFF00BFA79B /* passwordPopUp.storyboard in Resources */,
 				C0B629B02214048300BFA79B /* emailPopUp.storyboard in Resources */,
+				C0B629B42214DD2500BFA79B /* profileScreen.storyboard in Resources */,
 				C08B46D521FAEF2F0017B2B2 /* MainScreens.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +520,7 @@
 				C0B629AE220E1F4200BFA79B /* passwordPopUp.swift in Sources */,
 				C0B629A7220AD2E300BFA79B /* meetingPopUp.swift in Sources */,
 				C08B46C621EC22200017B2B2 /* verifyEmailScreen.swift in Sources */,
+				C0B629B62214E6A100BFA79B /* profileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
