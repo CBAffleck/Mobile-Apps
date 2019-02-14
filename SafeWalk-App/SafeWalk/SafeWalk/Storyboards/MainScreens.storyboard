@@ -16,7 +16,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="N8E-8S-96I" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha1-VY-1xL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="590"/>
+            <point key="canvasLocation" x="1061" y="567"/>
         </scene>
         <!--Map Time Notes-->
         <scene sceneID="t5T-dN-LM1">
@@ -271,6 +271,14 @@
             </objects>
             <point key="canvasLocation" x="3070" y="103"/>
         </scene>
+        <!--profileScreen-->
+        <scene sceneID="thh-VH-nxa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="profileScreen" id="EEf-LW-wxP" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AMI-Id-fjh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1520" y="567"/>
+        </scene>
         <!--Map Home Screen-->
         <scene sceneID="RgT-5y-3Sl">
             <objects>
@@ -337,6 +345,7 @@
                                         </state>
                                         <connections>
                                             <action selector="toProfile:" destination="190-H5-f6A" eventType="touchUpInside" id="y53-xA-eX2"/>
+                                            <segue destination="EEf-LW-wxP" kind="custom" customClass="SlideUpSegue" customModule="SafeWalk" customModuleProvider="target" id="ywY-zE-D2f"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1P-4K-AiY">
@@ -482,7 +491,6 @@
         <image name="SidebarIcon" width="45" height="43"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4av-xL-agn"/>
-        <segue reference="Pzo-6T-nYI"/>
+        <segue reference="XrF-J4-unZ"/>
     </inferredMetricsTieBreakers>
 </document>
