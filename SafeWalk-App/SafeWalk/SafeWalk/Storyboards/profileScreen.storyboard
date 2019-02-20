@@ -99,7 +99,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ka-MGi">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultUserIcon" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-Ka-MGi">
                                 <rect key="frame" x="97.5" y="83" width="180" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="f6m-fP-UCH"/>
@@ -160,7 +160,7 @@
     </scenes>
     <resources>
         <image name="CloseIcon" width="66" height="66"/>
-        <image name="UserIcon" width="120" height="120"/>
+        <image name="defaultUserIcon" width="1776" height="1776"/>
         <image name="starFilled" width="480" height="480"/>
     </resources>
 </document>

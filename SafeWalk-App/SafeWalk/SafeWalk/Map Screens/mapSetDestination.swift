@@ -106,7 +106,7 @@ class mapSetDestination: UIViewController, UITextFieldDelegate, CLLocationManage
         
         let num = 8
         while memberCount < num {
-            let newLabel = customUserLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40), name: "Firstname Lastname: \(memberCount)", img: "UserIcon.png")
+            let newLabel = customUserLabel(frame: CGRect(x: 0, y: 0, width: 300, height: 40), name: "Firstname Lastname: \(memberCount)", img: "defaultUserIcon.png")
             let dist = memberCount * 40 + memberCount * 10
             containerView.addSubview(newLabel)
             newLabel.translatesAutoresizingMaskIntoConstraints = false
