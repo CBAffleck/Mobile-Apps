@@ -408,11 +408,20 @@
                         <outlet property="backButton" destination="fTy-DY-qxk" id="kZv-Ft-0bC"/>
                         <outlet property="verificationField" destination="yWF-yz-XT2" id="Mbh-sI-uGE"/>
                         <outlet property="verifyEmailButton" destination="5i8-xP-M0H" id="bjl-2m-1Mj"/>
+                        <segue destination="lik-Qf-0eD" kind="show" identifier="ToEditProfileScreen" id="6Cg-Qv-YfA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AXZ-nq-gc4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2897" y="-681"/>
+        </scene>
+        <!--editProfileScreen-->
+        <scene sceneID="DpS-MI-TJ7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="editProfileScreen" id="lik-Qf-0eD" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQ9-m5-4jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3574" y="-681"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="n0K-es-Mmw">
@@ -434,7 +443,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dcg-S2-lZB"/>
+        <segue reference="w5P-vI-0bv"/>
+        <segue reference="kT0-fT-pdt"/>
         <segue reference="nPQ-3a-GNg"/>
     </inferredMetricsTieBreakers>
 </document>

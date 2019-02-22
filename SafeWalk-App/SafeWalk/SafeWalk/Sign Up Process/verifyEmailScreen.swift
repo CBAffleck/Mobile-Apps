@@ -54,6 +54,9 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
                 switch(signUpResult.signUpConfirmationState) {
                 case .confirmed:
                     print("User is signed up and confirmed.")
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "ToEditProfileScreen", sender: self)
+                    }
                 case .unconfirmed:
                     print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
                 case .unknown:
@@ -100,6 +103,11 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
             view?.userLastName = userLastName
             view?.userPhone = userPhone
             view?.userSchool = userSchool
+        } else if segue.destination is editProfileScreen {
+            let view = segue.destination as? editProfileScreen
+            view?.firstName = userFirstName
+            view?.lastName = userLastName
+            view?.school = userSchool
         }
     }
     

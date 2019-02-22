@@ -39,6 +39,7 @@
                                     <color key="titleColor" red="0.29411764709999999" green="0.70196078429999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="doneEditing:" destination="STk-V9-YCi" eventType="touchUpInside" id="6xy-5A-M6t"/>
                                     <segue destination="TlW-Ne-jZ7" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="1r0-yZ-Wkl"/>
                                 </connections>
                             </button>
@@ -101,7 +102,30 @@
                                     <constraint firstAttribute="width" constant="180" id="RPY-2t-z9V"/>
                                 </constraints>
                                 <state key="normal" image="editProfilePic"/>
+                                <connections>
+                                    <action selector="changeProfilePic:" destination="STk-V9-YCi" eventType="touchUpInside" id="QO8-EF-RXh"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5L-Gp-lOB">
+                                <rect key="frame" x="16" y="357" width="151" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="M3F-A0-DkL"/>
+                                    <constraint firstAttribute="width" constant="151" id="qHF-jW-rpL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="University Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xW4-p6-Axh">
+                                <rect key="frame" x="184" y="357" width="175" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="GQ3-YL-720"/>
+                                    <constraint firstAttribute="height" constant="21" id="h3y-Wv-uzT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -109,7 +133,9 @@
                             <constraint firstItem="9rQ-rb-kUw" firstAttribute="leading" secondItem="b6A-dH-wcf" secondAttribute="trailing" constant="8" id="5cA-Ru-4Xq"/>
                             <constraint firstItem="KXz-uR-ZYL" firstAttribute="leading" secondItem="EHM-Pe-IcY" secondAttribute="trailing" constant="8" id="7Kl-WK-D8Z"/>
                             <constraint firstItem="Nbh-Jd-v94" firstAttribute="top" secondItem="grJ-nH-AAq" secondAttribute="topMargin" constant="15" id="8YH-BD-9a2"/>
+                            <constraint firstItem="0fF-lX-VbL" firstAttribute="trailing" secondItem="xW4-p6-Axh" secondAttribute="trailing" constant="16" id="Dvb-m5-DFn"/>
                             <constraint firstItem="b6A-dH-wcf" firstAttribute="top" secondItem="Q0n-1d-MVh" secondAttribute="bottom" constant="2" id="EGn-jG-qov"/>
+                            <constraint firstItem="xW4-p6-Axh" firstAttribute="top" secondItem="4Iy-gs-8hw" secondAttribute="bottom" constant="29.5" id="F8z-PQ-sdx"/>
                             <constraint firstItem="ETX-8a-wtS" firstAttribute="centerX" secondItem="grJ-nH-AAq" secondAttribute="centerX" id="Gxj-be-fJP"/>
                             <constraint firstItem="9rQ-rb-kUw" firstAttribute="top" secondItem="Q0n-1d-MVh" secondAttribute="bottom" constant="2" id="Ix7-OX-RTw"/>
                             <constraint firstItem="V4G-N4-iev" firstAttribute="top" secondItem="grJ-nH-AAq" secondAttribute="topMargin" constant="15" id="J4c-wb-SLp"/>
@@ -124,11 +150,25 @@
                             <constraint firstItem="b6A-dH-wcf" firstAttribute="leading" secondItem="4Iy-gs-8hw" secondAttribute="trailing" constant="8" id="eOR-o1-QSR"/>
                             <constraint firstItem="4Iy-gs-8hw" firstAttribute="top" secondItem="Q0n-1d-MVh" secondAttribute="bottom" constant="2" id="j19-35-HEr"/>
                             <constraint firstItem="Krr-FA-UZD" firstAttribute="centerX" secondItem="grJ-nH-AAq" secondAttribute="centerX" id="mWC-4V-JFQ"/>
+                            <constraint firstItem="s5L-Gp-lOB" firstAttribute="leading" secondItem="0fF-lX-VbL" secondAttribute="leading" constant="16" id="pLK-wU-dM9"/>
+                            <constraint firstItem="s5L-Gp-lOB" firstAttribute="top" secondItem="KXz-uR-ZYL" secondAttribute="bottom" constant="29.5" id="rfk-Lh-lfK"/>
                             <constraint firstItem="ETX-8a-wtS" firstAttribute="top" secondItem="Nbh-Jd-v94" secondAttribute="bottom" constant="8" id="w8f-EL-04k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fF-lX-VbL"/>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="currentPicImage" destination="Krr-FA-UZD" id="eP5-HP-lse"/>
+                        <outlet property="doneButton" destination="V4G-N4-iev" id="R4Q-yl-4Ah"/>
+                        <outlet property="editPicButton" destination="ETX-8a-wtS" id="KXc-M7-HdT"/>
+                        <outlet property="nameLabel" destination="Q0n-1d-MVh" id="MqB-Ee-I9W"/>
+                        <outlet property="schoolLabel" destination="xW4-p6-Axh" id="Yc6-pt-OPB"/>
+                        <outlet property="star1" destination="EHM-Pe-IcY" id="uxG-3L-6LZ"/>
+                        <outlet property="star2" destination="KXz-uR-ZYL" id="y52-zW-kOQ"/>
+                        <outlet property="star3" destination="4Iy-gs-8hw" id="XvO-FC-WKL"/>
+                        <outlet property="star4" destination="b6A-dH-wcf" id="0FM-7n-4cO"/>
+                        <outlet property="star5" destination="9rQ-rb-kUw" id="rxy-lK-i0W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TeR-Bp-b7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

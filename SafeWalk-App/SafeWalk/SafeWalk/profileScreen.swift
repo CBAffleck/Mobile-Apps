@@ -22,12 +22,32 @@ class profileScreen: UIViewController {
     @IBOutlet weak var star3: UIImageView!
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var schoolLabel: UILabel!
     
     //MARK: Variables
+    var starCount = 5
+    var firstName = ""
+    var lastName = ""
+    var school = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    //MARK: Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        // Configure the destination view controller only when the save button is pressed.
+        if segue.destination is editProfileScreen {
+            let view = segue.destination as? editProfileScreen
+            view?.firstName = firstName
+            view?.lastName = lastName
+            view?.school = school
+            view?.starCount = starCount
+        }
     }
 
     @IBAction func closeProfileView(_ sender: UIButton) {
