@@ -40,7 +40,7 @@
                                 </state>
                                 <connections>
                                     <action selector="doneEditing:" destination="STk-V9-YCi" eventType="touchUpInside" id="6xy-5A-M6t"/>
-                                    <segue destination="TlW-Ne-jZ7" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="1r0-yZ-Wkl"/>
+                                    <segue destination="TlW-Ne-jZ7" kind="show" id="qB3-cT-Z4r"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="4Iy-gs-8hw">

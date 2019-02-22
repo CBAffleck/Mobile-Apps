@@ -21,6 +21,7 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     //MARK: Variables
     var userEmail = ""
     var userCode = ""
+    let defaults = UserDefaults.standard
     //Other variables passed from signUp screen
     var userFirstName = ""
     var userLastName = ""
@@ -30,6 +31,7 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
+        updateUserDefaults()
         
         //AWS Mobile Client initialization
         AWSMobileClient.sharedInstance().initialize { (userState, error) in
@@ -66,6 +68,12 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
                 print("\(error.localizedDescription)")
             }
         }
+    }
+    
+    func updateUserDefaults() {
+        defaults.set(userFirstName, forKey: "FirstName")
+        defaults.set(userLastName, forKey: "LastName")
+        defaults.set(userSchool, forKey: "School")
     }
     
     //MARK: Keyboard Controls

@@ -150,7 +150,7 @@
                         <outlet property="incorrectEntryNotice" destination="Toz-5M-dkV" id="mvt-LK-l8C"/>
                         <outlet property="passwordField" destination="wLj-Ae-A26" id="u7q-vC-5Kx"/>
                         <outlet property="signInButton" destination="4kb-jC-ayO" id="1eN-aV-gAK"/>
-                        <segue destination="qjS-Em-osv" kind="show" identifier="SignOutScreen" id="dWp-qH-d2B"/>
+                        <segue destination="qjS-Em-osv" kind="show" identifier="toHomeScreen" id="dWp-qH-d2B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -443,7 +443,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w5P-vI-0bv"/>
         <segue reference="kT0-fT-pdt"/>
         <segue reference="nPQ-3a-GNg"/>
     </inferredMetricsTieBreakers>

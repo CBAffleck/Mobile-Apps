@@ -35,7 +35,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 switch(userState){
                     case .signedIn:
                         DispatchQueue.main.async {
-                            self.performSegue(withIdentifier: "SignOutScreen", sender: self)
+                            self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                         }
                     default:
                         AWSMobileClient.sharedInstance().signOut()
@@ -67,7 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 case .signedIn:
                     print("User is signed in.")
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "SignOutScreen", sender: self)
+                        self.performSegue(withIdentifier: "toHomeScreen", sender: self)
                     }
                 case .smsMFA:
                     print("SMS message sent to \(signInResult.codeDetails!.destination!)")
@@ -77,7 +77,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     //MARK: Keyboard Controls
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == emailField {

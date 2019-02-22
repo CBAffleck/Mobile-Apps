@@ -27,7 +27,7 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="closeProfileView:" destination="94J-7m-Jen" eventType="touchUpInside" id="ntC-EO-Jgw"/>
-                                    <segue destination="36P-rI-4ii" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="h0R-zU-rbP"/>
+                                    <segue destination="36P-rI-4ii" kind="show" id="kSf-JX-AYa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr6-Qh-Ezk">
@@ -52,7 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="openEditProfileView:" destination="94J-7m-Jen" eventType="touchUpInside" id="Auf-Xr-zeH"/>
-                                    <segue destination="IcG-rd-2tW" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="TB8-mQ-aTC"/>
+                                    <segue destination="IcG-rd-2tW" kind="custom" customClass="SlideUpSegue" customModule="SafeWalk" customModuleProvider="target" id="TB8-mQ-aTC"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="Cly-OC-dtc">

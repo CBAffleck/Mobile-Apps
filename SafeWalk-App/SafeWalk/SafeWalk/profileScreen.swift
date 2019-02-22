@@ -26,13 +26,28 @@ class profileScreen: UIViewController {
     
     //MARK: Variables
     var starCount = 5
-    var firstName = ""
-    var lastName = ""
-    var school = ""
+    var firstName = "firstname"
+    var lastName = "lastname"
+    var school = "school"
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadUserInfo()
+    }
+    
+    func loadUserInfo() {
+        if defaults.object(forKey: "FirstName") == nil {
+            defaults.set(firstName, forKey: "FirstName")
+            defaults.set(lastName, forKey: "LastName")
+            defaults.set(school, forKey: "School")
+        } else {
+            nameLabel.text = defaults.string(forKey: "FirstName")! + " " + defaults.string(forKey: "LastName")!
+            schoolLabel.text = defaults.string(forKey: "School")!
+            firstName = defaults.string(forKey: "FirstName")!
+            lastName = defaults.string(forKey: "LastName")!
+            school = defaults.string(forKey: "School")!
+        }
     }
     
     //MARK: Navigation

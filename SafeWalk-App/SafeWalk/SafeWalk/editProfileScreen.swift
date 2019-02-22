@@ -29,11 +29,23 @@ class editProfileScreen: UIViewController {
     var firstName = ""
     var lastName = ""
     var school = ""
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        loadUserInfo()
         // Do any additional setup after loading the view.
+    }
+    
+    func loadUserInfo() {
+        if defaults.object(forKey: "FirstName") == nil {
+            defaults.set(firstName, forKey: "FirstName")
+            defaults.set(lastName, forKey: "LastName")
+            defaults.set(school, forKey: "School")
+        }
+        let fullName = firstName + " " + lastName
+        nameLabel.attributedText = NSAttributedString(string: fullName, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        schoolLabel.text = school
     }
     
     //MARK: Navigation
@@ -49,9 +61,16 @@ class editProfileScreen: UIViewController {
             view?.school = school
         }
     }
+    
+    func updateUserDefaults() {
+        defaults.set(firstName, forKey: "FirstName")
+        defaults.set(lastName, forKey: "LastName")
+        defaults.set(school, forKey: "School")
+    }
 
     //MARK: Actions
     @IBAction func doneEditing(_ sender: UIButton) {
+        updateUserDefaults()
     }
     
     @IBAction func changeProfilePic(_ sender: UIButton) {
