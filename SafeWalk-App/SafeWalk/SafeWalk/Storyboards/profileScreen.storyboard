@@ -27,7 +27,7 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="closeProfileView:" destination="94J-7m-Jen" eventType="touchUpInside" id="ntC-EO-Jgw"/>
-                                    <segue destination="36P-rI-4ii" kind="show" id="kSf-JX-AYa"/>
+                                    <segue destination="36P-rI-4ii" kind="show" identifier="toMainScreen" id="kSf-JX-AYa"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr6-Qh-Ezk">
@@ -127,6 +127,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLR-uV-rZG">
+                                <rect key="frame" x="12" y="35" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Jo8-HJ-sYL"/>
+                                    <constraint firstAttribute="width" constant="40" id="bJD-5v-4kf"/>
+                                </constraints>
+                                <state key="normal" image="CloseIcon"/>
+                                <connections>
+                                    <action selector="backToSignIn:" destination="94J-7m-Jen" eventType="touchUpInside" id="cUJ-tb-s2S"/>
+                                    <segue destination="gEV-AT-Tqc" kind="show" id="xfz-FO-XLm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -137,11 +149,13 @@
                             <constraint firstItem="Cly-OC-dtc" firstAttribute="centerX" secondItem="KU9-ay-4DU" secondAttribute="centerX" id="AY0-ye-S1q"/>
                             <constraint firstItem="Cly-OC-dtc" firstAttribute="top" secondItem="DST-qB-0HT" secondAttribute="bottom" constant="2" id="Adk-HA-TOW"/>
                             <constraint firstItem="CPF-cg-4gZ" firstAttribute="leading" secondItem="lZr-Gs-XCd" secondAttribute="trailing" constant="8" id="CNB-Am-A61"/>
+                            <constraint firstItem="VLR-uV-rZG" firstAttribute="leading" secondItem="Gyd-vu-jAC" secondAttribute="leading" constant="12" id="Ns8-oa-TW6"/>
                             <constraint firstItem="DST-qB-0HT" firstAttribute="top" secondItem="9Hx-Ka-MGi" secondAttribute="bottom" constant="7.5" id="OL5-SP-8cJ"/>
                             <constraint firstItem="Gr6-Qh-Ezk" firstAttribute="top" secondItem="KU9-ay-4DU" secondAttribute="topMargin" constant="15" id="Obg-3I-wUy"/>
                             <constraint firstItem="81I-ed-wH7" firstAttribute="leading" secondItem="RK2-Dv-Mfz" secondAttribute="trailing" constant="8" id="Pc1-Uz-vKv"/>
                             <constraint firstItem="CPF-cg-4gZ" firstAttribute="top" secondItem="DST-qB-0HT" secondAttribute="bottom" constant="2" id="SNn-pt-CjQ"/>
                             <constraint firstItem="81I-ed-wH7" firstAttribute="top" secondItem="DST-qB-0HT" secondAttribute="bottom" constant="2" id="TfB-Os-PEN"/>
+                            <constraint firstItem="VLR-uV-rZG" firstAttribute="top" secondItem="KU9-ay-4DU" secondAttribute="top" constant="35" id="VNi-Ae-SYY"/>
                             <constraint firstItem="Gr6-Qh-Ezk" firstAttribute="centerX" secondItem="KU9-ay-4DU" secondAttribute="centerX" id="YVz-mT-4vW"/>
                             <constraint firstItem="4tR-Za-yaq" firstAttribute="top" secondItem="Cly-OC-dtc" secondAttribute="bottom" constant="29.5" id="a6K-Cc-VPn"/>
                             <constraint firstItem="Gyd-vu-jAC" firstAttribute="trailing" secondItem="4tR-Za-yaq" secondAttribute="trailing" constant="16" id="cPn-xt-04j"/>
@@ -164,6 +178,7 @@
                         <outlet property="nameLabel" destination="DST-qB-0HT" id="yJn-jw-xjn"/>
                         <outlet property="profilePicView" destination="9Hx-Ka-MGi" id="39G-c4-AsT"/>
                         <outlet property="schoolLabel" destination="4tR-Za-yaq" id="GcL-bi-bgD"/>
+                        <outlet property="signOutButton" destination="VLR-uV-rZG" id="KiF-tR-fxg"/>
                         <outlet property="star1" destination="RK2-Dv-Mfz" id="oUZ-QV-PDP"/>
                         <outlet property="star2" destination="81I-ed-wH7" id="SSz-mb-MPO"/>
                         <outlet property="star3" destination="Cly-OC-dtc" id="goB-gg-BuA"/>
@@ -186,10 +201,18 @@
         <!--MainScreens-->
         <scene sceneID="tir-6R-rS8">
             <objects>
-                <viewControllerPlaceholder storyboardName="MainScreens" id="36P-rI-4ii" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gFy-HE-7xx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MainScreens" id="36P-rI-4ii" sceneMemberID="viewController"/>
             </objects>
-            <point key="canvasLocation" x="161" y="572"/>
+            <point key="canvasLocation" x="-50" y="572"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="1uC-1c-MeL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="gEV-AT-Tqc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gNY-cy-p9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="411" y="572"/>
         </scene>
     </scenes>
     <resources>

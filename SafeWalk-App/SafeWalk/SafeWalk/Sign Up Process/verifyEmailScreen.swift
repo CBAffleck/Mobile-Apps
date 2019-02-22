@@ -74,6 +74,7 @@ class VerifyEmailScreen: UIViewController, UITextFieldDelegate {
         defaults.set(userFirstName, forKey: "FirstName")
         defaults.set(userLastName, forKey: "LastName")
         defaults.set(userSchool, forKey: "School")
+        defaults.set(true, forKey: "FirstSignIn")
     }
     
     //MARK: Keyboard Controls

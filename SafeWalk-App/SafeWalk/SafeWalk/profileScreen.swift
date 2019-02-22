@@ -23,6 +23,7 @@ class profileScreen: UIViewController {
     @IBOutlet weak var star4: UIImageView!
     @IBOutlet weak var star5: UIImageView!
     @IBOutlet weak var schoolLabel: UILabel!
+    @IBOutlet weak var signOutButton: UIButton!
     
     //MARK: Variables
     var starCount = 5
@@ -48,6 +49,14 @@ class profileScreen: UIViewController {
             lastName = defaults.string(forKey: "LastName")!
             school = defaults.string(forKey: "School")!
         }
+        if defaults.bool(forKey: "FirstSignIn") == true {
+            defaults.set(false, forKey: "FirstSignIn")
+            closeButton.isHidden = true
+            closeButton.isEnabled = false
+        } else {
+            signOutButton.isHidden = true
+            signOutButton.isEnabled = false
+        }
     }
     
     //MARK: Navigation
@@ -66,6 +75,10 @@ class profileScreen: UIViewController {
     }
 
     @IBAction func closeProfileView(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func backToSignIn(_ sender: UIButton) {
     }
     
     @IBAction func openEditProfileView(_ sender: UIButton) {
