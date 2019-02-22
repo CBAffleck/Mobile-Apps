@@ -52,6 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="openEditProfileView:" destination="94J-7m-Jen" eventType="touchUpInside" id="Auf-Xr-zeH"/>
+                                    <segue destination="IcG-rd-2tW" kind="custom" customClass="SlideUpSegue" customModule="SafeWalk" customModuleProvider="target" id="TB8-mQ-aTC"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="Cly-OC-dtc">
@@ -148,6 +149,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZwQ-tL-07y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="158.77061469265368"/>
+        </scene>
+        <!--editProfileScreen-->
+        <scene sceneID="o9O-Wr-79M">
+            <objects>
+                <viewControllerPlaceholder storyboardName="editProfileScreen" id="IcG-rd-2tW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CFb-Cp-d27" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="795" y="158"/>
         </scene>
         <!--MainScreens-->
         <scene sceneID="tir-6R-rS8">
