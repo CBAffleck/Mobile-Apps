@@ -52,7 +52,7 @@
                                 </state>
                                 <connections>
                                     <action selector="openEditProfileView:" destination="94J-7m-Jen" eventType="touchUpInside" id="Auf-Xr-zeH"/>
-                                    <segue destination="IcG-rd-2tW" kind="custom" customClass="SlideUpSegue" customModule="SafeWalk" customModuleProvider="target" id="TB8-mQ-aTC"/>
+                                    <segue destination="IcG-rd-2tW" kind="custom" customClass="SlideDownSegue" customModule="SafeWalk" customModuleProvider="target" id="TB8-mQ-aTC"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="starFilled" translatesAutoresizingMaskIntoConstraints="NO" id="Cly-OC-dtc">
