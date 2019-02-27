@@ -188,8 +188,7 @@
 				C08B469321EC11D70017B2B2 /* AppDelegate.swift */,
 				C0B6299D22067CFA00BFA79B /* Map Screens */,
 				C0B629B72214E92800BFA79B /* Sign Up Process */,
-				C0B629B52214E6A100BFA79B /* profileScreen.swift */,
-				C0D62A9D221F8B8100C8F845 /* editProfileScreen.swift */,
+				C0D62A9F2226190300C8F845 /* Profile Screens */,
 				C08B469A21EC11D80017B2B2 /* Assets.xcassets */,
 				C08B469C21EC11D80017B2B2 /* LaunchScreen.storyboard */,
 				C08B469F21EC11D80017B2B2 /* Info.plist */,
@@ -262,6 +261,15 @@
 				C08B46C521EC22200017B2B2 /* verifyEmailScreen.swift */,
 			);
 			path = "Sign Up Process";
+			sourceTree = "<group>";
+		};
+		C0D62A9F2226190300C8F845 /* Profile Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C0D62A9D221F8B8100C8F845 /* editProfileScreen.swift */,
+				C0B629B52214E6A100BFA79B /* profileScreen.swift */,
+			);
+			path = "Profile Screens";
 			sourceTree = "<group>";
 		};
 		CB605DC20357C381B07DA2F4 /* Frameworks */ = {
