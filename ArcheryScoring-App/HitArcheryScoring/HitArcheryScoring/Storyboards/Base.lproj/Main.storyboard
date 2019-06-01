@@ -32,22 +32,59 @@
                                     <constraint firstAttribute="trailing" secondItem="ixv-ei-2u9" secondAttribute="trailing" id="ysG-04-Rsr"/>
                                 </constraints>
                             </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-Mf-qc4">
-                                <rect key="frame" x="99" y="475" width="176" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrow Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-Mf-qc4">
+                                <rect key="frame" x="85" y="475" width="204" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="hYg-fE-C7B"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Score" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yWM-3E-8hf">
+                                <rect key="frame" x="99" y="513" width="108" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="108" id="wIo-EM-zq8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvN-2n-4eF">
+                                <rect key="frame" x="215" y="513" width="51" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="XJm-ah-Bid"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-tm-Y8k">
+                                <rect key="frame" x="81.5" y="542" width="212" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="212" id="pxx-rc-ES9"/>
+                                </constraints>
+                                <state key="normal" title="Remove Last Arrow"/>
+                                <connections>
+                                    <action selector="removeLastArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ktT-G6-Elo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="yWM-3E-8hf" firstAttribute="top" secondItem="7Gx-Mf-qc4" secondAttribute="bottom" constant="8" id="4Q0-6f-a1v"/>
                             <constraint firstItem="WYL-Qg-w23" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6e9-ZL-u23"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Gx-Mf-qc4" secondAttribute="trailing" constant="86" id="Bzc-rL-yBa"/>
+                            <constraint firstItem="SP4-tm-Y8k" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ccr-Rj-sZN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WYL-Qg-w23" secondAttribute="trailing" id="Fb0-RQ-w2J"/>
-                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="top" secondItem="WYL-Qg-w23" secondAttribute="bottom" constant="48" id="HxB-DO-Txd"/>
+                            <constraint firstItem="SP4-tm-Y8k" firstAttribute="top" secondItem="yWM-3E-8hf" secondAttribute="bottom" constant="8" id="Lul-KP-QFc"/>
                             <constraint firstItem="WYL-Qg-w23" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UnV-jz-vTd"/>
-                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="Vuh-Qu-cGm"/>
+                            <constraint firstItem="QvN-2n-4eF" firstAttribute="leading" secondItem="yWM-3E-8hf" secondAttribute="trailing" constant="8" id="Vha-of-M1X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WYL-Qg-w23" secondAttribute="bottom" constant="240" id="XNP-oY-8Hv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Gx-Mf-qc4" secondAttribute="trailing" constant="100" id="dBL-6G-wYw"/>
+                            <constraint firstItem="QvN-2n-4eF" firstAttribute="top" secondItem="7Gx-Mf-qc4" secondAttribute="bottom" constant="8" id="kbL-Hl-a9H"/>
+                            <constraint firstItem="yWM-3E-8hf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="n0L-MB-3MD"/>
+                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="tdI-Qh-Lyh"/>
+                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="top" secondItem="WYL-Qg-w23" secondAttribute="bottom" constant="48" id="yxJ-rE-j97"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -56,9 +93,11 @@
                         <outlet property="imageConstraintLeft" destination="b1l-gw-dd6" id="pTe-nD-dCh"/>
                         <outlet property="imageConstraintRight" destination="ysG-04-Rsr" id="fua-b9-JNK"/>
                         <outlet property="imageConstraintTop" destination="yeg-yf-nxa" id="u2t-KV-hLT"/>
+                        <outlet property="removeLastButton" destination="SP4-tm-Y8k" id="3GM-nC-d66"/>
                         <outlet property="scoreLabel" destination="7Gx-Mf-qc4" id="hxm-iF-esN"/>
                         <outlet property="targetImageView" destination="ixv-ei-2u9" id="dbS-hU-YpC"/>
                         <outlet property="targetScrollView" destination="WYL-Qg-w23" id="nTl-6O-0Fi"/>
+                        <outlet property="totalScoreLabel" destination="QvN-2n-4eF" id="9w0-WN-3h2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

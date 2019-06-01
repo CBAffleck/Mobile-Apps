@@ -18,6 +18,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var imageConstraintLeft: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintRight: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintTop: NSLayoutConstraint!
+    @IBOutlet weak var totalScoreLabel: UILabel!
+    @IBOutlet weak var removeLastButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     //MARK: Variables
-    var score = 0
+    var totalScore = 0
+    var targets = [UIImage]()
+    var arrows = [Int]()
 
     //MARK: Functions
     func setZoomScale() {
@@ -78,10 +82,40 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         let point: CGPoint = gesture.location(in: gesture.view)
+        let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: targetImageView.image!, atPoint: point)
+        targets.append(newTarget)
+        targetImageView.image = newTarget
         
         print(point)
         let score = 10 - floor(sqrt(pow((point.x - 500), 2) + pow((point.y - 500), 2)) / 450 * 10)
         scoreLabel.text = score.description
+        arrows.append(Int(score))
+        totalScore += Int(score)
+        totalScoreLabel.text = totalScore.description
+    }
+    
+    func drawImage(image foreGroundImage: UIImage, inImage backgroundImage: UIImage, atPoint point: CGPoint) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, 0.0)
+        let renderSize: CGFloat = 15
+        backgroundImage.draw(in: CGRect.init(x: 0, y: 0, width: backgroundImage.size.width, height: backgroundImage.size.height))
+        let xPoint = point.x - renderSize / 2
+        let yPoint = point.y - renderSize / 2
+        foreGroundImage.draw(in: CGRect.init(x: xPoint, y: yPoint, width: renderSize, height: renderSize))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
+    @IBAction func removeLastArrow(_ sender: UIButton) {
+        if !targets.isEmpty {
+            targetImageView.image = targets.last
+            targets.removeLast()
+            totalScore -= arrows.last!
+            totalScoreLabel.text = totalScore.description
+            arrows.removeLast()
+            if targets.count > 0 { targetImageView.image = targets.last }
+            else { targetImageView.image = UIImage(named: "target_recurve")}
+        }
     }
     
 }
