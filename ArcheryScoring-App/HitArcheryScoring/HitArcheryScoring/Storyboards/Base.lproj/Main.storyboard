@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="WYL-Qg-w23">
+                                <rect key="frame" x="0.0" y="40" width="375" height="387"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="target_recurve" translatesAutoresizingMaskIntoConstraints="NO" id="ixv-ei-2u9">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ixv-ei-2u9" secondAttribute="bottom" id="RbH-xs-OK2"/>
+                                    <constraint firstItem="ixv-ei-2u9" firstAttribute="leading" secondItem="WYL-Qg-w23" secondAttribute="leading" id="b1l-gw-dd6"/>
+                                    <constraint firstItem="ixv-ei-2u9" firstAttribute="top" secondItem="WYL-Qg-w23" secondAttribute="top" id="yeg-yf-nxa"/>
+                                    <constraint firstAttribute="trailing" secondItem="ixv-ei-2u9" secondAttribute="trailing" id="ysG-04-Rsr"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Gx-Mf-qc4">
+                                <rect key="frame" x="99" y="475" width="176" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="WYL-Qg-w23" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6e9-ZL-u23"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WYL-Qg-w23" secondAttribute="trailing" id="Fb0-RQ-w2J"/>
+                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="top" secondItem="WYL-Qg-w23" secondAttribute="bottom" constant="48" id="HxB-DO-Txd"/>
+                            <constraint firstItem="WYL-Qg-w23" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="UnV-jz-vTd"/>
+                            <constraint firstItem="7Gx-Mf-qc4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="99" id="Vuh-Qu-cGm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WYL-Qg-w23" secondAttribute="bottom" constant="240" id="XNP-oY-8Hv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Gx-Mf-qc4" secondAttribute="trailing" constant="100" id="dBL-6G-wYw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageConstraintBottom" destination="RbH-xs-OK2" id="75Y-9q-VPG"/>
+                        <outlet property="imageConstraintLeft" destination="b1l-gw-dd6" id="pTe-nD-dCh"/>
+                        <outlet property="imageConstraintRight" destination="ysG-04-Rsr" id="fua-b9-JNK"/>
+                        <outlet property="imageConstraintTop" destination="yeg-yf-nxa" id="u2t-KV-hLT"/>
+                        <outlet property="scoreLabel" destination="7Gx-Mf-qc4" id="hxm-iF-esN"/>
+                        <outlet property="targetImageView" destination="ixv-ei-2u9" id="dbS-hU-YpC"/>
+                        <outlet property="targetScrollView" destination="WYL-Qg-w23" id="nTl-6O-0Fi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.600000000000001" y="26.53673163418291"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="target_recurve" width="1000" height="1000"/>
+    </resources>
+</document>

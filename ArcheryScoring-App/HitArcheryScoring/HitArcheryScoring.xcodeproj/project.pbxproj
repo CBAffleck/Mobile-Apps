@@ -1,0 +1,601 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
+		C03C55B422A2269C003290C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* ViewController.swift */; };
+		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
+		C03C55B922A2269D003290C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B822A2269D003290C7 /* Assets.xcassets */; };
+		C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55BA22A2269D003290C7 /* LaunchScreen.storyboard */; };
+		C03C55C722A2269D003290C7 /* HitArcheryScoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55C622A2269D003290C7 /* HitArcheryScoringTests.swift */; };
+		C03C55D222A2269D003290C7 /* HitArcheryScoringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C03C55C322A2269D003290C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03C55A622A2269C003290C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C03C55AD22A2269C003290C7;
+			remoteInfo = HitArcheryScoring;
+		};
+		C03C55CE22A2269D003290C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C03C55A622A2269C003290C7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C03C55AD22A2269C003290C7;
+			remoteInfo = HitArcheryScoring;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C03C55B322A2269C003290C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C03C55B622A2269C003290C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C03C55B822A2269D003290C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C03C55BB22A2269D003290C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C03C55BD22A2269D003290C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03C55C222A2269D003290C7 /* HitArcheryScoringTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitArcheryScoringTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03C55C622A2269D003290C7 /* HitArcheryScoringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitArcheryScoringTests.swift; sourceTree = "<group>"; };
+		C03C55C822A2269D003290C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03C55CD22A2269D003290C7 /* HitArcheryScoringUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HitArcheryScoringUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitArcheryScoringUITests.swift; sourceTree = "<group>"; };
+		C03C55D322A2269D003290C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C03C55AB22A2269C003290C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55BF22A2269D003290C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55CA22A2269D003290C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C03C55A522A2269C003290C7 = {
+			isa = PBXGroup;
+			children = (
+				C03C55B022A2269C003290C7 /* HitArcheryScoring */,
+				C03C55C522A2269D003290C7 /* HitArcheryScoringTests */,
+				C03C55D022A2269D003290C7 /* HitArcheryScoringUITests */,
+				C03C55AF22A2269C003290C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C03C55AF22A2269C003290C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */,
+				C03C55C222A2269D003290C7 /* HitArcheryScoringTests.xctest */,
+				C03C55CD22A2269D003290C7 /* HitArcheryScoringUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C03C55B022A2269C003290C7 /* HitArcheryScoring */ = {
+			isa = PBXGroup;
+			children = (
+				C03C55B122A2269C003290C7 /* AppDelegate.swift */,
+				C03C55B322A2269C003290C7 /* ViewController.swift */,
+				C03C55DF22A24EA5003290C7 /* Storyboards */,
+				C03C55B822A2269D003290C7 /* Assets.xcassets */,
+				C03C55BA22A2269D003290C7 /* LaunchScreen.storyboard */,
+				C03C55BD22A2269D003290C7 /* Info.plist */,
+			);
+			path = HitArcheryScoring;
+			sourceTree = "<group>";
+		};
+		C03C55C522A2269D003290C7 /* HitArcheryScoringTests */ = {
+			isa = PBXGroup;
+			children = (
+				C03C55C622A2269D003290C7 /* HitArcheryScoringTests.swift */,
+				C03C55C822A2269D003290C7 /* Info.plist */,
+			);
+			path = HitArcheryScoringTests;
+			sourceTree = "<group>";
+		};
+		C03C55D022A2269D003290C7 /* HitArcheryScoringUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */,
+				C03C55D322A2269D003290C7 /* Info.plist */,
+			);
+			path = HitArcheryScoringUITests;
+			sourceTree = "<group>";
+		};
+		C03C55DF22A24EA5003290C7 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C03C55B522A2269C003290C7 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C03C55AD22A2269C003290C7 /* HitArcheryScoring */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03C55D622A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoring" */;
+			buildPhases = (
+				C03C55AA22A2269C003290C7 /* Sources */,
+				C03C55AB22A2269C003290C7 /* Frameworks */,
+				C03C55AC22A2269C003290C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HitArcheryScoring;
+			productName = HitArcheryScoring;
+			productReference = C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C03C55C122A2269D003290C7 /* HitArcheryScoringTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03C55D922A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringTests" */;
+			buildPhases = (
+				C03C55BE22A2269D003290C7 /* Sources */,
+				C03C55BF22A2269D003290C7 /* Frameworks */,
+				C03C55C022A2269D003290C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C03C55C422A2269D003290C7 /* PBXTargetDependency */,
+			);
+			name = HitArcheryScoringTests;
+			productName = HitArcheryScoringTests;
+			productReference = C03C55C222A2269D003290C7 /* HitArcheryScoringTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C03C55CC22A2269D003290C7 /* HitArcheryScoringUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C03C55DC22A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringUITests" */;
+			buildPhases = (
+				C03C55C922A2269D003290C7 /* Sources */,
+				C03C55CA22A2269D003290C7 /* Frameworks */,
+				C03C55CB22A2269D003290C7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C03C55CF22A2269D003290C7 /* PBXTargetDependency */,
+			);
+			name = HitArcheryScoringUITests;
+			productName = HitArcheryScoringUITests;
+			productReference = C03C55CD22A2269D003290C7 /* HitArcheryScoringUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C03C55A622A2269C003290C7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Campbell Affleck";
+				TargetAttributes = {
+					C03C55AD22A2269C003290C7 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					C03C55C122A2269D003290C7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C03C55AD22A2269C003290C7;
+					};
+					C03C55CC22A2269D003290C7 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = C03C55AD22A2269C003290C7;
+					};
+				};
+			};
+			buildConfigurationList = C03C55A922A2269C003290C7 /* Build configuration list for PBXProject "HitArcheryScoring" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C03C55A522A2269C003290C7;
+			productRefGroup = C03C55AF22A2269C003290C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C03C55AD22A2269C003290C7 /* HitArcheryScoring */,
+				C03C55C122A2269D003290C7 /* HitArcheryScoringTests */,
+				C03C55CC22A2269D003290C7 /* HitArcheryScoringUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C03C55AC22A2269C003290C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
+				C03C55B922A2269D003290C7 /* Assets.xcassets in Resources */,
+				C03C55B722A2269C003290C7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55C022A2269D003290C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55CB22A2269D003290C7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C03C55AA22A2269C003290C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03C55B422A2269C003290C7 /* ViewController.swift in Sources */,
+				C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55BE22A2269D003290C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03C55C722A2269D003290C7 /* HitArcheryScoringTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C03C55C922A2269D003290C7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C03C55D222A2269D003290C7 /* HitArcheryScoringUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C03C55C422A2269D003290C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C03C55AD22A2269C003290C7 /* HitArcheryScoring */;
+			targetProxy = C03C55C322A2269D003290C7 /* PBXContainerItemProxy */;
+		};
+		C03C55CF22A2269D003290C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C03C55AD22A2269C003290C7 /* HitArcheryScoring */;
+			targetProxy = C03C55CE22A2269D003290C7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C03C55B522A2269C003290C7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C03C55B622A2269C003290C7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C03C55BA22A2269D003290C7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C03C55BB22A2269D003290C7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C03C55D422A2269D003290C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C03C55D522A2269D003290C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C03C55D722A2269D003290C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoring;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C03C55D822A2269D003290C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoring/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoring;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C03C55DA22A2269D003290C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoringTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HitArcheryScoring.app/HitArcheryScoring";
+			};
+			name = Debug;
+		};
+		C03C55DB22A2269D003290C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoringTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoringTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HitArcheryScoring.app/HitArcheryScoring";
+			};
+			name = Release;
+		};
+		C03C55DD22A2269D003290C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoringUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HitArcheryScoring;
+			};
+			name = Debug;
+		};
+		C03C55DE22A2269D003290C7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K8YB85UQ9B;
+				INFOPLIST_FILE = HitArcheryScoringUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = campbellaffleck.HitArcheryScoringUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = HitArcheryScoring;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C03C55A922A2269C003290C7 /* Build configuration list for PBXProject "HitArcheryScoring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03C55D422A2269D003290C7 /* Debug */,
+				C03C55D522A2269D003290C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C03C55D622A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoring" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03C55D722A2269D003290C7 /* Debug */,
+				C03C55D822A2269D003290C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C03C55D922A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03C55DA22A2269D003290C7 /* Debug */,
+				C03C55DB22A2269D003290C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C03C55DC22A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C03C55DD22A2269D003290C7 /* Debug */,
+				C03C55DE22A2269D003290C7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C03C55A622A2269C003290C7 /* Project object */;
+}
