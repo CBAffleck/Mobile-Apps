@@ -23,7 +23,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        targetImageView.image = UIImage(named: "40cmSingleSpot")
+        targetImageView.image = UIImage(named: "SingleSpot")
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         targetImageView.image = newTarget
         
         print(point)
-        let score = 10 - floor(sqrt(pow((point.x - 500), 2) + pow((point.y - 500), 2)) / 450 * 10)
+        let score = 10 - floor(sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2)) / 450 * 10)
         scoreLabel.text = score.description
         arrows.append(Int(score))
         totalScore += Int(score)
@@ -114,7 +114,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             totalScoreLabel.text = totalScore.description
             arrows.removeLast()
             if targets.count > 0 { targetImageView.image = targets.last }
-            else { targetImageView.image = UIImage(named: "40cmSingleSpot")}
+            else { targetImageView.image = UIImage(named: "SingleSpot")}
         }
     }
     
