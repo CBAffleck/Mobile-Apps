@@ -23,7 +23,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        targetImageView.image = UIImage(named: "target_recurve")
+        targetImageView.image = UIImage(named: "40cmSingleSpot")
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -114,7 +114,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             totalScoreLabel.text = totalScore.description
             arrows.removeLast()
             if targets.count > 0 { targetImageView.image = targets.last }
-            else { targetImageView.image = UIImage(named: "target_recurve")}
+            else { targetImageView.image = UIImage(named: "40cmSingleSpot")}
         }
     }
     
