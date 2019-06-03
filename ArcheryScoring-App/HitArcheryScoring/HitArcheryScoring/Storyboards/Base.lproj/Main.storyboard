@@ -259,9 +259,9 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dGt-dv-UmP" secondAttribute="bottom" id="Ye2-Qf-jB7"/>
                                     <constraint firstItem="dGt-dv-UmP" firstAttribute="leading" secondItem="gZd-OC-e8F" secondAttribute="leading" id="bue-Vq-ekj"/>
-                                    <constraint firstItem="dGt-dv-UmP" firstAttribute="centerY" secondItem="gZd-OC-e8F" secondAttribute="centerY" id="fqG-eV-Kfg"/>
                                     <constraint firstItem="dGt-dv-UmP" firstAttribute="top" secondItem="gZd-OC-e8F" secondAttribute="top" id="lsT-Gu-bs0"/>
                                     <constraint firstAttribute="trailing" secondItem="dGt-dv-UmP" secondAttribute="trailing" id="mdv-p9-Pd7"/>
+                                    <constraint firstItem="dGt-dv-UmP" firstAttribute="height" secondItem="gZd-OC-e8F" secondAttribute="height" priority="250" id="s7V-9I-occ"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -283,6 +283,7 @@
                     <navigationItem key="navigationItem" id="Vb2-2S-2bx"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="averageLabel" destination="B81-jW-BFd" id="Ike-nt-jdT"/>
                         <outlet property="contentView" destination="dGt-dv-UmP" id="PTD-dc-pKi"/>
