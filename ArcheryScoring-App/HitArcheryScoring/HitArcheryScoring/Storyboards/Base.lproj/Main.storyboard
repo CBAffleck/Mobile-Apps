@@ -21,7 +21,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="WYL-Qg-w23">
                                 <rect key="frame" x="0.0" y="40" width="375" height="387"/>
                                 <subviews>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="target_recurve" translatesAutoresizingMaskIntoConstraints="NO" id="ixv-ei-2u9">
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SingleSpot" translatesAutoresizingMaskIntoConstraints="NO" id="ixv-ei-2u9">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
                                     </imageView>
                                 </subviews>
@@ -106,6 +106,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="target_recurve" width="1000" height="1000"/>
+        <image name="SingleSpot" width="1000" height="1000"/>
     </resources>
 </document>
