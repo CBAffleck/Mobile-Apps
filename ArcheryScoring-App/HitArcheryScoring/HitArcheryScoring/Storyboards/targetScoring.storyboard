@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yig-TW-5lT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Target Scoring-->
+        <scene sceneID="jxh-5b-JLz">
+            <objects>
+                <viewController id="yig-TW-5lT" customClass="targetScoring" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ofl-e7-F2E">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-I4-hXl">
+                                <rect key="frame" x="0.0" y="40" width="375" height="387"/>
+                                <subviews>
+                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SingleSpot" translatesAutoresizingMaskIntoConstraints="NO" id="qSl-mP-hxS">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qSl-mP-hxS" firstAttribute="leading" secondItem="fIS-I4-hXl" secondAttribute="leading" id="BKd-Qv-WjL"/>
+                                    <constraint firstAttribute="bottom" secondItem="qSl-mP-hxS" secondAttribute="bottom" id="RSu-lk-uk6"/>
+                                    <constraint firstItem="qSl-mP-hxS" firstAttribute="top" secondItem="fIS-I4-hXl" secondAttribute="top" id="bR7-WQ-U3H"/>
+                                    <constraint firstAttribute="trailing" secondItem="qSl-mP-hxS" secondAttribute="trailing" id="lWA-hk-Rbd"/>
+                                </constraints>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrow Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mH-bk-qgo">
+                                <rect key="frame" x="20" y="475" width="335" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opG-S1-87V">
+                                <rect key="frame" x="20" y="513" width="276" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGf-WB-4b8">
+                                <rect key="frame" x="304" y="513" width="51" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="Fpk-P4-WGt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-rj-yW2">
+                                <rect key="frame" x="20" y="542" width="335" height="30"/>
+                                <state key="normal" title="Remove Last Arrow"/>
+                                <connections>
+                                    <action selector="removeLastArrow:" destination="yig-TW-5lT" eventType="touchUpInside" id="39j-m2-0XT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="FiK-rj-yW2" firstAttribute="top" secondItem="opG-S1-87V" secondAttribute="bottom" constant="8" id="3GI-Gm-05y"/>
+                            <constraint firstItem="eGf-WB-4b8" firstAttribute="top" secondItem="6mH-bk-qgo" secondAttribute="bottom" constant="8" id="5b8-Y9-cAm"/>
+                            <constraint firstItem="eGf-WB-4b8" firstAttribute="leading" secondItem="opG-S1-87V" secondAttribute="trailing" constant="8" id="AoK-ZP-9cG"/>
+                            <constraint firstItem="fIS-I4-hXl" firstAttribute="top" secondItem="13W-Yi-hLB" secondAttribute="top" constant="20" id="FXb-Ea-1vd"/>
+                            <constraint firstItem="13W-Yi-hLB" firstAttribute="bottom" secondItem="fIS-I4-hXl" secondAttribute="bottom" constant="240" id="FlC-im-57X"/>
+                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="fIS-I4-hXl" secondAttribute="trailing" id="Jpv-mS-xph"/>
+                            <constraint firstItem="6mH-bk-qgo" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="Kch-bE-oHd"/>
+                            <constraint firstItem="opG-S1-87V" firstAttribute="top" secondItem="6mH-bk-qgo" secondAttribute="bottom" constant="8" id="RTr-ki-n94"/>
+                            <constraint firstItem="opG-S1-87V" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="TpM-EG-h8T"/>
+                            <constraint firstItem="fIS-I4-hXl" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" id="W1c-AX-Pjy"/>
+                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="FiK-rj-yW2" secondAttribute="trailing" constant="20" id="fDZ-hw-aUf"/>
+                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="6mH-bk-qgo" secondAttribute="trailing" constant="20" id="gDS-vh-Has"/>
+                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="eGf-WB-4b8" secondAttribute="trailing" constant="20" id="n6s-BJ-o9E"/>
+                            <constraint firstItem="FiK-rj-yW2" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="oje-jU-7OP"/>
+                            <constraint firstItem="FiK-rj-yW2" firstAttribute="centerX" secondItem="Ofl-e7-F2E" secondAttribute="centerX" id="wfs-Fm-ACF"/>
+                            <constraint firstItem="6mH-bk-qgo" firstAttribute="top" secondItem="fIS-I4-hXl" secondAttribute="bottom" constant="48" id="xVb-zi-YTV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="13W-Yi-hLB"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageConstraintBottom" destination="RSu-lk-uk6" id="L8Z-Hv-f2m"/>
+                        <outlet property="imageConstraintLeft" destination="BKd-Qv-WjL" id="KBg-a5-pRr"/>
+                        <outlet property="imageConstraintRight" destination="lWA-hk-Rbd" id="qOi-jW-qqy"/>
+                        <outlet property="imageConstraintTop" destination="bR7-WQ-U3H" id="yOZ-bB-Hr6"/>
+                        <outlet property="removeLastButton" destination="FiK-rj-yW2" id="pkM-M1-yjt"/>
+                        <outlet property="scoreLabel" destination="6mH-bk-qgo" id="u3P-vF-Wwk"/>
+                        <outlet property="targetImageView" destination="qSl-mP-hxS" id="tVT-10-8c1"/>
+                        <outlet property="targetScrollView" destination="fIS-I4-hXl" id="xk5-vc-x8d"/>
+                        <outlet property="totalScoreLabel" destination="eGf-WB-4b8" id="GGS-q8-GwH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72U-CC-acy" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="849" y="163"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SingleSpot" width="1000" height="1000"/>
+    </resources>
+</document>

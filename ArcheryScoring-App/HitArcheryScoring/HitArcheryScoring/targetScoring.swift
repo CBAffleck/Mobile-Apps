@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  targetScoring.swift
 //  HitArcheryScoring
 //
 //  Created by Campbell Affleck on 5/31/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class targetScoring: UIViewController, UIScrollViewDelegate {
 
     //MARK: Properties
     @IBOutlet weak var targetScrollView: UIScrollView!
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         setZoomScale()
         updateImageConstraints()
         
-        targetImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.imageTapped(gesture:))))
+        targetImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(targetScoring.imageTapped(gesture:))))
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,6 +38,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     var totalScore = 0
     var targets = [UIImage]()
     var arrows = [Int]()
+    var arrowLocations = [CGPoint]()
 
     //MARK: Functions
     func setZoomScale() {
@@ -84,6 +85,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let point: CGPoint = gesture.location(in: gesture.view)
         let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: targetImageView.image!, atPoint: point)
         targets.append(newTarget)
+        arrowLocations.append(point)
         targetImageView.image = newTarget
         
         print(point)
@@ -113,6 +115,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             totalScore -= arrows.last!
             totalScoreLabel.text = totalScore.description
             arrows.removeLast()
+            arrowLocations.removeLast()
             if targets.count > 0 { targetImageView.image = targets.last }
             else { targetImageView.image = UIImage(named: "SingleSpot")}
         }

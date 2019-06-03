@@ -25,15 +25,22 @@ class HomeScreen: UIViewController {
     @IBOutlet weak var averageLabel: UILabel!
     @IBOutlet weak var prLabel: UILabel!
     @IBOutlet weak var scoringPopUpButton: UIButton!
+    @IBOutlet weak var scoringRoundView18m: UIView!
+    @IBOutlet weak var contentView: UIView!
     
     //MARK: Variables
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: self.view.frame.size.height)
+        scoringRoundView18m.layer.cornerRadius = 20
+        scoringRoundView18m.layer.borderWidth = 0.5
+        scoringRoundView18m.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
+        scoringRoundView18m.frame.size.width = UIScreen.main.bounds.width - 40
+        
+        
     }
-    
 
     /*
     // MARK: - Navigation
