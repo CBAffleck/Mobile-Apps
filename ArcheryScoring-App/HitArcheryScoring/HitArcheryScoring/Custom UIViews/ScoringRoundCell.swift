@@ -24,15 +24,27 @@ class ScoringRoundCell: UITableViewCell {
 //
 //        // Configure the view for the selected state
 //    }
-    
-    var delegate: ScoringCellDelegate?
-    var roundItem: ScoringRound!
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var lastScoredLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var avgLabel: UILabel!
     @IBOutlet weak var perLabel: UILabel!
+    @IBOutlet weak var cellView: UIView!
+    
+    //MARK: Variables
+    var delegate: ScoringCellDelegate?
+    var roundItem: ScoringRound!
+    
+    func setUpView() {
+        addSubview(cellView)
+        NSLayoutConstraint.activate([
+            cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+            cellView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
+            cellView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            cellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
+        ])
+    }
     
     func setInfo(round: ScoringRound) {
         roundItem = round
@@ -41,6 +53,9 @@ class ScoringRoundCell: UITableViewCell {
         descriptionLabel.text = round.description
         avgLabel.text = round.average
         perLabel.text = round.best
+        cellView.layer.cornerRadius = 20
+        cellView.layer.borderWidth = 0.5
+        cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
     }
     
     @IBAction func toScoringTapped(_ sender: UIButton) {

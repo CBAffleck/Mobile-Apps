@@ -44,7 +44,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-//        tableView.register(ScoringRoundCell.self, forCellReuseIdentifier: "cellId")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

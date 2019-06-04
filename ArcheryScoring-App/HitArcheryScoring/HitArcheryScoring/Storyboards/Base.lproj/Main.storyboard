@@ -165,6 +165,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="335" height="150.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWm-r6-QSz">
+                                                    <rect key="frame" x="0.0" y="10" width="335" height="130.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ver-Ic-iTt">
                                                     <rect key="frame" x="25" y="21" width="273" height="22"/>
                                                     <constraints>
@@ -230,17 +234,22 @@
                                                 <constraint firstItem="6B1-PP-FhY" firstAttribute="top" secondItem="ver-Ic-iTt" secondAttribute="bottom" constant="1" id="Fw0-4L-27z"/>
                                                 <constraint firstItem="Rep-FT-x7e" firstAttribute="top" secondItem="6B1-PP-FhY" secondAttribute="bottom" constant="10" id="GA7-XX-cNE"/>
                                                 <constraint firstItem="ver-Ic-iTt" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="Jb8-X6-vf1"/>
+                                                <constraint firstAttribute="bottom" secondItem="pWm-r6-QSz" secondAttribute="bottom" constant="10" id="Net-0e-uGj"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="top" secondItem="6jo-Op-VvD" secondAttribute="bottom" constant="1" id="Oyo-xA-gWw"/>
                                                 <constraint firstItem="UW9-jT-sQE" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="top" id="Slc-GG-son"/>
+                                                <constraint firstItem="pWm-r6-QSz" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="top" constant="10" id="WD2-SX-IsK"/>
                                                 <constraint firstAttribute="bottom" secondItem="UW9-jT-sQE" secondAttribute="bottom" id="Y1P-oF-4Bm"/>
                                                 <constraint firstAttribute="trailing" secondItem="UW9-jT-sQE" secondAttribute="trailing" id="bRI-U7-qxW"/>
+                                                <constraint firstItem="pWm-r6-QSz" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leading" id="c2q-EK-bdF"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="dVM-WN-cWr"/>
+                                                <constraint firstAttribute="trailing" secondItem="pWm-r6-QSz" secondAttribute="trailing" id="ior-Gd-1Ib"/>
                                                 <constraint firstItem="Rep-FT-x7e" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="mEb-A1-U9Q"/>
                                                 <constraint firstItem="6jo-Op-VvD" firstAttribute="top" secondItem="Rep-FT-x7e" secondAttribute="bottom" constant="1" id="vrG-LZ-eNu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avgLabel" destination="6jo-Op-VvD" id="g4f-l6-Pzh"/>
+                                            <outlet property="cellView" destination="pWm-r6-QSz" id="0Lm-3Q-izR"/>
                                             <outlet property="descriptionLabel" destination="Rep-FT-x7e" id="sn2-y5-foj"/>
                                             <outlet property="lastScoredLabel" destination="6B1-PP-FhY" id="Ymf-0I-UGk"/>
                                             <outlet property="perLabel" destination="Bf5-Kz-MyD" id="PcK-zw-ejC"/>
