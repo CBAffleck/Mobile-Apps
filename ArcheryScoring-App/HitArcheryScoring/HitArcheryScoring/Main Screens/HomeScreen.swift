@@ -55,6 +55,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let round = rounds[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! ScoringRoundCell
         cell.setInfo(round: round)
+        cell.delegate = self
         return cell
     }
     
@@ -87,5 +88,14 @@ class ScoringRound {
         self.description = description
         self.average = average
         self.best = best
+    }
+}
+
+extension HomeScreen: ScoringCellDelegate {
+    func didTapToScoring(title: String, lastScored: String, desc: String, avg: String, pr: String) {
+        let popUpStoryboard = UIStoryboard(name: "startScoring", bundle: nil)
+        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "startScoringID") as! startScoring
+        popUp.modalTransitionStyle = .crossDissolve
+        self.present(popUp, animated: true, completion: nil)
     }
 }
