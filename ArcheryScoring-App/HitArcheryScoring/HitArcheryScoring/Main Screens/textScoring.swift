@@ -23,11 +23,15 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     //MARK: Variables
     var endCount = 10
+    var headerTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
         scoringTable.separatorStyle = .none
+        finishButton.layer.cornerRadius = 10
+        cancelButton.layer.cornerRadius = 10
+        titleLabel.text = headerTitle
     }
     
     func setUpTableView() {
