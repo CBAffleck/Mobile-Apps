@@ -31,6 +31,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
         createRoundArray()
         setUpTableView()
+        tableView.separatorColor = UIColor.white
     }
     
     func createRoundArray() {

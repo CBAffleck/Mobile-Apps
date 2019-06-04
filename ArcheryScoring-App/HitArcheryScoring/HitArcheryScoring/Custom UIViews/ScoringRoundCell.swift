@@ -54,7 +54,7 @@ class ScoringRoundCell: UITableViewCell {
         avgLabel.text = round.average
         perLabel.text = round.best
         cellView.layer.cornerRadius = 20
-        cellView.layer.borderWidth = 0.5
+        cellView.layer.borderWidth = 0.75
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
     }
     
