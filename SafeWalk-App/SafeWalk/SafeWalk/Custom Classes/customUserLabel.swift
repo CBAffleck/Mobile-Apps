@@ -52,6 +52,7 @@ class customUserLabel: UIView {
     
     let contentView : UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor.blue
         return view
     }()
     
