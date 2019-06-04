@@ -19,6 +19,7 @@
 		C07C919D22A50701005CCF98 /* startScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C919C22A50701005CCF98 /* startScoring.storyboard */; };
 		C07C919F22A50725005CCF98 /* startScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C919E22A50725005CCF98 /* startScoring.swift */; };
 		C07C91A222A5D512005CCF98 /* customScoringRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A122A5D512005CCF98 /* customScoringRoundView.swift */; };
+		C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		C07C919C22A50701005CCF98 /* startScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = startScoring.storyboard; sourceTree = "<group>"; };
 		C07C919E22A50725005CCF98 /* startScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = startScoring.swift; sourceTree = "<group>"; };
 		C07C91A122A5D512005CCF98 /* customScoringRoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customScoringRoundView.swift; sourceTree = "<group>"; };
+		C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRoundCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				C07C91A122A5D512005CCF98 /* customScoringRoundView.swift */,
+				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
 			);
 			path = "Custom UIViews";
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			files = (
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
+				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C07C91A222A5D512005CCF98 /* customScoringRoundView.swift in Sources */,
 				C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
