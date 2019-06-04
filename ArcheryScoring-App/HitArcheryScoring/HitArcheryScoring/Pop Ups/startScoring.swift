@@ -21,6 +21,11 @@ class startScoring: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     
     //Mark: Variables
+    var rTitle = ""
+    var rDesc = ""
+    var rAvg = ""
+    var rBest = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,6 +34,11 @@ class startScoring: UIViewController {
         cancelButton.layer.cornerRadius = 10
         textScoringButton.layer.cornerRadius = 10
         targetScoringButton.layer.cornerRadius = 10
+        
+        roundTitleLabel.text = rTitle
+        roundDescLabel.text = rDesc
+        averageLabel.text = rAvg
+        prLabel.text = rBest
     }
     
 

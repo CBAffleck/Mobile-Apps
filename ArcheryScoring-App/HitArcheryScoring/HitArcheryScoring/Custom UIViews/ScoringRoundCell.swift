@@ -9,15 +9,16 @@
 import UIKit
 
 protocol ScoringCellDelegate {
-    func didTapToScoring(title: String, lastScored: String, desc: String, avg: String, pr: String)
+    func didTapToScoring()
 }
 
 class ScoringRoundCell: UITableViewCell {
 
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.selectionStyle = .none
+    }
 //
 //    override func setSelected(_ selected: Bool, animated: Bool) {
 //        super.setSelected(selected, animated: animated)
@@ -36,16 +37,6 @@ class ScoringRoundCell: UITableViewCell {
     var delegate: ScoringCellDelegate?
     var roundItem: ScoringRound!
     
-    func setUpView() {
-        addSubview(cellView)
-        NSLayoutConstraint.activate([
-            cellView.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            cellView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0),
-            cellView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
-            cellView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 10)
-        ])
-    }
-    
     func setInfo(round: ScoringRound) {
         roundItem = round
         titleLabel.text = round.title
@@ -59,7 +50,7 @@ class ScoringRoundCell: UITableViewCell {
     }
     
     @IBAction func toScoringTapped(_ sender: UIButton) {
-        delegate?.didTapToScoring(title: titleLabel.text!, lastScored: lastScoredLabel.text!, desc: descriptionLabel.text!, avg: avgLabel.text!, pr: perLabel.text!)
+        delegate?.didTapToScoring()
     }
     
 }

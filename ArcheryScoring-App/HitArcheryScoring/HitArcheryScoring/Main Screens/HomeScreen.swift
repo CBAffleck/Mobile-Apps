@@ -26,6 +26,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Variables
     var rounds: [ScoringRound] = []
+    var tempTitle = ""
+    var tempDesc = ""
+    var tempAvg = ""
+    var tempPR = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +67,25 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 151
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tempTitle = rounds[indexPath.row].title
+        tempDesc = rounds[indexPath.row].description
+        tempAvg = rounds[indexPath.row].average
+        tempPR = rounds[indexPath.row].best
+        performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tableToPopUpSegue" {
+            let vc = segue.destination as? startScoring
+            vc?.rTitle = tempTitle
+            vc?.rDesc = tempDesc
+            vc?.rAvg = tempAvg
+            vc?.rBest = tempPR
+        }
+    }
+    
     //MARK: Actions
     @IBAction func toProfileScreen(_ sender: UIButton) {
     }
@@ -92,10 +115,12 @@ class ScoringRound {
 }
 
 extension HomeScreen: ScoringCellDelegate {
-    func didTapToScoring(title: String, lastScored: String, desc: String, avg: String, pr: String) {
+    func didTapToScoring() {
         let popUpStoryboard = UIStoryboard(name: "startScoring", bundle: nil)
         let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "startScoringID") as! startScoring
         popUp.modalTransitionStyle = .crossDissolve
+        popUp.modalPresentationStyle = .overCurrentContext
+        popUp.rTitle = tempTitle
         self.present(popUp, animated: true, completion: nil)
     }
 }

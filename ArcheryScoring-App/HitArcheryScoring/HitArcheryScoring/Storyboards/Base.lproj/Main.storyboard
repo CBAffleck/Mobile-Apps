@@ -170,7 +170,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ver-Ic-iTt">
-                                                    <rect key="frame" x="25" y="21" width="273" height="22"/>
+                                                    <rect key="frame" x="25" y="26" width="273" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="273" id="SDS-Nc-q4n"/>
                                                         <constraint firstAttribute="height" constant="22" id="j8l-6X-9DR"/>
@@ -180,7 +180,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Scored: 2 days ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6B1-PP-FhY">
-                                                    <rect key="frame" x="25" y="44" width="273" height="17"/>
+                                                    <rect key="frame" x="25" y="49" width="273" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="273" id="bfy-2X-fKT"/>
                                                         <constraint firstAttribute="height" constant="17" id="k8x-wB-C9d"/>
@@ -190,7 +190,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 ends, 3 arrows per end" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rep-FT-x7e">
-                                                    <rect key="frame" x="25" y="71" width="273" height="17"/>
+                                                    <rect key="frame" x="25" y="76" width="273" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="75I-jF-zxG"/>
                                                         <constraint firstAttribute="width" constant="273" id="YX1-3T-bg4"/>
@@ -200,7 +200,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average: 260" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jo-Op-VvD">
-                                                    <rect key="frame" x="25" y="89" width="273" height="17"/>
+                                                    <rect key="frame" x="25" y="94" width="273" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="273" id="6mb-cS-CmD"/>
                                                         <constraint firstAttribute="height" constant="17" id="l2J-dU-qmI"/>
@@ -210,7 +210,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Best: 275" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bf5-Kz-MyD">
-                                                    <rect key="frame" x="25" y="107" width="273" height="17"/>
+                                                    <rect key="frame" x="25" y="112" width="273" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="Pha-t9-fzu"/>
                                                         <constraint firstAttribute="width" constant="273" id="kFn-Ql-UFq"/>
@@ -219,27 +219,17 @@
                                                     <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UW9-jT-sQE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="335" height="150.5"/>
-                                                    <connections>
-                                                        <action selector="toScoringTapped:" destination="Viy-JZ-e8f" eventType="touchUpInside" id="hTF-Pf-Bwi"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ver-Ic-iTt" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="topMargin" constant="10" id="2cP-II-nQM"/>
+                                                <constraint firstItem="ver-Ic-iTt" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="topMargin" constant="15" id="2cP-II-nQM"/>
                                                 <constraint firstItem="6B1-PP-FhY" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="2eL-Cb-TlA"/>
-                                                <constraint firstItem="UW9-jT-sQE" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leading" id="7cN-Cq-5if"/>
                                                 <constraint firstItem="6jo-Op-VvD" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="Ftu-al-aBO"/>
                                                 <constraint firstItem="6B1-PP-FhY" firstAttribute="top" secondItem="ver-Ic-iTt" secondAttribute="bottom" constant="1" id="Fw0-4L-27z"/>
                                                 <constraint firstItem="Rep-FT-x7e" firstAttribute="top" secondItem="6B1-PP-FhY" secondAttribute="bottom" constant="10" id="GA7-XX-cNE"/>
                                                 <constraint firstItem="ver-Ic-iTt" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="Jb8-X6-vf1"/>
                                                 <constraint firstAttribute="bottom" secondItem="pWm-r6-QSz" secondAttribute="bottom" constant="10" id="Net-0e-uGj"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="top" secondItem="6jo-Op-VvD" secondAttribute="bottom" constant="1" id="Oyo-xA-gWw"/>
-                                                <constraint firstItem="UW9-jT-sQE" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="top" id="Slc-GG-son"/>
                                                 <constraint firstItem="pWm-r6-QSz" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="top" constant="10" id="WD2-SX-IsK"/>
-                                                <constraint firstAttribute="bottom" secondItem="UW9-jT-sQE" secondAttribute="bottom" id="Y1P-oF-4Bm"/>
-                                                <constraint firstAttribute="trailing" secondItem="UW9-jT-sQE" secondAttribute="trailing" id="bRI-U7-qxW"/>
                                                 <constraint firstItem="pWm-r6-QSz" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leading" id="c2q-EK-bdF"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="10" id="dVM-WN-cWr"/>
                                                 <constraint firstAttribute="trailing" secondItem="pWm-r6-QSz" secondAttribute="trailing" id="ior-Gd-1Ib"/>
@@ -290,6 +280,7 @@
                         <outlet property="scoringLabel" destination="9Ie-cs-FRZ" id="8y7-bs-wpR"/>
                         <outlet property="strongShotsLabel" destination="l6q-Ka-1Yv" id="izz-iy-fLx"/>
                         <outlet property="tableView" destination="ygC-Ke-NbC" id="X1c-t9-Sn3"/>
+                        <segue destination="8xz-AX-fcy" kind="presentation" identifier="tableToPopUpSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="71b-D1-lZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-rX-LNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -297,12 +288,12 @@
             <point key="canvasLocation" x="-732" y="26.53673163418291"/>
         </scene>
         <!--startScoring-->
-        <scene sceneID="CH7-4S-o4y">
+        <scene sceneID="gMj-Hb-HZ0">
             <objects>
-                <viewControllerPlaceholder storyboardName="startScoring" id="9Lq-bv-Mub" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TIM-Wv-kNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="startScoringID" storyboardName="startScoring" id="8xz-AX-fcy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GUl-6E-cnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106" y="-402"/>
+            <point key="canvasLocation" x="-18" y="-177"/>
         </scene>
     </scenes>
     <resources>
