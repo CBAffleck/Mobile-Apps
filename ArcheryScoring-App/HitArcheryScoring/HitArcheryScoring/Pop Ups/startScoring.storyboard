@@ -72,6 +72,7 @@
                                         </state>
                                         <connections>
                                             <action selector="openTextScoring:" destination="fqU-4t-lDX" eventType="touchUpInside" id="sbh-zu-ewo"/>
+                                            <segue destination="59h-7Z-Bh4" kind="show" identifier="segueToText" id="DAn-oX-edb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-ok-uNh">
@@ -95,7 +96,7 @@
                                         </state>
                                         <connections>
                                             <action selector="openTargetScoring:" destination="fqU-4t-lDX" eventType="touchUpInside" id="jgE-gC-iqI"/>
-                                            <segue destination="ync-UC-l3y" kind="show" id="V8r-HP-S2m"/>
+                                            <segue destination="ync-UC-l3y" kind="show" identifier="segueToTarget" id="V8r-HP-S2m"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -150,13 +151,21 @@
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="158.77061469265368"/>
         </scene>
+        <!--textScoring-->
+        <scene sceneID="krb-5Q-deg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="textScoring" id="59h-7Z-Bh4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBA-9K-MpH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654" y="96"/>
+        </scene>
         <!--targetScoring-->
         <scene sceneID="ouy-qE-YOD">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="startScoringPopUp" storyboardName="targetScoring" id="ync-UC-l3y" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NtC-fK-n2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="123"/>
+            <point key="canvasLocation" x="664" y="221"/>
         </scene>
     </scenes>
     <resources>
