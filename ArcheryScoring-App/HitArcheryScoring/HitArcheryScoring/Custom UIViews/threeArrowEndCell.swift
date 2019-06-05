@@ -17,7 +17,7 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.selectionStyle = .none
+        self.selectionStyle = .none     //Rows aren't highlighted if clicked on
     }
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,6 +40,7 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     var activeTextField = UITextField()
     var delegate: CellDelegate?
     
+    //Configure aesthetics for each part of the custom cell
     func setUp() {
         //Corner radius for row
         endLabel.layer.cornerRadius = 10
@@ -57,6 +58,7 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         totalLabel.layer.masksToBounds = true
         runningLabel.layer.masksToBounds = true
         
+        //Set keyboard to be custom scoring keyboard for arrow textFields (height = the custom keyboard height)
         let keyboardView = keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 216))
         keyboardView.delegate = self
         arrow1Field.delegate = self
@@ -82,10 +84,12 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         } else {
             arrow = 2
         }
+        //Send data from textfield to the textScoring view controller using the protocol/delegate thing
         delegate?.textFieldShouldEndEditing(end: end, arrow: arrow, score: score ?? "0", cell: self)
         return true
     }
     
+    //Fill in textfield with whichever key is pressed, and move on to the next textfield. Close keyboard after last field in row is edited.
     func keyWasTapped(character: String) {
         activeTextField.text = character
         if activeTextField == arrow1Field {

@@ -24,20 +24,22 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     //MARK: Variables
     var endCount = 10
     var headerTitle = ""
-    var arrowScores: [[String]] = []
+    var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
-        scoringTable.separatorStyle = .none
+        scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
         finishButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
         titleLabel.text = headerTitle
+        //Set up arrowScores array so that the values can be updated as arrow scores are recorded
         for _ in 0...9 {
             arrowScores.append(["0", "0", "0"])
         }
     }
     
+    //TableView set up and management
     func setUpTableView() {
         scoringTable.delegate = self
         scoringTable.dataSource = self
@@ -51,10 +53,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
         cell.endLabel.text = "\(indexPath.row + 1)"
         cell.setUp()
-//        cell.arrow1Field.delegate = self
-//        cell.arrow2Field.delegate = self
-//        cell.arrow3Field.delegate = self
-        cell.delegate = self
+        cell.delegate = self    //Set delegate to be self so that we can view the textfield data
         return cell
     }
     
@@ -62,6 +61,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         return 45
     }
     
+    //Deals with delegate from the custom table cell
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
         arrowScores[end][arrow] = score
     }

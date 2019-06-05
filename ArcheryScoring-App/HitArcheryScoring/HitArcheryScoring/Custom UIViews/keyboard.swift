@@ -48,9 +48,15 @@ class keyboard: UIView {
         let view = Bundle.main.loadNibNamed(xibFileName, owner: self, options: nil)![0] as! UIView
         self.addSubview(view)
         view.frame = self.bounds
+        //Apply corner radius and drop shadow to all buttons in keyboard
         buttons = [b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, bx, bm]
         for b in buttons {
             b.layer.cornerRadius = 5
+            b.layer.masksToBounds = false
+            b.layer.shadowColor = UIColor(red: 132/255, green: 134/255, blue: 136/255, alpha: 1.0).cgColor
+            b.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
+            b.layer.shadowOpacity = 1.0
+            b.layer.shadowRadius = 0.0
         }
     }
     
