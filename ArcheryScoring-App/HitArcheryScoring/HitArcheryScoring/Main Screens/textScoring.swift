@@ -8,7 +8,7 @@
 
 import UIKit
 
-class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource, CellDelegate, UITextFieldDelegate {
 
     //MARK: Properties
     @IBOutlet weak var scoringTable: UITableView!
@@ -24,6 +24,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource 
     //MARK: Variables
     var endCount = 10
     var headerTitle = ""
+    var arrowScores: [[String]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,9 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource 
         finishButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
         titleLabel.text = headerTitle
+        for _ in 0...9 {
+            arrowScores.append(["0", "0", "0"])
+        }
     }
     
     func setUpTableView() {
@@ -47,11 +51,19 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
         cell.endLabel.text = "\(indexPath.row + 1)"
         cell.setUp()
+//        cell.arrow1Field.delegate = self
+//        cell.arrow2Field.delegate = self
+//        cell.arrow3Field.delegate = self
+        cell.delegate = self
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 45
+    }
+    
+    func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
+        arrowScores[end][arrow] = score
     }
     
     /*
@@ -66,6 +78,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
+        print(arrowScores)
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {

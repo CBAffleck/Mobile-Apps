@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CellDelegate: NSObjectProtocol {
+    func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell)
+}
+
 class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate {
 
     override func awakeFromNib() {
@@ -34,12 +38,9 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     
     //MARK: Variables
     var activeTextField = UITextField()
+    var delegate: CellDelegate?
     
     func setUp() {
-//        cellView.layer.cornerRadius = 20
-//        cellView.layer.borderWidth = 0.75
-//        cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
-        
         //Corner radius for row
         endLabel.layer.cornerRadius = 10
         arrow1Field.layer.cornerRadius = 10
@@ -70,8 +71,32 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         activeTextField = textField
     }
     
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        let score = textField.text
+        var arrow = 0
+        let end = Int(endLabel.text ?? "0")! - 1
+        if textField == arrow1Field {
+            arrow = 0
+        } else if textField == arrow2Field {
+            arrow = 1
+        } else {
+            arrow = 2
+        }
+        delegate?.textFieldShouldEndEditing(end: end, arrow: arrow, score: score ?? "0", cell: self)
+        return true
+    }
+    
     func keyWasTapped(character: String) {
-        activeTextField.insertText(character)
+        activeTextField.text = character
+        if activeTextField == arrow1Field {
+            activeTextField.resignFirstResponder()
+            arrow2Field.becomeFirstResponder()
+        } else if activeTextField == arrow2Field {
+            activeTextField.resignFirstResponder()
+            arrow3Field.becomeFirstResponder()
+        } else {
+            activeTextField.resignFirstResponder()
+        }
     }
     
     //MARK: Actions
