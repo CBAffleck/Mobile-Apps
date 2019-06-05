@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De1-Xp-Mam">
-                                <rect key="frame" x="20" y="615" width="335" height="32"/>
+                                <rect key="frame" x="20" y="619" width="335" height="36"/>
                                 <color key="backgroundColor" red="0.99607843137254903" green="0.93333333333333335" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="8eA-dN-ccJ"/>
+                                    <constraint firstAttribute="height" constant="36" id="8eA-dN-ccJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Cancel Scoring">
@@ -33,10 +33,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hq-J9-fyr">
-                                <rect key="frame" x="20" y="575" width="335" height="32"/>
+                                <rect key="frame" x="20" y="575" width="335" height="36"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.79607843137254897" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Yez-CC-c1M"/>
+                                    <constraint firstAttribute="height" constant="36" id="Yez-CC-c1M"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Finish Scoring">
@@ -140,7 +140,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="mof-2y-9H9">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="mof-2y-9H9">
                                                             <rect key="frame" x="45" y="7.5" width="50" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -154,7 +154,7 @@
                                                                 <action selector="enterArrow1:" destination="F2w-aS-DD6" eventType="editingDidEnd" id="su6-z2-zDH"/>
                                                             </connections>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="1hi-3c-q2H">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="1hi-3c-q2H">
                                                             <rect key="frame" x="103" y="7.5" width="50" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -168,7 +168,7 @@
                                                                 <action selector="enterArrow2:" destination="F2w-aS-DD6" eventType="editingDidEnd" id="wfw-fS-9RP"/>
                                                             </connections>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-e6-YXb">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Tl0-e6-YXb">
                                                             <rect key="frame" x="161" y="7.5" width="50" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -255,7 +255,7 @@
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="De1-Xp-Mam" secondAttribute="trailing" constant="20" id="Y9Q-yr-fGK"/>
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="top" secondItem="4b9-3y-Bue" secondAttribute="top" constant="20" id="emO-pA-kPZ"/>
                             <constraint firstItem="De1-Xp-Mam" firstAttribute="top" secondItem="1Hq-J9-fyr" secondAttribute="bottom" constant="8" id="i4D-Fr-JQh"/>
-                            <constraint firstItem="4b9-3y-Bue" firstAttribute="bottom" secondItem="De1-Xp-Mam" secondAttribute="bottom" constant="20" id="mf1-03-oNp"/>
+                            <constraint firstItem="4b9-3y-Bue" firstAttribute="bottom" secondItem="De1-Xp-Mam" secondAttribute="bottom" constant="12" id="mf1-03-oNp"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="L3T-e1-bAn" secondAttribute="trailing" constant="20" id="sog-wX-Gao"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4b9-3y-Bue"/>

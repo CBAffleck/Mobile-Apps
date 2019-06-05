@@ -8,7 +8,7 @@
 
 import UIKit
 
-class threeArrowEndCell: UITableViewCell {
+class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +33,7 @@ class threeArrowEndCell: UITableViewCell {
     
     
     //MARK: Variables
-    
+    var activeTextField = UITextField()
     
     func setUp() {
 //        cellView.layer.cornerRadius = 20
@@ -55,6 +55,23 @@ class threeArrowEndCell: UITableViewCell {
         arrow3Field.layer.masksToBounds = true
         totalLabel.layer.masksToBounds = true
         runningLabel.layer.masksToBounds = true
+        
+        let keyboardView = keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 216))
+        keyboardView.delegate = self
+        arrow1Field.delegate = self
+        arrow2Field.delegate = self
+        arrow3Field.delegate = self
+        arrow1Field.inputView = keyboardView
+        arrow2Field.inputView = keyboardView
+        arrow3Field.inputView = keyboardView
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func keyWasTapped(character: String) {
+        activeTextField.insertText(character)
     }
     
     //MARK: Actions
