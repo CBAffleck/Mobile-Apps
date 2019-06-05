@@ -61,10 +61,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y5U-qs-NRq">
-                                        <rect key="frame" x="20" y="124" width="295" height="30"/>
+                                        <rect key="frame" x="20" y="124" width="295" height="34"/>
                                         <color key="backgroundColor" red="0.91764705882352937" green="0.98039215686274506" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="LXc-dD-aQe"/>
+                                            <constraint firstAttribute="height" constant="34" id="LXc-dD-aQe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Start Text Entry Scoring">
@@ -85,10 +85,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgY-fs-LpG">
-                                        <rect key="frame" x="20" y="166" width="295" height="30"/>
+                                        <rect key="frame" x="20" y="166" width="295" height="34"/>
                                         <color key="backgroundColor" red="0.9137254901960784" green="0.96470588235294119" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="o3f-6Y-vQa"/>
+                                            <constraint firstAttribute="height" constant="34" id="o3f-6Y-vQa"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <state key="normal" title="Start Target Face Scoring">
@@ -122,7 +122,7 @@
                                     <constraint firstItem="CrW-tR-7tg" firstAttribute="top" secondItem="WgS-Ij-yna" secondAttribute="bottom" constant="1" id="qpq-Q6-8oc"/>
                                     <constraint firstItem="7MG-PN-9Df" firstAttribute="top" secondItem="rBr-SO-3O3" secondAttribute="top" constant="10" id="r3c-8O-kVG"/>
                                     <constraint firstAttribute="trailing" secondItem="WgS-Ij-yna" secondAttribute="trailing" constant="20" id="uEo-5g-hTd"/>
-                                    <constraint firstItem="WgY-fs-LpG" firstAttribute="top" secondItem="y5U-qs-NRq" secondAttribute="bottom" constant="12" id="vPw-ms-r85"/>
+                                    <constraint firstItem="WgY-fs-LpG" firstAttribute="top" secondItem="y5U-qs-NRq" secondAttribute="bottom" constant="8" id="vPw-ms-r85"/>
                                 </constraints>
                             </view>
                         </subviews>

@@ -30,6 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelTapped:" destination="6Tp-Go-78E" eventType="touchUpInside" id="QRs-yT-ErB"/>
+                                    <segue destination="et3-la-fdQ" kind="presentation" identifier="textToCancelSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="m0S-4N-NZ0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hq-J9-fyr">
@@ -275,6 +276,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2YW-0G-awu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="112.8" y="162.3688155922039"/>
+        </scene>
+        <!--cancelScoring-->
+        <scene sceneID="7SR-7H-c6W">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="textToCancelID" storyboardName="cancelScoring" id="et3-la-fdQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xtH-8o-fwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="742" y="42"/>
         </scene>
     </scenes>
 </document>

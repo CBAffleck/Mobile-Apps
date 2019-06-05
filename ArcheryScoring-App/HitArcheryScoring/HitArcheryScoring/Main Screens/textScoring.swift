@@ -89,7 +89,6 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         return [total, hits]
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -97,7 +96,6 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
