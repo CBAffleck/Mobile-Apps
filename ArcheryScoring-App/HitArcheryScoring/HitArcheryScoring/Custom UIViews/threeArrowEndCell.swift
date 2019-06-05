@@ -13,7 +13,7 @@ protocol CellDelegate: NSObjectProtocol {
 }
 
 class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,7 +33,6 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     @IBOutlet weak var arrow2Field: UITextField!
     @IBOutlet weak var arrow3Field: UITextField!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var runningLabel: UILabel!
     
     
     //MARK: Variables
@@ -48,7 +47,6 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         arrow2Field.layer.cornerRadius = 10
         arrow3Field.layer.cornerRadius = 10
         totalLabel.layer.cornerRadius = 10
-        runningLabel.layer.cornerRadius = 10
         
         //Set corner radius
         endLabel.layer.masksToBounds = true
@@ -56,7 +54,6 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         arrow2Field.layer.masksToBounds = true
         arrow3Field.layer.masksToBounds = true
         totalLabel.layer.masksToBounds = true
-        runningLabel.layer.masksToBounds = true
         
         //Set keyboard to be custom scoring keyboard for arrow textFields (height = the custom keyboard height)
         let keyboardView = keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 216))
@@ -71,6 +68,10 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
+        //Make sure colors correspond to a scoring cell in which the user hasn't finished scoring yet
+        cellView.backgroundColor = UIColor.white
+        endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+        totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -92,6 +93,19 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     //Fill in textfield with whichever key is pressed, and move on to the next textfield. Close keyboard after last field in row is edited.
     func keyWasTapped(character: String) {
         activeTextField.text = character
+        //Sets textfield background color in accordance with arrow score
+        if ["M", "1", "2"].contains(character) {
+            activeTextField.backgroundColor = UIColor.white
+        } else if ["3", "4"].contains(character) {
+            activeTextField.backgroundColor = UIColor(red: 193/255, green: 193/255, blue: 193/255, alpha: 1.0)
+        } else if ["5", "6"].contains(character) {
+            activeTextField.backgroundColor = UIColor(red: 171/255, green: 194/255, blue: 255/255, alpha: 1.0)
+        } else if ["7", "8"].contains(character) {
+            activeTextField.backgroundColor = UIColor(red: 255/255, green: 171/255, blue: 171/255, alpha: 1.0)
+        } else if ["9", "10", "X"].contains(character) {
+            activeTextField.backgroundColor = UIColor(red: 255/255, green: 252/255, blue: 171/255, alpha: 1.0)
+        }
+        //Move focus to next textfield, or close keyboard if leaving last textfield
         if activeTextField == arrow1Field {
             activeTextField.resignFirstResponder()
             arrow2Field.becomeFirstResponder()
@@ -100,7 +114,23 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
             arrow3Field.becomeFirstResponder()
         } else {
             activeTextField.resignFirstResponder()
+            totalLabel.text = String(calculateEndTotal())
+            //Change colors of cell to indicate that the cell is complete
+            cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
         }
+    }
+    
+    func calculateEndTotal() -> Int {
+        let arrows = [arrow1Field.text, arrow2Field.text, arrow3Field.text]
+        var total = 0
+        for a in arrows {
+            if a == "X" { total += 10}
+            else if a == "M" { total += 0}
+            else { total += Int(a!) ?? 0}
+        }
+        return total
     }
     
     //MARK: Actions

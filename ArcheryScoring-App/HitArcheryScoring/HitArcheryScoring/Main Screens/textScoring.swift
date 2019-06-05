@@ -17,8 +17,9 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
-    @IBOutlet weak var runLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var runningLabel: UILabel!
+    @IBOutlet weak var hitLabel: UILabel!
     
     
     //MARK: Variables
@@ -64,6 +65,28 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     //Deals with delegate from the custom table cell
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
         arrowScores[end][arrow] = score
+        var calc = calculateTotal()
+        runningLabel.text = "Running Total: " + String(calc[0])
+        hitLabel.text = "Hits: " + String(calc[1])
+    }
+    
+    func calculateTotal() -> [Int] {
+        var total = 0
+        var hits = 0
+        for x in 0...9 {
+            for a in arrowScores[x] {
+                if a == "X" {
+                    total += 10
+                    hits += 1
+                }
+                else if a == "M" { total += 0}
+                else {
+                    total += Int(a) ?? 0
+                    if a == "10" || a == "9" { hits += 1 }
+                }
+            }
+        }
+        return [total, hits]
     }
     
     /*
