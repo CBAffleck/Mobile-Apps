@@ -30,6 +30,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        self.hideKeyboardOnTap()
         scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
         finishButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10

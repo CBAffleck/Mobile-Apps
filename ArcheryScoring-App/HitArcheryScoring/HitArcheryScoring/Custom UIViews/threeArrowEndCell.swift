@@ -38,6 +38,7 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     //MARK: Variables
     var activeTextField = UITextField()
     var delegate: CellDelegate?
+    var edit = false
     
     //Configure aesthetics for each part of the custom cell
     func setUp() {
@@ -68,6 +69,11 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
+        //If a field is being edited, set the edit bool to true and clear the field
+        if !(textField.text?.isEmpty)! {
+            textField.text = ""
+            edit = true
+        }
         //Make sure colors correspond to a scoring cell in which the user hasn't finished scoring yet
         cellView.backgroundColor = UIColor.white
         endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
@@ -108,13 +114,27 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         //Move focus to next textfield, or close keyboard if leaving last textfield
         if activeTextField == arrow1Field {
             activeTextField.resignFirstResponder()
-            arrow2Field.becomeFirstResponder()
+            //If a field was being edited, then we don't transition to a new field, and we reset the background color to match the colors of a complete row
+            if edit == true {
+                totalLabel.text = String(calculateEndTotal())
+                cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            } else { arrow2Field.becomeFirstResponder() }
+            edit = false
         } else if activeTextField == arrow2Field {
             activeTextField.resignFirstResponder()
-            arrow3Field.becomeFirstResponder()
+            if edit == true {
+                totalLabel.text = String(calculateEndTotal())
+                cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            } else { arrow3Field.becomeFirstResponder() }
+            edit = false
         } else {
             activeTextField.resignFirstResponder()
             totalLabel.text = String(calculateEndTotal())
+            edit = false
             //Change colors of cell to indicate that the cell is complete
             cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
             endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)

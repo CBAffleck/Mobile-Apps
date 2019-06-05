@@ -36,6 +36,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
+        self.hideKeyboardOnTap()
     }
     
     func createRoundArray() {
@@ -124,3 +125,16 @@ extension HomeScreen: ScoringCellDelegate {
         self.present(popUp, animated: true, completion: nil)
     }
 }
+
+extension UIViewController {
+    func hideKeyboardOnTap() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
