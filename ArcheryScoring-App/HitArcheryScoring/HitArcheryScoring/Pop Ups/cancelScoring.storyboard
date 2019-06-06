@@ -19,37 +19,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-la-SJ0">
-                                <rect key="frame" x="20" y="201" width="335" height="265"/>
+                                <rect key="frame" x="10" y="201" width="355" height="265"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel Scoring?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mD2-wm-qtJ">
-                                        <rect key="frame" x="20" y="10" width="295" height="27"/>
+                                        <rect key="frame" x="20" y="35" width="315" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="MKH-yT-0t9"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="NdF-0d-4lt">
-                                        <rect key="frame" x="20" y="43" width="295" height="105"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If you cancel this scoring round you’ll lose all progress. Are you sure you want to cancel?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NdF-0d-4lt">
+                                        <rect key="frame" x="20" y="65" width="315" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="105" id="Cjl-X6-s3V"/>
+                                            <constraint firstAttribute="height" constant="80" id="Cjl-X6-s3V"/>
                                         </constraints>
-                                        <string key="text">If you cancel this scoring round 
-you’ll lose all progress. Are you 
-sure you want to cancel?</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.32941176470588235" green="0.32941176470588235" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLc-6R-WEK">
-                                        <rect key="frame" x="20" y="162" width="295" height="38"/>
+                                        <rect key="frame" x="20" y="153" width="315" height="38"/>
                                         <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="A4a-vB-NzF"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <state key="normal" title="Resume Scoring">
+                                        <state key="normal" title="Resume">
                                             <color key="titleColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -57,7 +54,7 @@ sure you want to cancel?</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZb-42-kNr">
-                                        <rect key="frame" x="20" y="208" width="295" height="38"/>
+                                        <rect key="frame" x="20" y="205" width="315" height="38"/>
                                         <color key="backgroundColor" red="0.9882352941176471" green="0.35686274509803922" blue="0.40784313725490196" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="nwf-N7-ZZQ"/>
@@ -75,13 +72,13 @@ sure you want to cancel?</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="aZb-42-kNr" secondAttribute="trailing" constant="20" id="2Mh-gt-RIG"/>
-                                    <constraint firstItem="mD2-wm-qtJ" firstAttribute="top" secondItem="xHT-la-SJ0" secondAttribute="top" constant="10" id="3wV-EN-ijy"/>
-                                    <constraint firstItem="eLc-6R-WEK" firstAttribute="top" secondItem="NdF-0d-4lt" secondAttribute="bottom" constant="14" id="9Bl-tm-mhk"/>
+                                    <constraint firstItem="mD2-wm-qtJ" firstAttribute="top" secondItem="xHT-la-SJ0" secondAttribute="top" constant="35" id="3wV-EN-ijy"/>
+                                    <constraint firstItem="eLc-6R-WEK" firstAttribute="top" secondItem="NdF-0d-4lt" secondAttribute="bottom" constant="8" id="9Bl-tm-mhk"/>
                                     <constraint firstItem="mD2-wm-qtJ" firstAttribute="leading" secondItem="xHT-la-SJ0" secondAttribute="leading" constant="20" id="ArT-lo-KOs"/>
                                     <constraint firstAttribute="trailing" secondItem="eLc-6R-WEK" secondAttribute="trailing" constant="20" id="Kk8-qS-zCB"/>
                                     <constraint firstAttribute="height" constant="265" id="PyI-bD-wDV"/>
-                                    <constraint firstItem="aZb-42-kNr" firstAttribute="top" secondItem="eLc-6R-WEK" secondAttribute="bottom" constant="8" id="UJu-lx-1lX"/>
-                                    <constraint firstItem="NdF-0d-4lt" firstAttribute="top" secondItem="mD2-wm-qtJ" secondAttribute="bottom" constant="6" id="Vhg-Bj-n7d"/>
+                                    <constraint firstItem="aZb-42-kNr" firstAttribute="top" secondItem="eLc-6R-WEK" secondAttribute="bottom" constant="14" id="UJu-lx-1lX"/>
+                                    <constraint firstItem="NdF-0d-4lt" firstAttribute="top" secondItem="mD2-wm-qtJ" secondAttribute="bottom" constant="3" id="Vhg-Bj-n7d"/>
                                     <constraint firstAttribute="trailing" secondItem="mD2-wm-qtJ" secondAttribute="trailing" constant="20" id="ikT-Ge-VeG"/>
                                     <constraint firstItem="eLc-6R-WEK" firstAttribute="leading" secondItem="xHT-la-SJ0" secondAttribute="leading" constant="20" id="oIg-Ye-YNs"/>
                                     <constraint firstAttribute="trailing" secondItem="NdF-0d-4lt" secondAttribute="trailing" constant="20" id="tgi-Lp-nlQ"/>
@@ -92,9 +89,9 @@ sure you want to cancel?</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.25363869863013699" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="K6A-iv-ZkG" firstAttribute="trailing" secondItem="xHT-la-SJ0" secondAttribute="trailing" constant="20" id="1I8-Qy-4lC"/>
+                            <constraint firstItem="K6A-iv-ZkG" firstAttribute="trailing" secondItem="xHT-la-SJ0" secondAttribute="trailing" constant="10" id="1I8-Qy-4lC"/>
                             <constraint firstItem="xHT-la-SJ0" firstAttribute="centerY" secondItem="0MS-e1-nwL" secondAttribute="centerY" id="5Lj-jM-paI"/>
-                            <constraint firstItem="xHT-la-SJ0" firstAttribute="leading" secondItem="K6A-iv-ZkG" secondAttribute="leading" constant="20" id="hzM-3x-WG2"/>
+                            <constraint firstItem="xHT-la-SJ0" firstAttribute="leading" secondItem="K6A-iv-ZkG" secondAttribute="leading" constant="10" id="hzM-3x-WG2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K6A-iv-ZkG"/>
                     </view>
