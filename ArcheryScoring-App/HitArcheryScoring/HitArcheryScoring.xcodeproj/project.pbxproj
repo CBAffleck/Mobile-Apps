@@ -11,6 +11,9 @@
 		AC3F9BC5EC66F75781C10B06 /* Pods_HitArcheryScoring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */; };
 		C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E7822A9188F0084D5CE /* BowAnimationData.json */; };
 		C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */; };
+		C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7C22A9D23C0084D5CE /* profileScreen.swift */; };
+		C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7E22A9D2F70084D5CE /* historyScreen.swift */; };
+		C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8022A9D50B0084D5CE /* Trophy.json */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
 		C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* targetScoring.swift */; };
 		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
@@ -64,6 +67,9 @@
 		B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringUITests/Pods-HitArcheryScoringUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0398E7822A9188F0084D5CE /* BowAnimationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BowAnimationData.json; sourceTree = "<group>"; };
 		C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabBar.swift; sourceTree = "<group>"; };
+		C0398E7C22A9D23C0084D5CE /* profileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileScreen.swift; sourceTree = "<group>"; };
+		C0398E7E22A9D2F70084D5CE /* historyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyScreen.swift; sourceTree = "<group>"; };
+		C0398E8022A9D50B0084D5CE /* Trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trophy.json; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03C55B322A2269C003290C7 /* targetScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetScoring.swift; sourceTree = "<group>"; };
@@ -154,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C0398E7822A9188F0084D5CE /* BowAnimationData.json */,
+				C0398E8022A9D50B0084D5CE /* Trophy.json */,
 			);
 			path = "Lottie Animations";
 			sourceTree = "<group>";
@@ -232,6 +239,8 @@
 				C07C919922A4EFFF005CCF98 /* HomeScreen.swift */,
 				C07C91A722A71B50005CCF98 /* textScoring.swift */,
 				C0729FFB22A8A71A00A283FB /* congratsScreen.swift */,
+				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
+				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
 			);
 			path = "Main Screens";
 			sourceTree = "<group>";
@@ -380,6 +389,7 @@
 				C03C55B922A2269D003290C7 /* Assets.xcassets in Resources */,
 				C0729FFA22A8A6FE00A283FB /* congratsScreen.storyboard in Resources */,
 				C03C55B722A2269C003290C7 /* Main.storyboard in Resources */,
+				C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */,
 				C0729FEE22A7605600A283FB /* keyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -509,10 +519,12 @@
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */,
 				C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */,
+				C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */,
 				C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
+				C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -55,7 +55,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
         
-        let animation = Animation.named("BowAnimationData")
+        let animation = Animation.named("Trophy")
         animeView.animation = animation
         animeView.play()
 //        animeView.loopMode = .loop
