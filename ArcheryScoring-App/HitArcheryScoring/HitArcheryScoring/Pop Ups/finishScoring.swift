@@ -23,6 +23,8 @@ class finishScoring: UIViewController {
     var totalScore = 0
     var hits = 0
     var endCount = 0
+    var endTots: [Int] = []
+    var running: [Int] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,7 @@ class finishScoring: UIViewController {
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         finishButton.layer.cornerRadius = 10
+        calcEndTots()
     }
     
 
@@ -45,6 +48,28 @@ class finishScoring: UIViewController {
             vc?.inTotal = totalScore
             vc?.inHits = hits
             vc?.inEndCount = endCount
+            vc?.inEndTots = endTots
+            vc?.inRunning = running
+        }
+    }
+    
+    func calcEndTots() {
+        for end in aScores {
+            var lastRun = 0
+            if !running.isEmpty { lastRun = running.last! }
+            var endTot = 0
+            for a in end {
+                if a == "X" {
+                    endTot += 10
+                }
+                else if a == "M" { endTot += 0}
+                else {
+                    endTot += Int(a) ?? 0
+                }
+            }
+            endTots.append(endTot)
+            lastRun += endTot
+            running.append(lastRun)
         }
     }
     
