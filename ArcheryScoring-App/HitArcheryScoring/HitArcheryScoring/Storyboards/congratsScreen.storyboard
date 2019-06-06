@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V40-bW-FVS" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="-80" y="-58" width="555" height="465"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJL-KF-ah4">
                                 <rect key="frame" x="10" y="30" width="32" height="32"/>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -28,11 +32,11 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="closeTapped:" destination="LGX-bt-b9E" eventType="touchUpInside" id="D0I-n3-Y8p"/>
-                                    <segue destination="SC9-MM-XcP" kind="presentation" identifier="congratsToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="fAR-zZ-uOi"/>
+                                    <segue destination="SC9-MM-XcP" kind="presentation" identifier="congratsToMainSegue" modalPresentationStyle="fullScreen" id="fAR-zZ-uOi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-3r-ewY">
-                                <rect key="frame" x="20" y="277" width="335" height="36"/>
+                                <rect key="frame" x="20" y="287" width="335" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Ply-M2-CCg"/>
                                 </constraints>
@@ -41,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPh-0o-pfb">
-                                <rect key="frame" x="10" y="337" width="355" height="310"/>
+                                <rect key="frame" x="10" y="347" width="355" height="310"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round #1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVi-VO-6cj">
                                         <rect key="frame" x="15" y="10" width="325" height="22"/>
@@ -266,7 +270,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You completed your 1st 18m round!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5V-3x-iaI">
-                                <rect key="frame" x="20" y="314" width="335" height="20"/>
+                                <rect key="frame" x="20" y="324" width="335" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="IM9-Tq-h2x"/>
                                 </constraints>
@@ -278,14 +282,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="y5V-3x-iaI" firstAttribute="top" secondItem="REd-3r-ewY" secondAttribute="bottom" constant="1" id="3A6-gg-QRL"/>
+                            <constraint firstItem="V8J-8X-7DX" firstAttribute="trailing" secondItem="V40-bW-FVS" secondAttribute="trailing" constant="-100" id="997-R5-ddx"/>
                             <constraint firstItem="jPh-0o-pfb" firstAttribute="top" secondItem="y5V-3x-iaI" secondAttribute="bottom" constant="3" id="AOh-WM-6Me"/>
                             <constraint firstItem="MJL-KF-ah4" firstAttribute="leading" secondItem="V8J-8X-7DX" secondAttribute="leading" constant="10" id="DkS-dV-9QI"/>
+                            <constraint firstItem="V40-bW-FVS" firstAttribute="top" secondItem="MJL-KF-ah4" secondAttribute="bottom" constant="-120" id="Ffz-Vh-432"/>
                             <constraint firstItem="jPh-0o-pfb" firstAttribute="leading" secondItem="V8J-8X-7DX" secondAttribute="leading" constant="10" id="H7R-nh-Qdm"/>
                             <constraint firstItem="REd-3r-ewY" firstAttribute="leading" secondItem="V8J-8X-7DX" secondAttribute="leading" constant="20" id="Ktr-4G-Dc8"/>
                             <constraint firstItem="V8J-8X-7DX" firstAttribute="trailing" secondItem="jPh-0o-pfb" secondAttribute="trailing" constant="10" id="Slq-4d-0Vb"/>
                             <constraint firstItem="y5V-3x-iaI" firstAttribute="leading" secondItem="V8J-8X-7DX" secondAttribute="leading" constant="20" id="cmE-no-gwU"/>
                             <constraint firstItem="MJL-KF-ah4" firstAttribute="top" secondItem="V8J-8X-7DX" secondAttribute="top" constant="10" id="hZt-VA-ge5"/>
-                            <constraint firstItem="V8J-8X-7DX" firstAttribute="bottom" secondItem="jPh-0o-pfb" secondAttribute="bottom" constant="20" id="hhM-xy-i3u"/>
+                            <constraint firstItem="V8J-8X-7DX" firstAttribute="bottom" secondItem="jPh-0o-pfb" secondAttribute="bottom" constant="10" id="hhM-xy-i3u"/>
+                            <constraint firstItem="REd-3r-ewY" firstAttribute="top" secondItem="V40-bW-FVS" secondAttribute="bottom" constant="-120" id="jJ4-Eh-ynu"/>
+                            <constraint firstItem="V40-bW-FVS" firstAttribute="leading" secondItem="V8J-8X-7DX" secondAttribute="leading" constant="-80" id="mig-ey-Mhg"/>
                             <constraint firstItem="V8J-8X-7DX" firstAttribute="trailing" secondItem="REd-3r-ewY" secondAttribute="trailing" constant="20" id="oBP-zk-GjA"/>
                             <constraint firstItem="V8J-8X-7DX" firstAttribute="trailing" secondItem="y5V-3x-iaI" secondAttribute="trailing" constant="20" id="twa-oc-UpR"/>
                         </constraints>
@@ -294,6 +302,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="animeView" destination="V40-bW-FVS" id="dCx-mJ-3fW"/>
                         <outlet property="closeButton" destination="MJL-KF-ah4" id="PQN-p9-9I4"/>
                         <outlet property="dateLabel" destination="yRV-eS-oGu" id="wbm-zc-5tA"/>
                         <outlet property="descLabel" destination="y5V-3x-iaI" id="Ceg-kz-8Uo"/>

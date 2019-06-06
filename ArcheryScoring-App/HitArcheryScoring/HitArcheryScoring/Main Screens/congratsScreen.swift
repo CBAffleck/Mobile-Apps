@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
@@ -25,6 +26,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
+    @IBOutlet weak var animeView: AnimationView!
     
     
     //MARK: Variables
@@ -35,6 +37,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     var inRunning: [Int] = []
     var inEndTots: [Int] = []
     var ends: [ScoringEndData] = []
+    let animationView = AnimationView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,11 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Add corner radius to close button and make x smaller
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
+        
+        let animation = Animation.named("BowAnimationData")
+        animeView.animation = animation
+        animeView.play()
+//        animeView.loopMode = .loop
     }
     
     func createEndArray() {
@@ -58,6 +66,10 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
             let endData = ScoringEndData(a1Score: inScores[x][0], a2Score: inScores[x][1], a3Score: inScores[x][2], endTot: String(inEndTots[x]), runNum: String(inRunning[x]))
             ends.append(endData)
         }
+    }
+    
+    func startAnimation() {
+//        animationView.setAnimation
     }
     
     //TableView set up and management
