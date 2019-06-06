@@ -10,6 +10,29 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="KnY-45-dld">
+            <objects>
+                <tabBarController id="HFD-rP-KVv" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ERx-JZ-48l"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IBE-jA-ErG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="An0-kS-TpP" kind="relationship" relationship="viewControllers" id="kCH-mk-AsL"/>
+                        <segue destination="bci-Ul-jmV" kind="relationship" relationship="viewControllers" id="8Bm-oD-K0a"/>
+                        <segue destination="zSf-t5-ohk" kind="relationship" relationship="viewControllers" id="MEa-nL-L1J"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edR-8S-1aG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1721" y="27"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Cw-mh-lUr">
             <objects>
@@ -23,14 +46,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="bci-Ul-jmV" kind="relationship" relationship="rootViewController" id="0M1-7U-BT5"/>
+                        <segue destination="HFD-rP-KVv" kind="relationship" relationship="rootViewController" id="Ejs-Ih-kWm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRE-W7-tc7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1438" y="27"/>
+            <point key="canvasLocation" x="-2482" y="27"/>
         </scene>
-        <!--Home Screen-->
+        <!--Profile-->
+        <scene sceneID="ndZ-3y-SCH">
+            <objects>
+                <viewController id="An0-kS-TpP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OIH-TN-JSa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="g2c-Cc-Hbv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileIcon" selectedImage="ProfileIcon" id="pqf-tO-1Jk"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Zc-24-xS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2482" y="775"/>
+        </scene>
+        <!--Scoring-->
         <scene sceneID="oj1-Kf-Yrx">
             <objects>
                 <viewController id="bci-Ul-jmV" customClass="HomeScreen" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
@@ -48,114 +88,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Khf-8o-LV1" userLabel="Nav Bar">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileIconGrey" translatesAutoresizingMaskIntoConstraints="NO" id="Cug-eX-rUI">
-                                        <rect key="frame" x="55" y="8" width="25" height="25"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="bXh-y5-24Y"/>
-                                            <constraint firstAttribute="width" constant="25" id="tHt-jd-gIj"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BowIconWhite" translatesAutoresizingMaskIntoConstraints="NO" id="obA-Pg-gS4">
-                                        <rect key="frame" x="173.5" y="4" width="28" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="ndF-sa-x8T"/>
-                                            <constraint firstAttribute="width" constant="28" id="pye-Oc-3B5"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HistoryIconGrey" translatesAutoresizingMaskIntoConstraints="NO" id="mx3-Nw-19Z">
-                                        <rect key="frame" x="300" y="10" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="CG0-kM-tC4"/>
-                                            <constraint firstAttribute="height" constant="20" id="n6h-Cz-Er3"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scoring" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ie-cs-FRZ">
-                                        <rect key="frame" x="149.5" y="28" width="76" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="76" id="87h-7u-6ix"/>
-                                            <constraint firstAttribute="height" constant="17" id="bEQ-9a-xDm"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avs-Hj-C6B">
-                                        <rect key="frame" x="31.5" y="28" width="72" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="72" id="Mk4-lA-OQf"/>
-                                            <constraint firstAttribute="height" constant="17" id="X4n-1K-l8M"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-3D-c4R">
-                                        <rect key="frame" x="274" y="28" width="72" height="17"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="72" id="0X4-kp-tk9"/>
-                                            <constraint firstAttribute="height" constant="17" id="36z-TF-adX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" red="0.58431372550000005" green="0.58431372550000005" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBf-gn-Wmy" userLabel="Profile Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
-                                        <connections>
-                                            <action selector="toProfileScreen:" destination="bci-Ul-jmV" eventType="touchUpInside" id="Ag5-C6-S1V"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWW-Tk-Zr1" userLabel="History Button">
-                                        <rect key="frame" x="250" y="0.0" width="125" height="50"/>
-                                        <connections>
-                                            <action selector="toHistoryScreen:" destination="bci-Ul-jmV" eventType="touchUpInside" id="gaV-UQ-HOu"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yzk-hr-6xJ" userLabel="Scoring Button">
-                                        <rect key="frame" x="125" y="0.0" width="125" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="125" id="tFs-Qh-WXF"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="toScoringScreen:" destination="bci-Ul-jmV" eventType="touchUpInside" id="ViE-CB-4rw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="sBf-gn-Wmy" secondAttribute="bottom" id="217-11-dqK"/>
-                                    <constraint firstAttribute="height" constant="50" id="7RG-Xi-dqk"/>
-                                    <constraint firstItem="sBf-gn-Wmy" firstAttribute="leading" secondItem="Khf-8o-LV1" secondAttribute="leading" id="8Sg-KI-cLv"/>
-                                    <constraint firstItem="Avs-Hj-C6B" firstAttribute="centerX" secondItem="Cug-eX-rUI" secondAttribute="centerX" id="BZD-91-IIo"/>
-                                    <constraint firstItem="Cug-eX-rUI" firstAttribute="leading" secondItem="Khf-8o-LV1" secondAttribute="leading" constant="55" id="E5h-zm-e8y"/>
-                                    <constraint firstItem="mx3-Nw-19Z" firstAttribute="centerX" secondItem="0ls-3D-c4R" secondAttribute="centerX" id="Kca-cU-HKA"/>
-                                    <constraint firstItem="YWW-Tk-Zr1" firstAttribute="width" secondItem="sBf-gn-Wmy" secondAttribute="width" id="Kng-Kq-ggV"/>
-                                    <constraint firstItem="obA-Pg-gS4" firstAttribute="centerX" secondItem="Khf-8o-LV1" secondAttribute="centerX" id="T2F-H1-UZI"/>
-                                    <constraint firstItem="YWW-Tk-Zr1" firstAttribute="leading" secondItem="yzk-hr-6xJ" secondAttribute="trailing" id="T3c-qc-Ec6"/>
-                                    <constraint firstItem="yzk-hr-6xJ" firstAttribute="leading" secondItem="sBf-gn-Wmy" secondAttribute="trailing" id="TFP-lX-f40"/>
-                                    <constraint firstAttribute="trailing" secondItem="YWW-Tk-Zr1" secondAttribute="trailing" id="VSh-B6-C81"/>
-                                    <constraint firstItem="yzk-hr-6xJ" firstAttribute="width" secondItem="sBf-gn-Wmy" secondAttribute="width" id="a7e-jK-tTD"/>
-                                    <constraint firstAttribute="trailing" secondItem="mx3-Nw-19Z" secondAttribute="trailing" constant="55" id="cgt-43-f6V"/>
-                                    <constraint firstItem="YWW-Tk-Zr1" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" id="die-pe-0WG"/>
-                                    <constraint firstAttribute="bottom" secondItem="YWW-Tk-Zr1" secondAttribute="bottom" id="ewc-fg-JU3"/>
-                                    <constraint firstAttribute="bottom" secondItem="9Ie-cs-FRZ" secondAttribute="bottom" constant="5" id="hX6-ZC-r6s"/>
-                                    <constraint firstItem="mx3-Nw-19Z" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" constant="10" id="jGB-ke-YsO"/>
-                                    <constraint firstItem="Cug-eX-rUI" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" constant="8" id="jlc-is-hID"/>
-                                    <constraint firstItem="YWW-Tk-Zr1" firstAttribute="leading" secondItem="yzk-hr-6xJ" secondAttribute="trailing" id="niX-ke-msX"/>
-                                    <constraint firstItem="sBf-gn-Wmy" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" id="odL-A8-jUT"/>
-                                    <constraint firstItem="obA-Pg-gS4" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" constant="4" id="rsp-zl-EGc"/>
-                                    <constraint firstAttribute="bottom" secondItem="0ls-3D-c4R" secondAttribute="bottom" constant="5" id="tmt-9e-hIJ"/>
-                                    <constraint firstItem="yzk-hr-6xJ" firstAttribute="top" secondItem="Khf-8o-LV1" secondAttribute="top" id="uKs-Dy-q8G"/>
-                                    <constraint firstAttribute="bottom" secondItem="yzk-hr-6xJ" secondAttribute="bottom" id="wr6-ec-K4j"/>
-                                    <constraint firstAttribute="bottom" secondItem="Avs-Hj-C6B" secondAttribute="bottom" constant="5" id="xmZ-Wm-R9X"/>
-                                    <constraint firstItem="obA-Pg-gS4" firstAttribute="centerX" secondItem="9Ie-cs-FRZ" secondAttribute="centerX" id="yZZ-VN-hvL"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-Ke-NbC">
-                                <rect key="frame" x="10" y="98" width="355" height="519"/>
+                                <rect key="frame" x="10" y="98" width="355" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="151" id="Viy-JZ-e8f" customClass="ScoringRoundCell" customModule="HitArcheryScoring" customModuleProvider="target">
@@ -252,32 +186,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ygC-Ke-NbC" firstAttribute="top" secondItem="l6q-Ka-1Yv" secondAttribute="bottom" constant="15" id="0Cj-eP-02A"/>
-                            <constraint firstItem="Khf-8o-LV1" firstAttribute="top" secondItem="ygC-Ke-NbC" secondAttribute="bottom" id="3s1-IN-UYd"/>
-                            <constraint firstItem="Khf-8o-LV1" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" id="PIF-4S-nhY"/>
                             <constraint firstItem="l6q-Ka-1Yv" firstAttribute="top" secondItem="Fp3-ur-0tt" secondAttribute="top" constant="20" id="Vmy-IS-Utg"/>
+                            <constraint firstItem="Fp3-ur-0tt" firstAttribute="bottom" secondItem="ygC-Ke-NbC" secondAttribute="bottom" id="YhV-kc-TFG"/>
                             <constraint firstItem="l6q-Ka-1Yv" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="10" id="bnE-8l-2g1"/>
                             <constraint firstItem="Fp3-ur-0tt" firstAttribute="trailing" secondItem="ygC-Ke-NbC" secondAttribute="trailing" constant="10" id="izk-dc-waZ"/>
                             <constraint firstItem="ygC-Ke-NbC" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="10" id="jCk-2V-WJb"/>
-                            <constraint firstItem="Khf-8o-LV1" firstAttribute="trailing" secondItem="Fp3-ur-0tt" secondAttribute="trailing" id="sXc-4V-aEk"/>
-                            <constraint firstItem="Khf-8o-LV1" firstAttribute="bottom" secondItem="Fp3-ur-0tt" secondAttribute="bottom" id="vQs-Cu-MJo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fp3-ur-0tt"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Scoring" image="BowIcon" selectedImage="BowIcon" id="a9m-Sg-onJ"/>
                     <navigationItem key="navigationItem" id="Vb2-2S-2bx"/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="historyButton" destination="YWW-Tk-Zr1" id="m6F-py-iqr"/>
-                        <outlet property="historyIcon" destination="mx3-Nw-19Z" id="yc4-Z9-zJL"/>
-                        <outlet property="historyLabel" destination="0ls-3D-c4R" id="3sH-p3-ejn"/>
-                        <outlet property="navBarView" destination="Khf-8o-LV1" id="U7H-Kv-wup"/>
-                        <outlet property="profileButton" destination="sBf-gn-Wmy" id="E5e-c4-wy7"/>
-                        <outlet property="profileIcon" destination="Cug-eX-rUI" id="jgP-aR-BfJ"/>
-                        <outlet property="profileLabel" destination="Avs-Hj-C6B" id="nea-Ix-Ypm"/>
-                        <outlet property="scoringButton" destination="yzk-hr-6xJ" id="yLY-E3-u0a"/>
-                        <outlet property="scoringIcon" destination="obA-Pg-gS4" id="L6Y-kF-VDU"/>
-                        <outlet property="scoringLabel" destination="9Ie-cs-FRZ" id="8y7-bs-wpR"/>
                         <outlet property="strongShotsLabel" destination="l6q-Ka-1Yv" id="izz-iy-fLx"/>
                         <outlet property="tableView" destination="ygC-Ke-NbC" id="X1c-t9-Sn3"/>
                         <segue destination="8xz-AX-fcy" kind="presentation" identifier="tableToPopUpSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="71b-D1-lZR"/>
@@ -285,7 +206,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-rX-LNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-732" y="26.53673163418291"/>
+            <point key="canvasLocation" x="-1722" y="775"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VMb-ps-Mrv">
+            <objects>
+                <viewController id="zSf-t5-ohk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XTg-Np-VCb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cKh-Gx-c5g"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="history" id="J1n-E7-ync"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YIv-rb-xcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-954" y="775"/>
         </scene>
         <!--startScoring-->
         <scene sceneID="gMj-Hb-HZ0">
@@ -293,12 +231,11 @@
                 <viewControllerPlaceholder storyboardIdentifier="startScoringID" storyboardName="startScoring" id="8xz-AX-fcy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUl-6E-cnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18" y="-177"/>
+            <point key="canvasLocation" x="-1723" y="1196"/>
         </scene>
     </scenes>
     <resources>
-        <image name="BowIconWhite" width="350" height="340"/>
-        <image name="HistoryIconGrey" width="326" height="328"/>
-        <image name="ProfileIconGrey" width="90" height="90"/>
+        <image name="BowIcon" width="30" height="29"/>
+        <image name="ProfileIcon" width="30" height="30"/>
     </resources>
 </document>

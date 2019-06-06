@@ -11,17 +11,7 @@ import UIKit
 class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
-    @IBOutlet weak var profileIcon: UIImageView!
-    @IBOutlet weak var scoringIcon: UIImageView!
-    @IBOutlet weak var historyIcon: UIImageView!
-    @IBOutlet weak var scoringLabel: UILabel!
-    @IBOutlet weak var profileLabel: UILabel!
-    @IBOutlet weak var historyLabel: UILabel!
-    @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var historyButton: UIButton!
-    @IBOutlet weak var scoringButton: UIButton!
     @IBOutlet weak var strongShotsLabel: UILabel!
-    @IBOutlet weak var navBarView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables

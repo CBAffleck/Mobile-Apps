@@ -10,6 +10,7 @@
 		57762306E2D034D56776F44C /* Pods_HitArcheryScoringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC8CD36C06137F8FEF41057 /* Pods_HitArcheryScoringUITests.framework */; };
 		AC3F9BC5EC66F75781C10B06 /* Pods_HitArcheryScoring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */; };
 		C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E7822A9188F0084D5CE /* BowAnimationData.json */; };
+		C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
 		C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* targetScoring.swift */; };
 		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		9FF2B8DE71FAB6B81835CD2D /* Pods-HitArcheryScoringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringUITests/Pods-HitArcheryScoringUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0398E7822A9188F0084D5CE /* BowAnimationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BowAnimationData.json; sourceTree = "<group>"; };
+		C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabBar.swift; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03C55B322A2269C003290C7 /* targetScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetScoring.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
+				C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */,
 			);
 			path = "Custom UIViews";
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */,
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
