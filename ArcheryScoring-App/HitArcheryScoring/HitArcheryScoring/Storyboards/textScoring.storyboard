@@ -45,6 +45,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finishTapped:" destination="6Tp-Go-78E" eventType="touchUpInside" id="mo7-qJ-zye"/>
+                                    <segue destination="Kxb-h3-2vM" kind="presentation" identifier="textToFinishSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="8P7-SY-I8W"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-e1-bAn">
@@ -284,6 +285,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xtH-8o-fwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="42"/>
+        </scene>
+        <!--finishScoring-->
+        <scene sceneID="Mda-T1-hvv">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="textToFinishID" storyboardName="finishScoring" id="Kxb-h3-2vM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGK-QK-TuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="293"/>
         </scene>
     </scenes>
 </document>

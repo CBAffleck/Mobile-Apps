@@ -18,6 +18,8 @@
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
 		C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FF322A7C85C00A283FB /* cancelScoring.swift */; };
+		C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF522A89C0600A283FB /* finishScoring.storyboard */; };
+		C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FF722A89C2F00A283FB /* finishScoring.swift */; };
 		C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */; };
 		C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C919922A4EFFF005CCF98 /* HomeScreen.swift */; };
 		C07C919D22A50701005CCF98 /* startScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C919C22A50701005CCF98 /* startScoring.storyboard */; };
@@ -63,6 +65,8 @@
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
 		C0729FF322A7C85C00A283FB /* cancelScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cancelScoring.swift; sourceTree = "<group>"; };
+		C0729FF522A89C0600A283FB /* finishScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = finishScoring.storyboard; sourceTree = "<group>"; };
+		C0729FF722A89C2F00A283FB /* finishScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = finishScoring.swift; sourceTree = "<group>"; };
 		C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = targetScoring.storyboard; sourceTree = "<group>"; };
 		C07C919922A4EFFF005CCF98 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		C07C919C22A50701005CCF98 /* startScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = startScoring.storyboard; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				C07C919E22A50725005CCF98 /* startScoring.swift */,
 				C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */,
 				C0729FF322A7C85C00A283FB /* cancelScoring.swift */,
+				C0729FF522A89C0600A283FB /* finishScoring.storyboard */,
+				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
 			);
 			path = "Pop Ups";
 			sourceTree = "<group>";
@@ -298,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
+				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
 				C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */,
 				C07C919D22A50701005CCF98 /* startScoring.storyboard in Resources */,
@@ -331,6 +338,7 @@
 			files = (
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
+				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */,

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tVd-BE-n5D">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Finish Scoring-->
+        <scene sceneID="rDc-ay-wX0">
+            <objects>
+                <viewController id="tVd-BE-n5D" customClass="finishScoring" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cjW-mk-Ujw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TF-Dt-mqr">
+                                <rect key="frame" x="20" y="201" width="335" height="265"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBq-Wi-mtW">
+                                        <rect key="frame" x="20" y="171" width="295" height="38"/>
+                                        <color key="backgroundColor" red="0.22352941176470587" green="0.79607843137254897" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="88H-Bn-wIr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Finish Scoring">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="finishTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="gB2-0b-D47"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-Zm-xMf">
+                                        <rect key="frame" x="20" y="217" width="295" height="38"/>
+                                        <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="xlT-MH-WRM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="Resume Scoring">
+                                            <color key="titleColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resumeTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="oqX-ZE-Bwd"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FinishScoring" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-tF-MKQ">
+                                        <rect key="frame" x="20" y="8" width="295" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="OaS-E4-moJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Finish Scoring?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-6U-SJ1">
+                                        <rect key="frame" x="20" y="136" width="295" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="JW4-dN-IWU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9Sa-tF-MKQ" secondAttribute="trailing" constant="20" id="7oI-4e-neC"/>
+                                    <constraint firstItem="LBq-Wi-mtW" firstAttribute="top" secondItem="lQu-6U-SJ1" secondAttribute="bottom" constant="8" id="Fmt-YE-Gt5"/>
+                                    <constraint firstItem="e4K-Zm-xMf" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="FzV-Rf-TSz"/>
+                                    <constraint firstItem="9Sa-tF-MKQ" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="JO7-me-Lb5"/>
+                                    <constraint firstItem="9Sa-tF-MKQ" firstAttribute="top" secondItem="7TF-Dt-mqr" secondAttribute="top" constant="8" id="JO9-aN-jOP"/>
+                                    <constraint firstAttribute="trailing" secondItem="e4K-Zm-xMf" secondAttribute="trailing" constant="20" id="QIg-ag-aJc"/>
+                                    <constraint firstItem="LBq-Wi-mtW" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="UtD-TY-v0w"/>
+                                    <constraint firstAttribute="height" constant="265" id="aBN-Ig-Y0V"/>
+                                    <constraint firstItem="lQu-6U-SJ1" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="bOS-ze-YDO"/>
+                                    <constraint firstAttribute="trailing" secondItem="LBq-Wi-mtW" secondAttribute="trailing" constant="20" id="emx-Zb-LxK"/>
+                                    <constraint firstAttribute="trailing" secondItem="lQu-6U-SJ1" secondAttribute="trailing" constant="20" id="gfH-Be-gqd"/>
+                                    <constraint firstItem="lQu-6U-SJ1" firstAttribute="top" secondItem="9Sa-tF-MKQ" secondAttribute="bottom" constant="8" id="gmi-gC-pNl"/>
+                                    <constraint firstItem="e4K-Zm-xMf" firstAttribute="top" secondItem="LBq-Wi-mtW" secondAttribute="bottom" constant="8" id="zgB-no-9HD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.25363869859999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7TF-Dt-mqr" firstAttribute="leading" secondItem="qFe-gS-C12" secondAttribute="leading" constant="20" id="DMR-qa-gyQ"/>
+                            <constraint firstItem="7TF-Dt-mqr" firstAttribute="centerY" secondItem="cjW-mk-Ujw" secondAttribute="centerY" id="K53-kp-oQO"/>
+                            <constraint firstItem="qFe-gS-C12" firstAttribute="trailing" secondItem="7TF-Dt-mqr" secondAttribute="trailing" constant="20" id="m4w-IJ-rTS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qFe-gS-C12"/>
+                    </view>
+                    <connections>
+                        <outlet property="finishButton" destination="LBq-Wi-mtW" id="FOJ-uX-jcG"/>
+                        <outlet property="finishLabel" destination="lQu-6U-SJ1" id="c5T-ja-r5T"/>
+                        <outlet property="finishView" destination="7TF-Dt-mqr" id="FXK-EG-fnv"/>
+                        <outlet property="imageView" destination="9Sa-tF-MKQ" id="f8r-39-MGS"/>
+                        <outlet property="resumeButton" destination="e4K-Zm-xMf" id="aQe-Qr-FMB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bKa-X6-hSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-114.40000000000001" y="158.77061469265368"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FinishScoring" width="2012" height="1329"/>
+    </resources>
+</document>
