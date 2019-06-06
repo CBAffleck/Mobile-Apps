@@ -72,7 +72,7 @@
                                         </state>
                                         <connections>
                                             <action selector="openTextScoring:" destination="fqU-4t-lDX" eventType="touchUpInside" id="sbh-zu-ewo"/>
-                                            <segue destination="59h-7Z-Bh4" kind="show" identifier="segueToText" id="DAn-oX-edb"/>
+                                            <segue destination="59h-7Z-Bh4" kind="presentation" identifier="segueToText" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DAn-oX-edb"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-ok-uNh">
@@ -96,7 +96,7 @@
                                         </state>
                                         <connections>
                                             <action selector="openTargetScoring:" destination="fqU-4t-lDX" eventType="touchUpInside" id="jgE-gC-iqI"/>
-                                            <segue destination="ync-UC-l3y" kind="show" identifier="segueToTarget" id="V8r-HP-S2m"/>
+                                            <segue destination="ync-UC-l3y" kind="presentation" identifier="segueToTarget" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="V8r-HP-S2m"/>
                                         </connections>
                                     </button>
                                 </subviews>

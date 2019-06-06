@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57762306E2D034D56776F44C /* Pods_HitArcheryScoringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC8CD36C06137F8FEF41057 /* Pods_HitArcheryScoringUITests.framework */; };
+		AC3F9BC5EC66F75781C10B06 /* Pods_HitArcheryScoring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
 		C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* targetScoring.swift */; };
 		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
@@ -31,6 +33,7 @@
 		C07C91A622A71B18005CCF98 /* textScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C91A522A71B18005CCF98 /* textScoring.storyboard */; };
 		C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A722A71B50005CCF98 /* textScoring.swift */; };
 		C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */; };
+		E026034611A3E949BF45F322 /* Pods_HitArcheryScoringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13593F812E66B586A8C4E7E5 /* Pods-HitArcheryScoring.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoring.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring.debug.xcconfig"; sourceTree = "<group>"; };
+		33721BCCFF9B2BCBEEF6DE00 /* Pods-HitArcheryScoringUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringUITests/Pods-HitArcheryScoringUITests.release.xcconfig"; sourceTree = "<group>"; };
+		52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitArcheryScoring.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FC8CD36C06137F8FEF41057 /* Pods_HitArcheryScoringUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitArcheryScoringUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FF2B8DE71FAB6B81835CD2D /* Pods-HitArcheryScoringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.release.xcconfig"; sourceTree = "<group>"; };
+		B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringUITests/Pods-HitArcheryScoringUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03C55B322A2269C003290C7 /* targetScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetScoring.swift; sourceTree = "<group>"; };
@@ -81,6 +90,9 @@
 		C07C91A522A71B18005CCF98 /* textScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = textScoring.storyboard; sourceTree = "<group>"; };
 		C07C91A722A71B50005CCF98 /* textScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textScoring.swift; sourceTree = "<group>"; };
 		C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threeArrowEndCell.swift; sourceTree = "<group>"; };
+		CC7C2E2DE7D6FE706931E618 /* Pods-HitArcheryScoring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoring.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring.release.xcconfig"; sourceTree = "<group>"; };
+		D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitArcheryScoringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9E77A1FA88BCBB0B0826A24 /* Pods-HitArcheryScoringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3F9BC5EC66F75781C10B06 /* Pods_HitArcheryScoring.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E026034611A3E949BF45F322 /* Pods_HitArcheryScoringTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,12 +116,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57762306E2D034D56776F44C /* Pods_HitArcheryScoringUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F2F97307F95030AF3AD6128 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13593F812E66B586A8C4E7E5 /* Pods-HitArcheryScoring.debug.xcconfig */,
+				CC7C2E2DE7D6FE706931E618 /* Pods-HitArcheryScoring.release.xcconfig */,
+				E9E77A1FA88BCBB0B0826A24 /* Pods-HitArcheryScoringTests.debug.xcconfig */,
+				9FF2B8DE71FAB6B81835CD2D /* Pods-HitArcheryScoringTests.release.xcconfig */,
+				B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */,
+				33721BCCFF9B2BCBEEF6DE00 /* Pods-HitArcheryScoringUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		60172D50515F4276B11E214E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */,
+				D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */,
+				9FC8CD36C06137F8FEF41057 /* Pods_HitArcheryScoringUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C03C55A522A2269C003290C7 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +153,8 @@
 				C03C55C522A2269D003290C7 /* HitArcheryScoringTests */,
 				C03C55D022A2269D003290C7 /* HitArcheryScoringUITests */,
 				C03C55AF22A2269C003290C7 /* Products */,
+				5F2F97307F95030AF3AD6128 /* Pods */,
+				60172D50515F4276B11E214E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -215,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03C55D622A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoring" */;
 			buildPhases = (
+				2D5B821C708863FC9834CD6B /* [CP] Check Pods Manifest.lock */,
 				C03C55AA22A2269C003290C7 /* Sources */,
 				C03C55AB22A2269C003290C7 /* Frameworks */,
 				C03C55AC22A2269C003290C7 /* Resources */,
+				B5E528B798737510A2AD9262 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -232,6 +274,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03C55D922A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringTests" */;
 			buildPhases = (
+				7D55D778629D8BBB5CEB8DD3 /* [CP] Check Pods Manifest.lock */,
 				C03C55BE22A2269D003290C7 /* Sources */,
 				C03C55BF22A2269D003290C7 /* Frameworks */,
 				C03C55C022A2269D003290C7 /* Resources */,
@@ -250,6 +293,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C03C55DC22A2269D003290C7 /* Build configuration list for PBXNativeTarget "HitArcheryScoringUITests" */;
 			buildPhases = (
+				F78B5B6342E411689789DE5B /* [CP] Check Pods Manifest.lock */,
 				C03C55C922A2269D003290C7 /* Sources */,
 				C03C55CA22A2269D003290C7 /* Frameworks */,
 				C03C55CB22A2269D003290C7 /* Resources */,
@@ -340,6 +384,101 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D5B821C708863FC9834CD6B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HitArcheryScoring-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D55D778629D8BBB5CEB8DD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HitArcheryScoringTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5E528B798737510A2AD9262 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F78B5B6342E411689789DE5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HitArcheryScoringUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C03C55AA22A2269C003290C7 /* Sources */ = {
@@ -530,6 +669,7 @@
 		};
 		C03C55D722A2269D003290C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13593F812E66B586A8C4E7E5 /* Pods-HitArcheryScoring.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -549,6 +689,7 @@
 		};
 		C03C55D822A2269D003290C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC7C2E2DE7D6FE706931E618 /* Pods-HitArcheryScoring.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -568,6 +709,7 @@
 		};
 		C03C55DA22A2269D003290C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9E77A1FA88BCBB0B0826A24 /* Pods-HitArcheryScoringTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -589,6 +731,7 @@
 		};
 		C03C55DB22A2269D003290C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FF2B8DE71FAB6B81835CD2D /* Pods-HitArcheryScoringTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -610,6 +753,7 @@
 		};
 		C03C55DD22A2269D003290C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -630,6 +774,7 @@
 		};
 		C03C55DE22A2269D003290C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33721BCCFF9B2BCBEEF6DE00 /* Pods-HitArcheryScoringUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

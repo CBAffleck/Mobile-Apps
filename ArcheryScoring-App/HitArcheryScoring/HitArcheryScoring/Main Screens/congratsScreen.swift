@@ -78,7 +78,6 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -86,10 +85,11 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
     
     //MARK: Actions
-
+    @IBAction func closeTapped(_ sender: UIButton) {
+    }
+    
 }
 
 class ScoringEndData {
