@@ -19,7 +19,10 @@ class finishScoring: UIViewController {
     
     
     //MARK: Variables
-    
+    var aScores: [[String]] = []
+    var totalScore = 0
+    var hits = 0
+    var endCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +39,13 @@ class finishScoring: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "finishToCongratsSegue" {
+            let vc = segue.destination as? congratsScreen
+            vc?.inScores = aScores
+            vc?.inTotal = totalScore
+            vc?.inHits = hits
+            vc?.inEndCount = endCount
+        }
     }
     
     //MARK: Actions

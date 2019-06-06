@@ -26,6 +26,8 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var endCount = 10
     var headerTitle = ""
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
+    var totalScore = 0
+    var hits = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +69,8 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
         arrowScores[end][arrow] = score
         var calc = calculateTotal()
+        totalScore = calc[0]
+        hits = calc[1]
         runningLabel.text = "Running Total: " + String(calc[0])
         hitLabel.text = "Hits: " + String(calc[1])
     }
@@ -96,6 +100,13 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "textToFinishSegue" {
+            let vc = segue.destination as? finishScoring
+            vc?.aScores = arrowScores
+            vc?.totalScore = totalScore
+            vc?.hits = hits
+            vc?.endCount = endCount
+        }
     }
     
     //MARK: Actions

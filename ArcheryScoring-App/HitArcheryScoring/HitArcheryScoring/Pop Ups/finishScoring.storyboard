@@ -33,6 +33,7 @@
                                         </state>
                                         <connections>
                                             <action selector="finishTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="gB2-0b-D47"/>
+                                            <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wB3-Vd-NCU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-Zm-xMf">
@@ -102,6 +103,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKa-X6-hSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114.40000000000001" y="158.77061469265368"/>
+        </scene>
+        <!--congratsScreen-->
+        <scene sceneID="dae-PE-SkS">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="finishToCongratsID" storyboardName="congratsScreen" id="sfl-XD-KfY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mUK-BW-pzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="540" y="50"/>
         </scene>
     </scenes>
     <resources>
