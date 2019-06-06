@@ -78,9 +78,15 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         cellView.backgroundColor = UIColor.white
         endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
         totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+        //Set textfield border when selected
+        activeTextField.layer.borderWidth = 2.0
+        activeTextField.layer.borderColor = UIColor.black.cgColor
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        //When a field is done being edited, remove the border and update the end total
+        activeTextField.layer.borderWidth = 0.0
+        totalLabel.text = String(calculateEndTotal())
         let score = textField.text
         var arrow = 0
         let end = Int(endLabel.text ?? "0")! - 1
@@ -116,30 +122,28 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
             activeTextField.resignFirstResponder()
             //If a field was being edited, then we don't transition to a new field, and we reset the background color to match the colors of a complete row
             if edit == true {
-                totalLabel.text = String(calculateEndTotal())
-                cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-                endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-                totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                setColors()
             } else { arrow2Field.becomeFirstResponder() }
             edit = false
         } else if activeTextField == arrow2Field {
             activeTextField.resignFirstResponder()
             if edit == true {
-                totalLabel.text = String(calculateEndTotal())
-                cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-                endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-                totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                setColors()
             } else { arrow3Field.becomeFirstResponder() }
             edit = false
         } else {
             activeTextField.resignFirstResponder()
-            totalLabel.text = String(calculateEndTotal())
             edit = false
             //Change colors of cell to indicate that the cell is complete
-            cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-            endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-            totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            setColors()
         }
+    }
+    
+    //Sets cell, endlabel, and totallabel to the same green so their boxes disappear
+    func setColors() {
+        cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+        endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+        totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
     }
     
     func calculateEndTotal() -> Int {
