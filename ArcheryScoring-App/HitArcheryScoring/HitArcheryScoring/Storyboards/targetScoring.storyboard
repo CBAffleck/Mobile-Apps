@@ -28,6 +28,9 @@
                                 <state key="normal" title="Cancel Scoring">
                                     <color key="titleColor" red="0.98823529409999999" green="0.35686274509999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="6TK-zm-MLk" kind="presentation" identifier="targetToCancelSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="py4-Fh-HEs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1k-tD-uNb">
                                 <rect key="frame" x="192.5" y="619" width="172.5" height="36"/>
@@ -39,6 +42,9 @@
                                 <state key="normal" title="Finish Scoring">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="L5G-0m-f7f" kind="presentation" identifier="targetToFinishSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cRu-Rc-NCq"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lmr-EJ-cFx">
                                 <rect key="frame" x="10" y="30" width="355" height="249.5"/>
@@ -254,6 +260,9 @@
                                 <state key="normal" title="Remove Arrow">
                                     <color key="titleColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="removeLastArrow:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="yBI-6W-F3L"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -310,6 +319,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3G-nK-eOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="161.46926536731635"/>
+        </scene>
+        <!--finishScoring-->
+        <scene sceneID="Enz-Dd-JZb">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="targetToFinishID" storyboardName="finishScoring" id="L5G-0m-f7f" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Up-1k-f0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242" y="631"/>
+        </scene>
+        <!--cancelScoring-->
+        <scene sceneID="uKB-Ig-E52">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="targetToCancelID" storyboardName="cancelScoring" id="6TK-zm-MLk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lMf-2T-i1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-173" y="631"/>
         </scene>
     </scenes>
     <resources>

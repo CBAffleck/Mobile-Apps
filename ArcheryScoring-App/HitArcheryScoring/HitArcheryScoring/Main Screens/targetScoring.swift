@@ -270,17 +270,110 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         return newImage!
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "targetToFinishSegue" {
+            let vc = segue.destination as? finishScoring
+            vc?.aScores = arrowScores
+            vc?.totalScore = totalScore
+            vc?.hits = hits
+            vc?.endCount = endCount
+        }
+    }
+    
     @IBAction func removeLastArrow(_ sender: UIButton) {
+        //Get current cell
+        let indexPath = IndexPath(row: endNum, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+        
         if !targets.isEmpty {
+            //Set target image to last image without most recent arrow mark
             targetImageView.image = targets.last
             targets.removeLast()
+            //Remove arrow score from running total
             totalScore -= arrows.last!
-            totalScoreLabel.text = totalScore.description
+            totalScoreLabel.text = "Running Total: " + totalScore.description
+            //Remove last hit from hits if necessary
+            if !arrows.isEmpty {
+                if arrows.last == 10 || arrows.last == 9 {
+                    hits -= 1
+                    hitsLabel.text = "Hits: " + String(hits)
+                }
+            }
+            //Remove last arrow score and location from corresponding lists
             arrows.removeLast()
             arrowLocations.removeLast()
+            
+            //Reset current cell to look like the next cell
+            if endArrowNum == 0 {
+                if endNum == 0 {
+                    //do nothing
+                } else {
+                    arrowScores[endNum - 1][2] = "0"
+                    //Set textfield border when not selected
+                    cell.arrow1Field.layer.borderWidth = 0.0
+                    endNum -= 1
+                    endArrowNum = 2
+                }
+            } else if endArrowNum == 1 {
+                arrowScores[endNum][0] = "0"
+                //Set textfield border when selected
+                cell.arrow2Field.layer.borderWidth = 0.0
+                endArrowNum = 0
+            } else {
+                arrowScores[endNum][1] = "0"
+                //Set textfield border when selected
+                cell.arrow3Field.layer.borderWidth = 0.0
+                endArrowNum = 1
+            }
+            
+            //Get previous cell
+            let prevIndexPath = IndexPath(row: endNum, section: 0)
+            tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)
+            let prevCell = tableView.cellForRow(at: prevIndexPath) as! threeArrowEndCell
+            
+            //Reset colors and text in previous cell
+            if endArrowNum == 0 {
+                prevCell.arrow1Field.text = ""
+                //Get rid of color corresponding to previous arrow score
+                prevCell.arrow1Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                //Set border on cell again
+                prevCell.arrow1Field.layer.borderWidth = 2.0
+                prevCell.arrow1Field.layer.borderColor = UIColor.black.cgColor
+            } else if endArrowNum == 1 {
+                prevCell.arrow2Field.text = ""
+                //Get rid of color corresponding to previous arrow score
+                prevCell.arrow2Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                //Set border on cell again
+                prevCell.arrow2Field.layer.borderWidth = 2.0
+                prevCell.arrow2Field.layer.borderColor = UIColor.black.cgColor
+            } else {
+                prevCell.arrow3Field.text = ""
+                //Get rid of color corresponding to previous arrow score
+                prevCell.arrow3Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                prevCell.cellView.backgroundColor = UIColor.white
+                prevCell.endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                prevCell.totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                //Set border on cell again
+                prevCell.arrow3Field.layer.borderWidth = 2.0
+                prevCell.arrow3Field.layer.borderColor = UIColor.black.cgColor
+            }
+            
+            //Calculate new end total after removing arrow
+            let endTot = calculateEndTotal(ar1: arrowScores[endNum][0], ar2: arrowScores[endNum][1], ar3: arrowScores[endNum][2])
+            if endTot == 0 { prevCell.totalLabel.text = "" }
+            else { prevCell.totalLabel.text = String(endTot) }
+            
             if targets.count > 0 { targetImageView.image = targets.last }
             else { targetImageView.image = UIImage(named: "SingleSpot")}
         }
+        let prevIndexPath = IndexPath(row: endNum, section: 0)
+        tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)
     }
     
 }
