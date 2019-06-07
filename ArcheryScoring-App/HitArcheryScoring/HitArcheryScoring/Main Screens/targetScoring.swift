@@ -182,6 +182,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         let indexPath = IndexPath(row: endNum, section: 0)
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+        let endTot = calculateEndTotal(ar1: arrowScores[endNum][0], ar2: arrowScores[endNum][1], ar3: arrowScores[endNum][2])
+        cell.totalLabel.text = String(endTot)
         if endArrowNum == 0 {
             cell.arrow1Field.text = score
             applyEndColors(cell: cell, score: score)
@@ -192,8 +194,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             endArrowNum += 1
         } else {
             cell.arrow3Field.text = score
-            let endTot = calculateEndTotal(ar1: cell.arrow1Field, ar2: cell.arrow2Field, ar3: cell.arrow3Field)
-            cell.endLabel.text = String(endTot)
             applyEndColors(cell: cell, score: score)
             endArrowNum = 0
             endNum += 1
@@ -209,13 +209,13 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         }
     }
     
-    func calculateEndTotal(ar1 : UITextField, ar2 : UITextField, ar3 : UITextField) -> Int {
-        let arrows = [ar1.text, ar2.text, ar3.text]
+    func calculateEndTotal(ar1 : String, ar2 : String, ar3 : String) -> Int {
+        let arrows = [ar1, ar2, ar3]
         var total = 0
         for a in arrows {
             if a == "X" { total += 10}
             else if a == "M" { total += 0}
-            else { total += Int(a!) ?? 0}
+            else { total += Int(a) ?? 0}
         }
         return total
     }
