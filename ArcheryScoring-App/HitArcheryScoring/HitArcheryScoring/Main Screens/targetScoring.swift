@@ -27,6 +27,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var endTotalLabel: UILabel!
+    @IBOutlet weak var headerView: UIView!
     
     //MARK: Variables
     var headerTitle = ""
@@ -182,6 +183,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         let indexPath = IndexPath(row: endNum, section: 0)
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+        //Calculate new end total after each arrow
         let endTot = calculateEndTotal(ar1: arrowScores[endNum][0], ar2: arrowScores[endNum][1], ar3: arrowScores[endNum][2])
         cell.totalLabel.text = String(endTot)
         if endArrowNum == 0 {
@@ -235,6 +237,9 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         } else {
             cell.arrow3Field.backgroundColor = determineEndColor(score: score)
             cell.arrow3Field.layer.borderWidth = 0.0
+            cell.cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            cell.endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            cell.totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
         }
     }
     

@@ -11,83 +11,6 @@
     </dependencies>
     <scenes>
         <!--Target Scoring-->
-        <scene sceneID="jxh-5b-JLz">
-            <objects>
-                <viewController id="yig-TW-5lT" customClass="targetScoring" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ofl-e7-F2E">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="fIS-I4-hXl">
-                                <rect key="frame" x="0.0" y="40" width="375" height="387"/>
-                                <subviews>
-                                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SingleSpot" translatesAutoresizingMaskIntoConstraints="NO" id="qSl-mP-hxS">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="387"/>
-                                    </imageView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="qSl-mP-hxS" firstAttribute="leading" secondItem="fIS-I4-hXl" secondAttribute="leading" id="BKd-Qv-WjL"/>
-                                    <constraint firstAttribute="bottom" secondItem="qSl-mP-hxS" secondAttribute="bottom" id="RSu-lk-uk6"/>
-                                    <constraint firstItem="qSl-mP-hxS" firstAttribute="top" secondItem="fIS-I4-hXl" secondAttribute="top" id="bR7-WQ-U3H"/>
-                                    <constraint firstAttribute="trailing" secondItem="qSl-mP-hxS" secondAttribute="trailing" id="lWA-hk-Rbd"/>
-                                </constraints>
-                            </scrollView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrow Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mH-bk-qgo">
-                                <rect key="frame" x="20" y="475" width="335" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opG-S1-87V">
-                                <rect key="frame" x="20" y="513" width="276" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGf-WB-4b8">
-                                <rect key="frame" x="304" y="513" width="51" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="51" id="Fpk-P4-WGt"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FiK-rj-yW2">
-                                <rect key="frame" x="20" y="542" width="335" height="30"/>
-                                <state key="normal" title="Remove Last Arrow"/>
-                                <connections>
-                                    <action selector="removeLastArrow:" destination="yig-TW-5lT" eventType="touchUpInside" id="39j-m2-0XT"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="FiK-rj-yW2" firstAttribute="top" secondItem="opG-S1-87V" secondAttribute="bottom" constant="8" id="3GI-Gm-05y"/>
-                            <constraint firstItem="eGf-WB-4b8" firstAttribute="top" secondItem="6mH-bk-qgo" secondAttribute="bottom" constant="8" id="5b8-Y9-cAm"/>
-                            <constraint firstItem="eGf-WB-4b8" firstAttribute="leading" secondItem="opG-S1-87V" secondAttribute="trailing" constant="8" id="AoK-ZP-9cG"/>
-                            <constraint firstItem="fIS-I4-hXl" firstAttribute="top" secondItem="13W-Yi-hLB" secondAttribute="top" constant="20" id="FXb-Ea-1vd"/>
-                            <constraint firstItem="13W-Yi-hLB" firstAttribute="bottom" secondItem="fIS-I4-hXl" secondAttribute="bottom" constant="240" id="FlC-im-57X"/>
-                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="fIS-I4-hXl" secondAttribute="trailing" id="Jpv-mS-xph"/>
-                            <constraint firstItem="6mH-bk-qgo" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="Kch-bE-oHd"/>
-                            <constraint firstItem="opG-S1-87V" firstAttribute="top" secondItem="6mH-bk-qgo" secondAttribute="bottom" constant="8" id="RTr-ki-n94"/>
-                            <constraint firstItem="opG-S1-87V" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="TpM-EG-h8T"/>
-                            <constraint firstItem="fIS-I4-hXl" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" id="W1c-AX-Pjy"/>
-                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="FiK-rj-yW2" secondAttribute="trailing" constant="20" id="fDZ-hw-aUf"/>
-                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="6mH-bk-qgo" secondAttribute="trailing" constant="20" id="gDS-vh-Has"/>
-                            <constraint firstItem="13W-Yi-hLB" firstAttribute="trailing" secondItem="eGf-WB-4b8" secondAttribute="trailing" constant="20" id="n6s-BJ-o9E"/>
-                            <constraint firstItem="FiK-rj-yW2" firstAttribute="leading" secondItem="13W-Yi-hLB" secondAttribute="leading" constant="20" id="oje-jU-7OP"/>
-                            <constraint firstItem="FiK-rj-yW2" firstAttribute="centerX" secondItem="Ofl-e7-F2E" secondAttribute="centerX" id="wfs-Fm-ACF"/>
-                            <constraint firstItem="6mH-bk-qgo" firstAttribute="top" secondItem="fIS-I4-hXl" secondAttribute="bottom" constant="48" id="xVb-zi-YTV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="13W-Yi-hLB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="72U-CC-acy" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="849" y="163"/>
-        </scene>
-        <!--Target Scoring-->
         <scene sceneID="NRc-f5-ylx">
             <objects>
                 <viewController id="1Yp-sa-0mP" customClass="targetScoring" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
@@ -369,6 +292,7 @@
                         <outlet property="endLabel" destination="NRU-hy-Wza" id="6zE-P0-Rbs"/>
                         <outlet property="endTotalLabel" destination="4o8-SV-2d6" id="sNS-Lo-Q1T"/>
                         <outlet property="finishButton" destination="m1k-tD-uNb" id="MfP-Yr-n3W"/>
+                        <outlet property="headerView" destination="zeY-GR-udL" id="4hL-AK-L6u"/>
                         <outlet property="hitsLabel" destination="b0j-pK-FZQ" id="bc0-2a-7rR"/>
                         <outlet property="imageConstraintBottom" destination="ctF-mv-XJk" id="yQP-A1-g6u"/>
                         <outlet property="imageConstraintLeft" destination="OiA-GJ-pHF" id="zz9-az-qOM"/>
