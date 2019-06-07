@@ -28,25 +28,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var endTotalLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setUpTableView()
-        targetImageView.image = UIImage(named: "SingleSpot")
-        targetScrollView.delegate = self
-        setZoomScale()
-        updateImageConstraints()
-        
-        //Configure aesthetics for table/buttons
-        tableView.separatorStyle = .none     //Gets rid of separator line between table cells
-        finishButton.layer.cornerRadius = 10
-        cancelButton.layer.cornerRadius = 10
-        removeLastButton.layer.cornerRadius = 10
-        titleLabel.text = headerTitle
-        
-        targetImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(targetScoring.imageTapped(gesture:))))
-//        targetImageView.gestureRecognizers?.first!.isEnabled = false
-    }
-    
     //MARK: Variables
     var headerTitle = ""
     var endCount = 10
@@ -58,6 +39,48 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var hits = 0
     var endNum = 0
     var endArrowNum = 0
+    var endCells: [threeArrowEndCell] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Put cells in array so they aren't reused when the tableview scrolls
+        for x in 1...10 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
+            cell.endLabel.text = String(x)
+            cell.inputType = "target"
+            cell.setUp()
+            cell.delegate = self
+            endCells.append(cell)
+        }
+        
+        setUpTableView()
+        tableView.isUserInteractionEnabled = false
+        targetImageView.image = UIImage(named: "SingleSpot")
+        targetScrollView.delegate = self
+        setZoomScale()
+        updateImageConstraints()
+        
+        //Set up arrowScores array so that the values can be updated as arrow scores are recorded
+        for _ in 0...9 {
+            arrowScores.append(["0", "0", "0"])
+        }
+        
+        //Configure aesthetics for table/buttons
+        tableView.separatorStyle = .none     //Gets rid of separator line between table cells
+        finishButton.layer.cornerRadius = 10
+        cancelButton.layer.cornerRadius = 10
+        removeLastButton.layer.cornerRadius = 10
+        titleLabel.text = headerTitle
+        
+        //Set textfield border of first arrow field
+        let indexPath = IndexPath(row: endNum, section: 0)
+        let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+        cell.arrow1Field.layer.borderWidth = 2.0
+        cell.arrow1Field.layer.borderColor = UIColor.black.cgColor
+        
+        targetImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(targetScoring.imageTapped(gesture:))))
+    }
 
     //MARK: Functions
     func setZoomScale() {
@@ -81,11 +104,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
-        cell.endLabel.text = "\(indexPath.row + 1)"
-        cell.inputType = "target"
-        cell.setUp()
-        cell.delegate = self    //Set delegate to be self so that we can view the textfield data
+        let cell = endCells[indexPath.row]
         return cell
     }
     
@@ -122,6 +141,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         return [total, hits]
     }
     
+    //Sets target face image constraints
     func updateImageConstraints() {
         if let image = targetImageView.image {
             let imageWidth = image.size.width
@@ -152,6 +172,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         return targetImageView
     }
     
+    //Deal with adding arrow dot and updating scores when the target face is tapped
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         let point: CGPoint = gesture.location(in: gesture.view)
         let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: targetImageView.image!, atPoint: point)
@@ -160,11 +181,81 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
-        var score = 10 - floor(sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2)) / 450 * 10)
-        if score < CGFloat(0) { score = CGFloat(0) }
-        arrows.append(Int(score))
-        totalScore += Int(score)
+        var scoreString = ""
+        let distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
+        var score = Int(10 - floor(distFromCenter / 450 * 10))
+        if score < 0 { score = 0 }
+        scoreString = String(score)
+        if score == 0 { scoreString = "M" }
+        if distFromCenter < 45 { scoreString = "X"}
+        arrows.append(score)
+        arrowScores[endNum][endArrowNum] = scoreString
+        totalScore += score
         totalScoreLabel.text = "Running Total: " + totalScore.description
+        applyArrowInfo(score: scoreString)
+    }
+    
+    //Fill in field with arrow score and change colors to match
+    func applyArrowInfo(score: String) {
+        let indexPath = IndexPath(row: endNum, section: 0)
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+        if endArrowNum == 0 {
+            cell.arrow1Field.text = score
+            applyEndColors(cell: cell, score: score)
+            endArrowNum += 1
+        } else if endArrowNum == 1 {
+            cell.arrow2Field.text = score
+            applyEndColors(cell: cell, score: score)
+            endArrowNum += 1
+        } else {
+            cell.arrow3Field.text = score
+            applyEndColors(cell: cell, score: score)
+            endArrowNum = 0
+            endNum += 1
+            if endNum == 10 {
+                targetImageView.gestureRecognizers?.first!.isEnabled = false
+            } else {
+                let nextIndexPath = IndexPath(row: endNum, section: 0)
+                tableView.scrollToRow(at: nextIndexPath, at: .middle, animated: true)
+                let nextCell = tableView.cellForRow(at: nextIndexPath) as! threeArrowEndCell
+                nextCell.arrow1Field.layer.borderWidth = 2.0
+                nextCell.arrow1Field.layer.borderColor = UIColor.black.cgColor
+            }
+        }
+    }
+    
+    //Apply background color to field score was just put in, and move "active field" border to next field
+    func applyEndColors(cell : threeArrowEndCell, score : String) {
+        if endArrowNum == 0 {
+            cell.arrow1Field.layer.borderWidth = 0.0
+            cell.arrow1Field.backgroundColor = determineEndColor(score: score)
+            cell.arrow2Field.layer.borderWidth = 2.0
+            cell.arrow2Field.layer.borderColor = UIColor.black.cgColor
+        } else if endArrowNum == 1 {
+            cell.arrow2Field.layer.borderWidth = 0.0
+            cell.arrow2Field.backgroundColor = determineEndColor(score: score)
+            cell.arrow3Field.layer.borderWidth = 2.0
+            cell.arrow3Field.layer.borderColor = UIColor.black.cgColor
+        } else {
+            cell.arrow3Field.backgroundColor = determineEndColor(score: score)
+            cell.arrow3Field.layer.borderWidth = 0.0
+        }
+    }
+    
+    //Determine what color to use when changing background color of arrow field to match score
+    func determineEndColor(score : String) -> UIColor {
+        if ["M", "1", "2"].contains(score) {
+            return UIColor.white
+        } else if ["3", "4"].contains(score) {
+            return UIColor(red: 193/255, green: 193/255, blue: 193/255, alpha: 1.0)
+        } else if ["5", "6"].contains(score) {
+            return UIColor(red: 171/255, green: 194/255, blue: 255/255, alpha: 1.0)
+        } else if ["7", "8"].contains(score) {
+            return UIColor(red: 255/255, green: 171/255, blue: 171/255, alpha: 1.0)
+        } else {    //If the score is 9, 10, or X
+            return UIColor(red: 255/255, green: 252/255, blue: 171/255, alpha: 1.0)
+        }
     }
     
     func drawImage(image foreGroundImage: UIImage, inImage backgroundImage: UIImage, atPoint point: CGPoint) -> UIImage {
