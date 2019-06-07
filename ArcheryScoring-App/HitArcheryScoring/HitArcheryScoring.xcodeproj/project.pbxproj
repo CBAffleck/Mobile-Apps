@@ -235,9 +235,9 @@
 		C07C919822A4EFDF005CCF98 /* Main Screens */ = {
 			isa = PBXGroup;
 			children = (
-				C03C55B322A2269C003290C7 /* targetScoring.swift */,
 				C07C919922A4EFFF005CCF98 /* HomeScreen.swift */,
 				C07C91A722A71B50005CCF98 /* textScoring.swift */,
+				C03C55B322A2269C003290C7 /* targetScoring.swift */,
 				C0729FFB22A8A71A00A283FB /* congratsScreen.swift */,
 				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,

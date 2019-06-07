@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-e1-bAn">
-                                <rect key="frame" x="10" y="40" width="355" height="497"/>
+                                <rect key="frame" x="10" y="30" width="355" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="5Sr-fq-IPE">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="86"/>
@@ -251,7 +251,7 @@
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="QW1-eD-s2P"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="1Hq-J9-fyr" secondAttribute="trailing" constant="10" id="U1e-we-56r"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="De1-Xp-Mam" secondAttribute="trailing" constant="10" id="Y9Q-yr-fGK"/>
-                            <constraint firstItem="L3T-e1-bAn" firstAttribute="top" secondItem="4b9-3y-Bue" secondAttribute="top" constant="20" id="emO-pA-kPZ"/>
+                            <constraint firstItem="L3T-e1-bAn" firstAttribute="top" secondItem="4b9-3y-Bue" secondAttribute="top" constant="10" id="emO-pA-kPZ"/>
                             <constraint firstItem="De1-Xp-Mam" firstAttribute="top" secondItem="1Hq-J9-fyr" secondAttribute="bottom" constant="8" id="i4D-Fr-JQh"/>
                             <constraint firstItem="pwd-br-m2g" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="l6B-Lu-W4h"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="bottom" secondItem="De1-Xp-Mam" secondAttribute="bottom" constant="12" id="mf1-03-oNp"/>

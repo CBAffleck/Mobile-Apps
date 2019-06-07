@@ -52,6 +52,9 @@ class startScoring: UIViewController {
         if segue.destination is textScoring {
             let view = segue.destination as? textScoring
             view?.headerTitle = rTitle
+        } else if segue.destination is targetScoring {
+            let view = segue.destination as? targetScoring
+            view?.headerTitle = rTitle
         }
     }
     

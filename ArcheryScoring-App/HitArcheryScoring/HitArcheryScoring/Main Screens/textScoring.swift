@@ -56,6 +56,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
         cell.endLabel.text = "\(indexPath.row + 1)"
+        cell.inputType = "text"
         cell.setUp()
         cell.delegate = self    //Set delegate to be self so that we can view the textfield data
         return cell

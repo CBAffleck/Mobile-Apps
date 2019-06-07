@@ -19,12 +19,6 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         // Initialization code
         self.selectionStyle = .none     //Rows aren't highlighted if clicked on
     }
-
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
     
     //MARK: Properties
     @IBOutlet weak var cellView: UIView!
@@ -39,6 +33,7 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     var activeTextField = UITextField()
     var delegate: CellDelegate?
     var edit = false
+    var inputType = ""
     
     //Configure aesthetics for each part of the custom cell
     func setUp() {
@@ -57,14 +52,21 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
         totalLabel.layer.masksToBounds = true
         
         //Set keyboard to be custom scoring keyboard for arrow textFields (height = the custom keyboard height)
-        let keyboardView = keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 216))
-        keyboardView.delegate = self
-        arrow1Field.delegate = self
-        arrow2Field.delegate = self
-        arrow3Field.delegate = self
-        arrow1Field.inputView = keyboardView
-        arrow2Field.inputView = keyboardView
-        arrow3Field.inputView = keyboardView
+        if inputType == "text" {
+            let keyboardView = keyboard(frame: CGRect(x: 0, y: 0, width: 0, height: 216))
+            keyboardView.delegate = self
+            arrow1Field.delegate = self
+            arrow2Field.delegate = self
+            arrow3Field.delegate = self
+            arrow1Field.inputView = keyboardView
+            arrow2Field.inputView = keyboardView
+            arrow3Field.inputView = keyboardView
+        } else {
+            arrow1Field.isUserInteractionEnabled = false
+            arrow2Field.isUserInteractionEnabled = false
+            arrow3Field.isUserInteractionEnabled = false
+        }
+        
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
