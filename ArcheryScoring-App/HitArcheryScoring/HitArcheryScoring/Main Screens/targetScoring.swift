@@ -114,31 +114,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     //Deals with delegate from the custom table cell
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
-        arrowScores[end][arrow] = score
-        var calc = calculateTotal()
-        totalScore = calc[0]
-        hits = calc[1]
-        totalScoreLabel.text = "Running Total: " + String(calc[0])
-        hitsLabel.text = "Hits: " + String(calc[1])
-    }
-    
-    func calculateTotal() -> [Int] {
-        var total = 0
-        var hits = 0
-        for x in 0...9 {
-            for a in arrowScores[x] {
-                if a == "X" {
-                    total += 10
-                    hits += 1
-                }
-                else if a == "M" { total += 0}
-                else {
-                    total += Int(a) ?? 0
-                    if a == "10" || a == "9" { hits += 1 }
-                }
-            }
-        }
-        return [total, hits]
+        //Delegate does nothing on the target screen
     }
     
     //Sets target face image constraints
@@ -184,10 +160,16 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         var scoreString = ""
         let distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
         var score = Int(10 - floor(distFromCenter / 450 * 10))
-        if score < 0 { score = 0 }
-        scoreString = String(score)
+        if score < 0 { score = 0 }      //Deal with taps outside the 1 ring
+        scoreString = String(score)     //Create string of score
+        //Assign M and X values
         if score == 0 { scoreString = "M" }
-        if distFromCenter < 45 { scoreString = "X"}
+        if distFromCenter < 22.5 { scoreString = "X"}
+        //Update hits if needed
+        if score == 10 || score == 9 {
+            hits += 1
+            hitsLabel.text = "Hits: " + String(hits)
+        }
         arrows.append(score)
         arrowScores[endNum][endArrowNum] = scoreString
         totalScore += score
@@ -210,6 +192,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             endArrowNum += 1
         } else {
             cell.arrow3Field.text = score
+            let endTot = calculateEndTotal(ar1: cell.arrow1Field, ar2: cell.arrow2Field, ar3: cell.arrow3Field)
+            cell.endLabel.text = String(endTot)
             applyEndColors(cell: cell, score: score)
             endArrowNum = 0
             endNum += 1
@@ -223,6 +207,17 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                 nextCell.arrow1Field.layer.borderColor = UIColor.black.cgColor
             }
         }
+    }
+    
+    func calculateEndTotal(ar1 : UITextField, ar2 : UITextField, ar3 : UITextField) -> Int {
+        let arrows = [ar1.text, ar2.text, ar3.text]
+        var total = 0
+        for a in arrows {
+            if a == "X" { total += 10}
+            else if a == "M" { total += 0}
+            else { total += Int(a!) ?? 0}
+        }
+        return total
     }
     
     //Apply background color to field score was just put in, and move "active field" border to next field
