@@ -9,10 +9,6 @@
 import UIKit
 
 class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, CellDelegate, UITextFieldDelegate {
-    func textFieldBeganEditing(row: Int, showKB: Bool, hideKB: Bool) {
-        //do nothing
-    }
-    
 
     //MARK: Properties
     @IBOutlet weak var targetScrollView: UIScrollView!
@@ -120,6 +116,10 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     //Deals with delegate from the custom table cell
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
         //Delegate does nothing on the target screen
+    }
+    
+    func textFieldBeganEditing(row: Int, showKB: Bool, hideKB: Bool) {
+        //do nothing
     }
     
     //Sets target face image constraints
@@ -289,12 +289,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         }
     }
     
+    //MARK: Remove Button
     @IBAction func removeLastArrow(_ sender: UIButton) {
-        //Get current cell
-        let indexPath = IndexPath(row: endNum, section: 0)
-        tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-        let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
-        
         if !targets.isEmpty {
             //Set target image to last image without most recent arrow mark
             targetImageView.image = targets.last
@@ -313,29 +309,41 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             arrows.removeLast()
             arrowLocations.removeLast()
             
-            //Reset current cell to look like the next cell
-            if endArrowNum == 0 {
-                if endNum == 0 {
-                    //do nothing
+            if endNum != 10 {
+                //Get current cell
+                let indexPath = IndexPath(row: endNum, section: 0)
+                tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+                let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
+                //Reset current cell to look like the next cell
+                if endArrowNum == 0 {
+                    if endNum == 0 {
+                        //do nothing
+                    } else {
+                        arrowScores[endNum - 1][2] = "0"
+                        //Set textfield border when not selected
+                        cell.arrow1Field.layer.borderWidth = 0.0
+                        endNum -= 1
+                        endArrowNum = 2
+                    }
+                } else if endArrowNum == 1 {
+                    arrowScores[endNum][0] = "0"
+                    //Set textfield border when selected
+                    cell.arrow2Field.layer.borderWidth = 0.0
+                    endArrowNum = 0
                 } else {
-                    arrowScores[endNum - 1][2] = "0"
-                    //Set textfield border when not selected
-                    cell.arrow1Field.layer.borderWidth = 0.0
-                    endNum -= 1
-                    endArrowNum = 2
+                    arrowScores[endNum][1] = "0"
+                    //Set textfield border when selected
+                    cell.arrow3Field.layer.borderWidth = 0.0
+                    endArrowNum = 1
                 }
-            } else if endArrowNum == 1 {
-                arrowScores[endNum][0] = "0"
-                //Set textfield border when selected
-                cell.arrow2Field.layer.borderWidth = 0.0
-                endArrowNum = 0
-            } else {
-                arrowScores[endNum][1] = "0"
-                //Set textfield border when selected
-                cell.arrow3Field.layer.borderWidth = 0.0
-                endArrowNum = 1
             }
             
+            if endNum == 10 {
+                endNum = 9
+                endArrowNum = 2
+                arrowScores[9][2] = "0"
+                targetImageView.gestureRecognizers?.first!.isEnabled = true
+            }
             //Get previous cell
             let prevIndexPath = IndexPath(row: endNum, section: 0)
             tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)
