@@ -32,9 +32,11 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var rowBeingEdited = 0
     var show_kb = false
     var hide_kb = false
+    var roundNum = 1                    //Round number in users history, pulled from realm
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        headerTitle += " #" + String(roundNum)
         setUpTableView()
         self.hideKeyboardOnTap()
         scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
@@ -149,6 +151,8 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.totalScore = totalScore
             vc?.hits = hits
             vc?.endCount = endCount
+            vc?.roundNum = roundNum
+            vc?.headerTitle = headerTitle
         }
     }
     

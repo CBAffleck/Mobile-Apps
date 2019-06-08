@@ -25,6 +25,8 @@ class finishScoring: UIViewController {
     var endCount = 0
     var endTots: [Int] = []
     var running: [Int] = []
+    var roundNum = 1                    //Round number in users history, pulled from realm
+    var headerTitle = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +52,8 @@ class finishScoring: UIViewController {
             vc?.inEndCount = endCount
             vc?.inEndTots = endTots
             vc?.inRunning = running
+            vc?.roundNum = roundNum
+            vc?.headerTitle = headerTitle
         }
     }
     

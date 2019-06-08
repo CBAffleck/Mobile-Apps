@@ -38,6 +38,8 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     var inEndTots: [Int] = []
     var ends: [ScoringEndData] = []
     let animationView = AnimationView()
+    var roundNum = 1                    //Round number in users history, pulled from realm
+    var headerTitle = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +47,13 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         setUpTableView()
         detailTableView.separatorStyle = .none
         detailTableView.alwaysBounceVertical = false
+        setDescLabel()
 
+        //Set labels to match round data
+        hitsLabel.text = "Hits: " + String(inHits)
+        totalLabel.text = "Total: " + String(inTotal)
+        detailTitleLabel.text = headerTitle
+        
         //Add border to details view
         detailsView.layer.cornerRadius = 20
         detailsView.layer.borderWidth = 0.75
@@ -61,15 +69,28 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
 //        animeView.loopMode = .loop
     }
     
+    func setDescLabel() {
+        var nthNum = ""
+        let digit = roundNum % 10
+        if roundNum >= 4 && roundNum <= 20 {
+            nthNum = "th "
+        } else if digit == 1 {
+            nthNum = "st "
+        } else if digit == 2 {
+            nthNum = "nd "
+        } else if digit == 3 {
+            nthNum = "rd "
+        } else {
+            nthNum = "th "
+        }
+        descLabel.text = "You completed your " + String(roundNum) + nthNum + headerTitle.prefix(4) + "round!"
+    }
+    
     func createEndArray() {
         for x in 0...9 {
             let endData = ScoringEndData(a1Score: inScores[x][0], a2Score: inScores[x][1], a3Score: inScores[x][2], endTot: String(inEndTots[x]), runNum: String(inRunning[x]))
             ends.append(endData)
         }
-    }
-    
-    func startAnimation() {
-//        animationView.setAnimation
     }
     
     //TableView set up and management

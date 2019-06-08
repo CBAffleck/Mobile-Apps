@@ -41,10 +41,12 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var endNum = 0
     var endArrowNum = 0
     var endCells: [threeArrowEndCell] = []
+    var roundNum = 1                    //Round number in users history, pulled from realm
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        headerTitle += " #" + String(roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
         for x in 1...10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
@@ -286,6 +288,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.totalScore = totalScore
             vc?.hits = hits
             vc?.endCount = endCount
+            vc?.roundNum = roundNum
+            vc?.headerTitle = headerTitle
         }
     }
     
