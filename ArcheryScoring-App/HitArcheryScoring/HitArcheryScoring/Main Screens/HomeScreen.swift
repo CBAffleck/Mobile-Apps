@@ -76,17 +76,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc?.rBest = tempPR
         }
     }
-    
-    //MARK: Actions
-    @IBAction func toProfileScreen(_ sender: UIButton) {
-    }
-    
-    @IBAction func toHistoryScreen(_ sender: UIButton) {
-    }
-    
-    @IBAction func toScoringScreen(_ sender: UIButton) {
-    }
-    
 }
 
 class ScoringRound {

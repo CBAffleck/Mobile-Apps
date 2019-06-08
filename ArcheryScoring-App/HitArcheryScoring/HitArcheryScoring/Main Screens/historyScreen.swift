@@ -10,6 +10,14 @@ import UIKit
 
 class historyScreen: UIViewController {
 
+    //MARK: Properties
+    @IBOutlet weak var historyTable: UITableView!
+    @IBOutlet weak var historyTitle: UILabel!
+    
+    
+    //MARK: Variables
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
