@@ -10,6 +10,7 @@ import UIKit
 
 protocol CellDelegate: NSObjectProtocol {
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell)
+    func textFieldBeganEditing(row : Int, showKB : Bool, hideKB : Bool)
 }
 
 class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate {
@@ -76,6 +77,9 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
             textField.text = ""
             edit = true
         }
+        //Deal with telling keyboard to move up if it's the first or only cell being edited
+        if textField == arrow1Field || edit == true { delegate?.textFieldBeganEditing(row: Int(endLabel.text ?? "0")!, showKB: true, hideKB: false) }
+        else { delegate?.textFieldBeganEditing(row: Int(endLabel.text ?? "0")!, showKB: false, hideKB: false) }
         //Make sure colors correspond to a scoring cell in which the user hasn't finished scoring yet
         cellView.backgroundColor = UIColor.white
         endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
@@ -86,6 +90,8 @@ class threeArrowEndCell: UITableViewCell, KeyboardDelegate, UITextFieldDelegate 
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        //Deal with dismissing keyboard if it's the last or only cell being edited
+        if textField == arrow3Field  || edit == true { delegate?.textFieldBeganEditing(row: Int(endLabel.text ?? "0")!, showKB: false, hideKB: true) }
         //When a field is done being edited, remove the border and update the end total
         activeTextField.layer.borderWidth = 0.0
         totalLabel.text = String(calculateEndTotal())

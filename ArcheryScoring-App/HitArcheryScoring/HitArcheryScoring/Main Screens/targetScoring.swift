@@ -9,6 +9,10 @@
 import UIKit
 
 class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, CellDelegate, UITextFieldDelegate {
+    func textFieldBeganEditing(row: Int, showKB: Bool, hideKB: Bool) {
+        //do nothing
+    }
+    
 
     //MARK: Properties
     @IBOutlet weak var targetScrollView: UIScrollView!

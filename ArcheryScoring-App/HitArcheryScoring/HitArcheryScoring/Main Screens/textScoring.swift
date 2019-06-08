@@ -20,6 +20,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var runningLabel: UILabel!
     @IBOutlet weak var hitLabel: UILabel!
+    @IBOutlet weak var tableBottomConstraint: NSLayoutConstraint!
     
     
     //MARK: Variables
@@ -28,6 +29,9 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
     var totalScore = 0
     var hits = 0
+    var rowBeingEdited = 0
+    var show_kb = false
+    var hide_kb = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +47,39 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         }
     }
     
-    //TableView set up and management
+    //MARK: Keyboard Functions
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //Add keyboard observers
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification: Notification) {
+        if show_kb == true {
+            if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+                print("Notification: Keyboard will show")
+                //Sets distance of last cell from bottom of tableview. -100 accounts for pushing the cell too far up with just KB height
+                scoringTable.contentInset.bottom = keyboardHeight - 100
+                show_kb = false
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: Notification) {
+        if hide_kb == true {
+            scoringTable.contentInset.bottom = 0.0
+            hide_kb = false
+        }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: Table Setup
     func setUpTableView() {
         scoringTable.delegate = self
         scoringTable.dataSource = self
@@ -66,7 +102,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         return 45
     }
     
-    //Deals with delegate from the custom table cell
+    //MARK: Table Cells
     func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
         arrowScores[end][arrow] = score
         var calc = calculateTotal()
@@ -74,6 +110,12 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         hits = calc[1]
         runningLabel.text = "Running Total: " + String(calc[0])
         hitLabel.text = "Hits: " + String(calc[1])
+    }
+    
+    func textFieldBeganEditing(row: Int, showKB: Bool, hideKB: Bool) {
+        rowBeingEdited = row
+        show_kb = showKB
+        hide_kb = hideKB
     }
     
     func calculateTotal() -> [Int] {

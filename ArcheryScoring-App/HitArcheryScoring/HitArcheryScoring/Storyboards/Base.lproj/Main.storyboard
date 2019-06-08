@@ -77,24 +77,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strong Shots!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6q-Ka-1Yv">
-                                <rect key="frame" x="10" y="40" width="292" height="43"/>
+                                <rect key="frame" x="15" y="40" width="345" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="FkM-hU-Lau"/>
-                                    <constraint firstAttribute="width" constant="292" id="Qld-MJ-sg9"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ygC-Ke-NbC">
-                                <rect key="frame" x="10" y="98" width="355" height="520"/>
+                                <rect key="frame" x="15" y="98" width="345" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellId" rowHeight="151" id="Viy-JZ-e8f" customClass="ScoringRoundCell" customModule="HitArcheryScoring" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="355" height="151"/>
+                                        <rect key="frame" x="0.0" y="28" width="345" height="151"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Viy-JZ-e8f" id="Kip-Fd-j6P">
-                                            <rect key="frame" x="0.0" y="0.0" width="355" height="150.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="150.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWm-r6-QSz">
@@ -184,11 +183,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ygC-Ke-NbC" firstAttribute="top" secondItem="l6q-Ka-1Yv" secondAttribute="bottom" constant="15" id="0Cj-eP-02A"/>
+                            <constraint firstItem="Fp3-ur-0tt" firstAttribute="trailing" secondItem="l6q-Ka-1Yv" secondAttribute="trailing" constant="15" id="GcR-fS-MCB"/>
                             <constraint firstItem="l6q-Ka-1Yv" firstAttribute="top" secondItem="Fp3-ur-0tt" secondAttribute="top" constant="20" id="Vmy-IS-Utg"/>
                             <constraint firstItem="Fp3-ur-0tt" firstAttribute="bottom" secondItem="ygC-Ke-NbC" secondAttribute="bottom" id="YhV-kc-TFG"/>
-                            <constraint firstItem="l6q-Ka-1Yv" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="10" id="bnE-8l-2g1"/>
-                            <constraint firstItem="Fp3-ur-0tt" firstAttribute="trailing" secondItem="ygC-Ke-NbC" secondAttribute="trailing" constant="10" id="izk-dc-waZ"/>
-                            <constraint firstItem="ygC-Ke-NbC" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="10" id="jCk-2V-WJb"/>
+                            <constraint firstItem="l6q-Ka-1Yv" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="15" id="bnE-8l-2g1"/>
+                            <constraint firstItem="Fp3-ur-0tt" firstAttribute="trailing" secondItem="ygC-Ke-NbC" secondAttribute="trailing" constant="15" id="izk-dc-waZ"/>
+                            <constraint firstItem="ygC-Ke-NbC" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="15" id="jCk-2V-WJb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fp3-ur-0tt"/>
                     </view>

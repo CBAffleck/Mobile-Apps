@@ -269,6 +269,7 @@
                         <outlet property="hitLabel" destination="tfR-IJ-ZvX" id="BOG-RQ-4ha"/>
                         <outlet property="runningLabel" destination="pwd-br-m2g" id="icG-mL-IdD"/>
                         <outlet property="scoringTable" destination="L3T-e1-bAn" id="yox-sH-ut4"/>
+                        <outlet property="tableBottomConstraint" destination="oRN-JQ-gi1" id="7Dt-n8-wgQ"/>
                         <outlet property="timerLabel" destination="V6y-OR-o0d" id="DBe-I9-CHq"/>
                         <outlet property="titleLabel" destination="LKy-Wl-YaB" id="Lv4-OC-Q8e"/>
                         <outlet property="totalLabel" destination="iFv-FB-xdq" id="y5A-lB-XGi"/>
