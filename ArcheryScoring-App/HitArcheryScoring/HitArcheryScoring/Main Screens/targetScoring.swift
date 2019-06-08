@@ -42,6 +42,11 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var endArrowNum = 0
     var endCells: [threeArrowEndCell] = []
     var roundNum = 1                    //Round number in users history, pulled from realm
+    weak var timer: Timer?
+    var startTime: Double = 0
+    var time: Double = 0
+    var elapsed: Double = 0
+    var date = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,9 +88,45 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         cell.arrow1Field.layer.borderColor = UIColor.black.cgColor
         
         targetImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(targetScoring.imageTapped(gesture:))))
+        
+        //Set up and start timer
+        startTimer()
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeTimer), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        //Format start date/time into nice string
+        let tempDate = Date()
+        let dateFormatPrint = DateFormatter()
+        dateFormatPrint.dateFormat = "h:mm a, MMM d, yyyy"      //Ex: 4:10 PM, June 8, 2019
+        date = dateFormatPrint.string(from: tempDate)
     }
 
     //MARK: Functions
+    func startTimer() {
+        startTime = Date().timeIntervalSinceReferenceDate - elapsed
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        elapsed = Date().timeIntervalSinceReferenceDate - startTime
+        timer?.invalidate()
+    }
+    
+    @objc func updateCounter() {
+        time = Date().timeIntervalSinceReferenceDate - startTime
+        let minutes = UInt8(time / 60.0)
+        time -= (TimeInterval(minutes) * 60)
+        
+        let seconds = UInt8(time)
+        time -= TimeInterval(seconds)
+        
+        let strMin = String(format: "%02d", minutes)
+        let strSec = String(format: "%02d", seconds)
+        timerLabel.text = strMin + ":" + strSec
+    }
+    
+    @objc func resumeTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    
     func setZoomScale() {
         if let image = targetImageView.image {
             var minZoom = min(targetScrollView.bounds.size.width / image.size.width,
@@ -290,6 +331,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.endCount = endCount
             vc?.roundNum = roundNum
             vc?.headerTitle = headerTitle
+            vc?.timerValue = timerLabel.text!
+            vc?.startDate = date
         }
     }
     
@@ -390,6 +433,13 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         }
         let prevIndexPath = IndexPath(row: endNum, section: 0)
         tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)
+    }
+    
+    @IBAction func finishTapped(_ sender: UIButton) {
+        stopTimer()
+    }
+    
+    @IBAction func cancelTapped(_ sender: UIButton) {
     }
     
 }

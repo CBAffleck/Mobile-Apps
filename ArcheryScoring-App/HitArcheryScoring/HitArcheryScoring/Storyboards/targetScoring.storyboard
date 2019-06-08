@@ -29,6 +29,7 @@
                                     <color key="titleColor" red="0.98823529409999999" green="0.35686274509999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="cancelTapped:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="8et-TT-ePi"/>
                                     <segue destination="6TK-zm-MLk" kind="presentation" identifier="targetToCancelSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="py4-Fh-HEs"/>
                                 </connections>
                             </button>
@@ -43,6 +44,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="finishTapped:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="AIv-zF-bvh"/>
                                     <segue destination="L5G-0m-f7f" kind="presentation" identifier="targetToFinishSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cRu-Rc-NCq"/>
                                 </connections>
                             </button>
@@ -62,7 +64,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHz-TP-2LF">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHz-TP-2LF">
                                             <rect key="frame" x="0.0" y="31" width="355" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="17" id="zGp-20-gZk"/>
