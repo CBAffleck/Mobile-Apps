@@ -33,6 +33,11 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var show_kb = false
     var hide_kb = false
     var roundNum = 1                    //Round number in users history, pulled from realm
+    weak var timer: Timer?
+    var startTime: Double = 0
+    var time: Double = 0
+    var elapsed: Double = 0
+    var date = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,41 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         for _ in 0...9 {
             arrowScores.append(["0", "0", "0"])
         }
+        //Set up and start timer
+        startTimer()
+        NotificationCenter.default.addObserver(self, selector: #selector(resumeTimer), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        //Format start date/time into nice string
+        let tempDate = Date()
+        let dateFormatPrint = DateFormatter()
+        dateFormatPrint.dateFormat = "h:mm a, MMM d, yyyy"      //Ex: 4:10 PM, June 8, 2019
+        date = dateFormatPrint.string(from: tempDate)
+    }
+    
+    func startTimer() {
+        startTime = Date().timeIntervalSinceReferenceDate - elapsed
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+    }
+    
+    func stopTimer() {
+        elapsed = Date().timeIntervalSinceReferenceDate - startTime
+        timer?.invalidate()
+    }
+    
+    @objc func updateCounter() {
+        time = Date().timeIntervalSinceReferenceDate - startTime
+        let minutes = UInt8(time / 60.0)
+        time -= (TimeInterval(minutes) * 60)
+        
+        let seconds = UInt8(time)
+        time -= TimeInterval(seconds)
+        
+        let strMin = String(format: "%02d", minutes)
+        let strSec = String(format: "%02d", seconds)
+        timerLabel.text = strMin + ":" + strSec
+    }
+    
+    @objc func resumeTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
     //MARK: Keyboard Functions
@@ -153,12 +193,14 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.endCount = endCount
             vc?.roundNum = roundNum
             vc?.headerTitle = headerTitle
+            vc?.timerValue = timerLabel.text!
+            vc?.startDate = date
         }
     }
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
-        print(arrowScores)
+        stopTimer()
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {

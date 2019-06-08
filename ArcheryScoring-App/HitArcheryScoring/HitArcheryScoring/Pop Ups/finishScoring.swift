@@ -27,6 +27,8 @@ class finishScoring: UIViewController {
     var running: [Int] = []
     var roundNum = 1                    //Round number in users history, pulled from realm
     var headerTitle = ""
+    var timerValue = ""
+    var startDate = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,8 @@ class finishScoring: UIViewController {
             vc?.inRunning = running
             vc?.roundNum = roundNum
             vc?.headerTitle = headerTitle
+            vc?.time = timerValue
+            vc?.date = startDate
         }
     }
     
@@ -82,6 +86,7 @@ class finishScoring: UIViewController {
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         dismiss(animated: true)
     }
     

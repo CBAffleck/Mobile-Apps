@@ -40,6 +40,8 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     let animationView = AnimationView()
     var roundNum = 1                    //Round number in users history, pulled from realm
     var headerTitle = ""
+    var time = ""
+    var date = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,8 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         hitsLabel.text = "Hits: " + String(inHits)
         totalLabel.text = "Total: " + String(inTotal)
         detailTitleLabel.text = headerTitle
+        timeLabel.text = "Time: " + time
+        dateLabel.text = date
         
         //Add border to details view
         detailsView.layer.cornerRadius = 20
