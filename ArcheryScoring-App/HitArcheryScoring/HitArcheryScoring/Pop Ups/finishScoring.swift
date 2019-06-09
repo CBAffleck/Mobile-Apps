@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class finishScoring: UIViewController {
 
@@ -83,6 +84,7 @@ class finishScoring: UIViewController {
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
+        
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {
