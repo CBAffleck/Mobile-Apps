@@ -103,8 +103,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         relativePR = rounds[indexPath.row].relativePR
         scoringType = rounds[indexPath.row].scoringType
         targetFace = rounds[indexPath.row].targetFace
-        if scoringType == "target" { performSegue(withIdentifier: "historyTargetSegue", sender: indexPath) }
-//        else { }
+        performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
