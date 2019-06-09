@@ -27,6 +27,8 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
     @IBOutlet weak var animeView: AnimationView!
+    @IBOutlet weak var heightsView: UIView!
+    @IBOutlet weak var heightViewTopSpace: NSLayoutConstraint!
     
     
     //MARK: Variables
@@ -49,8 +51,9 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         setUpTableView()
         detailTableView.separatorStyle = .none
         detailTableView.alwaysBounceVertical = false
+        heightViewTopSpace.constant = 0.37 * UIScreen.main.bounds.height
         setDescLabel()
-
+        
         //Set labels to match round data
         hitsLabel.text = "Hits: " + String(inHits)
         totalLabel.text = "Total: " + String(inTotal)
@@ -115,6 +118,9 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         return cell
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UIScreen.main.bounds.height * 0.034
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
