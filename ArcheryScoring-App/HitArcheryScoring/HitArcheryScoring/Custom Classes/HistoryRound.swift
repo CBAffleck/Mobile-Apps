@@ -14,7 +14,7 @@ class HistoryRound : Object {
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""
     @objc dynamic var arrowScores : [[String]] = [[""]]
-    @objc dynamic var arrowLocations : [CGFloat]?
+    @objc dynamic var arrowLocations : [CGPoint]?
     @objc dynamic var runningScores : [Int] = []
     @objc dynamic var totalScore : Int = 0
     @objc dynamic var hits : Int = 0

@@ -30,7 +30,7 @@ class historyCell: UITableViewCell {
     var time : String?
     var date : String?
     var arrowScores : [[String]]?
-    var arrowLocations : [CGFloat]?
+    var arrowLocations : [CGPoint]?
     var runningScores : [Int]?
     var totalScore : Int?
     var hits : Int?

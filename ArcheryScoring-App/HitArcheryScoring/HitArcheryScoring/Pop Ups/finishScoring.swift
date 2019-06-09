@@ -20,7 +20,9 @@ class finishScoring: UIViewController {
     
     
     //MARK: Variables
+    let round = HistoryRound()
     var aScores: [[String]] = []
+    var aLocations: [CGPoint] = []
     var totalScore = 0
     var hits = 0
     var endCount = 0
@@ -30,6 +32,8 @@ class finishScoring: UIViewController {
     var headerTitle = ""
     var timerValue = ""
     var startDate = ""
+    var scoringType = ""
+    var targetFace = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +86,29 @@ class finishScoring: UIViewController {
         }
     }
     
+    func saveRound() {
+        round.arrowScores = aScores
+        if scoringType == "target" { round.arrowLocations = aLocations }
+        round.totalScore = totalScore
+        round.hits = hits
+        round.roundTitle = headerTitle
+        round.time = timerValue
+        round.date = startDate
+        round.runningScores = running
+        round.relativePR = 0
+        round.scoringType = scoringType
+        round.targetFace = targetFace
+        
+        if round.saveRound() {
+            print("Scoring round saved!")
+        } else {
+            print("Could not save scoring round.")
+        }
+    }
+    
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
-        
+        saveRound()
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {

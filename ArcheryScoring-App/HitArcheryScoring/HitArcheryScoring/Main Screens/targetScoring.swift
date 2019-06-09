@@ -47,6 +47,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var time: Double = 0
     var elapsed: Double = 0
     var date = ""
+    let scoringType = "target"
+    let targetFace = "SingleSpot"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -333,6 +335,9 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.headerTitle = headerTitle
             vc?.timerValue = timerLabel.text!
             vc?.startDate = date
+            vc?.scoringType = scoringType
+            vc?.targetFace = targetFace
+            vc?.aLocations = arrowLocations
         }
     }
     
