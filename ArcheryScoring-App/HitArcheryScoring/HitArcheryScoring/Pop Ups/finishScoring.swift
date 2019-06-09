@@ -35,6 +35,7 @@ class finishScoring: UIViewController {
     var scoringType = ""
     var targetFace = ""
     let defaults = UserDefaults.standard
+    var targetImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,9 +137,37 @@ class finishScoring: UIViewController {
         }
     }
     
+    //Save target image to documents folder with a filename equal to the target face + distance + roundNum
+    func saveImage(imageName : String, image : UIImage) {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        let fileName = imageName
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        guard let data = image.jpegData(compressionQuality: 1) else { return }
+        
+        //Check if file exists, remove if so
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+                print("Removed old image")
+            } catch let removeError {
+                print("Couldn't remove file at path ", removeError)
+            }
+        }
+        
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            print("Error saving image with error ", error)
+        }
+    }
+    
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
         saveRound()
+        if scoringType == "target" {
+            saveImage(imageName: targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+        }
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {

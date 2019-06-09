@@ -346,6 +346,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.scoringType = scoringType
             vc?.targetFace = targetFace
             vc?.aLocations = arrowLocations
+            vc?.targetImage = targets.last ?? UIImage(named: "SingleSpot")!
         }
     }
     

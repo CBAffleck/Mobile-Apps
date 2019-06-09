@@ -23,6 +23,8 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var totalScoreLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     
     //MARK: Variables
@@ -40,6 +42,7 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var relativePR : Int = 0
     var scoringType : String = ""
     var targetFace : String = ""
+    var scrollViewHeight = CGFloat(0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +51,12 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.separatorStyle = .none
         tableView.alwaysBounceVertical = false
         setUpTableView()
-//        drawArrowPoints()
+        addTargetImage()
 
         // Do any additional setup after loading the view.
         popUpView.layer.cornerRadius = 20
+        scrollView.layer.cornerRadius = 20
+        contentView.layer.cornerRadius = 20
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
         tableView.isUserInteractionEnabled = false
@@ -106,25 +111,48 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-//    func drawArrowPoints() {
-//        var targetImage = UIImage(named: "SingleSpot")
-//        for point in arrowLocations! {
-//            let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: imageView.image!, atPoint: point)
-//            targetImage = newTarget
-//        }
-//        imageView.image = targetImage
-//    }
+    func addTargetImage() {
+        var contentHeight = tableView.frame.height + titleLabel.frame.height + dateLabel.frame.height + endLabel.frame.height
+        if scoringType == "target" {
+            let targetImage = UIImageView.init(image: loadImageFromDiskWith(fileName: targetFace + String(roundTitle.prefix(3)) + String(roundTitle.components(separatedBy: "#")[1])))
+            contentView.addSubview(targetImage)
+            targetImage.translatesAutoresizingMaskIntoConstraints = false
+            targetImage.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -20).isActive = true
+            targetImage.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+            targetImage.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+            targetImage.heightAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
+            targetImage.widthAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
+            targetImage.contentMode = .scaleAspectFit
+            contentHeight += tableView.frame.width
+            
+            if contentHeight > scrollView.frame.height {
+                scrollViewHeight = contentHeight
+            }
+        }
+    }
     
-    func drawImage(image foreGroundImage: UIImage, inImage backgroundImage: UIImage, atPoint point: CGPoint) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, 0.0)
-        let renderSize: CGFloat = 15
-        backgroundImage.draw(in: CGRect.init(x: 0, y: 0, width: backgroundImage.size.width, height: backgroundImage.size.height))
-        let xPoint = point.x - renderSize / 2
-        let yPoint = point.y - renderSize / 2
-        foreGroundImage.draw(in: CGRect.init(x: xPoint, y: yPoint, width: renderSize, height: renderSize))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage!
+    func loadImageFromDiskWith(fileName : String) -> UIImage {
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let dirPath = paths.first {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
+            let image = UIImage(contentsOfFile: imageURL.path)
+            return image ?? UIImage(named: "SingleSpot")!
+        }
+        return UIImage(named: "SingleSpot")!
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.x = 0
+    }
+    
+    override func viewDidLayoutSubviews() {
+        scrollView.delegate = self
+        if scrollViewHeight != CGFloat(0) {
+            scrollView.contentSize = CGSize(width: self.view.frame.size.width, height: scrollViewHeight)
+        }
     }
 
     //MARK: Actions
