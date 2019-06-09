@@ -15,7 +15,7 @@
 		C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7E22A9D2F70084D5CE /* historyScreen.swift */; };
 		C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8022A9D50B0084D5CE /* Trophy.json */; };
 		C0398E8322AC60320084D5CE /* historyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8222AC60320084D5CE /* historyCell.swift */; };
-		C0398E8522AC66630084D5CE /* HistoryRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8422AC66630084D5CE /* HistoryRound.swift */; };
+		C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8422AC66630084D5CE /* RealmClasses.swift */; };
 		C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */; };
 		C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8822ACF3CD0084D5CE /* historyTarget.swift */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
@@ -75,7 +75,7 @@
 		C0398E7E22A9D2F70084D5CE /* historyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyScreen.swift; sourceTree = "<group>"; };
 		C0398E8022A9D50B0084D5CE /* Trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trophy.json; sourceTree = "<group>"; };
 		C0398E8222AC60320084D5CE /* historyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyCell.swift; sourceTree = "<group>"; };
-		C0398E8422AC66630084D5CE /* HistoryRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRound.swift; sourceTree = "<group>"; };
+		C0398E8422AC66630084D5CE /* RealmClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmClasses.swift; sourceTree = "<group>"; };
 		C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = historyTarget.storyboard; sourceTree = "<group>"; };
 		C0398E8822ACF3CD0084D5CE /* historyTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyTarget.swift; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,7 +278,7 @@
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
 				C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */,
-				C0398E8422AC66630084D5CE /* HistoryRound.swift */,
+				C0398E8422AC66630084D5CE /* RealmClasses.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -536,7 +536,7 @@
 				C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */,
 				C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
-				C0398E8522AC66630084D5CE /* HistoryRound.swift in Sources */,
+				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
 				C0398E8322AC60320084D5CE /* historyCell.swift in Sources */,

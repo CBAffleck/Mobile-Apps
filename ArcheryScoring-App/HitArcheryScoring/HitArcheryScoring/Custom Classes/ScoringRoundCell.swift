@@ -29,9 +29,9 @@ class ScoringRoundCell: UITableViewCell {
     
     //MARK: Variables
     var delegate: ScoringCellDelegate?
-    var roundItem: ScoringRound!
+    var roundItem: ScoringRoundTemp!
     
-    func setInfo(round: ScoringRound) {
+    func setInfo(round: ScoringRoundTemp) {
         roundItem = round
         titleLabel.text = round.title
         lastScoredLabel.text = round.lastScored

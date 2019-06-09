@@ -16,7 +16,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
-    var rounds: [ScoringRound] = []
+    var rounds: [ScoringRoundTemp] = []
     var tempTitle = ""
     var tempDesc = ""
     var tempAvg = ""
@@ -31,10 +31,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func createRoundArray() {
-        let indoorRound18m = ScoringRound(title: "18m Scoring Round", lastScored: "Last scored: 2 days ago", description: "10 ends, 3 arrows per end", average: "Average: 265", best: "Personal Record: 275")
+        let indoorRound18m = ScoringRoundTemp(title: "18m Scoring Round", lastScored: "Last scored: 2 days ago", description: "10 ends, 3 arrows per end", average: "Average: 265", best: "Personal Record: 275")
         rounds.append(indoorRound18m)
         
-        let outdoorRound70m = ScoringRound(title: "70m Scoring Round", lastScored: "Last scored: 10 days ago", description: "6 ends, 6 arrows per end", average: "Average: 275", best: "Personal Record: 305")
+        let outdoorRound70m = ScoringRoundTemp(title: "70m Scoring Round", lastScored: "Last scored: 10 days ago", description: "6 ends, 6 arrows per end", average: "Average: 275", best: "Personal Record: 305")
         rounds.append(outdoorRound70m)
     }
     
@@ -79,7 +79,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-class ScoringRound {
+class ScoringRoundTemp {
     var title: String
     var lastScored: String
     var description: String

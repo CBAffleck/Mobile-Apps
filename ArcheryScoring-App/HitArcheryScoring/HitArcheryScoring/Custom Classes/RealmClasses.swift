@@ -1,5 +1,5 @@
 //
-//  HistoryRound.swift
+//  RealmClasses.swift
 //  HitArcheryScoring
 //
 //  Created by Campbell Affleck on 6/8/19.
@@ -8,6 +8,7 @@
 
 import RealmSwift
 
+//Main realm object that stores all the info for a scoring round once the user finishes scoring
 class HistoryRound : Object {
     
     @objc dynamic var roundTitle: String = ""
@@ -35,26 +36,11 @@ class HistoryRound : Object {
             return false
         }
     }
-    
-//    init(roundTitle: String, time : String, date : String, arrowScores : [[String]], arrowLocations : [CGFloat], runningScores : [Int], totalScore : Int, hits : Int, relativePR : Int, scoringType : String, targetFace : String) {
-//        self.roundTitle = roundTitle
-//        self.time = time
-//        self.date = date
-//        self.arrowScores = arrowScores
-//        self.arrowLocations = arrowLocations
-//        self.runningScores = runningScores
-//        self.totalScore = totalScore
-//        self.hits = hits
-//        self.relativePR = relativePR
-//        self.scoringType = scoringType
-//        self.targetFace = targetFace
-//    }
-    
-    
 }
 
 //Class used to saved arrowEndScores as end objects that have 3 arrows each, which then go into the new arrowEndScores list to work with realm
 class ArrowEndScores : Object {
+    
     @objc dynamic var a1: String = ""
     @objc dynamic var a2: String = ""
     @objc dynamic var a3: String = ""
@@ -62,6 +48,22 @@ class ArrowEndScores : Object {
 
 //Can't save CGPoints in realm, so instead CGPoints are saved as ArrowPos objects with an x and y component, so they can easily be converted back to a CGPoint
 class ArrowPos : Object {
+    
     @objc dynamic var xPos: Double = 0
     @objc dynamic var yPos: Double = 0
+}
+
+//Scoring round object to be saved in realm and provide easy access to round details
+class ScoringRound : Object {
+    
+    @objc dynamic var roundName: String = ""
+    @objc dynamic var roundNum: Int = 1
+    @objc dynamic var distance: String = ""
+    @objc dynamic var lastScored: String = ""
+    @objc dynamic var roundDescription: String = ""
+    @objc dynamic var average: String = ""
+    @objc dynamic var pr: Int = 0
+    @objc dynamic var targetFace: String = ""
+    @objc dynamic var endCount: String = ""
+    @objc dynamic var arrowsPerEnd: String = ""
 }
