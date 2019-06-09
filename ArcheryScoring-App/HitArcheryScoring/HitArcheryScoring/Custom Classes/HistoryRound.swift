@@ -53,12 +53,14 @@ class HistoryRound : Object {
     
 }
 
+//Class used to saved arrowEndScores as end objects that have 3 arrows each, which then go into the new arrowEndScores list to work with realm
 class ArrowEndScores : Object {
     @objc dynamic var a1: String = ""
     @objc dynamic var a2: String = ""
     @objc dynamic var a3: String = ""
 }
 
+//Can't save CGPoints in realm, so instead CGPoints are saved as ArrowPos objects with an x and y component, so they can easily be converted back to a CGPoint
 class ArrowPos : Object {
     @objc dynamic var xPos: Double = 0
     @objc dynamic var yPos: Double = 0

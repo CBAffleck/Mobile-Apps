@@ -45,6 +45,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         historyTable.separatorStyle = .none
     }
     
+    //Put historyRound objects into an array that cells can be made from
     func makeRoundsArray() {
         let results = realm.objects(HistoryRound.self)
         for result in results {
@@ -73,22 +74,26 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(rounds[indexPath.row])
         roundTitle = rounds[indexPath.row].roundTitle
         time = rounds[indexPath.row].description
         date = rounds[indexPath.row].date
         
+        //Convert List<Object> to [[String]]
         var tempScores: [[String]] = []
         for x in rounds[indexPath.row].arrowScores {
             tempScores.append([x.a1, x.a2, x.a3])
         }
         arrowScores = tempScores
         
+        //Convert List<Object> to [CGPoint]
         var tempPos: [CGPoint] = []
         for x in rounds[indexPath.row].arrowLocations {
             tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
         }
         arrowLocations = tempPos
         
+        //Convert List<Int> to [Int]
         var tempRuns: [Int] = []
         for x in rounds[indexPath.row].runningScores {
             tempRuns.append(x)

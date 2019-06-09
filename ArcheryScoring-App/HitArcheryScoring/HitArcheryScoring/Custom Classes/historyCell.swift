@@ -45,18 +45,21 @@ class historyCell: UITableViewCell {
         self.time = round.time
         self.date = round.date
         
+        //Convert List<Object> to [[String]]
         var tempScores: [[String]] = []
         for x in round.arrowScores {
             tempScores.append([x.a1, x.a2, x.a3])
         }
         self.arrowScores = tempScores
         
+        //Convert List<Object> to [CGPoint]
         var tempPos: [CGPoint] = []
         for x in round.arrowLocations {
             tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
         }
         self.arrowLocations = tempPos
         
+        //Convert List<Int> to [Int]
         var tempRuns: [Int] = []
         for x in round.runningScores {
             tempRuns.append(x)
