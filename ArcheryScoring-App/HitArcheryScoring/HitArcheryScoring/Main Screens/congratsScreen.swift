@@ -38,7 +38,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     var inEndTots: [Int] = []
     var ends: [ScoringEndData] = []
     let animationView = AnimationView()
-    var roundNum = 1                    //Round number in users history, pulled from realm
+    var roundNum = 0                    //Round number in users history, pulled from realm
     var headerTitle = ""
     var time = ""
     var date = ""

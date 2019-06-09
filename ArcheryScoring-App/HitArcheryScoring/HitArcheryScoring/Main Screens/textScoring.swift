@@ -32,7 +32,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var rowBeingEdited = 0
     var show_kb = false
     var hide_kb = false
-    var roundNum = 1                    //Round number in users history, pulled from realm
+    var roundNum = 0                    //Round number in users history, pulled from realm
     weak var timer: Timer?
     var startTime: Double = 0
     var time: Double = 0
@@ -40,9 +40,11 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var date = ""
     let scoringType = "text"
     let targetFace = "SingleSpot"
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateRoundNum()
         headerTitle += " #" + String(roundNum)
         setUpTableView()
         self.hideKeyboardOnTap()
@@ -62,6 +64,13 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let dateFormatPrint = DateFormatter()
         dateFormatPrint.dateFormat = "h:mm a, MMM d, yyyy"      //Ex: 4:10 PM, June 8, 2019
         date = dateFormatPrint.string(from: tempDate)
+    }
+    
+    func updateRoundNum() {
+        var defaultsString = ""
+        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
+        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
+        roundNum = defaults.value(forKey: defaultsString) as? Int ?? 1
     }
     
     func startTimer() {

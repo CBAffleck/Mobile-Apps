@@ -28,12 +28,13 @@ class finishScoring: UIViewController {
     var endCount = 0
     var endTots: [Int] = []
     var running: [Int] = []
-    var roundNum = 1                    //Round number in users history, pulled from realm
+    var roundNum = 0                    //Round number in users history, pulled from realm
     var headerTitle = ""
     var timerValue = ""
     var startDate = ""
     var scoringType = ""
     var targetFace = ""
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +88,7 @@ class finishScoring: UIViewController {
     }
     
     func saveRound() {
+        //Assign values from scoring round to a HistoryRound object
         let aScoresList = List<ArrowEndScores>()
         for x in aScores {
             let end = ArrowEndScores()
@@ -119,6 +121,13 @@ class finishScoring: UIViewController {
         round.relativePR = 0
         round.scoringType = scoringType
         round.targetFace = targetFace
+        
+        //Update roundNum in user defaults
+        var defaultsString = ""
+        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
+        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
+        let prevNum = defaults.value(forKey: defaultsString) as? Int ?? 1
+        defaults.set(prevNum + 1, forKey: defaultsString)
         
         if round.saveRound() {
             print("Scoring round saved!")

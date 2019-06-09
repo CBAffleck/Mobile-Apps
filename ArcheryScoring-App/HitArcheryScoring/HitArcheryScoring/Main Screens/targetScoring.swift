@@ -41,7 +41,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var endNum = 0
     var endArrowNum = 0
     var endCells: [threeArrowEndCell] = []
-    var roundNum = 1                    //Round number in users history, pulled from realm
+    var roundNum = 0                    //Round number in users history, pulled from realm
     weak var timer: Timer?
     var startTime: Double = 0
     var time: Double = 0
@@ -49,10 +49,12 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var date = ""
     let scoringType = "target"
     let targetFace = "SingleSpot"
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateRoundNum()
         headerTitle += " #" + String(roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
         for x in 1...10 {
@@ -102,6 +104,13 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
 
     //MARK: Functions
+    func updateRoundNum() {
+        var defaultsString = ""
+        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
+        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
+        roundNum = defaults.value(forKey: defaultsString) as? Int ?? 1
+    }
+    
     func startTimer() {
         startTime = Date().timeIntervalSinceReferenceDate - elapsed
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
