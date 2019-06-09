@@ -53,7 +53,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         updateRoundNum()
         headerTitle += " #" + String(roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls

@@ -97,7 +97,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWm-r6-QSz">
-                                                    <rect key="frame" x="0.0" y="10" width="355" height="130.5"/>
+                                                    <rect key="frame" x="0.0" y="10" width="345" height="130.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ver-Ic-iTt">
@@ -381,6 +381,7 @@
                         <outlet property="alertLabel" destination="wcH-61-EbD" id="cml-cK-hIv"/>
                         <outlet property="historyTable" destination="frh-He-5FE" id="AQn-pH-NEf"/>
                         <outlet property="historyTitle" destination="PAi-ZT-5fM" id="NE0-9w-bDy"/>
+                        <segue destination="IqZ-Uc-UP8" kind="presentation" identifier="historyTargetSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="FYo-j6-hYp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIv-rb-xcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -394,6 +395,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUl-6E-cnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1723" y="1196"/>
+        </scene>
+        <!--historyTarget-->
+        <scene sceneID="N29-FG-sUc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="historyTargetID" storyboardName="historyTarget" id="IqZ-Uc-UP8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a3X-hM-ARY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-954" y="1196"/>
         </scene>
     </scenes>
     <resources>

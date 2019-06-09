@@ -74,9 +74,8 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(rounds[indexPath.row])
         roundTitle = rounds[indexPath.row].roundTitle
-        time = rounds[indexPath.row].description
+        time = rounds[indexPath.row].time
         date = rounds[indexPath.row].date
         
         //Convert List<Object> to [[String]]
@@ -104,19 +103,27 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         relativePR = rounds[indexPath.row].relativePR
         scoringType = rounds[indexPath.row].scoringType
         targetFace = rounds[indexPath.row].targetFace
-//        performSegue(withIdentifier: "historyToDetailSegue", sender: indexPath)
+        if scoringType == "target" { performSegue(withIdentifier: "historyTargetSegue", sender: indexPath) }
+//        else { }
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "historyToDetailSegue" {
-//            let vc = segue.destination as? startScoring
-//            vc?.rTitle = tempTitle
-//            vc?.rDesc = tempDesc
-//            vc?.rAvg = tempAvg
-//            vc?.rBest = tempPR
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "historyTargetSegue" {
+            let vc = segue.destination as? historyTarget
+            vc?.roundTitle = roundTitle
+            vc?.time = time
+            vc?.date = date
+            vc?.arrowScores = arrowScores
+            vc?.arrowLocations = arrowLocations
+            vc?.runningScores = runningScores
+            vc?.totalScore = totalScore
+            vc?.hits = hits
+            vc?.relativePR = relativePR
+            vc?.scoringType = scoringType
+            vc?.targetFace = targetFace
+        }
+    }
     
 
 }

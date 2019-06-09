@@ -16,6 +16,8 @@
 		C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8022A9D50B0084D5CE /* Trophy.json */; };
 		C0398E8322AC60320084D5CE /* historyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8222AC60320084D5CE /* historyCell.swift */; };
 		C0398E8522AC66630084D5CE /* HistoryRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8422AC66630084D5CE /* HistoryRound.swift */; };
+		C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */; };
+		C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8822ACF3CD0084D5CE /* historyTarget.swift */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
 		C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* targetScoring.swift */; };
 		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
@@ -74,6 +76,8 @@
 		C0398E8022A9D50B0084D5CE /* Trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trophy.json; sourceTree = "<group>"; };
 		C0398E8222AC60320084D5CE /* historyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyCell.swift; sourceTree = "<group>"; };
 		C0398E8422AC66630084D5CE /* HistoryRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRound.swift; sourceTree = "<group>"; };
+		C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = historyTarget.storyboard; sourceTree = "<group>"; };
+		C0398E8822ACF3CD0084D5CE /* historyTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyTarget.swift; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03C55B322A2269C003290C7 /* targetScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetScoring.swift; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				C0729FF322A7C85C00A283FB /* cancelScoring.swift */,
 				C0729FF522A89C0600A283FB /* finishScoring.storyboard */,
 				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
+				C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */,
+				C0398E8822ACF3CD0084D5CE /* historyTarget.swift */,
 			);
 			path = "Pop Ups";
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				C07C919D22A50701005CCF98 /* startScoring.storyboard in Resources */,
 				C07C91A622A71B18005CCF98 /* textScoring.storyboard in Resources */,
 				C03C55B922A2269D003290C7 /* Assets.xcassets in Resources */,
+				C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */,
 				C0729FFA22A8A6FE00A283FB /* congratsScreen.storyboard in Resources */,
 				C03C55B722A2269C003290C7 /* Main.storyboard in Resources */,
 				C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */,
@@ -519,6 +526,7 @@
 				C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */,
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
+				C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */,
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
 				C0729FFE22A8EEF700A283FB /* congratsEndCell.swift in Sources */,
