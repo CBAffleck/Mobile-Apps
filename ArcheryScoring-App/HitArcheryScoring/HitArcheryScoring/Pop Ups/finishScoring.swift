@@ -87,14 +87,35 @@ class finishScoring: UIViewController {
     }
     
     func saveRound() {
-        round.arrowScores = aScores
-        if scoringType == "target" { round.arrowLocations = aLocations }
+        let aScoresList = List<ArrowEndScores>()
+        for x in aScores {
+            let end = ArrowEndScores()
+            end.a1 = x[0]
+            end.a2 = x[1]
+            end.a3 = x[2]
+            aScoresList.append(end)
+        }
+        round.arrowScores = aScoresList
+        
+        let aPosList = List<ArrowPos>()
+        for x in aLocations {
+            let pos = ArrowPos()
+            pos.xPos = Double(x.x)
+            pos.yPos = Double(x.y)
+            aPosList.append(pos)
+        }
+        if scoringType == "target" { round.arrowLocations = aPosList }
         round.totalScore = totalScore
         round.hits = hits
         round.roundTitle = headerTitle
         round.time = timerValue
         round.date = startDate
-        round.runningScores = running
+        
+        let runList = List<Int>()
+        for x in running {
+            runList.append(x)
+        }
+        round.runningScores = runList
         round.relativePR = 0
         round.scoringType = scoringType
         round.targetFace = targetFace

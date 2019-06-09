@@ -351,13 +351,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Previous scoring rounds will start to show up here as you complete them " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wcH-61-EbD">
+                                <rect key="frame" x="45" y="318" width="285" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PAi-ZT-5fM" firstAttribute="top" secondItem="cKh-Gx-c5g" secondAttribute="top" constant="20" id="3Wq-ga-deW"/>
+                            <constraint firstItem="wcH-61-EbD" firstAttribute="centerX" secondItem="XTg-Np-VCb" secondAttribute="centerX" id="HNs-ZV-5gT"/>
+                            <constraint firstItem="wcH-61-EbD" firstAttribute="centerY" secondItem="XTg-Np-VCb" secondAttribute="centerY" id="HcX-f6-fFy"/>
                             <constraint firstItem="PAi-ZT-5fM" firstAttribute="leading" secondItem="cKh-Gx-c5g" secondAttribute="leading" constant="15" id="IjW-AN-cVb"/>
                             <constraint firstItem="frh-He-5FE" firstAttribute="top" secondItem="PAi-ZT-5fM" secondAttribute="bottom" constant="15" id="eft-5F-YhT"/>
                             <constraint firstItem="cKh-Gx-c5g" firstAttribute="trailing" secondItem="PAi-ZT-5fM" secondAttribute="trailing" constant="15" id="eqa-Db-Tjw"/>
+                            <constraint firstAttribute="trailing" secondItem="wcH-61-EbD" secondAttribute="trailing" constant="45" id="g7W-ef-agE"/>
+                            <constraint firstItem="wcH-61-EbD" firstAttribute="leading" secondItem="XTg-Np-VCb" secondAttribute="leading" constant="45" id="gyX-2a-5V2"/>
                             <constraint firstItem="cKh-Gx-c5g" firstAttribute="trailing" secondItem="frh-He-5FE" secondAttribute="trailing" constant="15" id="pAe-f0-zco"/>
                             <constraint firstItem="frh-He-5FE" firstAttribute="bottom" secondItem="cKh-Gx-c5g" secondAttribute="bottom" id="qRx-cb-Lx7"/>
                             <constraint firstItem="frh-He-5FE" firstAttribute="leading" secondItem="cKh-Gx-c5g" secondAttribute="leading" constant="15" id="xVe-6d-pBH"/>
@@ -368,6 +378,7 @@
                     <navigationItem key="navigationItem" id="ucM-4F-LXN"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="alertLabel" destination="wcH-61-EbD" id="cml-cK-hIv"/>
                         <outlet property="historyTable" destination="frh-He-5FE" id="AQn-pH-NEf"/>
                         <outlet property="historyTitle" destination="PAi-ZT-5fM" id="NE0-9w-bDy"/>
                     </connections>

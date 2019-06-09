@@ -13,9 +13,9 @@ class HistoryRound : Object {
     @objc dynamic var roundTitle: String = ""
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""
-    @objc dynamic var arrowScores : [[String]] = [[""]]
-    @objc dynamic var arrowLocations : [CGPoint]?
-    @objc dynamic var runningScores : [Int] = []
+    var arrowScores = List<ArrowEndScores>()
+    var arrowLocations = List<ArrowPos>()
+    var runningScores = List<Int>()
     @objc dynamic var totalScore : Int = 0
     @objc dynamic var hits : Int = 0
     @objc dynamic var relativePR : Int = 0
@@ -51,4 +51,15 @@ class HistoryRound : Object {
 //    }
     
     
+}
+
+class ArrowEndScores : Object {
+    @objc dynamic var a1: String = ""
+    @objc dynamic var a2: String = ""
+    @objc dynamic var a3: String = ""
+}
+
+class ArrowPos : Object {
+    @objc dynamic var xPos: Double = 0
+    @objc dynamic var yPos: Double = 0
 }

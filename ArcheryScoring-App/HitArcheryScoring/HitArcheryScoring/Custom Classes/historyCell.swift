@@ -44,9 +44,24 @@ class historyCell: UITableViewCell {
         self.roundTitle = round.roundTitle
         self.time = round.time
         self.date = round.date
-        self.arrowScores = round.arrowScores
-        self.arrowLocations = round.arrowLocations
-        self.runningScores = round.runningScores
+        
+        var tempScores: [[String]] = []
+        for x in round.arrowScores {
+            tempScores.append([x.a1, x.a2, x.a3])
+        }
+        self.arrowScores = tempScores
+        
+        var tempPos: [CGPoint] = []
+        for x in round.arrowLocations {
+            tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
+        }
+        self.arrowLocations = tempPos
+        
+        var tempRuns: [Int] = []
+        for x in round.runningScores {
+            tempRuns.append(x)
+        }
+        self.runningScores = tempRuns
         self.totalScore = round.totalScore
         self.hits = round.hits
         self.relativePR = round.relativePR
@@ -55,10 +70,10 @@ class historyCell: UITableViewCell {
         
         //Set labels in cell
         dateLabel.text = round.date
-        scoreLabel.text = String(round.totalScore)
-        hitsLabel.text = String(round.hits)
+        scoreLabel.text = "Score: " + String(round.totalScore)
+        hitsLabel.text = "Hits: " + String(round.hits)
         roundTitleLabel.text = round.roundTitle
-        avgArrowLabel.text = String(round.totalScore / 30)
+        avgArrowLabel.text = "Average Arrow: " + String(format: "%0.2f", Float(round.totalScore) / 30.0)
         
         //Setup cell layout details
         cellView.layer.cornerRadius = 20
