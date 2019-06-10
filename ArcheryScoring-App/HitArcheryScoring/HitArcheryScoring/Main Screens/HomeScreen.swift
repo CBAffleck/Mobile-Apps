@@ -16,7 +16,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
-    var rounds: [ScoringRoundTemp] = []
+    let realm = try! Realm()
+    var rounds: [ScoringRound] = []
     var tempTitle = ""
     var tempDesc = ""
     var tempAvg = ""
@@ -24,18 +25,54 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setScoringRounds()
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
         self.hideKeyboardOnTap()
     }
     
+    func setScoringRounds() {
+        if realm.objects(ScoringRound.self).first != nil {
+            //Do nothing since the scoring rounds have already been added
+        } else {
+            //Set 18m indoor scoring round and save to realm
+            let indoorRound18m = ScoringRound()
+            indoorRound18m.roundName = "18m Scoring Round"
+            indoorRound18m.roundNum = 1
+            indoorRound18m.distance = "18m"
+            indoorRound18m.lastScored = "2 days ago"
+            indoorRound18m.roundDescription = "10 ends, 3 arrows per end"
+            indoorRound18m.average = 0
+            indoorRound18m.pr = 0
+            indoorRound18m.targetFace = "SingleSpot"
+            indoorRound18m.endCount = 10
+            indoorRound18m.arrowsPerEnd = 10
+            if indoorRound18m.saveScoringRound() { print("Scoring round saved!") }
+            else { print("Could not save scoring round.") }
+            
+            //Set 70m outdoor scoring round and save to realm
+            let outdoorRound70m = ScoringRound()
+            outdoorRound70m.roundName = "70m Scoring Round"
+            outdoorRound70m.roundNum = 1
+            outdoorRound70m.distance = "70m"
+            outdoorRound70m.lastScored = "2 days ago"
+            outdoorRound70m.roundDescription = "6 ends, 6 arrows per end"
+            outdoorRound70m.average = 0
+            outdoorRound70m.pr = 0
+            outdoorRound70m.targetFace = "SingleSpot"
+            outdoorRound70m.endCount = 6
+            outdoorRound70m.arrowsPerEnd = 6
+            if outdoorRound70m.saveScoringRound() { print("Scoring round saved!") }
+            else { print("Could not save scoring round.") }
+        }
+    }
+    
     func createRoundArray() {
-        let indoorRound18m = ScoringRoundTemp(title: "18m Scoring Round", lastScored: "Last scored: 2 days ago", description: "10 ends, 3 arrows per end", average: "Average: 265", best: "Personal Record: 275")
-        rounds.append(indoorRound18m)
-        
-        let outdoorRound70m = ScoringRoundTemp(title: "70m Scoring Round", lastScored: "Last scored: 10 days ago", description: "6 ends, 6 arrows per end", average: "Average: 275", best: "Personal Record: 305")
-        rounds.append(outdoorRound70m)
+        let results = realm.objects(ScoringRound.self)
+        for result in results {
+            rounds.append(result)
+        }
     }
     
     func setUpTableView() {
@@ -60,10 +97,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tempTitle = rounds[indexPath.row].title
-        tempDesc = rounds[indexPath.row].description
-        tempAvg = rounds[indexPath.row].average
-        tempPR = rounds[indexPath.row].best
+        tempTitle = rounds[indexPath.row].roundName
+        tempDesc = rounds[indexPath.row].roundDescription
+        tempAvg = String(rounds[indexPath.row].average)
+        tempPR = String(rounds[indexPath.row].pr)
         performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
         tableView.deselectRow(at: indexPath, animated: false)
     }
@@ -76,22 +113,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc?.rAvg = tempAvg
             vc?.rBest = tempPR
         }
-    }
-}
-
-class ScoringRoundTemp {
-    var title: String
-    var lastScored: String
-    var description: String
-    var average: String
-    var best: String
-    
-    init(title: String, lastScored: String, description: String, average: String, best: String) {
-        self.title = title
-        self.lastScored = lastScored
-        self.description = description
-        self.average = average
-        self.best = best
     }
 }
 

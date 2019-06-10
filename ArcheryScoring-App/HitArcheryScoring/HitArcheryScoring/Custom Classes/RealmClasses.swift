@@ -61,9 +61,23 @@ class ScoringRound : Object {
     @objc dynamic var distance: String = ""
     @objc dynamic var lastScored: String = ""
     @objc dynamic var roundDescription: String = ""
-    @objc dynamic var average: String = ""
+    @objc dynamic var average: Int = 0
     @objc dynamic var pr: Int = 0
     @objc dynamic var targetFace: String = ""
-    @objc dynamic var endCount: String = ""
-    @objc dynamic var arrowsPerEnd: String = ""
+    @objc dynamic var endCount: Int = 0
+    @objc dynamic var arrowsPerEnd: Int = 0
+    
+    //Save function for writing object to realm
+    func saveScoringRound() -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+            return true
+        } catch let error as NSError {
+            print(">>> Realm error: ", error.localizedDescription)
+            return false
+        }
+    }
 }
