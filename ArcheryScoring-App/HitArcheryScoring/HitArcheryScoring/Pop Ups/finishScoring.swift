@@ -22,7 +22,6 @@ class finishScoring: UIViewController {
     //MARK: Variables
     let realm = try! Realm()
     let round = HistoryRound()
-    var currRound = ScoringRound()
     var aScores: [[String]] = []
     var aLocations: [CGPoint] = []
     var totalScore = 0
@@ -31,6 +30,7 @@ class finishScoring: UIViewController {
     var running: [Int] = []
     var roundNum = 0                    //Round number in users history, pulled from realm
     var headerTitle = ""
+    var roundName = ""
     var timerValue = ""
     var startDate = ""
     var scoringType = ""
@@ -41,7 +41,6 @@ class finishScoring: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getRoundInfo()
 
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
@@ -51,10 +50,25 @@ class finishScoring: UIViewController {
     
     //MARK: Functions
     //Determine which scoring round is being scored
-    func getRoundInfo() {
+    func updatedRoundInfo(round : HistoryRound) {
+        var currRound = ScoringRound()
         for result in realm.objects(ScoringRound.self) {
-            if result.roundName == headerTitle {
+            print(result)
+            if result.roundName == roundName {
                 currRound = result
+                print("prevRound")
+                print(currRound)
+                try! realm.write {
+                    round.relativePR = currRound.pr
+                    currRound.pastScores.append(totalScore)
+                    currRound.average = String(format: "%0.2f", Float(currRound.pastScores.sum()) / Float(roundNum))
+                    currRound.roundNum += 1
+                    currRound.lastScored = startDate
+                    currRound.pr = max(currRound.pr, totalScore)
+                }
+                print("updatedRound")
+                print(currRound)
+                break
             }
         }
     }
@@ -110,7 +124,6 @@ class finishScoring: UIViewController {
             runList.append(x)
         }
         round.runningScores = runList
-        round.relativePR = currRound.pr
         round.scoringType = scoringType
         round.targetFace = targetFace
         
@@ -121,16 +134,7 @@ class finishScoring: UIViewController {
         }
         
         //Update average for the scoring round
-        print("Prev round")
-        print(currRound)
-        try! realm.write {
-            currRound.average = (currRound.roundNum * currRound.average + totalScore) / (currRound.roundNum + 1)
-            currRound.roundNum += 1
-            currRound.lastScored = startDate
-            currRound.pr = max(currRound.pr, totalScore)
-        }
-        print("New round")
-        print(currRound)
+        updatedRoundInfo(round: round)
     }
     
     //Save target image to documents folder with a filename equal to the target face + distance + roundNum

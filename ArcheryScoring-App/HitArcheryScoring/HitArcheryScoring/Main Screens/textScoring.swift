@@ -28,6 +28,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     let realm = try! Realm()
     var currRound = ScoringRound()
     var headerTitle = ""
+    var roundName = ""
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
     var totalScore = 0
     var hits = 0
@@ -45,7 +46,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         getRoundInfo()
-        print(currRound)
+        roundName = headerTitle
         headerTitle += " #" + String(currRound.roundNum)
         setUpTableView()
         self.hideKeyboardOnTap()
@@ -211,6 +212,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.startDate = date
             vc?.scoringType = scoringType
             vc?.targetFace = currRound.targetFace
+            vc?.roundName = roundName
         }
     }
     

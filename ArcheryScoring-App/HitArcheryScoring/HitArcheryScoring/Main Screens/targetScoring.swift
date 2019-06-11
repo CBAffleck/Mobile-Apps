@@ -34,6 +34,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     let realm = try! Realm()
     var currRound = ScoringRound()
     var headerTitle = ""
+    var roundName = ""
     var totalScore = 0
     var targets = [UIImage]()
     var arrows = [Int]()
@@ -54,6 +55,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         getRoundInfo()
+        roundName = headerTitle
         headerTitle += " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
         for x in 1...10 {
@@ -349,6 +351,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.targetFace = currRound.targetFace
             vc?.aLocations = arrowLocations
             vc?.targetImage = targets.last ?? UIImage(named: currRound.targetFace)!
+            vc?.roundName = roundName
         }
     }
     

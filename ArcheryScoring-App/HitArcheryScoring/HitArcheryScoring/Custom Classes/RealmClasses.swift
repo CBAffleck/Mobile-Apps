@@ -61,11 +61,12 @@ class ScoringRound : Object {
     @objc dynamic var distance: String = ""
     @objc dynamic var lastScored: String = ""
     @objc dynamic var roundDescription: String = ""
-    @objc dynamic var average: Int = 0
+    @objc dynamic var average: String = ""
     @objc dynamic var pr: Int = 0
     @objc dynamic var targetFace: String = ""
     @objc dynamic var endCount: Int = 0
     @objc dynamic var arrowsPerEnd: Int = 0
+    var pastScores = List<Int>()
     
     //Save function for writing object to realm
     func saveScoringRound() -> Bool {
