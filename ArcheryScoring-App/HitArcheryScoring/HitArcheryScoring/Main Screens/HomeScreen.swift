@@ -41,7 +41,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.roundName = "18m Scoring Round"
             indoorRound18m.roundNum = 1
             indoorRound18m.distance = "18m"
-            indoorRound18m.lastScored = "2 days ago"
+            indoorRound18m.lastScored = "--"
             indoorRound18m.roundDescription = "10 ends, 3 arrows per end"
             indoorRound18m.average = 0
             indoorRound18m.pr = 0
@@ -56,7 +56,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.roundName = "70m Scoring Round"
             outdoorRound70m.roundNum = 1
             outdoorRound70m.distance = "70m"
-            outdoorRound70m.lastScored = "2 days ago"
+            outdoorRound70m.lastScored = "--"
             outdoorRound70m.roundDescription = "6 ends, 6 arrows per end"
             outdoorRound70m.average = 0
             outdoorRound70m.pr = 0
@@ -99,8 +99,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tempTitle = rounds[indexPath.row].roundName
         tempDesc = rounds[indexPath.row].roundDescription
-        tempAvg = String(rounds[indexPath.row].average)
-        tempPR = String(rounds[indexPath.row].pr)
+        tempAvg = "Average: " + String(rounds[indexPath.row].average)
+        tempPR = "Personal Record: " + String(rounds[indexPath.row].pr)
         performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
         tableView.deselectRow(at: indexPath, animated: false)
     }

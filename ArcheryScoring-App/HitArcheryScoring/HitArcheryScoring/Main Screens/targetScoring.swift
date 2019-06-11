@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, CellDelegate, UITextFieldDelegate {
 
@@ -30,8 +31,9 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     @IBOutlet weak var headerView: UIView!
     
     //MARK: Variables
+    let realm = try! Realm()
+    var currRound = ScoringRound()
     var headerTitle = ""
-    var endCount = 10
     var totalScore = 0
     var targets = [UIImage]()
     var arrows = [Int]()
@@ -41,25 +43,23 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var endNum = 0
     var endArrowNum = 0
     var endCells: [threeArrowEndCell] = []
-    var roundNum = 0                    //Round number in users history, pulled from realm
     weak var timer: Timer?
     var startTime: Double = 0
     var time: Double = 0
     var elapsed: Double = 0
     var date = ""
     let scoringType = "target"
-    let targetFace = "SingleSpot"
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateRoundNum()
-        headerTitle += " #" + String(roundNum)  //Set header title with number
+        getRoundInfo()
+        headerTitle += " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
         for x in 1...10 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
             cell.endLabel.text = String(x)
-            cell.inputType = "target"
+            cell.inputType = scoringType
             cell.setUp()
             cell.delegate = self
             endCells.append(cell)
@@ -67,7 +67,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: "SingleSpot")
+        targetImageView.image = UIImage(named: currRound.targetFace)
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -103,11 +103,13 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
 
     //MARK: Functions
-    func updateRoundNum() {
-        var defaultsString = ""
-        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
-        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
-        roundNum = defaults.value(forKey: defaultsString) as? Int ?? 1
+    //Determine which scoring round is being scored
+    func getRoundInfo() {
+        for result in realm.objects(ScoringRound.self) {
+            if result.roundName == headerTitle {
+                currRound = result
+            }
+        }
     }
     
     func startTimer() {
@@ -154,7 +156,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return endCount
+        return currRound.endCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -338,15 +340,15 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.aScores = arrowScores
             vc?.totalScore = totalScore
             vc?.hits = hits
-            vc?.endCount = endCount
-            vc?.roundNum = roundNum
+            vc?.endCount = currRound.endCount
+            vc?.roundNum = currRound.roundNum
             vc?.headerTitle = headerTitle
             vc?.timerValue = timerLabel.text!
             vc?.startDate = date
             vc?.scoringType = scoringType
-            vc?.targetFace = targetFace
+            vc?.targetFace = currRound.targetFace
             vc?.aLocations = arrowLocations
-            vc?.targetImage = targets.last ?? UIImage(named: "SingleSpot")!
+            vc?.targetImage = targets.last ?? UIImage(named: currRound.targetFace)!
         }
     }
     
@@ -443,7 +445,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             else { prevCell.totalLabel.text = String(endTot) }
             
             if targets.count > 0 { targetImageView.image = targets.last }
-            else { targetImageView.image = UIImage(named: "SingleSpot")}
+            else { targetImageView.image = UIImage(named: currRound.targetFace)}
         }
         let prevIndexPath = IndexPath(row: endNum, section: 0)
         tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)

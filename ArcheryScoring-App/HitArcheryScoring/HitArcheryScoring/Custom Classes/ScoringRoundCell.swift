@@ -34,7 +34,7 @@ class ScoringRoundCell: UITableViewCell {
     func setInfo(round: ScoringRound) {
         roundItem = round
         titleLabel.text = round.roundName
-        lastScoredLabel.text = round.lastScored
+        lastScoredLabel.text = "Last Scored: " + round.lastScored
         descriptionLabel.text = round.roundDescription
         avgLabel.text = "Average: " + String(round.average)
         perLabel.text = "Personal Record: " + String(round.pr)

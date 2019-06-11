@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource, CellDelegate, UITextFieldDelegate {
 
@@ -24,7 +25,8 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     
     //MARK: Variables
-    var endCount = 10
+    let realm = try! Realm()
+    var currRound = ScoringRound()
     var headerTitle = ""
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
     var totalScore = 0
@@ -32,20 +34,19 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     var rowBeingEdited = 0
     var show_kb = false
     var hide_kb = false
-    var roundNum = 0                    //Round number in users history, pulled from realm
     weak var timer: Timer?
     var startTime: Double = 0
     var time: Double = 0
     var elapsed: Double = 0
     var date = ""
     let scoringType = "text"
-    let targetFace = "SingleSpot"
     let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateRoundNum()
-        headerTitle += " #" + String(roundNum)
+        getRoundInfo()
+        print(currRound)
+        headerTitle += " #" + String(currRound.roundNum)
         setUpTableView()
         self.hideKeyboardOnTap()
         scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
@@ -66,11 +67,13 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         date = dateFormatPrint.string(from: tempDate)
     }
     
-    func updateRoundNum() {
-        var defaultsString = ""
-        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
-        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
-        roundNum = defaults.value(forKey: defaultsString) as? Int ?? 1
+    //Determine which scoring round is being scored
+    func getRoundInfo() {
+        for result in realm.objects(ScoringRound.self) {
+            if result.roundName == headerTitle {
+                currRound = result
+            }
+        }
     }
     
     func startTimer() {
@@ -139,13 +142,13 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return endCount
+        return currRound.endCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
         cell.endLabel.text = "\(indexPath.row + 1)"
-        cell.inputType = "text"
+        cell.inputType = scoringType
         cell.setUp()
         cell.delegate = self    //Set delegate to be self so that we can view the textfield data
         return cell
@@ -201,13 +204,13 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.aScores = arrowScores
             vc?.totalScore = totalScore
             vc?.hits = hits
-            vc?.endCount = endCount
-            vc?.roundNum = roundNum
+            vc?.endCount = currRound.endCount
+            vc?.roundNum = currRound.roundNum
             vc?.headerTitle = headerTitle
             vc?.timerValue = timerLabel.text!
             vc?.startDate = date
             vc?.scoringType = scoringType
-            vc?.targetFace = targetFace
+            vc?.targetFace = currRound.targetFace
         }
     }
     

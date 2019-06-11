@@ -20,12 +20,13 @@ class finishScoring: UIViewController {
     
     
     //MARK: Variables
+    let realm = try! Realm()
     let round = HistoryRound()
+    var currRound = ScoringRound()
     var aScores: [[String]] = []
     var aLocations: [CGPoint] = []
     var totalScore = 0
     var hits = 0
-    var endCount = 0
     var endTots: [Int] = []
     var running: [Int] = []
     var roundNum = 0                    //Round number in users history, pulled from realm
@@ -36,9 +37,11 @@ class finishScoring: UIViewController {
     var targetFace = ""
     let defaults = UserDefaults.standard
     var targetImage = UIImage()
+    var endCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getRoundInfo()
 
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
@@ -46,25 +49,13 @@ class finishScoring: UIViewController {
         calcEndTots()
     }
     
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "finishToCongratsSegue" {
-            let vc = segue.destination as? congratsScreen
-            vc?.inScores = aScores
-            vc?.inTotal = totalScore
-            vc?.inHits = hits
-            vc?.inEndCount = endCount
-            vc?.inEndTots = endTots
-            vc?.inRunning = running
-            vc?.roundNum = roundNum
-            vc?.headerTitle = headerTitle
-            vc?.time = timerValue
-            vc?.date = startDate
+    //MARK: Functions
+    //Determine which scoring round is being scored
+    func getRoundInfo() {
+        for result in realm.objects(ScoringRound.self) {
+            if result.roundName == headerTitle {
+                currRound = result
+            }
         }
     }
     
@@ -119,22 +110,27 @@ class finishScoring: UIViewController {
             runList.append(x)
         }
         round.runningScores = runList
-        round.relativePR = 0
+        round.relativePR = currRound.pr
         round.scoringType = scoringType
         round.targetFace = targetFace
-        
-        //Update roundNum in user defaults
-        var defaultsString = ""
-        if headerTitle.prefix(2) == "18" { defaultsString = "18mRoundNum" }
-        else if headerTitle.prefix(2) == "70" { defaultsString = "70mRoundNum" }
-        let prevNum = defaults.value(forKey: defaultsString) as? Int ?? 1
-        defaults.set(prevNum + 1, forKey: defaultsString)
         
         if round.saveRound() {
             print("Scoring round saved!")
         } else {
             print("Could not save scoring round.")
         }
+        
+        //Update average for the scoring round
+        print("Prev round")
+        print(currRound)
+        try! realm.write {
+            currRound.average = (currRound.roundNum * currRound.average + totalScore) / (currRound.roundNum + 1)
+            currRound.roundNum += 1
+            currRound.lastScored = startDate
+            currRound.pr = max(currRound.pr, totalScore)
+        }
+        print("New round")
+        print(currRound)
     }
     
     //Save target image to documents folder with a filename equal to the target face + distance + roundNum
@@ -159,6 +155,27 @@ class finishScoring: UIViewController {
             try data.write(to: fileURL)
         } catch let error {
             print("Error saving image with error ", error)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "finishToCongratsSegue" {
+            let vc = segue.destination as? congratsScreen
+            vc?.inScores = aScores
+            vc?.inTotal = totalScore
+            vc?.inHits = hits
+            vc?.inEndCount = endCount
+            vc?.inEndTots = endTots
+            vc?.inRunning = running
+            vc?.roundNum = roundNum
+            vc?.headerTitle = headerTitle
+            vc?.time = timerValue
+            vc?.date = startDate
         }
     }
     
