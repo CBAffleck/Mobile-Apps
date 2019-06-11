@@ -36,7 +36,7 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="closeTapped:" destination="LGX-bt-b9E" eventType="touchUpInside" id="D0I-n3-Y8p"/>
-                                    <segue destination="SC9-MM-XcP" kind="presentation" identifier="congratsToMainSegue" modalPresentationStyle="fullScreen" id="fAR-zZ-uOi"/>
+                                    <segue destination="SC9-MM-XcP" kind="presentation" identifier="congratsToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="fAR-zZ-uOi"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-3r-ewY">
