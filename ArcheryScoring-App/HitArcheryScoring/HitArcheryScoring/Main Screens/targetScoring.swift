@@ -220,9 +220,9 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         print(point)
         var scoreString = ""
-        let distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
-        var score = Int(10 - floor(distFromCenter / 450 * 10))
-        if score < 0 { score = 0 }      //Deal with taps outside the 1 ring
+        var calculatedScore = calculateScore(targetType: currRound.targetFace, point: point)
+        let distFromCenter = calculatedScore[0]
+        let score = Int(calculatedScore[1])
         scoreString = String(score)     //Create string of score
         //Assign M and X values
         if score == 0 { scoreString = "M" }
@@ -237,6 +237,18 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         totalScore += score
         totalScoreLabel.text = "Running Total: " + totalScore.description
         applyArrowInfo(score: scoreString)
+    }
+    
+    //Calculates score based on type of target face being used
+    func calculateScore(targetType : String, point : CGPoint) -> [CGFloat] {
+        var distFromCenter = CGFloat()
+        var score = CGFloat()
+        if targetType == "SingleSpot" {
+            distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
+            score = CGFloat(10 - floor(distFromCenter / 450 * 10))
+            if score < 0 { score = 0 }      //Deal with taps outside the 1 ring
+        }
+        return [distFromCenter, score]
     }
     
     //Fill in field with arrow score and change colors to match
