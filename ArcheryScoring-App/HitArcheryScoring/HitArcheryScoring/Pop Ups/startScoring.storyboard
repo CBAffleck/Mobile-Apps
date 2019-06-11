@@ -31,6 +31,7 @@
                                         <state key="normal" image="CloseIcon"/>
                                         <connections>
                                             <action selector="closePopUp:" destination="fqU-4t-lDX" eventType="touchUpInside" id="lVB-2S-xDA"/>
+                                            <segue destination="6wO-qW-KlT" kind="custom" customClass="UnwindScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="92h-QI-Hol"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 ends, 3 arrows per end" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pA2-p8-h15">
@@ -126,7 +127,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.25120398116438358" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rBr-SO-3O3" firstAttribute="centerY" secondItem="Gpf-2R-GNU" secondAttribute="centerY" id="C9X-nQ-uqA"/>
                             <constraint firstItem="mUf-sc-mHf" firstAttribute="trailing" secondItem="rBr-SO-3O3" secondAttribute="trailing" constant="5" id="KYG-L5-d7j"/>
@@ -150,6 +151,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fe9-hY-Opb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="29.600000000000001" y="158.77061469265368"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="799-Yo-gJ2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="6wO-qW-KlT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ida-3A-mBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="630" y="-56"/>
         </scene>
         <!--textScoring-->
         <scene sceneID="krb-5Q-deg">

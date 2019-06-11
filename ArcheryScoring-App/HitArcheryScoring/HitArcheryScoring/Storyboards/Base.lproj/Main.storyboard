@@ -179,11 +179,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7HO-Ro-phO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.2478863441780822" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ygC-Ke-NbC" firstAttribute="top" secondItem="l6q-Ka-1Yv" secondAttribute="bottom" constant="15" id="0Cj-eP-02A"/>
+                            <constraint firstItem="7HO-Ro-phO" firstAttribute="trailing" secondItem="Fp3-ur-0tt" secondAttribute="trailing" id="5ig-aN-CvG"/>
+                            <constraint firstItem="7HO-Ro-phO" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" id="88b-MX-Mgt"/>
+                            <constraint firstAttribute="bottom" secondItem="7HO-Ro-phO" secondAttribute="bottom" id="Dof-um-ZIp"/>
                             <constraint firstItem="Fp3-ur-0tt" firstAttribute="trailing" secondItem="l6q-Ka-1Yv" secondAttribute="trailing" constant="15" id="GcR-fS-MCB"/>
+                            <constraint firstItem="7HO-Ro-phO" firstAttribute="top" secondItem="D5O-NZ-Ab4" secondAttribute="top" id="Uso-9y-Shc"/>
                             <constraint firstItem="l6q-Ka-1Yv" firstAttribute="top" secondItem="Fp3-ur-0tt" secondAttribute="top" constant="20" id="Vmy-IS-Utg"/>
                             <constraint firstItem="Fp3-ur-0tt" firstAttribute="bottom" secondItem="ygC-Ke-NbC" secondAttribute="bottom" id="YhV-kc-TFG"/>
                             <constraint firstItem="l6q-Ka-1Yv" firstAttribute="leading" secondItem="Fp3-ur-0tt" secondAttribute="leading" constant="15" id="bnE-8l-2g1"/>
@@ -197,14 +205,15 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
+                        <outlet property="dimView" destination="7HO-Ro-phO" id="b0l-K4-NcS"/>
                         <outlet property="strongShotsLabel" destination="l6q-Ka-1Yv" id="izz-iy-fLx"/>
                         <outlet property="tableView" destination="ygC-Ke-NbC" id="X1c-t9-Sn3"/>
-                        <segue destination="8xz-AX-fcy" kind="presentation" identifier="tableToPopUpSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="71b-D1-lZR"/>
+                        <segue destination="8xz-AX-fcy" kind="custom" identifier="tableToPopUpSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="ikj-rz-LfP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-rX-LNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1722" y="775"/>
+            <point key="canvasLocation" x="-1722.4000000000001" y="774.96251874062978"/>
         </scene>
         <!--Item-->
         <scene sceneID="SqU-4L-j3z">

@@ -14,6 +14,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: Properties
     @IBOutlet weak var strongShotsLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dimView: UIView!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -22,9 +23,16 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tempDesc = ""
     var tempAvg = ""
     var tempPR = ""
+    var effect:UIVisualEffect!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Pop up background dimming stuff
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        
         setScoringRounds()
         createRoundArray()
         setUpTableView()
@@ -102,6 +110,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tempAvg = "Average: " + rounds[indexPath.row].average
         tempPR = "Personal Record: " + String(rounds[indexPath.row].pr)
         performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
+        animateIn()
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -113,6 +122,24 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc?.rAvg = tempAvg
             vc?.rBest = tempPR
         }
+    }
+    
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
     }
 }
 
