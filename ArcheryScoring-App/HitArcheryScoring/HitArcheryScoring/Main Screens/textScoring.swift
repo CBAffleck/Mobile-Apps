@@ -22,6 +22,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @IBOutlet weak var runningLabel: UILabel!
     @IBOutlet weak var hitLabel: UILabel!
     @IBOutlet weak var tableBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dimView: UIView!
     
     
     //MARK: Variables
@@ -45,6 +46,12 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Pop up background dimming stuff
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        
         getRoundInfo()
         roundName = headerTitle
         headerTitle += " #" + String(currRound.roundNum)
@@ -216,12 +223,32 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         }
     }
     
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
+    }
+    
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
         stopTimer()
+        animateIn()
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
+        animateIn()
     }
     
 }

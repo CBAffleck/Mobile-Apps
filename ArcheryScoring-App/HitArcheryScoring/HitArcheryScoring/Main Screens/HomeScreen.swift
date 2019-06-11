@@ -23,7 +23,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tempDesc = ""
     var tempAvg = ""
     var tempPR = ""
-    var effect:UIVisualEffect!
 
     override func viewDidLoad() {
         super.viewDidLoad()

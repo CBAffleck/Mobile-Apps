@@ -15,6 +15,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var historyTable: UITableView!
     @IBOutlet weak var historyTitle: UILabel!
     @IBOutlet weak var alertLabel: UILabel!
+    @IBOutlet weak var dimView: UIView!
     
     
     //MARK: Variables
@@ -35,6 +36,11 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Pop up background dimming stuff
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
 
         // Do any additional setup after loading the view.
         makeRoundsArray()
@@ -104,6 +110,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         scoringType = rounds[indexPath.row].scoringType
         targetFace = rounds[indexPath.row].targetFace
         performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
+        animateIn()
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -122,6 +129,24 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc?.scoringType = scoringType
             vc?.targetFace = targetFace
         }
+    }
+    
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
     }
     
 

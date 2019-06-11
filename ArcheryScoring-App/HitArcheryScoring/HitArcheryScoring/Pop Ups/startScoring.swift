@@ -60,7 +60,6 @@ class startScoring: UIViewController {
     
     //MARK: Actions
     @IBAction func closePopUp(_ sender: UIButton) {
-//        dismiss(animated: true)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
     }
     

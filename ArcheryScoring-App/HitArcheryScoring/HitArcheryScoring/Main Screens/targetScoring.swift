@@ -29,6 +29,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var endTotalLabel: UILabel!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var dimView: UIView!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -54,6 +55,12 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Pop up background dimming stuff
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        
         getRoundInfo()
         roundName = headerTitle
         headerTitle += " #" + String(currRound.roundNum)  //Set header title with number
@@ -367,6 +374,24 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         }
     }
     
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
+    }
+    
     //MARK: Remove Button
     @IBAction func removeLastArrow(_ sender: UIButton) {
         if !targets.isEmpty {
@@ -468,9 +493,11 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     @IBAction func finishTapped(_ sender: UIButton) {
         stopTimer()
+        animateIn()
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
+        animateIn()
     }
     
 }

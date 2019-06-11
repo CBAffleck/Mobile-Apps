@@ -30,7 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelTapped:" destination="6Tp-Go-78E" eventType="touchUpInside" id="QRs-yT-ErB"/>
-                                    <segue destination="et3-la-fdQ" kind="presentation" identifier="textToCancelSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="m0S-4N-NZ0"/>
+                                    <segue destination="et3-la-fdQ" kind="custom" identifier="textToCancelSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="m0S-4N-NZ0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hq-J9-fyr">
@@ -45,7 +45,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finishTapped:" destination="6Tp-Go-78E" eventType="touchUpInside" id="mo7-qJ-zye"/>
-                                    <segue destination="Kxb-h3-2vM" kind="presentation" identifier="textToFinishSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="8P7-SY-I8W"/>
+                                    <segue destination="Kxb-h3-2vM" kind="custom" identifier="textToFinishSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="8P7-SY-I8W"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L3T-e1-bAn">
@@ -240,6 +240,10 @@
                                 <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2b-gh-7Qu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.2478863442" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -251,11 +255,15 @@
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="QW1-eD-s2P"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="1Hq-J9-fyr" secondAttribute="trailing" constant="10" id="U1e-we-56r"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="De1-Xp-Mam" secondAttribute="trailing" constant="10" id="Y9Q-yr-fGK"/>
+                            <constraint firstItem="F2b-gh-7Qu" firstAttribute="bottom" secondItem="4b9-3y-Bue" secondAttribute="bottom" id="ZnT-tO-Djh"/>
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="top" secondItem="4b9-3y-Bue" secondAttribute="top" constant="10" id="emO-pA-kPZ"/>
                             <constraint firstItem="De1-Xp-Mam" firstAttribute="top" secondItem="1Hq-J9-fyr" secondAttribute="bottom" constant="8" id="i4D-Fr-JQh"/>
                             <constraint firstItem="pwd-br-m2g" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="l6B-Lu-W4h"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="bottom" secondItem="De1-Xp-Mam" secondAttribute="bottom" constant="12" id="mf1-03-oNp"/>
+                            <constraint firstItem="F2b-gh-7Qu" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" id="ncc-Q5-tw9"/>
                             <constraint firstItem="pwd-br-m2g" firstAttribute="top" secondItem="L3T-e1-bAn" secondAttribute="bottom" constant="8" id="oRN-JQ-gi1"/>
+                            <constraint firstItem="F2b-gh-7Qu" firstAttribute="trailing" secondItem="4b9-3y-Bue" secondAttribute="trailing" id="qYk-UB-Aj6"/>
+                            <constraint firstItem="F2b-gh-7Qu" firstAttribute="top" secondItem="80x-fn-6bb" secondAttribute="top" id="s2F-Mi-FtY"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="L3T-e1-bAn" secondAttribute="trailing" constant="10" id="sog-wX-Gao"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4b9-3y-Bue"/>
@@ -264,6 +272,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="De1-Xp-Mam" id="6fg-Ea-vfd"/>
+                        <outlet property="dimView" destination="F2b-gh-7Qu" id="McZ-FL-Mpf"/>
                         <outlet property="endLabel" destination="72E-9h-do5" id="eqq-Aj-ik3"/>
                         <outlet property="finishButton" destination="1Hq-J9-fyr" id="Eq7-kZ-eFI"/>
                         <outlet property="hitLabel" destination="tfR-IJ-ZvX" id="BOG-RQ-4ha"/>

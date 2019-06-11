@@ -193,6 +193,11 @@ class finishScoring: UIViewController {
     
     @IBAction func resumeTapped(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            self.modalTransitionStyle = .crossDissolve
+            self.view.alpha = 0
+        }, completion: nil)
         dismiss(animated: true)
     }
     

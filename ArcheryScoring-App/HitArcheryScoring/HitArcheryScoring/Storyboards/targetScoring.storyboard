@@ -30,7 +30,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelTapped:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="8et-TT-ePi"/>
-                                    <segue destination="6TK-zm-MLk" kind="presentation" identifier="targetToCancelSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="py4-Fh-HEs"/>
+                                    <segue destination="6TK-zm-MLk" kind="custom" identifier="targetToCancelSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="py4-Fh-HEs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1k-tD-uNb">
@@ -45,7 +45,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finishTapped:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="AIv-zF-bvh"/>
-                                    <segue destination="L5G-0m-f7f" kind="presentation" identifier="targetToFinishSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="cRu-Rc-NCq"/>
+                                    <segue destination="L5G-0m-f7f" kind="custom" identifier="targetToFinishSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="cRu-Rc-NCq"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lmr-EJ-cFx">
@@ -266,10 +266,15 @@
                                     <action selector="removeLastArrow:" destination="1Yp-sa-0mP" eventType="touchUpInside" id="yBI-6W-F3L"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Xx-4F-88S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.2478863442" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xUe-y8-hgI" firstAttribute="leading" secondItem="vlC-lu-PBY" secondAttribute="leading" id="0e4-h3-QdK"/>
+                            <constraint firstItem="3Xx-4F-88S" firstAttribute="leading" secondItem="vlC-lu-PBY" secondAttribute="leading" id="0na-3K-P6H"/>
                             <constraint firstItem="h5S-8A-CIO" firstAttribute="centerX" secondItem="RlZ-0m-UN5" secondAttribute="centerX" id="2VN-3G-otW"/>
                             <constraint firstItem="HIo-r2-4Ww" firstAttribute="top" secondItem="xUe-y8-hgI" secondAttribute="bottom" constant="8" id="5bd-74-9f7"/>
                             <constraint firstItem="b0j-pK-FZQ" firstAttribute="width" secondItem="m1k-tD-uNb" secondAttribute="width" id="9JB-uQ-g94"/>
@@ -290,8 +295,11 @@
                             <constraint firstItem="vlC-lu-PBY" firstAttribute="trailing" secondItem="b0j-pK-FZQ" secondAttribute="trailing" constant="10" id="VX0-aN-bsD"/>
                             <constraint firstItem="Lmr-EJ-cFx" firstAttribute="top" secondItem="vlC-lu-PBY" secondAttribute="top" constant="10" id="akw-j5-i4z"/>
                             <constraint firstItem="xUe-y8-hgI" firstAttribute="top" secondItem="h5S-8A-CIO" secondAttribute="bottom" constant="8" id="h86-oa-2hI"/>
+                            <constraint firstItem="3Xx-4F-88S" firstAttribute="trailing" secondItem="vlC-lu-PBY" secondAttribute="trailing" id="iBV-Ge-nAZ"/>
                             <constraint firstItem="xUe-y8-hgI" firstAttribute="trailing" secondItem="vlC-lu-PBY" secondAttribute="trailing" id="k9Y-hW-aMu"/>
                             <constraint firstItem="Lmr-EJ-cFx" firstAttribute="leading" secondItem="vlC-lu-PBY" secondAttribute="leading" constant="10" id="pup-KR-EJ2"/>
+                            <constraint firstItem="3Xx-4F-88S" firstAttribute="bottom" secondItem="vlC-lu-PBY" secondAttribute="bottom" id="rkf-QH-Ozd"/>
+                            <constraint firstItem="3Xx-4F-88S" firstAttribute="top" secondItem="RlZ-0m-UN5" secondAttribute="top" id="vuT-eQ-o5Q"/>
                             <constraint firstItem="PEz-Xy-ISc" firstAttribute="width" secondItem="HIo-r2-4Ww" secondAttribute="width" id="yxp-ub-dOS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vlC-lu-PBY"/>
@@ -300,6 +308,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="PEz-Xy-ISc" id="iV6-0b-OnE"/>
+                        <outlet property="dimView" destination="3Xx-4F-88S" id="6p8-iA-129"/>
                         <outlet property="endLabel" destination="NRU-hy-Wza" id="6zE-P0-Rbs"/>
                         <outlet property="endTotalLabel" destination="4o8-SV-2d6" id="sNS-Lo-Q1T"/>
                         <outlet property="finishButton" destination="m1k-tD-uNb" id="MfP-Yr-n3W"/>
