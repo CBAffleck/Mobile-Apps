@@ -113,22 +113,23 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func addTargetImage() {
         var contentHeight = tableView.frame.height + titleLabel.frame.height + dateLabel.frame.height + endLabel.frame.height
+        var targetImage = UIImageView.init(image: UIImage(named: "NoArrowScores"))
         if scoringType == "target" {
-            let targetImage = UIImageView.init(image: loadImageFromDiskWith(fileName: targetFace + String(roundTitle.prefix(3)) + String(roundTitle.components(separatedBy: "#")[1])))
-            contentView.addSubview(targetImage)
-            targetImage.translatesAutoresizingMaskIntoConstraints = false
-            targetImage.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -20).isActive = true
-            targetImage.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-            targetImage.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-            targetImage.heightAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
-            targetImage.widthAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
-            targetImage.contentMode = .scaleAspectFit
-            contentHeight += tableView.frame.width
-            
-            if contentHeight > scrollView.frame.height {
-                scrollViewHeight = contentHeight
-            }
+            targetImage = UIImageView.init(image: loadImageFromDiskWith(fileName: targetFace + String(roundTitle.prefix(3)) + String(roundTitle.components(separatedBy: "#")[1])))
         }
+        contentView.addSubview(targetImage)
+        targetImage.translatesAutoresizingMaskIntoConstraints = false
+        targetImage.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: -20).isActive = true
+        targetImage.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
+        targetImage.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
+        targetImage.heightAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
+        targetImage.widthAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
+        targetImage.contentMode = .scaleAspectFit
+        contentHeight += tableView.frame.width
+        
+        if contentHeight > scrollView.frame.height {
+            scrollViewHeight = contentHeight
+            }
     }
     
     func loadImageFromDiskWith(fileName : String) -> UIImage {
