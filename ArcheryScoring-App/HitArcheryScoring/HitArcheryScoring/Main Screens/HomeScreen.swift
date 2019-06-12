@@ -54,6 +54,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.average = "0"
             indoorRound18m.pr = 0
             indoorRound18m.targetFace = "SingleSpot"
+            indoorRound18m.innerTen = false
             indoorRound18m.endCount = 10
             indoorRound18m.arrowsPerEnd = 10
             if indoorRound18m.saveScoringRound() { print("Scoring round saved!") }
@@ -69,6 +70,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.average = "0"
             outdoorRound70m.pr = 0
             outdoorRound70m.targetFace = "SingleSpot"
+            outdoorRound70m.innerTen = false
             outdoorRound70m.endCount = 6
             outdoorRound70m.arrowsPerEnd = 6
             if outdoorRound70m.saveScoringRound() { print("Scoring round saved!") }

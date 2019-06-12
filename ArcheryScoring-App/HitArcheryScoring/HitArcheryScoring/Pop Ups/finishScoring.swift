@@ -52,6 +52,7 @@ class finishScoring: UIViewController {
     //Determine which scoring round is being scored
     func updatedRoundInfo(round : HistoryRound) {
         var currRound = ScoringRound()
+        let currUser = realm.objects(UserInfo.self).first!
         for result in realm.objects(ScoringRound.self) {
             print(result)
             if result.roundName == roundName {
@@ -65,6 +66,7 @@ class finishScoring: UIViewController {
                     currRound.roundNum += 1
                     currRound.lastScored = startDate
                     currRound.pr = max(currRound.pr, totalScore)
+                    currUser.totalScoredRounds += 1
                 }
                 print("updatedRound")
                 print(currRound)

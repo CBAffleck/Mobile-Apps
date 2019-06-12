@@ -112,7 +112,7 @@
                 <viewControllerPlaceholder storyboardIdentifier="finishToCongratsID" storyboardName="congratsScreen" id="sfl-XD-KfY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUK-BW-pzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540" y="50"/>
+            <point key="canvasLocation" x="472" y="158"/>
         </scene>
     </scenes>
     <resources>

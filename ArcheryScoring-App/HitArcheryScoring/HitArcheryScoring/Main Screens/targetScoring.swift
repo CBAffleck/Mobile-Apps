@@ -78,7 +78,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: currUser.targetFace)
+        targetImageView.image = UIImage(named: currRound.targetFace)
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -228,7 +228,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
-        var calculatedScore = calculateScore(targetType: currUser.targetFace, point: point, innerTen: currUser.innerTen)
+        var calculatedScore = calculateScore(targetType: currRound.targetFace, point: point, innerTen: currRound.innerTen)
         let score = Int(calculatedScore[0])
         let scoreString = calculatedScore[1]
         //Update hits if needed

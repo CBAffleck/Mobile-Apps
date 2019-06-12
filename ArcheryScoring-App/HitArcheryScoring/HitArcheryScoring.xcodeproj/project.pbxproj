@@ -19,6 +19,8 @@
 		C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */; };
 		C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8822ACF3CD0084D5CE /* historyTarget.swift */; };
 		C0398E8B22AF86350084D5CE /* customSegues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8A22AF86350084D5CE /* customSegues.swift */; };
+		C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */; };
+		C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */; };
 		C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B122A2269C003290C7 /* AppDelegate.swift */; };
 		C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55B322A2269C003290C7 /* targetScoring.swift */; };
 		C03C55B722A2269C003290C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03C55B522A2269C003290C7 /* Main.storyboard */; };
@@ -80,6 +82,8 @@
 		C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = historyTarget.storyboard; sourceTree = "<group>"; };
 		C0398E8822ACF3CD0084D5CE /* historyTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyTarget.swift; sourceTree = "<group>"; };
 		C0398E8A22AF86350084D5CE /* customSegues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customSegues.swift; sourceTree = "<group>"; };
+		C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = targetFaceChoice.storyboard; sourceTree = "<group>"; };
+		C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetFaceChoice.swift; sourceTree = "<group>"; };
 		C03C55AE22A2269C003290C7 /* HitArcheryScoring.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HitArcheryScoring.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03C55B122A2269C003290C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C03C55B322A2269C003290C7 /* targetScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = targetScoring.swift; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
 				C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */,
 				C0398E8822ACF3CD0084D5CE /* historyTarget.swift */,
+				C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */,
+				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
 			);
 			path = "Pop Ups";
 			sourceTree = "<group>";
@@ -397,6 +403,7 @@
 				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
+				C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */,
 				C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */,
 				C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */,
 				C07C919D22A50701005CCF98 /* startScoring.storyboard in Resources */,
@@ -540,6 +547,7 @@
 				C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */,
 				C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
+				C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */,
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
