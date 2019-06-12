@@ -49,13 +49,19 @@ class targetFaceChoice: UIViewController {
         
         //Set button borders
         singleSpotButton.layer.borderWidth = 0.5
-        singleSpotButton.layer.borderColor = UIColor.black.cgColor
+        singleSpotButton.layer.borderColor = UIColor.lightGray.cgColor
         compoundSingleButton.layer.borderWidth = 0.5
-        compoundSingleButton.layer.borderColor = UIColor.black.cgColor
+        compoundSingleButton.layer.borderColor = UIColor.lightGray.cgColor
         triangle3SpotButton.layer.borderWidth = 0.5
-        triangle3SpotButton.layer.borderColor = UIColor.black.cgColor
+        triangle3SpotButton.layer.borderColor = UIColor.lightGray.cgColor
         vertical3SpotButton.layer.borderWidth = 0.5
-        vertical3SpotButton.layer.borderColor = UIColor.black.cgColor
+        vertical3SpotButton.layer.borderColor = UIColor.lightGray.cgColor
+        
+        //Set image to not stretch in button
+        singleSpotButton.imageView?.contentMode = .scaleAspectFit
+        compoundSingleButton.imageView?.contentMode = .scaleAspectFit
+        triangle3SpotButton.imageView?.contentMode = .scaleAspectFit
+        vertical3SpotButton.imageView?.contentMode = .scaleAspectFit
     }
     
     //MARK: Actions
