@@ -244,7 +244,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
     
     //Calculates score based on type of target face being used
-    func calculateScore(targetType : String, point : CGPoint, innerTen : Bool) -> [String] {
+    func calculateScore(targetType : String, point : CGPoint, innerTen : String) -> [String] {
         var distFromCenter = CGFloat()
         var score = Int()
         var scoreString = ""
@@ -270,9 +270,11 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             if score < 6 { score = 0 }      //3 spot targets only go down to the 6 ring
             scoreString = String(score)
             //If the value of innerTen is true (for compound archers at indoor distances), then only the inner 10 counts as 10, and the rest of the gold is a 9
-            if innerTen {
-                if distFromCenter < 22.5 { score = 10 }
-                else if distFromCenter > 22.5 && distFromCenter < 90 { score = 9 }
+            if innerTen == "on" {
+                if distFromCenter > 22.5 && distFromCenter < 90 {
+                    score = 9
+                    scoreString = "9"
+                }
             } else {
                 if distFromCenter < 22.5 { scoreString = "X" }
             }
@@ -286,9 +288,11 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             if score < 6 { score = 0 }      //3 spot targets only go down to the 6 ring
             scoreString = String(score)
             //If the value of innerTen is true (for compound archers at indoor distances), then only the inner 10 counts as 10, and the rest of the gold is a 9
-            if innerTen {
-                if distFromCenter < 14.5 { score = 10 }
-                else if distFromCenter > 14.5 && distFromCenter < 58 { score = 9 }
+            if innerTen == "on" {
+                if distFromCenter > 14.5 && distFromCenter < 58 {
+                    score = 9
+                    scoreString = "9"
+                }
             } else {
                 if distFromCenter < 14.5 { scoreString = "X" }
             }

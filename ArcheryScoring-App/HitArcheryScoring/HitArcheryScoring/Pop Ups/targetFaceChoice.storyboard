@@ -61,7 +61,7 @@
                                             <action selector="closeTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="Jer-54-rm4"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-a6-g9Q">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-a6-g9Q">
                                         <rect key="frame" x="11" y="126" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="wkT-a6-g9Q" secondAttribute="height" multiplier="1:1" id="tUr-R6-mS0"/>
@@ -71,7 +71,7 @@
                                             <action selector="targetTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="xcL-F0-iUF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ic-0M-vNh">
+                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ic-0M-vNh">
                                         <rect key="frame" x="97" y="126" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="7Ic-0M-vNh" secondAttribute="height" multiplier="1:1" id="eNb-Gl-Ipl"/>
@@ -81,7 +81,7 @@
                                             <action selector="targetTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="UHP-oi-Lce"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15Z-bD-ESU">
+                                    <button opaque="NO" tag="2" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15Z-bD-ESU">
                                         <rect key="frame" x="183" y="126" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="15Z-bD-ESU" secondAttribute="height" multiplier="1:1" id="eCf-wS-xKI"/>
@@ -91,7 +91,7 @@
                                             <action selector="targetTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="zpH-oT-Jzx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-j7-fqt">
+                                    <button opaque="NO" tag="3" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGj-j7-fqt">
                                         <rect key="frame" x="269" y="126" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gGj-j7-fqt" secondAttribute="height" multiplier="1:1" id="m1H-Ra-apm"/>
@@ -101,11 +101,18 @@
                                             <action selector="targetTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="vFc-xg-gdi"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NxT-0r-sYo">
+                                        <rect key="frame" x="282" y="57.5" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchTapped:" destination="Yr5-vz-jNw" eventType="valueChanged" id="EaW-WG-pLP"/>
+                                        </connections>
+                                    </switch>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="CKq-Cf-RAV" secondAttribute="trailing" constant="10" id="787-CT-6ai"/>
                                     <constraint firstItem="gGj-j7-fqt" firstAttribute="width" secondItem="wkT-a6-g9Q" secondAttribute="width" id="7nA-S2-CLc"/>
+                                    <constraint firstItem="gGj-j7-fqt" firstAttribute="centerX" secondItem="NxT-0r-sYo" secondAttribute="centerX" id="CF8-IH-BUg"/>
                                     <constraint firstItem="15Z-bD-ESU" firstAttribute="top" secondItem="UbM-ps-aHZ" secondAttribute="bottom" constant="10" id="D5G-hM-NTE"/>
                                     <constraint firstItem="KfN-2g-AWT" firstAttribute="top" secondItem="j6H-l9-16H" secondAttribute="top" constant="10" id="GuE-kq-RIl"/>
                                     <constraint firstItem="7Ic-0M-vNh" firstAttribute="width" secondItem="wkT-a6-g9Q" secondAttribute="width" id="Jc7-d3-0gy"/>
@@ -123,6 +130,7 @@
                                     <constraint firstItem="wkT-a6-g9Q" firstAttribute="top" secondItem="UbM-ps-aHZ" secondAttribute="bottom" constant="10" id="eF2-a7-2Bb"/>
                                     <constraint firstItem="CKq-Cf-RAV" firstAttribute="leading" secondItem="j6H-l9-16H" secondAttribute="leading" constant="20" id="fcb-j6-XG9"/>
                                     <constraint firstItem="7Ic-0M-vNh" firstAttribute="height" secondItem="wkT-a6-g9Q" secondAttribute="height" id="gUC-Vw-a61"/>
+                                    <constraint firstItem="NxT-0r-sYo" firstAttribute="centerY" secondItem="TBk-Qz-GWf" secondAttribute="centerY" id="gij-ZE-IeX"/>
                                     <constraint firstItem="TBk-Qz-GWf" firstAttribute="leading" secondItem="j6H-l9-16H" secondAttribute="leading" constant="10" id="kSY-k4-ld0"/>
                                     <constraint firstItem="15Z-bD-ESU" firstAttribute="leading" secondItem="7Ic-0M-vNh" secondAttribute="trailing" constant="11" id="lkk-m8-kFf"/>
                                     <constraint firstAttribute="trailing" secondItem="UbM-ps-aHZ" secondAttribute="trailing" constant="10" id="lsx-aw-gcn"/>
@@ -147,6 +155,7 @@
                         <outlet property="closeButton" destination="KfN-2g-AWT" id="Wiw-Qe-0tS"/>
                         <outlet property="compoundSingleButton" destination="7Ic-0M-vNh" id="FEe-GY-xiQ"/>
                         <outlet property="innerTenLabel" destination="TBk-Qz-GWf" id="pOe-x8-bGs"/>
+                        <outlet property="innerTenSwitch" destination="NxT-0r-sYo" id="2hj-Tl-4Ww"/>
                         <outlet property="popUpView" destination="j6H-l9-16H" id="btB-3r-zzr"/>
                         <outlet property="singleSpotButton" destination="wkT-a6-g9Q" id="HCS-pI-LEz"/>
                         <outlet property="titleLabel" destination="CKq-Cf-RAV" id="7bw-SL-IZn"/>

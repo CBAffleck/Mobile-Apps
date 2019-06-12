@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ScoringCellDelegate {
-    func didTapToScoring()
+    func didTapToScoring(row : Int)
 }
 
 class ScoringRoundCell: UITableViewCell {
@@ -45,6 +45,6 @@ class ScoringRoundCell: UITableViewCell {
     }
     
     @IBAction func targetTapped(_ sender: UIButton) {
-        delegate?.didTapToScoring()
+        delegate?.didTapToScoring(row : sender.tag)
     }
 }

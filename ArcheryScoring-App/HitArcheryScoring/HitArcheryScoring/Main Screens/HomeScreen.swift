@@ -54,7 +54,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.average = "0"
             indoorRound18m.pr = 0
             indoorRound18m.targetFace = "SingleSpot"
-            indoorRound18m.innerTen = false
+            indoorRound18m.innerTen = "off"
             indoorRound18m.endCount = 10
             indoorRound18m.arrowsPerEnd = 10
             if indoorRound18m.saveScoringRound() { print("Scoring round saved!") }
@@ -70,7 +70,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.average = "0"
             outdoorRound70m.pr = 0
             outdoorRound70m.targetFace = "SingleSpot"
-            outdoorRound70m.innerTen = false
+            outdoorRound70m.innerTen = "off"
             outdoorRound70m.endCount = 6
             outdoorRound70m.arrowsPerEnd = 6
             if outdoorRound70m.saveScoringRound() { print("Scoring round saved!") }
@@ -112,6 +112,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let round = rounds[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! ScoringRoundCell
         cell.setInfo(round: round)
+        cell.targetButton.tag = indexPath.row
         cell.delegate = self
         return cell
     }
@@ -161,12 +162,16 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeScreen: ScoringCellDelegate {
-    func didTapToScoring() {
+    func didTapToScoring(row: Int) {
         let popUpStoryboard = UIStoryboard(name: "targetFaceChoice", bundle: nil)
         let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "targetChoiceID") as! targetFaceChoice
         popUp.modalTransitionStyle = .crossDissolve
         popUp.modalPresentationStyle = .overCurrentContext
         popUp.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        
+        let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
+        let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
+        popUp.currRound = cell.roundItem
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {popUp.view.transform = CGAffineTransform.identity}, completion: {success in self.present(popUp, animated: false, completion: nil)})
         animateIn()
     }

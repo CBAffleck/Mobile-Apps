@@ -20,23 +20,22 @@ class targetFaceChoice: UIViewController {
     @IBOutlet weak var compoundSingleButton: UIButton!
     @IBOutlet weak var triangle3SpotButton: UIButton!
     @IBOutlet weak var vertical3SpotButton: UIButton!
+    @IBOutlet weak var innerTenSwitch: UISwitch!
     
     
     //MARK: Variables
     let realm = try! Realm()
-    var currUser = UserInfo()
+    var currRound = ScoringRound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUser()
+        print(realm.objects(ScoringRound.self))
         setUpViewLooks()
+        if currRound.innerTen == "on" { innerTenSwitch.setOn(true, animated: false) }
+        else { innerTenSwitch.setOn(false, animated: false)}
     }
     
     //MARK: Functions
-    func getUser() {
-        currUser = realm.objects(UserInfo.self).first!
-    }
-    
     func setUpViewLooks() {
         //Set corner radii
         popUpView.layer.cornerRadius = 20
@@ -48,13 +47,18 @@ class targetFaceChoice: UIViewController {
         vertical3SpotButton.layer.cornerRadius = 10
         
         //Set button borders
-        singleSpotButton.layer.borderWidth = 0.5
+        if currRound.targetFace == "SingleSpot" {
+            singleSpotButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "CompoundSingleSpot" {
+            compoundSingleButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "Triangle3Spot" {
+            triangle3SpotButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "Vertical3Spot" {
+            vertical3SpotButton.layer.borderWidth = 0.5
+        }
         singleSpotButton.layer.borderColor = UIColor.lightGray.cgColor
-        compoundSingleButton.layer.borderWidth = 0.5
         compoundSingleButton.layer.borderColor = UIColor.lightGray.cgColor
-        triangle3SpotButton.layer.borderWidth = 0.5
         triangle3SpotButton.layer.borderColor = UIColor.lightGray.cgColor
-        vertical3SpotButton.layer.borderWidth = 0.5
         vertical3SpotButton.layer.borderColor = UIColor.lightGray.cgColor
         
         //Set image to not stretch in button
@@ -76,17 +80,39 @@ class targetFaceChoice: UIViewController {
     }
     
     @IBAction func targetTapped(_ sender: UIButton) {
-//        switch sender.tag {
-//        case 0 :
-//
-//        case 1 :
-//
-//        case 2 :
-//
-//        case 3 :
-//        default:
-//            <#code#>
-//        }
+        singleSpotButton.layer.borderWidth = 0
+        compoundSingleButton.layer.borderWidth = 0
+        triangle3SpotButton.layer.borderWidth = 0
+        vertical3SpotButton.layer.borderWidth = 0
+        var targetFace = ""
+        switch sender.tag {
+        case 0 :
+            targetFace = "SingleSpot"
+            singleSpotButton.layer.borderWidth = 0.5
+        case 1 :
+            targetFace = "CompoundSingleSpot"
+            compoundSingleButton.layer.borderWidth = 0.5
+        case 2 :
+            targetFace = "Triangle3Spot"
+            triangle3SpotButton.layer.borderWidth = 0.5
+        case 3 :
+            targetFace = "Vertical3Spot"
+            vertical3SpotButton.layer.borderWidth = 0.5
+        default:
+            targetFace = "SingleSpot"
+            singleSpotButton.layer.borderWidth = 0.5
+        }
+        try! realm.write {
+            currRound.targetFace = targetFace
+        }
     }
 
+    @IBAction func switchTapped(_ sender: UISwitch) {
+        var newTenPref = ""
+        if sender.isOn == true { newTenPref = "on" }
+        else { newTenPref = "off" }
+        try! realm.write {
+            currRound.innerTen = newTenPref
+        }
+    }
 }

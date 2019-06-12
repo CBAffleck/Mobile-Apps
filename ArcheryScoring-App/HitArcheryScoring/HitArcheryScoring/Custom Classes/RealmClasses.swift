@@ -64,7 +64,7 @@ class ScoringRound : Object {
     @objc dynamic var average: String = ""
     @objc dynamic var pr: Int = 0
     @objc dynamic var targetFace: String = ""
-    @objc dynamic var innerTen : Bool = false
+    @objc dynamic var innerTen : String = "off"
     @objc dynamic var endCount: Int = 0
     @objc dynamic var arrowsPerEnd: Int = 0
     var pastScores = List<Int>()
