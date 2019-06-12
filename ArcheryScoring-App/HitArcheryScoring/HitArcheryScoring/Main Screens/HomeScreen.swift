@@ -158,6 +158,12 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func dismissEffect() {
         animateOut()
+        //Set new target face icon on the round that was changed
+        for x in 0...rounds.count - 1 {
+            let indexPath = NSIndexPath(row: x, section: 0) as IndexPath
+            let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
+            cell.targetButton.setImage(UIImage(named: rounds[x].targetFace + "Icon"), for: .normal)
+        }
     }
 }
 
