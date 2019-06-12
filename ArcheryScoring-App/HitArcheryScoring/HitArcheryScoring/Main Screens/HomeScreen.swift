@@ -162,12 +162,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 extension HomeScreen: ScoringCellDelegate {
     func didTapToScoring() {
-        let popUpStoryboard = UIStoryboard(name: "startScoring", bundle: nil)
-        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "startScoringID") as! startScoring
+        let popUpStoryboard = UIStoryboard(name: "targetFaceChoice", bundle: nil)
+        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "targetChoiceID") as! targetFaceChoice
         popUp.modalTransitionStyle = .crossDissolve
         popUp.modalPresentationStyle = .overCurrentContext
-        popUp.rTitle = tempTitle
-        self.present(popUp, animated: true, completion: nil)
+        popUp.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {popUp.view.transform = CGAffineTransform.identity}, completion: {success in self.present(popUp, animated: false, completion: nil)})
+        animateIn()
     }
 }
 

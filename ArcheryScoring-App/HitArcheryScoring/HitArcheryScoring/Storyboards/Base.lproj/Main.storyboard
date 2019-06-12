@@ -100,6 +100,17 @@
                                                     <rect key="frame" x="0.0" y="10" width="345" height="130.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAx-aq-5ae">
+                                                    <rect key="frame" x="285" y="89" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="cyN-36-2Xe"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wJ2-Lw-p0O"/>
+                                                    </constraints>
+                                                    <state key="normal" image="SingleSpotIcon"/>
+                                                    <connections>
+                                                        <action selector="targetTapped:" destination="Viy-JZ-e8f" eventType="touchUpInside" id="wFO-mT-JdA"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18m Scoring Round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ver-Ic-iTt">
                                                     <rect key="frame" x="20" y="26" width="273" height="22"/>
                                                     <constraints>
@@ -154,12 +165,14 @@
                                             <constraints>
                                                 <constraint firstItem="ver-Ic-iTt" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="topMargin" constant="15" id="2cP-II-nQM"/>
                                                 <constraint firstItem="6B1-PP-FhY" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="5" id="2eL-Cb-TlA"/>
+                                                <constraint firstItem="HAx-aq-5ae" firstAttribute="bottom" secondItem="Bf5-Kz-MyD" secondAttribute="bottom" id="334-8X-AyR"/>
                                                 <constraint firstItem="6jo-Op-VvD" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="5" id="Ftu-al-aBO"/>
                                                 <constraint firstItem="6B1-PP-FhY" firstAttribute="top" secondItem="ver-Ic-iTt" secondAttribute="bottom" constant="1" id="Fw0-4L-27z"/>
                                                 <constraint firstItem="Rep-FT-x7e" firstAttribute="top" secondItem="6B1-PP-FhY" secondAttribute="bottom" constant="10" id="GA7-XX-cNE"/>
                                                 <constraint firstItem="ver-Ic-iTt" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="5" id="Jb8-X6-vf1"/>
                                                 <constraint firstAttribute="bottom" secondItem="pWm-r6-QSz" secondAttribute="bottom" constant="10" id="Net-0e-uGj"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="top" secondItem="6jo-Op-VvD" secondAttribute="bottom" constant="1" id="Oyo-xA-gWw"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HAx-aq-5ae" secondAttribute="trailing" constant="5" id="SOu-Nb-wx4"/>
                                                 <constraint firstItem="pWm-r6-QSz" firstAttribute="top" secondItem="Kip-Fd-j6P" secondAttribute="top" constant="10" id="WD2-SX-IsK"/>
                                                 <constraint firstItem="pWm-r6-QSz" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leading" id="c2q-EK-bdF"/>
                                                 <constraint firstItem="Bf5-Kz-MyD" firstAttribute="leading" secondItem="Kip-Fd-j6P" secondAttribute="leadingMargin" constant="5" id="dVM-WN-cWr"/>
@@ -174,6 +187,7 @@
                                             <outlet property="descriptionLabel" destination="Rep-FT-x7e" id="sn2-y5-foj"/>
                                             <outlet property="lastScoredLabel" destination="6B1-PP-FhY" id="Ymf-0I-UGk"/>
                                             <outlet property="perLabel" destination="Bf5-Kz-MyD" id="PcK-zw-ejC"/>
+                                            <outlet property="targetButton" destination="HAx-aq-5ae" id="tVr-CJ-fws"/>
                                             <outlet property="titleLabel" destination="ver-Ic-iTt" id="S4N-u4-7Fk"/>
                                         </connections>
                                     </tableViewCell>
@@ -209,6 +223,7 @@
                         <outlet property="strongShotsLabel" destination="l6q-Ka-1Yv" id="izz-iy-fLx"/>
                         <outlet property="tableView" destination="ygC-Ke-NbC" id="X1c-t9-Sn3"/>
                         <segue destination="8xz-AX-fcy" kind="custom" identifier="tableToPopUpSegue" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="ikj-rz-LfP"/>
+                        <segue destination="6dg-bq-tGK" kind="custom" identifier="mainToTargetChoiceID" customClass="ScaleSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="MdB-q2-bUz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-rX-LNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -412,7 +427,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="startScoringID" storyboardName="startScoring" id="8xz-AX-fcy" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUl-6E-cnV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1723" y="1196"/>
+            <point key="canvasLocation" x="-1936" y="1196"/>
+        </scene>
+        <!--targetFaceChoice-->
+        <scene sceneID="ghe-F8-PqR">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="openTargetChoiceID" storyboardName="targetFaceChoice" id="6dg-bq-tGK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIY-8e-S5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1534" y="1196"/>
         </scene>
         <!--historyTarget-->
         <scene sceneID="N29-FG-sUc">
@@ -426,5 +449,6 @@
     <resources>
         <image name="BowIcon" width="30" height="29"/>
         <image name="ProfileIcon" width="30" height="30"/>
+        <image name="SingleSpotIcon" width="350" height="350"/>
     </resources>
 </document>

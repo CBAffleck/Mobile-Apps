@@ -26,6 +26,7 @@ class ScoringRoundCell: UITableViewCell {
     @IBOutlet weak var avgLabel: UILabel!
     @IBOutlet weak var perLabel: UILabel!
     @IBOutlet weak var cellView: UIView!
+    @IBOutlet weak var targetButton: UIButton!
     
     //MARK: Variables
     var delegate: ScoringCellDelegate?
@@ -43,8 +44,7 @@ class ScoringRoundCell: UITableViewCell {
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
     }
     
-    @IBAction func toScoringTapped(_ sender: UIButton) {
+    @IBAction func targetTapped(_ sender: UIButton) {
         delegate?.didTapToScoring()
     }
-    
 }
