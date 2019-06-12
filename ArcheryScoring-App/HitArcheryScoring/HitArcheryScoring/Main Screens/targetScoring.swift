@@ -34,6 +34,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     //MARK: Variables
     let realm = try! Realm()
     var currRound = ScoringRound()
+    var currUser = UserInfo()
     var headerTitle = ""
     var roundName = ""
     var totalScore = 0
@@ -62,6 +63,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
         getRoundInfo()
+        currUser = realm.objects(UserInfo.self).first!
         roundName = headerTitle
         headerTitle += " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
@@ -76,7 +78,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: "Vertical3Spot")
+        targetImageView.image = UIImage(named: currUser.targetFace)
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -226,7 +228,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
-        var calculatedScore = calculateScore(targetType: "Vertical3Spot", point: point, innerTen: false)
+        var calculatedScore = calculateScore(targetType: currUser.targetFace, point: point, innerTen: currUser.innerTen)
         let score = Int(calculatedScore[0])
         let scoreString = calculatedScore[1]
         //Update hits if needed

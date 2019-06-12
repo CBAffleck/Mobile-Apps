@@ -82,3 +82,29 @@ class ScoringRound : Object {
         }
     }
 }
+
+//User object class to define user related attributes and preferences
+class UserInfo : Object {
+    
+    @objc dynamic var firstName : String = ""
+    @objc dynamic var lastName : String = ""
+    @objc dynamic var bowType : String = ""
+    @objc dynamic var targetFace : String = "SingleSpot"
+    @objc dynamic var totalScoredRounds : Int = 0
+    @objc dynamic var languagePref : String = ""
+    @objc dynamic var innerTen : Bool = false
+    
+    //Save function for writing object to realm
+    func saveUser() -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+            return true
+        } catch let error as NSError {
+            print(">>> Realm error: ", error.localizedDescription)
+            return false
+        }
+    }
+}

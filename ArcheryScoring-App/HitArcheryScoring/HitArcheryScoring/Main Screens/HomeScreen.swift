@@ -32,14 +32,15 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
-        setScoringRounds()
+        setUpRealm()
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
         self.hideKeyboardOnTap()
     }
     
-    func setScoringRounds() {
+    func setUpRealm() {
+        //Set up scoring round data
         if realm.objects(ScoringRound.self).first != nil {
             //Do nothing since the scoring rounds have already been added
         } else {
@@ -72,6 +73,22 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.arrowsPerEnd = 6
             if outdoorRound70m.saveScoringRound() { print("Scoring round saved!") }
             else { print("Could not save scoring round.") }
+        }
+        
+        //Set up user info
+        if realm.objects(UserInfo.self).first != nil {
+            //Do nothing since the user's info has already been set up
+        } else {
+            let newUser = UserInfo()
+            newUser.firstName = "First"
+            newUser.lastName = "Last"
+            newUser.bowType = "Olympic Recurve"
+            newUser.targetFace = "SingleSpot"
+            newUser.totalScoredRounds = 0
+            newUser.languagePref = "English"
+            newUser.innerTen = false
+            if newUser.saveUser() { print("New user saved!") }
+            else { print("Could not save new user info.") }
         }
     }
     
@@ -123,6 +140,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //Dim background when pop up appears
     func animateIn() {
         UIView.animate(withDuration: 0.2, animations: {
             self.dimView.isHidden = false
