@@ -85,10 +85,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             newUser.firstName = "First"
             newUser.lastName = "Last"
             newUser.bowType = "Olympic Recurve"
-            newUser.targetFace = "SingleSpot"
             newUser.totalScoredRounds = 0
             newUser.languagePref = "English"
-            newUser.innerTen = false
             if newUser.saveUser() { print("New user saved!") }
             else { print("Could not save new user info.") }
         }

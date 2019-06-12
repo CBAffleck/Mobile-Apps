@@ -90,10 +90,8 @@ class UserInfo : Object {
     @objc dynamic var firstName : String = ""
     @objc dynamic var lastName : String = ""
     @objc dynamic var bowType : String = ""
-    @objc dynamic var targetFace : String = "SingleSpot"
     @objc dynamic var totalScoredRounds : Int = 0
     @objc dynamic var languagePref : String = ""
-    @objc dynamic var innerTen : Bool = false
     
     //Save function for writing object to realm
     func saveUser() -> Bool {
