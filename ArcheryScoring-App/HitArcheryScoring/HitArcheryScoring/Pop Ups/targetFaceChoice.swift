@@ -26,13 +26,29 @@ class targetFaceChoice: UIViewController {
     //MARK: Variables
     let realm = try! Realm()
     var currRound = ScoringRound()
+    var innerTen = ""
+    var targetFace = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(realm.objects(ScoringRound.self))
         setUpViewLooks()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Do stuff that depends on currRound here, since the currRound data isn't loaded yet in viewdidload
         if currRound.innerTen == "on" { innerTenSwitch.setOn(true, animated: false) }
         else { innerTenSwitch.setOn(false, animated: false)}
+        
+        //Set button borders
+        if currRound.targetFace == "SingleSpot" {
+            singleSpotButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "CompoundSingleSpot" {
+            compoundSingleButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "Triangle3Spot" {
+            triangle3SpotButton.layer.borderWidth = 0.5
+        } else if currRound.targetFace == "Vertical3Spot" {
+            vertical3SpotButton.layer.borderWidth = 0.5
+        }
     }
     
     //MARK: Functions
@@ -46,16 +62,6 @@ class targetFaceChoice: UIViewController {
         triangle3SpotButton.layer.cornerRadius = 10
         vertical3SpotButton.layer.cornerRadius = 10
         
-        //Set button borders
-        if currRound.targetFace == "SingleSpot" {
-            singleSpotButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "CompoundSingleSpot" {
-            compoundSingleButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "Triangle3Spot" {
-            triangle3SpotButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "Vertical3Spot" {
-            vertical3SpotButton.layer.borderWidth = 0.5
-        }
         singleSpotButton.layer.borderColor = UIColor.lightGray.cgColor
         compoundSingleButton.layer.borderColor = UIColor.lightGray.cgColor
         triangle3SpotButton.layer.borderColor = UIColor.lightGray.cgColor
