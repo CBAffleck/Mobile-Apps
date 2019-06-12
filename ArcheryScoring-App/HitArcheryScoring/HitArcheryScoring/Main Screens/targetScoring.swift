@@ -76,7 +76,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: "Triangle3Spot")
+        targetImageView.image = UIImage(named: "Vertical3Spot")
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -226,7 +226,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
-        var calculatedScore = calculateScore(targetType: "Triangle3Spot", point: point, innerTen: false)
+        var calculatedScore = calculateScore(targetType: "Vertical3Spot", point: point, innerTen: false)
         let score = Int(calculatedScore[0])
         let scoreString = calculatedScore[1]
         //Update hits if needed
@@ -275,7 +275,21 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                 if distFromCenter < 22.5 { scoreString = "X" }
             }
         } else if targetType == "Vertical3Spot" {
-            
+            //Distance from pixel center of each spot on the 3 spot
+            let distFromTopCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 195) - 6, 2))
+            let distFromMiddleCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
+            let distFromBottomCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 805) - 6, 2))
+            distFromCenter = min(distFromTopCenter, distFromMiddleCenter, distFromBottomCenter)
+            score = Int(10 - floor(distFromCenter / 29))    //Rings on the vertical 3 spot are 29 pixels wide
+            if score < 6 { score = 0 }      //3 spot targets only go down to the 6 ring
+            scoreString = String(score)
+            //If the value of innerTen is true (for compound archers at indoor distances), then only the inner 10 counts as 10, and the rest of the gold is a 9
+            if innerTen {
+                if distFromCenter < 14.5 { score = 10 }
+                else if distFromCenter > 14.5 && distFromCenter < 58 { score = 9 }
+            } else {
+                if distFromCenter < 14.5 { scoreString = "X" }
+            }
         }
         if score == 0 { scoreString = "M" }
         return [String(score), scoreString]
