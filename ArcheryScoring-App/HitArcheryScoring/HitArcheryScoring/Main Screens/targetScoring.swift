@@ -76,7 +76,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: currRound.targetFace)
+        targetImageView.image = UIImage(named: "Triangle3Spot")
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -226,36 +226,59 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
-        var scoreString = ""
-        var calculatedScore = calculateScore(targetType: currRound.targetFace, point: point)
-        let distFromCenter = calculatedScore[0]
-        let score = Int(calculatedScore[1])
-        scoreString = String(score)     //Create string of score
-        //Assign M and X values
-        if score == 0 { scoreString = "M" }
-        if distFromCenter < 22.5 { scoreString = "X"}
+        var calculatedScore = calculateScore(targetType: "Triangle3Spot", point: point, innerTen: false)
+        let score = Int(calculatedScore[0])
+        let scoreString = calculatedScore[1]
         //Update hits if needed
         if score == 10 || score == 9 {
             hits += 1
             hitsLabel.text = "Hits: " + String(hits)
         }
-        arrows.append(score)
+        arrows.append(score!)
         arrowScores[endNum][endArrowNum] = scoreString
-        totalScore += score
+        totalScore += score!
         totalScoreLabel.text = "Running Total: " + totalScore.description
         applyArrowInfo(score: scoreString)
     }
     
     //Calculates score based on type of target face being used
-    func calculateScore(targetType : String, point : CGPoint) -> [CGFloat] {
+    func calculateScore(targetType : String, point : CGPoint, innerTen : Bool) -> [String] {
         var distFromCenter = CGFloat()
-        var score = CGFloat()
+        var score = Int()
+        var scoreString = ""
         if targetType == "SingleSpot" {
             distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
-            score = CGFloat(10 - floor(distFromCenter / 450 * 10))
+            score = Int(10 - floor(distFromCenter / 45))    //Recurve rings are 45 pixels wide
             if score < 0 { score = 0 }      //Deal with taps outside the 1 ring
+            if distFromCenter < 22.5 { scoreString = "X"}
+            else { scoreString = String(score) }
+        } else if targetType == "CompoundSingleSpot" {
+            distFromCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 500) - 6, 2))
+            score = Int(10 - floor(distFromCenter / 75))    //Compound rings are 75 pixels wide
+            if score < 5 { score = 0 }      //Compound target only goes down to the 5 ring
+            if distFromCenter < 37.5 { scoreString = "X"}
+            else { scoreString = String(score) }
+        } else if targetType == "Triangle3Spot" {
+            //Distance from pixel center of each spot on the 3 spot
+            let distFromTopCenter = sqrt(pow(abs(point.x - 500) - 6, 2) + pow(abs(point.y - 275) - 6, 2))
+            let distFromLeftCenter = sqrt(pow(abs(point.x - 253) - 6, 2) + pow(abs(point.y - 725) - 6, 2))
+            let distFromRightCenter = sqrt(pow(abs(point.x - 748) - 6, 2) + pow(abs(point.y - 725) - 6, 2))
+            distFromCenter = min(distFromTopCenter, distFromLeftCenter, distFromRightCenter)
+            score = Int(10 - floor(distFromCenter / 45))    //Rings on the triangle 3 spot are 45 pixels wide
+            if score < 6 { score = 0 }      //3 spot targets only go down to the 6 ring
+            scoreString = String(score)
+            //If the value of innerTen is true (for compound archers at indoor distances), then only the inner 10 counts as 10, and the rest of the gold is a 9
+            if innerTen {
+                if distFromCenter < 22.5 { score = 10 }
+                else if distFromCenter > 22.5 && distFromCenter < 90 { score = 9 }
+            } else {
+                if distFromCenter < 22.5 { scoreString = "X" }
+            }
+        } else if targetType == "Vertical3Spot" {
+            
         }
-        return [distFromCenter, score]
+        if score == 0 { scoreString = "M" }
+        return [String(score), scoreString]
     }
     
     //Fill in field with arrow score and change colors to match
