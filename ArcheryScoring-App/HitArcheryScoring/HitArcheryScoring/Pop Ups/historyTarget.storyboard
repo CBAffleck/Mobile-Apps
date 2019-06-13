@@ -159,9 +159,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kjc-ob-nSL">
                                                                             <rect key="frame" x="45" y="0.0" width="56" height="39.5"/>
                                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="g2r-0s-yJd"/>
-                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -169,9 +166,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axg-pE-Fgs">
                                                                             <rect key="frame" x="101" y="0.0" width="56" height="39.5"/>
                                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="K5M-CR-TwL"/>
-                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -189,9 +183,6 @@
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nL3-rd-odT">
                                                                             <rect key="frame" x="157" y="0.0" width="56" height="39.5"/>
                                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                                            <constraints>
-                                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="56" id="go2-NG-XtP"/>
-                                                                            </constraints>
                                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -266,13 +257,12 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Q3s-TB-jx0" firstAttribute="centerX" secondItem="Leh-dn-Eap" secondAttribute="centerX" id="4NB-ts-bK7"/>
-                                            <constraint firstItem="Q3s-TB-jx0" firstAttribute="centerY" secondItem="Leh-dn-Eap" secondAttribute="centerY" id="84D-4W-77Z"/>
-                                            <constraint firstItem="Q3s-TB-jx0" firstAttribute="width" secondItem="Leh-dn-Eap" secondAttribute="width" id="XOd-yg-JB0"/>
                                             <constraint firstAttribute="bottom" secondItem="Q3s-TB-jx0" secondAttribute="bottom" id="fvr-fk-g8z"/>
                                             <constraint firstItem="Q3s-TB-jx0" firstAttribute="leading" secondItem="Leh-dn-Eap" secondAttribute="leading" id="he2-Si-f7D"/>
                                             <constraint firstAttribute="trailing" secondItem="Q3s-TB-jx0" secondAttribute="trailing" id="i2d-bf-oVx"/>
                                             <constraint firstItem="Q3s-TB-jx0" firstAttribute="top" secondItem="Leh-dn-Eap" secondAttribute="top" id="j6X-HG-3Mr"/>
+                                            <constraint firstItem="Q3s-TB-jx0" firstAttribute="width" secondItem="Leh-dn-Eap" secondAttribute="width" id="k7P-UP-zpO"/>
+                                            <constraint firstItem="Q3s-TB-jx0" firstAttribute="height" secondItem="Leh-dn-Eap" secondAttribute="height" id="p9E-zf-m5T"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>

@@ -142,9 +142,6 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="vkH-0Z-Iv9">
                                                             <rect key="frame" x="40" y="6" width="75" height="27.5"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="VbE-fk-KRq"/>
-                                                            </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
@@ -155,9 +152,6 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="o5m-Ij-H6e">
                                                             <rect key="frame" x="123" y="6" width="75" height="27.5"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="AHX-mL-wvw"/>
-                                                            </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
@@ -168,9 +162,6 @@
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Puq-Iy-Qde">
                                                             <rect key="frame" x="206" y="6" width="75" height="27.5"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="loc-Rg-YuF"/>
-                                                            </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>

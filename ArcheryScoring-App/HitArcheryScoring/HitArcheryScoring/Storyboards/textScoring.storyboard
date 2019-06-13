@@ -145,7 +145,6 @@
                                                             <rect key="frame" x="40" y="7.5" width="75" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="3N0-mq-5gT"/>
                                                                 <constraint firstAttribute="height" constant="30" id="Q2t-EG-Js3"/>
                                                             </constraints>
                                                             <nil key="textColor"/>
@@ -159,7 +158,6 @@
                                                             <rect key="frame" x="123" y="7.5" width="75" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="3ix-2k-JDG"/>
                                                                 <constraint firstAttribute="height" constant="30" id="cR6-10-QWX"/>
                                                             </constraints>
                                                             <nil key="textColor"/>
@@ -173,7 +171,6 @@
                                                             <rect key="frame" x="206" y="7.5" width="75" height="30"/>
                                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="75" id="AuA-tb-tIe"/>
                                                                 <constraint firstAttribute="height" constant="30" id="tam-hN-WyE"/>
                                                             </constraints>
                                                             <nil key="textColor"/>

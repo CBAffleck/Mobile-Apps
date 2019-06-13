@@ -34,7 +34,6 @@
                                         <rect key="frame" x="180" y="162" width="155" height="38"/>
                                         <color key="backgroundColor" red="0.22352941176470587" green="0.79607843137254897" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="155" id="FVX-fh-EpZ"/>
                                             <constraint firstAttribute="height" constant="38" id="KXG-VG-qmJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
@@ -57,7 +56,6 @@
                                         <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="NRF-mw-RdM"/>
-                                            <constraint firstAttribute="width" constant="155" id="cGz-Jm-xj8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Resume">

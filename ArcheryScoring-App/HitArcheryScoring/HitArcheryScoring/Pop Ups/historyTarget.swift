@@ -64,7 +64,6 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         titleLabel.text = roundTitle
         dateLabel.text = date
         timeLabel.text = "Time: " + time
-        print(time)
         totalScoreLabel.text = "Score: " + String(totalScore)
         hitsLabel.text = "Hits: " + String(hits)
         
@@ -123,7 +122,6 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         targetImage.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
         targetImage.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         targetImage.heightAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
-        targetImage.widthAnchor.constraint(equalToConstant: tableView.frame.width).isActive = true
         targetImage.contentMode = .scaleAspectFit
         contentHeight += tableView.frame.width
         

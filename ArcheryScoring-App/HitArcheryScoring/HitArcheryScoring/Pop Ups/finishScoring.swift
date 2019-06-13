@@ -54,11 +54,8 @@ class finishScoring: UIViewController {
         var currRound = ScoringRound()
         let currUser = realm.objects(UserInfo.self).first!
         for result in realm.objects(ScoringRound.self) {
-            print(result)
             if result.roundName == roundName {
                 currRound = result
-                print("prevRound")
-                print(currRound)
                 try! realm.write {
                     round.relativePR = currRound.pr
                     currRound.pastScores.append(totalScore)
@@ -68,8 +65,6 @@ class finishScoring: UIViewController {
                     currRound.pr = max(currRound.pr, totalScore)
                     currUser.totalScoredRounds += 1
                 }
-                print("updatedRound")
-                print(currRound)
                 break
             }
         }
