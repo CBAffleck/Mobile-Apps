@@ -32,21 +32,18 @@ class targetFaceChoice: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViewLooks()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        //Do stuff that depends on currRound here, since the currRound data isn't loaded yet in viewdidload
-        if currRound.innerTen == "on" { innerTenSwitch.setOn(true, animated: false) }
+        //Set inner ten switch position
+        if innerTen == "on" { innerTenSwitch.setOn(true, animated: false) }
         else { innerTenSwitch.setOn(false, animated: false)}
         
         //Set button borders
-        if currRound.targetFace == "SingleSpot" {
+        if targetFace == "SingleSpot" {
             singleSpotButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "CompoundSingleSpot" {
+        } else if targetFace == "CompoundSingleSpot" {
             compoundSingleButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "Triangle3Spot" {
+        } else if targetFace == "Triangle3Spot" {
             triangle3SpotButton.layer.borderWidth = 0.5
-        } else if currRound.targetFace == "Vertical3Spot" {
+        } else if targetFace == "Vertical3Spot" {
             vertical3SpotButton.layer.borderWidth = 0.5
         }
     }

@@ -23,6 +23,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tempDesc = ""
     var tempAvg = ""
     var tempPR = ""
+    var tempRound = ScoringRound()
+    var tempTen = ""
+    var tempFace = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,6 +141,11 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc?.rDesc = tempDesc
             vc?.rAvg = tempAvg
             vc?.rBest = tempPR
+        } else if segue.identifier == "mainToTargetChoiceID" {
+            let vc = segue.destination as? targetFaceChoice
+            vc?.currRound = tempRound
+            vc?.innerTen = tempTen
+            vc?.targetFace = tempFace
         }
     }
     
@@ -169,16 +177,12 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 extension HomeScreen: ScoringCellDelegate {
     func didTapToScoring(row: Int) {
-        let popUpStoryboard = UIStoryboard(name: "targetFaceChoice", bundle: nil)
-        let popUp = popUpStoryboard.instantiateViewController(withIdentifier: "targetChoiceID") as! targetFaceChoice
-        popUp.modalTransitionStyle = .crossDissolve
-        popUp.modalPresentationStyle = .overCurrentContext
-        popUp.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        
         let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
         let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
-        popUp.currRound = cell.roundItem
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {popUp.view.transform = CGAffineTransform.identity}, completion: {success in self.present(popUp, animated: false, completion: nil)})
+        tempRound = cell.roundItem
+        tempTen = cell.roundItem.innerTen
+        tempFace = cell.roundItem.targetFace
+        performSegue(withIdentifier: "mainToTargetChoiceID", sender: indexPath)
         animateIn()
     }
 }
