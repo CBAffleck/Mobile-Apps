@@ -115,6 +115,8 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         var targetImage = UIImageView.init(image: UIImage(named: "NoArrowScores"))
         if scoringType == "target" {
             targetImage = UIImageView.init(image: loadImageFromDiskWith(fileName: targetFace + String(roundTitle.prefix(3)) + String(roundTitle.components(separatedBy: "#")[1])))
+        } else {
+            targetImage.alpha = 0.3
         }
         contentView.addSubview(targetImage)
         targetImage.translatesAutoresizingMaskIntoConstraints = false

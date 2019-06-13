@@ -22,6 +22,7 @@ class historyCell: UITableViewCell {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var hitsLabel: UILabel!
     @IBOutlet weak var avgArrowLabel: UILabel!
+    @IBOutlet weak var targetIndicator: UIImageView!
     
     
     //MARK: Variables
@@ -82,6 +83,7 @@ class historyCell: UITableViewCell {
         cellView.layer.cornerRadius = 20
         cellView.layer.borderWidth = 0.75
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
+        targetIndicator.alpha = 0.3
     }
     
 }
