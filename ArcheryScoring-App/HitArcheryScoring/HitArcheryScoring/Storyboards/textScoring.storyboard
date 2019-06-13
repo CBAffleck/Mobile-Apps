@@ -149,7 +149,7 @@
                                                             </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             <connections>
                                                                 <action selector="enterArrow1:" destination="F2w-aS-DD6" eventType="editingDidEnd" id="su6-z2-zDH"/>
                                                             </connections>
@@ -162,7 +162,7 @@
                                                             </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             <connections>
                                                                 <action selector="enterArrow2:" destination="F2w-aS-DD6" eventType="editingDidEnd" id="wfw-fS-9RP"/>
                                                             </connections>
@@ -175,7 +175,7 @@
                                                             </constraints>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                                                            <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             <connections>
                                                                 <action selector="enterArrow3:" destination="F2w-aS-DD6" eventType="editingDidEnd" id="XRp-y3-TLs"/>
                                                             </connections>

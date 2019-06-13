@@ -122,7 +122,6 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     @objc func keyboardWillShow(notification: Notification) {
         if show_kb == true {
             if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
-                print("Notification: Keyboard will show")
                 //Sets distance of last cell from bottom of tableview. -100 accounts for pushing the cell too far up with just KB height
                 scoringTable.contentInset.bottom = keyboardHeight - 100
                 show_kb = false
