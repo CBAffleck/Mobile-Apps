@@ -77,7 +77,7 @@ class historyCell: UITableViewCell {
         scoreLabel.text = "Score: " + String(round.totalScore)
         hitsLabel.text = "Hits: " + String(round.hits)
         roundTitleLabel.text = round.roundTitle
-        avgArrowLabel.text = "Average Arrow: " + String(format: "%0.2f", Float(round.totalScore) / 30.0)
+        avgArrowLabel.text = "Average Arrow: " + String(format: "%0.2f", Float(round.totalScore) / Float((round.arrowsPerEnd * round.endCount)))
         
         //Setup cell layout details
         cellView.layer.cornerRadius = 20
