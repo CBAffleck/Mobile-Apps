@@ -21,10 +21,7 @@ class startScoring: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     
     //Mark: Variables
-    var rTitle = ""
-    var rDesc = ""
-    var rAvg = ""
-    var rBest = ""
+    var currRound = ScoringRound()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,10 +32,10 @@ class startScoring: UIViewController {
         textScoringButton.layer.cornerRadius = 10
         targetScoringButton.layer.cornerRadius = 10
         
-        roundTitleLabel.text = rTitle
-        roundDescLabel.text = rDesc
-        averageLabel.text = rAvg
-        prLabel.text = rBest
+        roundTitleLabel.text = currRound.roundName
+        roundDescLabel.text = currRound.roundDescription
+        averageLabel.text = "Average: " + currRound.average
+        prLabel.text = "Personal Record: " + String(currRound.pr)
     }
     
 
@@ -51,10 +48,10 @@ class startScoring: UIViewController {
         super.prepare(for: segue, sender: sender)
         if segue.destination is textScoring {
             let view = segue.destination as? textScoring
-            view?.headerTitle = rTitle
+            view?.headerTitle = currRound.roundName
         } else if segue.destination is targetScoring {
             let view = segue.destination as? targetScoring
-            view?.headerTitle = rTitle
+            view?.headerTitle = currRound.roundName
         }
     }
     

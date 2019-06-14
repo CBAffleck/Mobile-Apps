@@ -19,10 +19,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     //MARK: Variables
     let realm = try! Realm()
     var rounds: [ScoringRound] = []
-    var tempTitle = ""
-    var tempDesc = ""
-    var tempAvg = ""
-    var tempPR = ""
     var tempRound = ScoringRound()
     var tempTen = ""
     var tempFace = ""
@@ -125,10 +121,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tempTitle = rounds[indexPath.row].roundName
-        tempDesc = rounds[indexPath.row].roundDescription
-        tempAvg = "Average: " + rounds[indexPath.row].average
-        tempPR = "Personal Record: " + String(rounds[indexPath.row].pr)
+        let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
+        tempRound = cell.roundItem
         performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
         animateIn()
         tableView.deselectRow(at: indexPath, animated: false)
@@ -137,10 +131,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "tableToPopUpSegue" {
             let vc = segue.destination as? startScoring
-            vc?.rTitle = tempTitle
-            vc?.rDesc = tempDesc
-            vc?.rAvg = tempAvg
-            vc?.rBest = tempPR
+            vc?.currRound = tempRound
         } else if segue.identifier == "mainToTargetChoiceID" {
             let vc = segue.destination as? targetFaceChoice
             vc?.currRound = tempRound
