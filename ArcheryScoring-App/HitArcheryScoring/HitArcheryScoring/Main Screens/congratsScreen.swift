@@ -36,6 +36,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     var inTotal = 0
     var inHits = 0
     var inEndCount = 0
+    var inArrowsPerEnd = 0
     var inRunning: [Int] = []
     var inEndTots: [Int] = []
     var ends: [ScoringEndData] = []
@@ -94,9 +95,15 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func createEndArray() {
-        for x in 0...9 {
-            let endData = ScoringEndData(a1Score: inScores[x][0], a2Score: inScores[x][1], a3Score: inScores[x][2], endTot: String(inEndTots[x]), runNum: String(inRunning[x]))
-            ends.append(endData)
+        for x in 0...inEndCount - 1 {
+            let currEnd = inScores[x]
+            if inArrowsPerEnd == 3 {
+                let endData = ScoringEndData(a1Score: currEnd[0], a2Score: currEnd[1], a3Score: currEnd[2], a4Score: "0", a5Score: "0", a6Score: "0", endTot: String(inEndTots[x]), runNum: String(inRunning[x]))
+                ends.append(endData)
+            } else {
+                let endData = ScoringEndData(a1Score: currEnd[0], a2Score: currEnd[1], a3Score: currEnd[2], a4Score: currEnd[3], a5Score: currEnd[4], a6Score: currEnd[5], endTot: String(inEndTots[x]), runNum: String(inRunning[x]))
+                ends.append(endData)
+            }
         }
     }
     
@@ -112,10 +119,17 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let end = ends[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCell") as! congratsEndCell
-        cell.endLabel.text = "\(indexPath.row + 1)"
-        cell.setInfo(end: end)
-        return cell
+        if inArrowsPerEnd == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCell") as! congratsEndCell
+            cell.endLabel.text = "\(indexPath.row + 1)"
+            cell.setInfo(end: end)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCellSix") as! congratsEndCellSix
+            cell.endLabel.text = "\(indexPath.row + 1)"
+            cell.setInfo(end: end)
+            return cell
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -139,13 +153,19 @@ class ScoringEndData {
     var a1Score: String
     var a2Score: String
     var a3Score: String
+    var a4Score: String
+    var a5Score: String
+    var a6Score: String
     var endTot: String
     var runNum: String
     
-    init(a1Score: String, a2Score: String, a3Score: String, endTot: String, runNum: String) {
+    init(a1Score: String, a2Score: String, a3Score: String, a4Score: String, a5Score: String, a6Score: String, endTot: String, runNum: String) {
         self.a1Score = a1Score
         self.a2Score = a2Score
         self.a3Score = a3Score
+        self.a4Score = a4Score
+        self.a5Score = a5Score
+        self.a6Score = a6Score
         self.endTot = endTot
         self.runNum = runNum
     }

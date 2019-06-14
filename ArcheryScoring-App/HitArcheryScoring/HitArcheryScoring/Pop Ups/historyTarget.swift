@@ -43,6 +43,8 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var scoringType : String = ""
     var targetFace : String = ""
     var scrollViewHeight = CGFloat(0)
+    var endCount : Int = 0
+    var arrowsPerEnd : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,9 +72,15 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func createEndArray() {
-        for x in 0...9 {
-            let endData = ScoringEndData(a1Score: arrowScores[x][0], a2Score: arrowScores[x][1], a3Score: arrowScores[x][2], endTot: String(endTots[x]), runNum: String(runningScores[x]))
-            ends.append(endData)
+        for x in 0...endCount - 1 {
+            let currEnd = arrowScores[x]
+            if arrowsPerEnd == 3 {
+                let endData = ScoringEndData(a1Score: currEnd[0], a2Score: currEnd[1], a3Score: currEnd[2], a4Score: "0", a5Score: "0", a6Score: "0", endTot: String(endTots[x]), runNum: String(runningScores[x]))
+                ends.append(endData)
+            } else {
+                let endData = ScoringEndData(a1Score: currEnd[0], a2Score: currEnd[1], a3Score: currEnd[2], a4Score: currEnd[3], a5Score: currEnd[4], a6Score: currEnd[5], endTot: String(endTots[x]), runNum: String(runningScores[x]))
+                ends.append(endData)
+            }
         }
     }
     
@@ -80,13 +88,9 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         for end in arrowScores {
             var endTot = 0
             for a in end {
-                if a == "X" {
-                    endTot += 10
-                }
+                if a == "X" { endTot += 10 }
                 else if a == "M" { endTot += 0}
-                else {
-                    endTot += Int(a) ?? 0
-                }
+                else { endTot += Int(a) ?? 0 }
             }
             endTots.append(endTot)
         }
@@ -99,15 +103,22 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return endTots.count
+        return endCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let end = ends[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCell") as! congratsEndCell
-        cell.endLabel.text = "\(indexPath.row + 1)"
-        cell.setInfo(end: end)
-        return cell
+        if arrowsPerEnd == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCell") as! congratsEndCell
+            cell.endLabel.text = "\(indexPath.row + 1)"
+            cell.setInfo(end: end)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "congratsEndCellSix") as! congratsEndCellSix
+            cell.endLabel.text = "\(indexPath.row + 1)"
+            cell.setInfo(end: end)
+            return cell
+        }
     }
     
     func addTargetImage() {

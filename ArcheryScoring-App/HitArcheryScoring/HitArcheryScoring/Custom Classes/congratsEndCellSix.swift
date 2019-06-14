@@ -1,22 +1,25 @@
 //
-//  congratsEndCell.swift
+//  congratsEndCellSix.swift
 //  HitArcheryScoring
 //
-//  Created by Campbell Affleck on 6/5/19.
+//  Created by Campbell Affleck on 6/13/19.
 //  Copyright © 2019 Campbell Affleck. All rights reserved.
 //
 
 import UIKit
 
-class congratsEndCell: UITableViewCell {
+class congratsEndCellSix: UITableViewCell {
 
     //MARK: Properties
     @IBOutlet weak var endLabel: UILabel!
+    @IBOutlet weak var totLabel: UILabel!
+    @IBOutlet weak var runLabel: UILabel!
     @IBOutlet weak var ar1Label: UILabel!
     @IBOutlet weak var ar2Label: UILabel!
     @IBOutlet weak var ar3Label: UILabel!
-    @IBOutlet weak var totLabel: UILabel!
-    @IBOutlet weak var runLabel: UILabel!
+    @IBOutlet weak var ar4Label: UILabel!
+    @IBOutlet weak var ar5Label: UILabel!
+    @IBOutlet weak var ar6Label: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,11 +32,14 @@ class congratsEndCell: UITableViewCell {
         ar1Label.text = end.a1Score
         ar2Label.text = end.a2Score
         ar3Label.text = end.a3Score
+        ar4Label.text = end.a4Score
+        ar5Label.text = end.a5Score
+        ar6Label.text = end.a6Score
         totLabel.text = end.endTot
         runLabel.text = end.runNum
-        setArrowColors(labels: [ar1Label, ar2Label, ar3Label])
+        setArrowColors(labels: [ar1Label, ar2Label, ar3Label, ar4Label, ar5Label, ar6Label])
     }
-
+    
     func setArrowColors(labels : [UILabel]) {
         for label in labels {
             if ["M", "0", "1", "2"].contains(label.text) {

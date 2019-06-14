@@ -22,6 +22,8 @@ class HistoryRound : Object {
     @objc dynamic var relativePR : Int = 0
     @objc dynamic var scoringType : String = ""
     @objc dynamic var targetFace : String = ""
+    @objc dynamic var endCount: Int = 0
+    @objc dynamic var arrowsPerEnd: Int = 0
     
     //Save function for writing object to realm
     func saveRound() -> Bool {
@@ -41,9 +43,12 @@ class HistoryRound : Object {
 //Class used to saved arrowEndScores as end objects that have 3 arrows each, which then go into the new arrowEndScores list to work with realm
 class ArrowEndScores : Object {
     
-    @objc dynamic var a1: String = ""
-    @objc dynamic var a2: String = ""
-    @objc dynamic var a3: String = ""
+    @objc dynamic var a1: String = "0"
+    @objc dynamic var a2: String = "0"
+    @objc dynamic var a3: String = "0"
+    @objc dynamic var a4: String = "0"
+    @objc dynamic var a5: String = "0"
+    @objc dynamic var a6: String = "0"
 }
 
 //Can't save CGPoints in realm, so instead CGPoints are saved as ArrowPos objects with an x and y component, so they can easily be converted back to a CGPoint

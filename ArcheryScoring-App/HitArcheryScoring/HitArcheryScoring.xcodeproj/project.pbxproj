@@ -46,6 +46,7 @@
 		C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A722A71B50005CCF98 /* textScoring.swift */; };
 		C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
+		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		E026034611A3E949BF45F322 /* Pods_HitArcheryScoringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,7 @@
 		C07C91A722A71B50005CCF98 /* textScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textScoring.swift; sourceTree = "<group>"; };
 		C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threeArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
+		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		CC7C2E2DE7D6FE706931E618 /* Pods-HitArcheryScoring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoring.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring.release.xcconfig"; sourceTree = "<group>"; };
 		D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitArcheryScoringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E77A1FA88BCBB0B0826A24 /* Pods-HitArcheryScoringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
 				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
 				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
+				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
 				C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */,
@@ -543,6 +546,7 @@
 				C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */,
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
+				C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */,
 				C0729FFE22A8EEF700A283FB /* congratsEndCell.swift in Sources */,
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */,

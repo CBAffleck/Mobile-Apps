@@ -208,14 +208,12 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.aScores = arrowScores
             vc?.totalScore = totalScore
             vc?.hits = hits
-            vc?.endCount = currRound.endCount
-            vc?.roundNum = currRound.roundNum
             vc?.headerTitle = headerTitle
             vc?.timerValue = timerLabel.text!
             vc?.startDate = date
             vc?.scoringType = scoringType
-            vc?.targetFace = currRound.targetFace
-            vc?.roundName = currRound.roundName
+            vc?.currRound = currRound
+            vc?.roundNum = currRound.roundNum
         }
     }
     

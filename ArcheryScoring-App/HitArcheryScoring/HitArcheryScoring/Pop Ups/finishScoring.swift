@@ -22,26 +22,24 @@ class finishScoring: UIViewController {
     //MARK: Variables
     let realm = try! Realm()
     let round = HistoryRound()
+    var currRound = ScoringRound()
     var aScores: [[String]] = []
     var aLocations: [CGPoint] = []
     var totalScore = 0
     var hits = 0
     var endTots: [Int] = []
     var running: [Int] = []
-    var roundNum = 0                    //Round number in users history, pulled from realm
     var headerTitle = ""
-    var roundName = ""
     var timerValue = ""
     var startDate = ""
     var scoringType = ""
-    var targetFace = ""
     let defaults = UserDefaults.standard
     var targetImage = UIImage()
-    var endCount = 0
+    var roundNum = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         finishButton.layer.cornerRadius = 10
@@ -51,22 +49,15 @@ class finishScoring: UIViewController {
     //MARK: Functions
     //Determine which scoring round is being scored
     func updatedRoundInfo(round : HistoryRound) {
-        var currRound = ScoringRound()
         let currUser = realm.objects(UserInfo.self).first!
-        for result in realm.objects(ScoringRound.self) {
-            if result.roundName == roundName {
-                currRound = result
-                try! realm.write {
-                    round.relativePR = currRound.pr
-                    currRound.pastScores.append(totalScore)
-                    currRound.average = String(format: "%0.2f", Float(currRound.pastScores.sum()) / Float(roundNum))
-                    currRound.roundNum += 1
-                    currRound.lastScored = startDate
-                    currRound.pr = max(currRound.pr, totalScore)
-                    currUser.totalScoredRounds += 1
-                }
-                break
-            }
+        try! realm.write {
+            round.relativePR = currRound.pr
+            currRound.pastScores.append(totalScore)
+            currRound.average = String(format: "%0.2f", Float(currRound.pastScores.sum()) / Float(currRound.roundNum))
+            currRound.roundNum += 1
+            currRound.lastScored = startDate
+            currRound.pr = max(currRound.pr, totalScore)
+            currUser.totalScoredRounds += 1
         }
     }
     
@@ -98,6 +89,11 @@ class finishScoring: UIViewController {
             end.a1 = x[0]
             end.a2 = x[1]
             end.a3 = x[2]
+            if currRound.arrowsPerEnd == 6 {
+                end.a4 = x[3]
+                end.a5 = x[4]
+                end.a6 = x[5]
+            }
             aScoresList.append(end)
         }
         round.arrowScores = aScoresList
@@ -122,7 +118,9 @@ class finishScoring: UIViewController {
         }
         round.runningScores = runList
         round.scoringType = scoringType
-        round.targetFace = targetFace
+        round.targetFace = currRound.targetFace
+        round.endCount = currRound.endCount
+        round.arrowsPerEnd = currRound.arrowsPerEnd
         
         if round.saveRound() {
             print("Scoring round saved!")
@@ -170,7 +168,8 @@ class finishScoring: UIViewController {
             vc?.inScores = aScores
             vc?.inTotal = totalScore
             vc?.inHits = hits
-            vc?.inEndCount = endCount
+            vc?.inEndCount = currRound.endCount
+            vc?.inArrowsPerEnd = currRound.arrowsPerEnd
             vc?.inEndTots = endTots
             vc?.inRunning = running
             vc?.roundNum = roundNum
@@ -182,10 +181,10 @@ class finishScoring: UIViewController {
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
-        saveRound()
         if scoringType == "target" {
-            saveImage(imageName: targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+            saveImage(imageName: currRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
         }
+        saveRound()
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {

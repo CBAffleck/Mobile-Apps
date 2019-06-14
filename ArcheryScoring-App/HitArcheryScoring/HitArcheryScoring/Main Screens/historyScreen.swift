@@ -33,6 +33,8 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var relativePR : Int = 0
     var scoringType : String = ""
     var targetFace : String = ""
+    var endCount : Int = 0
+    var arrowsPerEnd : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +91,11 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         //Convert List<Object> to [[String]]
         var tempScores: [[String]] = []
         for x in rounds[indexPath.row].arrowScores {
-            tempScores.append([x.a1, x.a2, x.a3])
+            if rounds[indexPath.row].arrowsPerEnd == 3 {
+                tempScores.append([x.a1, x.a2, x.a3])
+            } else {
+                tempScores.append([x.a1, x.a2, x.a3, x.a4, x.a5, x.a6])
+            }
         }
         arrowScores = tempScores
         
@@ -111,6 +117,8 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         relativePR = rounds[indexPath.row].relativePR
         scoringType = rounds[indexPath.row].scoringType
         targetFace = rounds[indexPath.row].targetFace
+        endCount = rounds[indexPath.row].endCount
+        arrowsPerEnd = rounds[indexPath.row].arrowsPerEnd
         performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
         animateIn()
         tableView.deselectRow(at: indexPath, animated: false)
@@ -130,6 +138,8 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc?.relativePR = relativePR
             vc?.scoringType = scoringType
             vc?.targetFace = targetFace
+            vc?.endCount = endCount
+            vc?.arrowsPerEnd = arrowsPerEnd
         }
     }
     
