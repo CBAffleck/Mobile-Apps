@@ -215,6 +215,163 @@
                                             <outlet property="totalLabel" destination="5fp-uE-1qM" id="xWB-Ic-R1j"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="sixEndCellID" rowHeight="45" id="HKW-9a-Zei" customClass="sixArrowEndCell" customModule="HitArcheryScoring" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="159" width="355" height="45"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HKW-9a-Zei" id="BpM-jb-8bV">
+                                            <rect key="frame" x="0.0" y="0.0" width="355" height="44.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehz-Go-eG2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="355" height="44.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcG-Ir-aUJ">
+                                                            <rect key="frame" x="0.0" y="7.5" width="30" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="30" id="HgG-Wq-fmV"/>
+                                                                <constraint firstAttribute="height" constant="30" id="M2t-Of-5cV"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4O-BE-8dz">
+                                                            <rect key="frame" x="290" y="7.5" width="65" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="ODL-Y9-Wws"/>
+                                                                <constraint firstAttribute="width" constant="65" id="q6e-H0-Mxe"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="dNe-1P-JsV">
+                                                            <rect key="frame" x="40" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="ddg-uV-PcN"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow1:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="wl8-dw-cGj"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="gYI-I1-2Rj">
+                                                            <rect key="frame" x="81.5" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="gv9-qI-OGs"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow2:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="BGQ-1w-Rfr"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="bt2-LF-LmX">
+                                                            <rect key="frame" x="123" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="Nzc-c4-60i"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow3:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="eP9-2W-nXa"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="PIh-BL-xBo" userLabel="Arrow4 Field">
+                                                            <rect key="frame" x="164.5" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="fRA-IO-itt"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow4:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="Gq1-Fw-0c0"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="Elu-qF-bFD" userLabel="Arrow5 Field">
+                                                            <rect key="frame" x="206" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="FVm-im-pVU"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow5:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="OFO-rZ-mFh"/>
+                                                            </connections>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="dSB-uo-O9s" userLabel="Arrow6 Field">
+                                                            <rect key="frame" x="247.5" y="7.5" width="33.5" height="30"/>
+                                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="O66-YP-AEc"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            <connections>
+                                                                <action selector="enterArrow6:" destination="HKW-9a-Zei" eventType="editingDidEnd" id="dyt-9z-lRb"/>
+                                                            </connections>
+                                                        </textField>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="X4O-BE-8dz" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="2EA-jE-Pa7"/>
+                                                        <constraint firstItem="bt2-LF-LmX" firstAttribute="width" secondItem="dNe-1P-JsV" secondAttribute="width" id="2UW-fq-Dqj"/>
+                                                        <constraint firstItem="gYI-I1-2Rj" firstAttribute="leading" secondItem="dNe-1P-JsV" secondAttribute="trailing" constant="8" id="4GD-yn-A01"/>
+                                                        <constraint firstItem="GcG-Ir-aUJ" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="4IM-4w-aIA"/>
+                                                        <constraint firstItem="gYI-I1-2Rj" firstAttribute="width" secondItem="dNe-1P-JsV" secondAttribute="width" id="562-sK-xWf"/>
+                                                        <constraint firstItem="Elu-qF-bFD" firstAttribute="width" secondItem="dNe-1P-JsV" secondAttribute="width" id="5aA-qk-xP5"/>
+                                                        <constraint firstItem="dSB-uo-O9s" firstAttribute="width" secondItem="dNe-1P-JsV" secondAttribute="width" id="AKO-RH-3sl"/>
+                                                        <constraint firstItem="GcG-Ir-aUJ" firstAttribute="leading" secondItem="ehz-Go-eG2" secondAttribute="leading" id="M8c-Hy-4EE"/>
+                                                        <constraint firstItem="Elu-qF-bFD" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="Nt6-bU-mrG"/>
+                                                        <constraint firstItem="bt2-LF-LmX" firstAttribute="leading" secondItem="gYI-I1-2Rj" secondAttribute="trailing" constant="8" id="QVj-bv-Jvo"/>
+                                                        <constraint firstItem="dNe-1P-JsV" firstAttribute="leading" secondItem="GcG-Ir-aUJ" secondAttribute="trailing" constant="10" id="RxS-0P-AE5"/>
+                                                        <constraint firstItem="bt2-LF-LmX" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="WRu-Zg-B3S"/>
+                                                        <constraint firstItem="PIh-BL-xBo" firstAttribute="leading" secondItem="bt2-LF-LmX" secondAttribute="trailing" constant="8" id="aB3-bf-9h8"/>
+                                                        <constraint firstAttribute="trailing" secondItem="X4O-BE-8dz" secondAttribute="trailing" id="fFi-RO-qDp"/>
+                                                        <constraint firstItem="gYI-I1-2Rj" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="fLH-Yz-Dg0"/>
+                                                        <constraint firstItem="PIh-BL-xBo" firstAttribute="width" secondItem="dNe-1P-JsV" secondAttribute="width" id="iid-Pe-nuX"/>
+                                                        <constraint firstItem="PIh-BL-xBo" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="l0l-2k-UJ8"/>
+                                                        <constraint firstItem="dSB-uo-O9s" firstAttribute="leading" secondItem="Elu-qF-bFD" secondAttribute="trailing" constant="8" id="lkL-sU-hVE"/>
+                                                        <constraint firstItem="dSB-uo-O9s" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="nXO-p3-0Ig"/>
+                                                        <constraint firstItem="X4O-BE-8dz" firstAttribute="leading" secondItem="dSB-uo-O9s" secondAttribute="trailing" constant="9" id="oem-kV-hQA"/>
+                                                        <constraint firstItem="dNe-1P-JsV" firstAttribute="centerY" secondItem="ehz-Go-eG2" secondAttribute="centerY" id="t4j-o8-Avn"/>
+                                                        <constraint firstItem="Elu-qF-bFD" firstAttribute="leading" secondItem="PIh-BL-xBo" secondAttribute="trailing" constant="8" id="ugh-Ps-B1I"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ehz-Go-eG2" secondAttribute="bottom" id="4nj-jc-h6M"/>
+                                                <constraint firstAttribute="trailing" secondItem="ehz-Go-eG2" secondAttribute="trailing" id="FoW-Ih-C9l"/>
+                                                <constraint firstItem="ehz-Go-eG2" firstAttribute="leading" secondItem="BpM-jb-8bV" secondAttribute="leading" id="m1U-MN-jvQ"/>
+                                                <constraint firstItem="ehz-Go-eG2" firstAttribute="top" secondItem="BpM-jb-8bV" secondAttribute="top" id="veM-D2-pkD"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="arrow1Field" destination="dNe-1P-JsV" id="WK0-2a-XSe"/>
+                                            <outlet property="arrow2Field" destination="gYI-I1-2Rj" id="adF-w2-XAi"/>
+                                            <outlet property="arrow3Field" destination="bt2-LF-LmX" id="kqI-6O-mTt"/>
+                                            <outlet property="arrow4Field" destination="PIh-BL-xBo" id="tNa-yd-mnq"/>
+                                            <outlet property="arrow5Field" destination="Elu-qF-bFD" id="yoa-ki-ukL"/>
+                                            <outlet property="arrow6Field" destination="dSB-uo-O9s" id="Djk-pW-S45"/>
+                                            <outlet property="cellView" destination="ehz-Go-eG2" id="vuy-gy-fCc"/>
+                                            <outlet property="endLabel" destination="GcG-Ir-aUJ" id="dLR-yZ-ney"/>
+                                            <outlet property="totalLabel" destination="X4O-BE-8dz" id="jab-8U-Ddd"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Total: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwd-br-m2g">

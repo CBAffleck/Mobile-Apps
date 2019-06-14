@@ -141,12 +141,21 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
-        cell.endLabel.text = "\(indexPath.row + 1)"
-        cell.inputType = scoringType
-        cell.setUp()
-        cell.delegate = self    //Set delegate to be self so that we can view the textfield data
-        return cell
+        if currRound.arrowsPerEnd == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
+            cell.endLabel.text = "\(indexPath.row + 1)"
+            cell.inputType = scoringType
+            cell.setUp()
+            cell.delegate = self    //Set delegate to be self so that we can view the textfield data
+            return cell
+        } else {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "sixEndCellID") as! sixArrowEndCell
+            cell2.endLabel.text = "\(indexPath.row + 1)"
+            cell2.inputType = scoringType
+            cell2.setUp()
+            cell2.delegate = self    //Set delegate to be self so that we can view the textfield data
+            return cell2
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -154,7 +163,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     //MARK: Table Cells
-    func textFieldShouldEndEditing(end: Int, arrow: Int, score: String, cell: threeArrowEndCell) {
+    func textFieldShouldEndEditing(end: Int, arrow: Int, score: String) {
         arrowScores[end][arrow] = score
         var calc = calculateTotal()
         totalScore = calc[0]
