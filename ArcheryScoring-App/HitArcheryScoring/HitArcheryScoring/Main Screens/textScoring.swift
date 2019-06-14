@@ -29,7 +29,6 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     let realm = try! Realm()
     var currRound = ScoringRound()
     var headerTitle = ""
-    var roundName = ""
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
     var totalScore = 0
     var hits = 0
@@ -52,9 +51,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
-        getRoundInfo()
-        roundName = headerTitle
-        headerTitle += " #" + String(currRound.roundNum)
+        headerTitle = currRound.roundName + " #" + String(currRound.roundNum)
         setUpTableView()
         self.hideKeyboardOnTap()
         scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
@@ -62,8 +59,8 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         cancelButton.layer.cornerRadius = 10
         titleLabel.text = headerTitle
         //Set up arrowScores array so that the values can be updated as arrow scores are recorded
-        for _ in 0...9 {
-            arrowScores.append(["0", "0", "0"])
+        for _ in 0...currRound.endCount - 1 {
+            arrowScores.append([String](repeating: "0", count: currRound.arrowsPerEnd))
         }
         //Set up and start timer
         startTimer()
@@ -73,15 +70,6 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let dateFormatPrint = DateFormatter()
         dateFormatPrint.dateFormat = "h:mm a, MMM d, yyyy"      //Ex: 4:10 PM, June 8, 2019
         date = dateFormatPrint.string(from: tempDate)
-    }
-    
-    //Determine which scoring round is being scored
-    func getRoundInfo() {
-        for result in realm.objects(ScoringRound.self) {
-            if result.roundName == headerTitle {
-                currRound = result
-            }
-        }
     }
     
     func startTimer() {
@@ -184,7 +172,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func calculateTotal() -> [Int] {
         var total = 0
         var hits = 0
-        for x in 0...9 {
+        for x in 0...currRound.endCount - 1 {
             for a in arrowScores[x] {
                 if a == "X" {
                     total += 10
@@ -218,7 +206,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
             vc?.startDate = date
             vc?.scoringType = scoringType
             vc?.targetFace = currRound.targetFace
-            vc?.roundName = roundName
+            vc?.roundName = currRound.roundName
         }
     }
     

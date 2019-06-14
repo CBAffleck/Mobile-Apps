@@ -48,10 +48,10 @@ class startScoring: UIViewController {
         super.prepare(for: segue, sender: sender)
         if segue.destination is textScoring {
             let view = segue.destination as? textScoring
-            view?.headerTitle = currRound.roundName
+            view?.currRound = currRound
         } else if segue.destination is targetScoring {
             let view = segue.destination as? targetScoring
-            view?.headerTitle = currRound.roundName
+            view?.currRound = currRound
         }
     }
     

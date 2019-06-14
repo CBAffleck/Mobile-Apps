@@ -55,7 +55,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.targetFace = "SingleSpot"
             indoorRound18m.innerTen = "off"
             indoorRound18m.endCount = 10
-            indoorRound18m.arrowsPerEnd = 10
+            indoorRound18m.arrowsPerEnd = 3
             if indoorRound18m.saveScoringRound() { print("Scoring round saved!") }
             else { print("Could not save scoring round.") }
             

@@ -36,7 +36,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var currRound = ScoringRound()
     var currUser = UserInfo()
     var headerTitle = ""
-    var roundName = ""
     var totalScore = 0
     var targets = [UIImage]()
     var arrows = [Int]()
@@ -62,12 +61,10 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
-        getRoundInfo()
         currUser = realm.objects(UserInfo.self).first!
-        roundName = headerTitle
-        headerTitle += " #" + String(currRound.roundNum)  //Set header title with number
+        headerTitle = currRound.roundName + " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
-        for x in 1...10 {
+        for x in 1...currRound.endCount {
             let cell = tableView.dequeueReusableCell(withIdentifier: "endCellID") as! threeArrowEndCell
             cell.endLabel.text = String(x)
             cell.inputType = scoringType
@@ -84,8 +81,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         updateImageConstraints()
         
         //Set up arrowScores array so that the values can be updated as arrow scores are recorded
-        for _ in 0...9 {
-            arrowScores.append(["0", "0", "0"])
+        for _ in 0...currRound.endCount - 1 {
+            arrowScores.append([String](repeating: "0", count: currRound.arrowsPerEnd))
         }
         
         //Configure aesthetics for table/buttons
@@ -114,15 +111,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     }
 
     //MARK: Functions
-    //Determine which scoring round is being scored
-    func getRoundInfo() {
-        for result in realm.objects(ScoringRound.self) {
-            if result.roundName == headerTitle {
-                currRound = result
-            }
-        }
-    }
-    
     func startTimer() {
         startTime = Date().timeIntervalSinceReferenceDate - elapsed
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
@@ -228,6 +216,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         targetImageView.image = newTarget
         
         print(point)
+        //Calculate score from tap point and update arrowScores, hits, totalScore, arrows, and labels
         var calculatedScore = calculateScore(targetType: currRound.targetFace, point: point, innerTen: currRound.innerTen)
         let score = Int(calculatedScore[0])
         let scoreString = calculatedScore[1]
@@ -307,7 +296,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         let cell = tableView.cellForRow(at: indexPath) as! threeArrowEndCell
         //Calculate new end total after each arrow
-        let endTot = calculateEndTotal(ar1: arrowScores[endNum][0], ar2: arrowScores[endNum][1], ar3: arrowScores[endNum][2])
+        let endTot = calculateEndTotal(arrows: arrowScores[endNum])
         cell.totalLabel.text = String(endTot)
         if endArrowNum == 0 {
             cell.arrow1Field.text = score
@@ -317,25 +306,42 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             cell.arrow2Field.text = score
             applyEndColors(cell: cell, score: score)
             endArrowNum += 1
-        } else {
+        } else if endArrowNum == 2 {
             cell.arrow3Field.text = score
             applyEndColors(cell: cell, score: score)
-            endArrowNum = 0
-            endNum += 1
-            if endNum == 10 {
-                targetImageView.gestureRecognizers?.first!.isEnabled = false
-            } else {
-                let nextIndexPath = IndexPath(row: endNum, section: 0)
-                tableView.scrollToRow(at: nextIndexPath, at: .middle, animated: true)
-                let nextCell = tableView.cellForRow(at: nextIndexPath) as! threeArrowEndCell
-                nextCell.arrow1Field.layer.borderWidth = 2.0
-                nextCell.arrow1Field.layer.borderColor = UIColor.black.cgColor
+            if currRound.arrowsPerEnd == 3 {
+                triggerNextEnd()
             }
+        } else if endArrowNum == 3 {
+//            cell.arrow4Field.text = score
+            applyEndColors(cell: cell, score: score)
+            endArrowNum += 1
+        } else if endArrowNum == 4 {
+//            cell.arrow5Field.text = score
+            applyEndColors(cell: cell, score: score)
+            endArrowNum += 1
+        } else if endArrowNum == 5 {
+//            cell.arrow6Field.text = score
+            applyEndColors(cell: cell, score: score)
+            triggerNextEnd()
         }
     }
     
-    func calculateEndTotal(ar1 : String, ar2 : String, ar3 : String) -> Int {
-        let arrows = [ar1, ar2, ar3]
+    func triggerNextEnd() {
+        endArrowNum = 0
+        endNum += 1
+        if endNum == currRound.endCount {
+            targetImageView.gestureRecognizers?.first!.isEnabled = false
+        } else {
+            let nextIndexPath = IndexPath(row: endNum, section: 0)
+            tableView.scrollToRow(at: nextIndexPath, at: .middle, animated: true)
+            let nextCell = tableView.cellForRow(at: nextIndexPath) as! threeArrowEndCell
+            nextCell.arrow1Field.layer.borderWidth = 2.0
+            nextCell.arrow1Field.layer.borderColor = UIColor.black.cgColor
+        }
+    }
+    
+    func calculateEndTotal(arrows : [String]) -> Int {
         var total = 0
         for a in arrows {
             if a == "X" { total += 10}
@@ -357,12 +363,33 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             cell.arrow2Field.backgroundColor = determineEndColor(score: score)
             cell.arrow3Field.layer.borderWidth = 2.0
             cell.arrow3Field.layer.borderColor = UIColor.black.cgColor
-        } else {
-            cell.arrow3Field.backgroundColor = determineEndColor(score: score)
+        } else if endArrowNum == 2 {
             cell.arrow3Field.layer.borderWidth = 0.0
-            cell.cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-            cell.endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
-            cell.totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            cell.arrow3Field.backgroundColor = determineEndColor(score: score)
+            if currRound.arrowsPerEnd == 3 {
+                cell.cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                cell.endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+                cell.totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+            } else {
+//                cell.arrow4Field.layer.borderWidth = 2.0
+//                cell.arrow4Field.layer.borderColor = UIColor.black.cgColor
+            }
+        } else if endArrowNum == 3 {
+//            cell.arrow4Field.layer.borderWidth = 0.0
+//            cell.arrow4Field.backgroundColor = determineEndColor(score: score)
+//            cell.arrow5Field.layer.borderWidth = 2.0
+//            cell.arrow5Field.layer.borderColor = UIColor.black.cgColor
+        } else if endArrowNum == 4 {
+//            cell.arrow5Field.layer.borderWidth = 0.0
+//            cell.arrow5Field.backgroundColor = determineEndColor(score: score)
+//            cell.arrow6Field.layer.borderWidth = 2.0
+//            cell.arrow6Field.layer.borderColor = UIColor.black.cgColor
+        } else if endArrowNum == 5 {
+//            cell.arrow6Field.layer.borderWidth = 0.0
+//            cell.arrow6Field.backgroundColor = determineEndColor(score: score)
+//            cell.cellView.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+//            cell.endLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
+//            cell.totalLabel.backgroundColor = UIColor(red: 234/255, green: 250/255, blue: 240/255, alpha: 1.0)
         }
     }
     
@@ -413,7 +440,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.targetFace = currRound.targetFace
             vc?.aLocations = arrowLocations
             vc?.targetImage = targets.last ?? UIImage(named: currRound.targetFace)!
-            vc?.roundName = roundName
+            vc?.roundName = currRound.roundName
         }
     }
     
@@ -455,7 +482,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             arrows.removeLast()
             arrowLocations.removeLast()
             
-            if endNum != 10 {
+            if endNum != currRound.endCount {
                 //Get current cell
                 let indexPath = IndexPath(row: endNum, section: 0)
                 tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
@@ -469,25 +496,40 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                         //Set textfield border when not selected
                         cell.arrow1Field.layer.borderWidth = 0.0
                         endNum -= 1
-                        endArrowNum = 2
+                        endArrowNum = currRound.arrowsPerEnd - 1
                     }
                 } else if endArrowNum == 1 {
-                    arrowScores[endNum][0] = "0"
+                    arrowScores[endNum][endArrowNum - 1] = "0"
                     //Set textfield border when selected
                     cell.arrow2Field.layer.borderWidth = 0.0
-                    endArrowNum = 0
-                } else {
-                    arrowScores[endNum][1] = "0"
+                    endArrowNum -= 1
+                } else if endArrowNum == 2 {
+                    arrowScores[endNum][endArrowNum - 1] = "0"
                     //Set textfield border when selected
                     cell.arrow3Field.layer.borderWidth = 0.0
-                    endArrowNum = 1
+                    endArrowNum -= 1
+                } else if endArrowNum == 3 {
+                    arrowScores[endNum][endArrowNum - 1] = "0"
+                    //Set textfield border when selected
+//                    cell.arrow4Field.layer.borderWidth = 0.0
+                    endArrowNum -= 1
+                } else if endArrowNum == 4 {
+                    arrowScores[endNum][endArrowNum - 1] = "0"
+                    //Set textfield border when selected
+//                    cell.arrow5Field.layer.borderWidth = 0.0
+                    endArrowNum -= 1
+                } else if endArrowNum == 5 {
+                    arrowScores[endNum][endArrowNum - 1] = "0"
+                    //Set textfield border when selected
+//                    cell.arrow6Field.layer.borderWidth = 0.0
+                    endArrowNum -= 1
                 }
             }
             
-            if endNum == 10 {
-                endNum = 9
-                endArrowNum = 2
-                arrowScores[9][2] = "0"
+            if endNum == currRound.endCount {
+                endNum = currRound.endCount - 1
+                endArrowNum = currRound.arrowsPerEnd - 1
+                arrowScores[endNum][endArrowNum] = "0"
                 targetImageView.gestureRecognizers?.first!.isEnabled = true
             }
             //Get previous cell
@@ -510,20 +552,48 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                 //Set border on cell again
                 prevCell.arrow2Field.layer.borderWidth = 2.0
                 prevCell.arrow2Field.layer.borderColor = UIColor.black.cgColor
-            } else {
+            } else if endArrowNum == 2 {
                 prevCell.arrow3Field.text = ""
                 //Get rid of color corresponding to previous arrow score
                 prevCell.arrow3Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
-                prevCell.cellView.backgroundColor = UIColor.white
-                prevCell.endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
-                prevCell.totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
                 //Set border on cell again
                 prevCell.arrow3Field.layer.borderWidth = 2.0
                 prevCell.arrow3Field.layer.borderColor = UIColor.black.cgColor
+                if currRound.arrowsPerEnd == 3 {
+                    //Reset row colors
+                    prevCell.cellView.backgroundColor = UIColor.white
+                    prevCell.endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                    prevCell.totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+                }
+            } else if endArrowNum == 3 {
+//                prevCell.arrow4Field.text = ""
+//                //Get rid of color corresponding to previous arrow score
+//                prevCell.arrow4Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+//                //Set border on cell again
+//                prevCell.arrow4Field.layer.borderWidth = 2.0
+//                prevCell.arrow4Field.layer.borderColor = UIColor.black.cgColor
+            } else if endArrowNum == 4 {
+//                prevCell.arrow5Field.text = ""
+//                //Get rid of color corresponding to previous arrow score
+//                prevCell.arrow5Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+//                //Set border on cell again
+//                prevCell.arrow5Field.layer.borderWidth = 2.0
+//                prevCell.arrow5Field.layer.borderColor = UIColor.black.cgColor
+            } else if endArrowNum == 5 {
+//                prevCell.arrow6Field.text = ""
+//                //Get rid of color corresponding to previous arrow score
+//                prevCell.arrow6Field.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+//                //Set border on cell again
+//                prevCell.arrow6Field.layer.borderWidth = 2.0
+//                prevCell.arrow6Field.layer.borderColor = UIColor.black.cgColor
+//                //Reset row colors
+//                prevCell.cellView.backgroundColor = UIColor.white
+//                prevCell.endLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
+//                prevCell.totalLabel.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1.0)
             }
             
             //Calculate new end total after removing arrow
-            let endTot = calculateEndTotal(ar1: arrowScores[endNum][0], ar2: arrowScores[endNum][1], ar3: arrowScores[endNum][2])
+            let endTot = calculateEndTotal(arrows: arrowScores[endNum])
             if endTot == 0 { prevCell.totalLabel.text = "" }
             else { prevCell.totalLabel.text = String(endTot) }
             
