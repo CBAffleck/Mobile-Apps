@@ -143,19 +143,6 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
     }
     
-    func loadImageFromDiskWith(fileName : String) -> UIImage {
-        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
-        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
-        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
-        
-        if let dirPath = paths.first {
-            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
-            let image = UIImage(contentsOfFile: imageURL.path)
-            return image ?? UIImage(named: "SingleSpot")!
-        }
-        return UIImage(named: "SingleSpot")!
-    }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.contentOffset.x = 0
     }

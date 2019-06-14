@@ -36,6 +36,7 @@ class finishScoring: UIViewController {
     let defaults = UserDefaults.standard
     var targetImage = UIImage()
     var roundNum = 0
+    var imgCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,31 +133,6 @@ class finishScoring: UIViewController {
         updatedRoundInfo(round: round)
     }
     
-    //Save target image to documents folder with a filename equal to the target face + distance + roundNum
-    func saveImage(imageName : String, image : UIImage) {
-        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-        
-        let fileName = imageName
-        let fileURL = documentsDirectory.appendingPathComponent(fileName)
-        guard let data = image.jpegData(compressionQuality: 1) else { return }
-        
-        //Check if file exists, remove if so
-        if FileManager.default.fileExists(atPath: fileURL.path) {
-            do {
-                try FileManager.default.removeItem(at: fileURL)
-                print("Removed old image")
-            } catch let removeError {
-                print("Couldn't remove file at path ", removeError)
-            }
-        }
-        
-        do {
-            try data.write(to: fileURL)
-        } catch let error {
-            print("Error saving image with error ", error)
-        }
-    }
-    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -185,6 +161,11 @@ class finishScoring: UIViewController {
             saveImage(imageName: currRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
         }
         saveRound()
+        if scoringType == "target" && imgCount > 1 {
+            for i in 1...imgCount - 1 {
+                removeImage(imageName: "temp" + String(i))
+            }
+        }
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {

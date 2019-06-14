@@ -43,6 +43,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if realm.objects(ScoringRound.self).first != nil {
             //Do nothing since the scoring rounds have already been added
         } else {
+            saveImage(imageName: "SingleSpot", image: UIImage(named: "SingleSpot")!)
             //Set 18m indoor scoring round and save to realm
             let indoorRound18m = ScoringRound()
             indoorRound18m.roundName = "18m Scoring Round"
@@ -190,3 +191,61 @@ extension UIViewController {
     }
 }
 
+extension UIViewController {
+    //Save target image to documents folder with a filename equal to the name + image number
+    func saveImage(imageName : String, image : UIImage) {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        let fileName = imageName
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        guard let data = image.jpegData(compressionQuality: 1) else { return }
+        
+        //Check if file exists, remove if so
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+                print("Removed old image")
+            } catch let removeError {
+                print("Couldn't remove file at path ", removeError)
+            }
+        }
+        
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            print("Error saving image with error ", error)
+        }
+    }
+    
+    //Remove target image from documents folder with a given filename
+    func removeImage(imageName : String) {
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        let fileName = imageName
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        
+        //Check if file exists, remove if so
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try FileManager.default.removeItem(at: fileURL)
+                print("Removed old image")
+            } catch let removeError {
+                print("Couldn't remove file at path ", removeError)
+            }
+        }
+    }
+    
+    //Fetch image from disk
+    func loadImageFromDiskWith(fileName : String) -> UIImage {
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let dirPath = paths.first {
+            let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
+            let image = UIImage(contentsOfFile: imageURL.path)
+            return image ?? UIImage(named: "SingleSpot")!
+        }
+        return UIImage(named: "SingleSpot")!
+    }
+}

@@ -37,7 +37,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var currUser = UserInfo()
     var headerTitle = ""
     var totalScore = 0
-    var targets = [UIImage]()
     var arrows = [Int]()
     var arrowLocations = [CGPoint]()
     var arrowScores: [[String]] = []    //The arrow scores are saved here as an array of strings for each end.
@@ -53,6 +52,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     var date = ""
     let scoringType = "target"
     let defaults = UserDefaults.standard
+    var imgCount = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = UIImage(named: currRound.targetFace)
+        targetImageView.image = loadImageFromDiskWith(fileName: "SingleSpot")
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -232,7 +232,10 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     @objc func imageTapped(gesture: UIGestureRecognizer) {
         let point: CGPoint = gesture.location(in: gesture.view)
         let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: targetImageView.image!, atPoint: point)
-        targets.append(newTarget)
+        saveImage(imageName: "temp" + String(imgCount), image: newTarget)
+        imgCount += 1
+        print(imgCount)
+//        targets.append(newTarget)
         arrowLocations.append(point)
         targetImageView.image = newTarget
         
@@ -495,9 +498,10 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.startDate = date
             vc?.scoringType = scoringType
             vc?.aLocations = arrowLocations
-            vc?.targetImage = targets.last ?? UIImage(named: currRound.targetFace)!
+            vc?.targetImage = targetImageView.image!
             vc?.currRound = currRound
             vc?.roundNum = currRound.roundNum
+            vc?.imgCount = imgCount
         }
     }
     
@@ -521,11 +525,26 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     //MARK: Remove Button
     @IBAction func removeLastArrow(_ sender: UIButton) {
-        if !targets.isEmpty {
-            //Set target image to last image without most recent arrow mark
-            targetImageView.image = targets.last
-            targets.removeLast()
+        if imgCount > 1 {
+            
+            //Set target image to last image without most recent arrow mark by deleting current image from disk and fetching last target image from disk
+            imgCount -= 1
+            if imgCount > 0 {
+                print(imgCount)
+                removeImage(imageName: "temp" + String(imgCount))
+                imgCount -= 1
+                let newImage = loadImageFromDiskWith(fileName: "temp" + String(imgCount))
+                //Need to resize because the images saved to disk are loaded from disk as 3000x3000px
+                UIGraphicsBeginImageContext(CGSize(width: 1000, height: 1000))
+                newImage.draw(in: CGRect(x: 0, y: 0, width: 1000, height: 1000))
+                let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+                UIGraphicsEndImageContext()
+                if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: "SingleSpot") }
+                else { targetImageView.image = scaledImage }
+                imgCount += 1
+            }
             //Remove arrow score from running total
+            
             totalScore -= arrows.last!
             totalScoreLabel.text = "Running Total: " + totalScore.description
             //Remove last hit from hits if necessary
@@ -712,8 +731,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                 else { prevCell.totalLabel.text = String(endTot) }
             }
             
-            if targets.count > 0 { targetImageView.image = targets.last }
-            else { targetImageView.image = UIImage(named: currRound.targetFace)}
+//            if targets.count > 0 { targetImageView.image = targets.last }
+//            else { targetImageView.image = UIImage(named: currRound.targetFace)}
         }
         let prevIndexPath = IndexPath(row: endNum, section: 0)
         tableView.scrollToRow(at: prevIndexPath, at: .middle, animated: true)
