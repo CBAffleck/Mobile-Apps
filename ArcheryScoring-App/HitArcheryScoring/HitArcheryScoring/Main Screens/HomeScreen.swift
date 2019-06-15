@@ -34,7 +34,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         setUpRealm()
         currUser = realm.objects(UserInfo.self).first!
-        print(currUser)
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
