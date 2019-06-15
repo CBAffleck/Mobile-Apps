@@ -59,7 +59,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.innerTen = "off"
             indoorRound18m.endCount = 10
             indoorRound18m.arrowsPerEnd = 3
-            if indoorRound18m.saveScoringRound() { print("Scoring round saved!") }
+            if indoorRound18m.saveScoringRound() { print("18M Scoring round saved!") }
             else { print("Could not save scoring round.") }
             
             //Set 70m outdoor scoring round and save to realm
@@ -75,7 +75,23 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.innerTen = "off"
             outdoorRound70m.endCount = 6
             outdoorRound70m.arrowsPerEnd = 6
-            if outdoorRound70m.saveScoringRound() { print("Scoring round saved!") }
+            if outdoorRound70m.saveScoringRound() { print("70M Scoring round saved!") }
+            else { print("Could not save scoring round.") }
+            
+            //Set 50m outdoor scoring round and save to realm
+            let outdoorRound50m = ScoringRound()
+            outdoorRound50m.roundName = "50m Scoring Round"
+            outdoorRound50m.roundNum = 1
+            outdoorRound50m.distance = "50m"
+            outdoorRound50m.lastScored = "--"
+            outdoorRound50m.roundDescription = "6 ends, 6 arrows per end"
+            outdoorRound50m.average = "0"
+            outdoorRound50m.pr = 0
+            outdoorRound50m.targetFace = "SingleSpot"
+            outdoorRound50m.innerTen = "off"
+            outdoorRound50m.endCount = 6
+            outdoorRound50m.arrowsPerEnd = 6
+            if outdoorRound50m.saveScoringRound() { print("50M Scoring round saved!") }
             else { print("Could not save scoring round.") }
         }
         

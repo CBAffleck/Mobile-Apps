@@ -69,6 +69,14 @@ class editProfile: UIViewController, UITextFieldDelegate {
         pr50Field.delegate = self
         pr70Field.delegate = self
         
+        //Set textfields
+        firstNameField.text = currUser.firstName
+        lastNameField.text = currUser.lastName
+        shootingStyleField.text = currUser.bowType
+        if !(currUser.pr18 == 0) { pr18Field.text = String(currUser.pr18) }
+        if !(currUser.pr50 == 0) { pr50Field.text = String(currUser.pr50) }
+        if !(currUser.pr70 == 0) { pr70Field.text = String(currUser.pr70) }
+        
     }
     
     //MARK: Functions
