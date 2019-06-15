@@ -26,11 +26,13 @@ class profileScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissPopUp), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
         currUser = realm.objects(UserInfo.self).first!
         nameLabel.text = currUser.firstName + " " + currUser.lastName
         bowLabel.text = currUser.bowType
         roundCountLabel.text = setRoundCountLabel()
+        profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)
     }
 
     //MARK: Functions
@@ -38,6 +40,13 @@ class profileScreen: UIViewController {
         let numRounds = realm.objects(HistoryRound.self).count
         if numRounds == 1 { return String(numRounds) + " Round Scored" }
         else { return String(numRounds) + " Rounds Scored" }
+    }
+    
+    @objc func dismissPopUp() {
+        //Set new target face icon on the round that was changed
+        nameLabel.text = currUser.firstName + " " + currUser.lastName
+        bowLabel.text = currUser.bowType
+        if currUser.profilePic != "EditProfile" { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
     }
     
     // MARK: - Navigation

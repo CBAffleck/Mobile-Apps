@@ -37,6 +37,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
         self.hideKeyboardOnTap()
     }
     
@@ -103,10 +104,12 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             newUser.firstName = "First"
             newUser.lastName = "Last"
             newUser.bowType = "Olympic Recurve"
+            newUser.profilePic = "EditProfile"
             newUser.totalScoredRounds = 0
             newUser.languagePref = "English"
             if newUser.saveUser() { print("New user saved!") }
             else { print("Could not save new user info.") }
+            saveImage(imageName: "EditProfile", image: UIImage(named: "EditProfile")!)
         }
     }
     

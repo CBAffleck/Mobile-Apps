@@ -62,6 +62,8 @@ class historyTarget: UIViewController, UITableViewDelegate, UITableViewDataSourc
         closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
         tableView.isUserInteractionEnabled = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
         
         titleLabel.text = roundTitle
         dateLabel.text = date

@@ -95,6 +95,7 @@ class UserInfo : Object {
     @objc dynamic var firstName : String = ""
     @objc dynamic var lastName : String = ""
     @objc dynamic var bowType : String = ""
+    @objc dynamic var profilePic : String = ""
     @objc dynamic var totalScoredRounds : Int = 0
     @objc dynamic var languagePref : String = ""
     @objc dynamic var pr18 : Int = 0

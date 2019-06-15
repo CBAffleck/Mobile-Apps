@@ -55,6 +55,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         setUpTableView()
         self.hideKeyboardOnTap()
         scoringTable.separatorStyle = .none     //Gets rid of separator line between table cells
+        scoringTable.showsVerticalScrollIndicator = false
         finishButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
         titleLabel.text = headerTitle

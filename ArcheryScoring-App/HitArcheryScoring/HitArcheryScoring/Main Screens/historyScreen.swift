@@ -51,6 +51,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         setUpTableView()
         historyTable.separatorStyle = .none
+        historyTable.showsVerticalScrollIndicator = false
     }
     
     //Put historyRound objects into an array that cells can be made from

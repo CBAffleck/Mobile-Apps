@@ -24,6 +24,7 @@ class editProfile: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var pr18Field: UITextField!
     @IBOutlet weak var pr50Field: UITextField!
     @IBOutlet weak var pr70Field: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -44,6 +45,7 @@ class editProfile: UIViewController, UITextFieldDelegate {
         closeButton.layer.cornerRadius = 10
         choosePicButton.layer.cornerRadius = 10
         removePicButton.layer.cornerRadius = 10
+        saveButton.layer.cornerRadius = 10
         
         //Corner radius for textfields
         firstNameField.layer.cornerRadius = 10
@@ -122,6 +124,16 @@ class editProfile: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
+    func saveUserInfo() {
+        try! realm.write {
+            currUser.firstName = firstNameField.text ?? "First"
+            currUser.lastName = lastNameField.text ?? "Last"
+            currUser.bowType = shootingStyleField.text ?? "Olympic Recurve"
+            currUser.pr18 = Int(pr18Field.text ?? "0") ?? 0
+            currUser.pr50 = Int(pr50Field.text ?? "0") ?? 0
+            currUser.pr70 = Int(pr70Field.text ?? "0") ?? 0
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -134,11 +146,24 @@ class editProfile: UIViewController, UITextFieldDelegate {
 
     //MARK: Actions
     @IBAction func closeTapped(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+            self.modalTransitionStyle = .crossDissolve
+            self.view.alpha = 0
+        }, completion: nil)
+        dismiss(animated: true)
     }
+    
     @IBAction func chooseTapped(_ sender: UIButton) {
     }
+    
     @IBAction func removeTapped(_ sender: UIButton) {
     }
+    
+    @IBAction func saveTapped(_ sender: UIButton) {
+        saveUserInfo()
+    }
+    
     @IBAction func firstNameTapped(_ sender: ProfileEditFields) {
     }
     @IBAction func lastNameTapped(_ sender: ProfileEditFields) {
