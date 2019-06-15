@@ -23,6 +23,11 @@
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="selectedIndex">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="Zua-Rm-AjH" kind="relationship" relationship="viewControllers" id="dDv-yZ-ZUo"/>
                         <segue destination="FIt-rv-a8p" kind="relationship" relationship="viewControllers" id="5Bp-rq-08c"/>
@@ -89,6 +94,7 @@
                                 </constraints>
                                 <connections>
                                     <action selector="tappedEdit:" destination="An0-kS-TpP" eventType="touchUpInside" id="RQw-jk-1UO"/>
+                                    <segue destination="a3U-gm-Y6Y" kind="presentation" identifier="profileToEditSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="Tsr-yC-sdj"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-CO-e5Q">
@@ -522,6 +528,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YIv-rb-xcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-954" y="775"/>
+        </scene>
+        <!--editProfile-->
+        <scene sceneID="tgy-iY-FOZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="editProfileID" storyboardName="editProfile" id="a3U-gm-Y6Y" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YWN-pP-Ckm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2706" y="1196"/>
         </scene>
         <!--startScoring-->
         <scene sceneID="gMj-Hb-HZ0">

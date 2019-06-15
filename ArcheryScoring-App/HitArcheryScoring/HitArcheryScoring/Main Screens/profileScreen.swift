@@ -26,7 +26,6 @@ class profileScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.selectedIndex = 1
         
         currUser = realm.objects(UserInfo.self).first!
         nameLabel.text = currUser.firstName + " " + currUser.lastName
