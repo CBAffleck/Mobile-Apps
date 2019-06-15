@@ -7,16 +7,40 @@
 //
 
 import UIKit
+import RealmSwift
 
 class profileScreen: UIViewController {
 
+    //MARK: Properties
+    @IBOutlet weak var profileLabel: UILabel!
+    @IBOutlet weak var profileBorderImg: UIImageView!
+    @IBOutlet weak var profilePicView: UIImageView!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var bowLabel: UILabel!
+    @IBOutlet weak var roundCountLabel: UILabel!
+    
+    //MARK: Variables
+    let realm = try! Realm()
+    var currUser = UserInfo()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.selectedIndex = 1
-
-        // Do any additional setup after loading the view.
+        
+        currUser = realm.objects(UserInfo.self).first!
+        nameLabel.text = currUser.firstName + " " + currUser.lastName
+        bowLabel.text = currUser.bowType
+        roundCountLabel.text = setRoundCountLabel()
     }
 
+    //MARK: Functions
+    func setRoundCountLabel() -> String {
+        let numRounds = realm.objects(HistoryRound.self).count
+        if numRounds == 1 { return String(numRounds) + " ROUND SCORED" }
+        else { return String(numRounds) + " ROUNDS SCORED" }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -27,4 +51,10 @@ class profileScreen: UIViewController {
     }
     */
 
+    //MARK: Actions
+    @IBAction func tappedEdit(_ sender: UIButton) {
+    }
+    
+    
+    
 }

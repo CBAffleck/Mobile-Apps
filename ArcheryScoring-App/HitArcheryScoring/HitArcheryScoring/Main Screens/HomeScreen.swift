@@ -18,6 +18,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Variables
     let realm = try! Realm()
+    var currUser = UserInfo()
     var rounds: [ScoringRound] = []
     var tempRound = ScoringRound()
     var tempTen = ""
@@ -32,6 +33,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
         setUpRealm()
+        currUser = realm.objects(UserInfo.self).first!
+        print(currUser)
         createRoundArray()
         setUpTableView()
         tableView.separatorStyle = .none
