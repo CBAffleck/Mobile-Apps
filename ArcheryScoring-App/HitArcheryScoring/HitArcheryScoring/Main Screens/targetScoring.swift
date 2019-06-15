@@ -85,7 +85,8 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        targetImageView.image = loadImageFromDiskWith(fileName: "SingleSpot")
+        print(currRound)
+        targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace)
         targetScrollView.delegate = self
         setZoomScale()
         updateImageConstraints()
@@ -539,7 +540,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
                 newImage.draw(in: CGRect(x: 0, y: 0, width: 1000, height: 1000))
                 let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
                 UIGraphicsEndImageContext()
-                if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: "SingleSpot") }
+                if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace) }
                 else { targetImageView.image = scaledImage }
                 imgCount += 1
             }

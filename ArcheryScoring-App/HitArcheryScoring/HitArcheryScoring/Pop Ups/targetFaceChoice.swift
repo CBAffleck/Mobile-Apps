@@ -108,6 +108,7 @@ class targetFaceChoice: UIViewController {
         try! realm.write {
             currRound.targetFace = targetFace
         }
+        print(currRound)
     }
 
     @IBAction func switchTapped(_ sender: UISwitch) {

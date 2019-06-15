@@ -9,8 +9,8 @@
 import UIKit
 import RealmSwift
 
-class editProfile: UIViewController, UITextFieldDelegate {
-
+class editProfile: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, ImagePickerDelegate {
+    
     //MARK: Properties
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -30,10 +30,13 @@ class editProfile: UIViewController, UITextFieldDelegate {
     let realm = try! Realm()
     var currUser = UserInfo()
     var activeTextField = UITextField()
+    var pickedImage: UIImage!
+    var imagePicker: ImagePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 
         // Do any additional setup after loading the view.
         popUpView.layer.cornerRadius = 20
@@ -81,7 +84,7 @@ class editProfile: UIViewController, UITextFieldDelegate {
         
     }
     
-    //MARK: Functions
+    //MARK: Textfield Functions
     func textFieldDidBeginEditing(_ textField: UITextField) {
         activeTextField = textField
         //Set textfield border when selected
@@ -124,6 +127,12 @@ class editProfile: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self)
     }
     
+    //MARK: Photo functions
+    func didSelect(image: UIImage?) {
+        self.pickedImage = image
+        saveProfilePic()
+    }
+    
     func saveUserInfo() {
         try! realm.write {
             currUser.firstName = firstNameField.text ?? "First"
@@ -134,6 +143,23 @@ class editProfile: UIViewController, UITextFieldDelegate {
             currUser.pr70 = Int(pr70Field.text ?? "0") ?? 0
         }
     }
+    
+    func saveProfilePic() {
+        saveImage(imageName: "ProfilePic", image: pickedImage)
+        try! realm.write {
+            currUser.profilePic = "ProfilePic"
+        }
+    }
+    
+    func removeProfilePic() {
+        if currUser.profilePic != "EditProfile" {
+            removeImage(imageName: "ProfilePic")
+            try! realm.write {
+                currUser.profilePic = "Removed"
+            }
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -155,9 +181,11 @@ class editProfile: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func chooseTapped(_ sender: UIButton) {
+        self.imagePicker.present(from: sender)
     }
     
     @IBAction func removeTapped(_ sender: UIButton) {
+        removeProfilePic()
     }
     
     @IBAction func saveTapped(_ sender: UIButton) {

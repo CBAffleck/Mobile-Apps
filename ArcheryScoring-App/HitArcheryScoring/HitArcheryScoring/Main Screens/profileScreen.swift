@@ -33,6 +33,8 @@ class profileScreen: UIViewController {
         bowLabel.text = currUser.bowType
         roundCountLabel.text = setRoundCountLabel()
         profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)
+        profilePicView.layer.cornerRadius = profilePicView.frame.size.height / 2
+        profilePicView.clipsToBounds = true
     }
 
     //MARK: Functions
@@ -46,7 +48,16 @@ class profileScreen: UIViewController {
         //Set new target face icon on the round that was changed
         nameLabel.text = currUser.firstName + " " + currUser.lastName
         bowLabel.text = currUser.bowType
-        if currUser.profilePic != "EditProfile" { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
+        if currUser.profilePic == "Removed" {
+            profilePicView.image = loadImageFromDiskWith(fileName: "EditProfile")
+            resetUserPic()
+        } else if currUser.profilePic != "EditProfile" { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
+    }
+    
+    func resetUserPic() {
+        try! realm.write {
+            currUser.profilePic = "EditProfile"
+        }
     }
     
     // MARK: - Navigation

@@ -205,7 +205,6 @@
                                                             <color key="titleColor" red="0.22352941179999999" green="0.79607843140000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="chooseTapped:" destination="NOF-w5-Tr8" eventType="touchUpInside" id="UJQ-pD-SSH"/>
                                                             <action selector="saveTapped:" destination="NOF-w5-Tr8" eventType="touchUpInside" id="qnO-ET-blp"/>
                                                         </connections>
                                                     </button>

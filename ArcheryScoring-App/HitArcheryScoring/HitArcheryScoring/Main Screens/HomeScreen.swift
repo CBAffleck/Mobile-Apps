@@ -46,7 +46,11 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if realm.objects(ScoringRound.self).first != nil {
             //Do nothing since the scoring rounds have already been added
         } else {
+            //Save target images to device so they don't take up memory every time the user scores with a target face
             saveImage(imageName: "SingleSpot", image: UIImage(named: "SingleSpot")!)
+            saveImage(imageName: "CompoundSingleSpot", image: UIImage(named: "CompoundSingleSpot")!)
+            saveImage(imageName: "Triangle3Spot", image: UIImage(named: "Triangle3Spot")!)
+            saveImage(imageName: "Vertical3Spot", image: UIImage(named: "Vertical3Spot")!)
             //Set 18m indoor scoring round and save to realm
             let indoorRound18m = ScoringRound()
             indoorRound18m.roundName = "18m Scoring Round"
