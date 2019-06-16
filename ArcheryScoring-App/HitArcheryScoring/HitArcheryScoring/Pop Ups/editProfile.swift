@@ -32,11 +32,15 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
     var activeTextField = UITextField()
     var pickedImage: UIImage!
     var imagePicker: ImagePicker!
+    var round18: ScoringRound!
+    var round50: ScoringRound!
+    var round70: ScoringRound!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardOnTap()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        getRounds()
 
         // Do any additional setup after loading the view.
         popUpView.layer.cornerRadius = 20
@@ -82,6 +86,14 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
         if !(currUser.pr50 == 0) { pr50Field.text = String(currUser.pr50) }
         if !(currUser.pr70 == 0) { pr70Field.text = String(currUser.pr70) }
         
+    }
+    
+    func getRounds() {
+        for round in realm.objects(ScoringRound.self) {
+            if round.distance == "18m" { round18 = round }
+            else if round.distance == "50m" { round50 = round }
+            else if round.distance == "70m" { round70 = round }
+        }
     }
     
     //MARK: Textfield Functions
@@ -136,13 +148,19 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
     }
     
     func saveUserInfo() {
+        let pr18 = Int(pr18Field.text ?? "0") ?? 0
+        let pr50 = Int(pr50Field.text ?? "0") ?? 0
+        let pr70 = Int(pr70Field.text ?? "0") ?? 0
         try! realm.write {
             currUser.firstName = firstNameField.text ?? "First"
             currUser.lastName = lastNameField.text ?? "Last"
             currUser.bowType = shootingStyleField.text ?? "Olympic Recurve"
-            currUser.pr18 = Int(pr18Field.text ?? "0") ?? 0
-            currUser.pr50 = Int(pr50Field.text ?? "0") ?? 0
-            currUser.pr70 = Int(pr70Field.text ?? "0") ?? 0
+            currUser.pr18 = pr18
+            currUser.pr50 = pr50
+            currUser.pr70 = pr70
+            round18.pr = max(round18.pastScores.max() ?? 0, pr18)
+            round50.pr = max(round50.pastScores.max() ?? 0, pr50)
+            round70.pr = max(round70.pastScores.max() ?? 0, pr70)
         }
     }
     
