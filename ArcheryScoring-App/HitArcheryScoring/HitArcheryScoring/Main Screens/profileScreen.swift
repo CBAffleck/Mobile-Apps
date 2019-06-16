@@ -48,16 +48,10 @@ class profileScreen: UIViewController {
         //Set new target face icon on the round that was changed
         nameLabel.text = currUser.firstName + " " + currUser.lastName
         bowLabel.text = currUser.bowType
-        if currUser.profilePic == "Removed" {
+        print(currUser)
+        if currUser.profilePic == "EditProfile" {
             profilePicView.image = loadImageFromDiskWith(fileName: "EditProfile")
-            resetUserPic()
-        } else if currUser.profilePic != "EditProfile" { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
-    }
-    
-    func resetUserPic() {
-        try! realm.write {
-            currUser.profilePic = "EditProfile"
-        }
+        } else { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
     }
     
     // MARK: - Navigation

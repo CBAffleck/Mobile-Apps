@@ -41,6 +41,7 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
         self.hideKeyboardOnTap()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
         getRounds()
+        pickedImage = loadImageFromDiskWith(fileName: currUser.profilePic)
 
         // Do any additional setup after loading the view.
         popUpView.layer.cornerRadius = 20
@@ -140,11 +141,9 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
     }
     
     //MARK: Photo functions
-    func didSelect(image: UIImage?, cancel: Bool) {
-        if cancel {
-            self.pickedImage = image
-            saveProfilePic()
-        }
+    func didSelect(image: UIImage?) {
+        self.pickedImage = image
+        saveProfilePic()
     }
     
     func saveUserInfo() {
@@ -165,18 +164,15 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
     }
     
     func saveProfilePic() {
-        saveImage(imageName: "ProfilePic", image: pickedImage)
+        saveImage(imageName: "ProfilePic", image: pickedImage ?? loadImageFromDiskWith(fileName: currUser.profilePic))
         try! realm.write {
             currUser.profilePic = "ProfilePic"
         }
     }
     
     func removeProfilePic() {
-        if currUser.profilePic != "EditProfile" {
-            removeImage(imageName: "ProfilePic")
-            try! realm.write {
-                currUser.profilePic = "Removed"
-            }
+        try! realm.write {
+            currUser.profilePic = "EditProfile"
         }
     }
     
