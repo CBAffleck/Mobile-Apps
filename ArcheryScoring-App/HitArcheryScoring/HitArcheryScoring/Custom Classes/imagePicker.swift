@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 public protocol ImagePickerDelegate: class {
-    func didSelect(image: UIImage?)
+    func didSelect(image: UIImage?, cancel: Bool)
 }
 
 open class ImagePicker : NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -65,11 +65,12 @@ open class ImagePicker : NSObject, UIImagePickerControllerDelegate, UINavigation
     
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)
-        self.delegate?.didSelect(image: image)
+        self.delegate?.didSelect(image: image, cancel: false)
     }
     
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.pickerController(picker, didSelect: nil)
+        self.delegate?.didSelect(image: UIImage(), cancel: true)
     }
     
     @objc public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

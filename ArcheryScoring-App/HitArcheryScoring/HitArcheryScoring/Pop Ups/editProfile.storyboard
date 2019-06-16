@@ -64,7 +64,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="0aX-tC-jvm"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                                        <state key="normal" title="Choose From Library">
+                                                        <state key="normal" title="Choose New Photo">
                                                             <color key="titleColor" red="0.23921568627450979" green="0.66274509803921566" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>

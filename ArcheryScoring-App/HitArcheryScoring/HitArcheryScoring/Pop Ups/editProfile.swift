@@ -128,9 +128,11 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
     }
     
     //MARK: Photo functions
-    func didSelect(image: UIImage?) {
-        self.pickedImage = image
-        saveProfilePic()
+    func didSelect(image: UIImage?, cancel: Bool) {
+        if cancel {
+            self.pickedImage = image
+            saveProfilePic()
+        }
     }
     
     func saveUserInfo() {

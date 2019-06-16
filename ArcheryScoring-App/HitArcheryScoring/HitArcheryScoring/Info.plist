@@ -26,6 +26,8 @@
 	<string>Main</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Library access is needed for you to select a profile picture.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera access is needed if you want to take a picture</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
