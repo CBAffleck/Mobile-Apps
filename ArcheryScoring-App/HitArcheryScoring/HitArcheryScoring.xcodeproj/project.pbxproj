@@ -29,6 +29,7 @@
 		C03C55C722A2269D003290C7 /* HitArcheryScoringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55C622A2269D003290C7 /* HitArcheryScoringTests.swift */; };
 		C03C55D222A2269D003290C7 /* HitArcheryScoringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */; };
 		C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CC22B72070000563D4 /* ScoresChartView.swift */; };
+		C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -104,6 +105,7 @@
 		C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HitArcheryScoringUITests.swift; sourceTree = "<group>"; };
 		C03C55D322A2269D003290C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C059E3CC22B72070000563D4 /* ScoresChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresChartView.swift; sourceTree = "<group>"; };
+		C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				C0398E8A22AF86350084D5CE /* customSegues.swift */,
 				C0BA093C22B4F22800AA5791 /* imagePicker.swift */,
 				C059E3CC22B72070000563D4 /* ScoresChartView.swift */,
+				C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			files = (
 				C0398E8B22AF86350084D5CE /* customSegues.swift in Sources */,
 				C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */,
+				C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */,
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,

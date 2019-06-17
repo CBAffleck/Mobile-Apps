@@ -24,6 +24,8 @@ class HistoryRound : Object {
     @objc dynamic var targetFace : String = ""
     @objc dynamic var endCount: Int = 0
     @objc dynamic var arrowsPerEnd: Int = 0
+    @objc dynamic var roundNum: Int = 0
+    @objc dynamic var distance: String = ""
     
     //Save function for writing object to realm
     func saveRound() -> Bool {

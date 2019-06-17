@@ -122,6 +122,8 @@ class finishScoring: UIViewController {
         round.targetFace = currRound.targetFace
         round.endCount = currRound.endCount
         round.arrowsPerEnd = currRound.arrowsPerEnd
+        round.roundNum = currRound.roundNum
+        round.distance = currRound.distance
         
         if round.saveRound() {
             print("Scoring round saved!")

@@ -19,6 +19,7 @@ class profileScreen: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bowLabel: UILabel!
     @IBOutlet weak var roundCountLabel: UILabel!
+    @IBOutlet weak var chartView: ScoresChartView!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -35,9 +36,24 @@ class profileScreen: UIViewController {
         profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)
         profilePicView.layer.cornerRadius = profilePicView.frame.size.height / 2
         profilePicView.clipsToBounds = true
+        chartView.contentMode = .scaleAspectFit
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        ScoresChartView.playAnimations()
     }
 
     //MARK: Functions
+//    private func play(withDelay: TimeInterval) {
+//        self.perform(#selector(animateViews), with: .none, afterDelay: withDelay)
+//    }
+//
+//    @objc open func animateViews() {
+//        chartView.play()
+//    }
+    
     func setRoundCountLabel() -> String {
         let numRounds = realm.objects(HistoryRound.self).count
         if numRounds == 1 { return String(numRounds) + " Round Scored" }

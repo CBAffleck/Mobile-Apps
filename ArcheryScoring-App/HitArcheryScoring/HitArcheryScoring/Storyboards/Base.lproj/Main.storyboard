@@ -89,50 +89,42 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Firstname Lastname" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Khy-CO-e5Q">
-                                <rect key="frame" x="15" y="249.5" width="345" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <rect key="frame" x="15" y="249.5" width="345" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olympic Recurve" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSu-ob-QC5">
-                                <rect key="frame" x="15" y="284.5" width="345" height="19.5"/>
+                                <rect key="frame" x="15" y="283.5" width="345" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 Rounds Scored" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQ6-gr-lrX">
-                                <rect key="frame" x="15" y="309" width="345" height="19.5"/>
+                                <rect key="frame" x="15" y="308" width="345" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-lk-0Ii">
-                                <rect key="frame" x="10" y="364" width="355" height="244"/>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="6YM-lk-0Ii" customClass="ScoresChartView" customModule="HitArcheryScoring" customModuleProvider="target">
+                                <rect key="frame" x="15" y="337.5" width="345" height="270.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCORES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rtQ-Qr-KfY">
-                                <rect key="frame" x="15" y="338.5" width="345" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kT4-be-bms" firstAttribute="centerX" secondItem="LhD-qD-HzQ" secondAttribute="centerX" id="19f-ic-tGx"/>
-                            <constraint firstItem="6YM-lk-0Ii" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="10" id="61x-Ch-bhK"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="width" secondItem="LhD-qD-HzQ" secondAttribute="width" id="6rg-N7-nMf"/>
                             <constraint firstItem="PSu-ob-QC5" firstAttribute="top" secondItem="Khy-CO-e5Q" secondAttribute="bottom" constant="5" id="9YE-oT-PaQ"/>
-                            <constraint firstItem="rtQ-Qr-KfY" firstAttribute="top" secondItem="rQ6-gr-lrX" secondAttribute="bottom" constant="10" id="9rF-la-yU5"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="PSu-ob-QC5" secondAttribute="trailing" constant="15" id="FmT-y4-xck"/>
                             <constraint firstItem="SPr-eA-5XG" firstAttribute="width" secondItem="LhD-qD-HzQ" secondAttribute="width" id="Ivt-hn-NHV"/>
                             <constraint firstItem="LhD-qD-HzQ" firstAttribute="centerX" secondItem="OIH-TN-JSa" secondAttribute="centerX" id="KVa-db-yWe"/>
                             <constraint firstItem="LhD-qD-HzQ" firstAttribute="height" secondItem="OIH-TN-JSa" secondAttribute="height" multiplier="0.22" id="Keb-IK-Se4"/>
                             <constraint firstItem="PSu-ob-QC5" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="OLA-H2-WbW"/>
+                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="bottom" secondItem="6YM-lk-0Ii" secondAttribute="bottom" constant="10" id="SlK-IR-RDi"/>
                             <constraint firstItem="7mE-yd-5w8" firstAttribute="top" secondItem="g2c-Cc-Hbv" secondAttribute="top" constant="20" id="Vyn-CN-gLV"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="centerY" secondItem="LhD-qD-HzQ" secondAttribute="centerY" id="Y4Q-KI-Pxh"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="height" secondItem="LhD-qD-HzQ" secondAttribute="height" id="Ykj-Mi-zPe"/>
-                            <constraint firstItem="rtQ-Qr-KfY" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="cJZ-3w-OHi"/>
                             <constraint firstItem="LhD-qD-HzQ" firstAttribute="top" secondItem="7mE-yd-5w8" secondAttribute="bottom" constant="10" id="d4V-jB-Z0l"/>
                             <constraint firstItem="7mE-yd-5w8" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="dCp-bi-2pa"/>
                             <constraint firstItem="Khy-CO-e5Q" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="hDc-bz-KlO"/>
@@ -140,12 +132,11 @@
                             <constraint firstItem="Khy-CO-e5Q" firstAttribute="top" secondItem="LhD-qD-HzQ" secondAttribute="bottom" constant="10" id="jDi-wb-heK"/>
                             <constraint firstItem="SPr-eA-5XG" firstAttribute="centerX" secondItem="LhD-qD-HzQ" secondAttribute="centerX" id="jzZ-G4-Ra3"/>
                             <constraint firstItem="SPr-eA-5XG" firstAttribute="height" secondItem="LhD-qD-HzQ" secondAttribute="height" id="lUO-Rf-QsP"/>
+                            <constraint firstItem="6YM-lk-0Ii" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="lhj-zH-cXk"/>
+                            <constraint firstItem="6YM-lk-0Ii" firstAttribute="top" secondItem="rQ6-gr-lrX" secondAttribute="bottom" constant="10" id="nSd-yL-9YK"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="Khy-CO-e5Q" secondAttribute="trailing" constant="15" id="oa2-3x-ADg"/>
                             <constraint firstItem="rQ6-gr-lrX" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="osc-tP-zRw"/>
-                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="rtQ-Qr-KfY" secondAttribute="trailing" constant="15" id="pxg-tk-i3J"/>
-                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="bottom" secondItem="6YM-lk-0Ii" secondAttribute="bottom" constant="10" id="r0b-Go-BQS"/>
-                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="6YM-lk-0Ii" secondAttribute="trailing" constant="10" id="rDD-T7-gob"/>
-                            <constraint firstItem="6YM-lk-0Ii" firstAttribute="top" secondItem="rtQ-Qr-KfY" secondAttribute="bottom" constant="5" id="wD9-Rn-nL6"/>
+                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="6YM-lk-0Ii" secondAttribute="trailing" constant="15" id="vur-tE-xGn"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="7mE-yd-5w8" secondAttribute="trailing" constant="15" id="wc0-pr-pZ4"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="rQ6-gr-lrX" secondAttribute="trailing" constant="15" id="y67-5P-Fjn"/>
                             <constraint firstItem="SPr-eA-5XG" firstAttribute="centerY" secondItem="LhD-qD-HzQ" secondAttribute="centerY" id="yDy-CD-hZy"/>
@@ -157,6 +148,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="bowLabel" destination="PSu-ob-QC5" id="3tt-9e-jwZ"/>
+                        <outlet property="chartView" destination="6YM-lk-0Ii" id="b7U-aL-q1c"/>
                         <outlet property="editButton" destination="SPr-eA-5XG" id="4Id-7L-JB5"/>
                         <outlet property="nameLabel" destination="Khy-CO-e5Q" id="ftf-Jd-aVA"/>
                         <outlet property="profileBorderImg" destination="kT4-be-bms" id="Xlg-IA-RTi"/>
