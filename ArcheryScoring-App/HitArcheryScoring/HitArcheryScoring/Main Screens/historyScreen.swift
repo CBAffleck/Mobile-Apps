@@ -75,7 +75,10 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let round = rounds[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
         cell.setInfo(round: round)
-        if round.scoringType == "target" { cell.targetIndicator.image = UIImage(named: round.targetFace) }
+        if round.scoringType == "target" {
+            cell.targetIndicator.image = UIImage(named: round.targetFace)
+            cell.targetIndicator.isHidden = false
+        }
         else { cell.targetIndicator.isHidden = true }
         return cell
     }
@@ -88,6 +91,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         roundTitle = rounds[indexPath.row].roundTitle
         time = rounds[indexPath.row].time
         date = rounds[indexPath.row].date
+        print(rounds[indexPath.row])
         
         //Convert List<Object> to [[String]]
         var tempScores: [[String]] = []
