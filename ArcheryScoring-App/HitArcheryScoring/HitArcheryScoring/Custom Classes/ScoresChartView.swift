@@ -17,13 +17,13 @@ class ScoresChartView: MacawView {
         var score: Double
     }
     
-    static let last5Scores = createChartArray()
     static let maxValue = 360               //Max value in graph, 360 because that's the max 70m score
-    static let maxValueLineHeight = 160     //Y line height
+    static let maxValueLineHeight = 150     //Y line height
     static let lineWidth: Double = 240      //X line width
+    static let last5Scores = createChartArray()
     
-    static let dataDivisor = Double(maxValue/maxValueLineHeight)
-    static let adjustedData: [Double] = last5Scores.map({ $0.score/dataDivisor})
+    static let dataDivisor = Double(maxValueLineHeight)/Double(maxValue)
+    static let adjustedData: [Double] = last5Scores.map({ $0.score * dataDivisor })
     static var animations: [Animation] = []
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +42,7 @@ class ScoresChartView: MacawView {
     private static func addYAxisItems() -> [Node] {
         let maxLines = 6
         let lineInterval = Int(maxValue/maxLines)
-        let yAxisHeight: Double = 160
+        let yAxisHeight: Double = 150
         let lineSpacing: Double = 25
         var newNodes: [Node] = []
         
@@ -63,7 +63,7 @@ class ScoresChartView: MacawView {
     
     //Put together the x axis items, so the round numbers
     private static func addXAxisItems() -> [Node] {
-        let chartBaseY: Double = 160
+        let chartBaseY: Double = 150
         var newNodes: [Node] = []
         
         for i in 1...adjustedData.count {
@@ -88,7 +88,7 @@ class ScoresChartView: MacawView {
         animations = items.enumerated().map { (i: Int, item: Group) in
             item.contentsVar.animation(delay: Double(i) * 0.1) { t in
                 let height = adjustedData[i] * t
-                let rect = Rect(x: Double(i) * 45 + 15, y: 160 - height, w: 25, h: height)
+                let rect = Rect(x: Double(i) * 45 + 15, y: 150 - height, w: 25, h: height)
                 return [rect.fill(with: fill)]
             }
         }
@@ -140,6 +140,7 @@ class ScoresChartView: MacawView {
             let set = ScoreObject(roundNum: String(r.distance) + " #" + String(r.roundNum), score: Double(r.totalScore))
             last5Objects.append(set)
         }
+        print(last5Objects)
         if last5Objects.isEmpty { last5Objects.append(ScoreObject(roundNum: "18m #1", score: 0)) }
         
         return last5Objects
