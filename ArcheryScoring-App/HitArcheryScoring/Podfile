@@ -8,6 +8,7 @@ target 'HitArcheryScoring' do
   # Pods for HitArcheryScoring
     pod 'lottie-ios'
     pod 'RealmSwift'
+    pod 'Macaw'
 
   target 'HitArcheryScoringTests' do
     inherit! :search_paths

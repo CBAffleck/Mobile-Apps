@@ -48,7 +48,6 @@ class profileScreen: UIViewController {
         //Set new target face icon on the round that was changed
         nameLabel.text = currUser.firstName + " " + currUser.lastName
         bowLabel.text = currUser.bowType
-        print(currUser)
         if currUser.profilePic == "EditProfile" {
             profilePicView.image = loadImageFromDiskWith(fileName: "EditProfile")
         } else { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}

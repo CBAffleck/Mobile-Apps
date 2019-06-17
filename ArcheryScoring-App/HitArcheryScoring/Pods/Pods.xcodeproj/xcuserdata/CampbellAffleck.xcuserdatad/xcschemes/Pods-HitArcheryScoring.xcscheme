@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8DADAF8969504B7F99F3CBD03417E8D8"
+               BlueprintIdentifier = "A20C21B2351132D629F7751954C53E3F"
                BuildableName = "Pods_HitArcheryScoring.framework"
                BlueprintName = "Pods-HitArcheryScoring"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8DADAF8969504B7F99F3CBD03417E8D8"
+            BlueprintIdentifier = "A20C21B2351132D629F7751954C53E3F"
             BuildableName = "Pods_HitArcheryScoring.framework"
             BlueprintName = "Pods-HitArcheryScoring"
             ReferencedContainer = "container:Pods.xcodeproj">

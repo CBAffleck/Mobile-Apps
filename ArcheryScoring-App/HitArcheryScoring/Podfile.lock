@@ -1,26 +1,34 @@
 PODS:
   - lottie-ios (3.1.0)
+  - Macaw (0.9.5):
+    - SWXMLHash
   - Realm (3.16.1):
     - Realm/Headers (= 3.16.1)
   - Realm/Headers (3.16.1)
   - RealmSwift (3.16.1):
     - Realm (= 3.16.1)
+  - SWXMLHash (4.9.0)
 
 DEPENDENCIES:
   - lottie-ios
+  - Macaw
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - lottie-ios
+    - Macaw
     - Realm
     - RealmSwift
+    - SWXMLHash
 
 SPEC CHECKSUMS:
   lottie-ios: 9467723922dfff46f6d4e3019c32594a62440b7c
+  Macaw: 10bf9e327cb75f24e3225d5229a80ed544df85f0
   Realm: 601cacc51d8be3b17a377ef787be0f6ee0e76cf1
   RealmSwift: 486f2e09d5a8ccff63ed66e48d0846b111deb5e5
+  SWXMLHash: 87b0006848a548b7f9485b40bc71721b3ae39add
 
-PODFILE CHECKSUM: 292e75aad8c3c65bbfa3bec312eed236a00ca986
+PODFILE CHECKSUM: 45c3bb7cd7bc8cbb8231e8a85f8d3a96b1fee398
 
 COCOAPODS: 1.5.3
