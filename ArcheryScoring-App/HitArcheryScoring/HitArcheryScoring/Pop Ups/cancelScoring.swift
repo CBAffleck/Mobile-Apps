@@ -18,7 +18,8 @@ class cancelScoring: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     //MARK: Variables
-    
+    var imgCount = 0
+    var scoringType = "text"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,11 @@ class cancelScoring: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
+        if scoringType == "target" && imgCount > 1 {
+            for i in 1...imgCount - 1 {
+                removeImage(imageName: "temp" + String(i))
+            }
+        }
     }
     
 }

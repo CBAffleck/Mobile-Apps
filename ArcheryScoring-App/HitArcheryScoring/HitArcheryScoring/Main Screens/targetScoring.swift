@@ -503,6 +503,10 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
             vc?.currRound = currRound
             vc?.roundNum = currRound.roundNum
             vc?.imgCount = imgCount
+        } else if segue.identifier == "targetToCancelSegue" {
+            let vc = segue.destination as? cancelScoring
+            vc?.imgCount = imgCount
+            vc?.scoringType = scoringType
         }
     }
     
