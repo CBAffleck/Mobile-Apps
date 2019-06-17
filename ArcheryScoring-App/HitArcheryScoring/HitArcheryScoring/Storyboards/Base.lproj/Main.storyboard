@@ -389,6 +389,13 @@
                                                     <rect key="frame" x="0.0" y="10" width="345" height="130.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trophy" translatesAutoresizingMaskIntoConstraints="NO" id="ru2-oP-2Pu">
+                                                    <rect key="frame" x="268" y="94" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="35" id="Adm-eC-rqW"/>
+                                                        <constraint firstAttribute="height" constant="35" id="Fo7-wa-kq3"/>
+                                                    </constraints>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SingleSpotIconGhost" translatesAutoresizingMaskIntoConstraints="NO" id="gup-IL-X0l">
                                                     <rect key="frame" x="305" y="94" width="35" height="35"/>
                                                     <constraints>
@@ -454,10 +461,12 @@
                                                 <constraint firstAttribute="trailing" secondItem="TXw-nI-xCk" secondAttribute="trailing" id="B8y-OW-uEO"/>
                                                 <constraint firstItem="TXw-nI-xCk" firstAttribute="top" secondItem="qgd-9l-1Dl" secondAttribute="top" constant="10" id="Enl-d1-KOt"/>
                                                 <constraint firstItem="41M-CK-t7m" firstAttribute="top" secondItem="Dhk-b8-vce" secondAttribute="bottom" constant="1" id="F6T-2o-h8F"/>
+                                                <constraint firstItem="gup-IL-X0l" firstAttribute="centerY" secondItem="ru2-oP-2Pu" secondAttribute="centerY" id="GPd-Wv-x62"/>
                                                 <constraint firstItem="dHI-zg-azP" firstAttribute="top" secondItem="qgd-9l-1Dl" secondAttribute="topMargin" constant="15" id="V69-So-QiI"/>
                                                 <constraint firstItem="tUS-qM-0nv" firstAttribute="top" secondItem="dHI-zg-azP" secondAttribute="bottom" constant="1" id="XVW-eh-Ulf"/>
                                                 <constraint firstAttribute="bottom" secondItem="TXw-nI-xCk" secondAttribute="bottom" constant="10" id="YGF-gj-dN5"/>
                                                 <constraint firstItem="gup-IL-X0l" firstAttribute="bottom" secondItem="41M-CK-t7m" secondAttribute="bottom" id="YwS-7K-2aq"/>
+                                                <constraint firstItem="gup-IL-X0l" firstAttribute="leading" secondItem="ru2-oP-2Pu" secondAttribute="trailing" constant="2" id="dfo-ln-AN4"/>
                                                 <constraint firstItem="tUS-qM-0nv" firstAttribute="leading" secondItem="qgd-9l-1Dl" secondAttribute="leadingMargin" constant="5" id="ivW-uM-kKO"/>
                                                 <constraint firstItem="TXw-nI-xCk" firstAttribute="leading" secondItem="qgd-9l-1Dl" secondAttribute="leading" id="oj3-gx-cYS"/>
                                                 <constraint firstItem="dHI-zg-azP" firstAttribute="leading" secondItem="qgd-9l-1Dl" secondAttribute="leadingMargin" constant="5" id="qmU-vj-LTf"/>
@@ -474,6 +483,7 @@
                                             <outlet property="roundTitleLabel" destination="dHI-zg-azP" id="9zC-Qn-KgY"/>
                                             <outlet property="scoreLabel" destination="xwV-cX-F5j" id="XMS-iE-2nM"/>
                                             <outlet property="targetIndicator" destination="gup-IL-X0l" id="fpx-U0-DmX"/>
+                                            <outlet property="trophyIndicator" destination="ru2-oP-2Pu" id="nzQ-U0-bGT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -564,5 +574,6 @@
         <image name="ProfileIcon" width="30" height="30"/>
         <image name="SingleSpotIcon" width="350" height="350"/>
         <image name="SingleSpotIconGhost" width="350" height="350"/>
+        <image name="Trophy" width="1114" height="924"/>
     </resources>
 </document>

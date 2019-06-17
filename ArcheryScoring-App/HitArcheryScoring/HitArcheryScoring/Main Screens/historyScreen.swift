@@ -75,11 +75,6 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let round = rounds[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
         cell.setInfo(round: round)
-        if round.scoringType == "target" {
-            cell.targetIndicator.image = UIImage(named: round.targetFace)
-            cell.targetIndicator.isHidden = false
-        }
-        else { cell.targetIndicator.isHidden = true }
         return cell
     }
     

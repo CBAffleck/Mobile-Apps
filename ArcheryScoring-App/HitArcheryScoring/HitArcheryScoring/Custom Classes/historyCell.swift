@@ -23,6 +23,7 @@ class historyCell: UITableViewCell {
     @IBOutlet weak var hitsLabel: UILabel!
     @IBOutlet weak var avgArrowLabel: UILabel!
     @IBOutlet weak var targetIndicator: UIImageView!
+    @IBOutlet weak var trophyIndicator: UIImageView!
     
     
     //MARK: Variables
@@ -83,7 +84,17 @@ class historyCell: UITableViewCell {
         cellView.layer.cornerRadius = 20
         cellView.layer.borderWidth = 0.75
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
-        targetIndicator.alpha = 0.3
+        
+        //Set up indicator icons
+        if scoringType == "target" {
+            targetIndicator.image = UIImage(named: round.targetFace)
+            targetIndicator.isHidden = false
+            targetIndicator.alpha = 0.3
+        } else { targetIndicator.isHidden = true }
+        if round.totalScore > round.relativePR {
+            trophyIndicator.isHidden = false
+            trophyIndicator.alpha = 0.3
+        } else { trophyIndicator.isHidden = true }
     }
     
 }
