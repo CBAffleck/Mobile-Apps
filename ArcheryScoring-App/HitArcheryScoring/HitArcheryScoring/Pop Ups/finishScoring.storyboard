@@ -42,7 +42,7 @@
                                         </state>
                                         <connections>
                                             <action selector="finishTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="gB2-0b-D47"/>
-                                            <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="wB3-Vd-NCU"/>
+                                            <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wB3-Vd-NCU"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FinishScoring" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-tF-MKQ">
