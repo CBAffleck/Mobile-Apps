@@ -140,7 +140,6 @@ class ScoresChartView: MacawView {
             let set = ScoreObject(roundNum: String(r.distance) + " #" + String(r.roundNum), score: Double(r.totalScore))
             last5Objects.append(set)
         }
-        print(last5Objects)
         if last5Objects.isEmpty { last5Objects.append(ScoreObject(roundNum: "18m #1", score: 0)) }
         
         return last5Objects

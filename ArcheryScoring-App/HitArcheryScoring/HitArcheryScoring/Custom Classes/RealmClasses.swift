@@ -118,3 +118,57 @@ class UserInfo : Object {
         }
     }
 }
+
+//Lets user save a practice session using a target face to record arrow distributions, hits, time, date, arrows per end, distance, etc.
+class PracticeRound : Object {
+    
+    @objc dynamic var practiceTitle: String = ""
+    @objc dynamic var time : String = ""
+    @objc dynamic var date : String = ""
+    var arrowScores = List<ArrowEndScores>()
+    var arrowLocations = List<ArrowPos>()
+    @objc dynamic var hits : Int = 0
+    @objc dynamic var scoringType : String = ""
+    @objc dynamic var targetFace : String = ""
+    @objc dynamic var endCount: Int = 0
+    @objc dynamic var arrowsPerEnd: Int = 0
+    @objc dynamic var practiceNum: Int = 0
+    @objc dynamic var distance: String = ""
+    
+    //Save function for writing object to realm
+    func savePracticeRound() -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+            return true
+        } catch let error as NSError {
+            print(">>> Realm error: ", error.localizedDescription)
+            return false
+        }
+    }
+}
+
+//Object that enables user to save their arrow count for the day, including the date, number, distance, and practice duration
+class ArrowCount : Object {
+    
+    @objc dynamic var time : String = ""
+    @objc dynamic var date : String = ""
+    @objc dynamic var numArrows : Int = 0
+    @objc dynamic var distance: String = ""
+    
+    //Save function for writing object to realm
+    func saveArrowCount() -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+            return true
+        } catch let error as NSError {
+            print(">>> Realm error: ", error.localizedDescription)
+            return false
+        }
+    }
+}
