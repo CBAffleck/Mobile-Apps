@@ -57,6 +57,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             defaults.set("English", forKey: "Language")
             defaults.set("Metric (meters)", forKey: "DistanceUnit")
             defaults.set("Metric", forKey: "ScoringUnit")
+            defaults.set(false, forKey: "isDarkMode")
             //Set 18m indoor scoring round and save to realm
             let indoorRound18m = ScoringRound()
             indoorRound18m.roundName = "18m Scoring Round"
