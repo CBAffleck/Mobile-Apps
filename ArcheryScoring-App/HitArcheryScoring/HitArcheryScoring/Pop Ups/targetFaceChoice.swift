@@ -92,7 +92,7 @@ class targetFaceChoice: UIViewController {
         case 0 :
             targetFace = "SingleSpot"
             singleSpotButton.layer.borderWidth = 0.5
-        case 1 :
+        case 4 :
             targetFace = "CompoundSingleSpot"
             compoundSingleButton.layer.borderWidth = 0.5
         case 2 :

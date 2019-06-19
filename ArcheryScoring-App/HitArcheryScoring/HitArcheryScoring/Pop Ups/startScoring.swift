@@ -38,6 +38,7 @@ class startScoring: UIViewController {
         prLabel.text = "Personal Record: " + String(currRound.pr)
     }
     
+    //MARK: Functions
 
     // MARK: - Navigation
 

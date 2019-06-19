@@ -29,7 +29,8 @@ class cancelScoring: UIViewController {
         cancelButton.layer.cornerRadius = 10
     }
     
-
+    //MARK: Functions
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

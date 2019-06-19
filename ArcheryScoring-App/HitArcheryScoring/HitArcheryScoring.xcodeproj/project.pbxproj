@@ -30,6 +30,7 @@
 		C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CC22B72070000563D4 /* ScoresChartView.swift */; };
 		C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */; };
 		C059E3D122B9B665000563D4 /* itemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D022B9B665000563D4 /* itemExtensions.swift */; };
+		C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -106,6 +107,7 @@
 		C059E3CC22B72070000563D4 /* ScoresChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresChartView.swift; sourceTree = "<group>"; };
 		C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
 		C059E3D022B9B665000563D4 /* itemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemExtensions.swift; sourceTree = "<group>"; };
+		C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = settingsScreen.storyboard; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				C07C91A522A71B18005CCF98 /* textScoring.storyboard */,
 				C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */,
 				C0729FF922A8A6FE00A283FB /* congratsScreen.storyboard */,
+				C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
+				C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
 				C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */,

@@ -71,7 +71,7 @@
                                             <action selector="targetTapped:" destination="Yr5-vz-jNw" eventType="touchUpInside" id="xcL-F0-iUF"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ic-0M-vNh">
+                                    <button opaque="NO" tag="4" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ic-0M-vNh">
                                         <rect key="frame" x="97" y="126" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="7Ic-0M-vNh" secondAttribute="height" multiplier="1:1" id="eNb-Gl-Ipl"/>
