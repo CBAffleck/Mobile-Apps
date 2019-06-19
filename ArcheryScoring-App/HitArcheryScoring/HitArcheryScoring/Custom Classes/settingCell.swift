@@ -22,15 +22,19 @@ class settingCell: UITableViewCell {
     }
     
     //MARK: Functions
-    func setInfo(title: String, choiceTitle: String?) {
-        if choiceTitle == nil {
+    func setInfo(title: String) {
+        if title == "Language" {
+            shortSettingLabel.text = title
+            currChoiceLabel.text = UserDefaults.standard.value(forKey: "Language") as? String
+            longSettingLabel.isHidden = true
+        } else if title == "Distance Unit" {
+            shortSettingLabel.text = title
+            currChoiceLabel.text = UserDefaults.standard.value(forKey: "DistanceUnit") as? String
+            longSettingLabel.isHidden = true
+        } else {
             longSettingLabel.text = title
             shortSettingLabel.isHidden = true
             currChoiceLabel.isHidden = true
-        } else {
-            shortSettingLabel.text = title
-            currChoiceLabel.text = choiceTitle
-            longSettingLabel.isHidden = true
         }
     }
 }

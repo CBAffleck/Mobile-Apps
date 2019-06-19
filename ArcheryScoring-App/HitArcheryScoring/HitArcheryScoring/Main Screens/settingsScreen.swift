@@ -18,7 +18,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
-    let settings = ["Language", "Distance", "Help and Support", "Review on the App Store", "Privacy Policy"]
+    let settings = ["Language", "Distance Unit", "Help and Support", "Review on the App Store", "Privacy Policy"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let setting = settings[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCellID") as! settingCell
-        cell.setInfo(title: setting, choiceTitle: nil)
+        cell.setInfo(title: setting)
         return cell
     }
     
