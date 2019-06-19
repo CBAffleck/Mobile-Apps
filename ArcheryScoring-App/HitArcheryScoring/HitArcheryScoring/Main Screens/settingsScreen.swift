@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,6 +19,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
+    let realm = try! Realm()
     let settings = ["Language", "Distance Unit", "Help and Support", "Review on the App Store", "Privacy Policy"]
     
     override func viewDidLoad() {

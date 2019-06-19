@@ -61,7 +61,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         dimView.isHidden = true
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissScreen), name: NSNotification.Name(rawValue: "CloseWindow"), object: nil)
         
         currUser = realm.objects(UserInfo.self).first!
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)  //Set header title with number
@@ -527,10 +526,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     @objc func dismissEffect() {
         animateOut()
-    }
-    
-    @objc func dismissScreen() {
-        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Remove Button

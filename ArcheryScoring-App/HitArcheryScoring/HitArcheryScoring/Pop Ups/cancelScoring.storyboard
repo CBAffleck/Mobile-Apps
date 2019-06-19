@@ -65,6 +65,7 @@
                                         </state>
                                         <connections>
                                             <action selector="cancelTapped:" destination="2hT-Pk-bjb" eventType="touchUpInside" id="Zbh-Wv-icl"/>
+                                            <segue destination="YQH-sz-kYy" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="xsk-7z-v01"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -105,6 +106,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpy-cd-9Pc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="152.47376311844079"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="yjo-nz-3IE">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="YQH-sz-kYy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Az-aH-61v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="839" y="152"/>
         </scene>
     </scenes>
 </document>

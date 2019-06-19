@@ -57,11 +57,6 @@ class cancelScoring: UIViewController {
                 removeImage(imageName: "temp" + String(i))
             }
         }
-        //Dismiss previously opened views, including the scoring screen and start scoring pop up
-        dismiss(animated: true, completion: {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ClosePopUp"), object: nil)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CloseWindow"), object: nil)
-        })
     }
     
 }

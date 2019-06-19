@@ -32,6 +32,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         dimView.isHidden = true
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
         
         setUpRealm()
         currUser = realm.objects(UserInfo.self).first!
@@ -194,6 +195,10 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
             cell.targetButton.setImage(UIImage(named: rounds[x].targetFace + "Icon"), for: .normal)
         }
+    }
+    
+    @objc func reloadData() {
+        tableView.reloadData()
     }
 }
 

@@ -161,6 +161,7 @@ class editProfile: UIViewController, UITextFieldDelegate, UINavigationController
             round50.pr = max(round50.pastScores.max() ?? 0, pr50)
             round70.pr = max(round70.pastScores.max() ?? 0, pr70)
         }
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
     }
     
     func saveProfilePic() {

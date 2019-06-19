@@ -36,6 +36,7 @@
                                 <state key="normal" image="CloseIcon"/>
                                 <connections>
                                     <action selector="closeTapped:" destination="LGX-bt-b9E" eventType="touchUpInside" id="D0I-n3-Y8p"/>
+                                    <segue destination="CXW-yX-ETg" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Gag-sg-olb"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REd-3r-ewY">
@@ -450,6 +451,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ax-zr-e4k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.59999999999999" y="123.68815592203899"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="uWF-TW-h4f">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="CXW-yX-ETg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ehi-03-siD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="727" y="123"/>
         </scene>
     </scenes>
     <resources>

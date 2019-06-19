@@ -43,6 +43,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         dimView.isHidden = true
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
 
         // Do any additional setup after loading the view.
         makeRoundsArray()
@@ -160,5 +161,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         animateOut()
     }
     
-
+    @objc func reloadData() {
+        historyTable.reloadData()
+    }
 }
