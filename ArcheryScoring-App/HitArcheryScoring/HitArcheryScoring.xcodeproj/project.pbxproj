@@ -10,7 +10,6 @@
 		57762306E2D034D56776F44C /* Pods_HitArcheryScoringUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FC8CD36C06137F8FEF41057 /* Pods_HitArcheryScoringUITests.framework */; };
 		AC3F9BC5EC66F75781C10B06 /* Pods_HitArcheryScoring.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52A091EBF9E11F8CA7AD0FB8 /* Pods_HitArcheryScoring.framework */; };
 		C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E7822A9188F0084D5CE /* BowAnimationData.json */; };
-		C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */; };
 		C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7C22A9D23C0084D5CE /* profileScreen.swift */; };
 		C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0398E7E22A9D2F70084D5CE /* historyScreen.swift */; };
 		C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */ = {isa = PBXBuildFile; fileRef = C0398E8022A9D50B0084D5CE /* Trophy.json */; };
@@ -30,6 +29,7 @@
 		C03C55D222A2269D003290C7 /* HitArcheryScoringUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03C55D122A2269D003290C7 /* HitArcheryScoringUITests.swift */; };
 		C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CC22B72070000563D4 /* ScoresChartView.swift */; };
 		C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */; };
+		C059E3D122B9B665000563D4 /* itemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D022B9B665000563D4 /* itemExtensions.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -80,7 +80,6 @@
 		9FF2B8DE71FAB6B81835CD2D /* Pods-HitArcheryScoringTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.release.xcconfig"; sourceTree = "<group>"; };
 		B4A6D140C90535F103A8F106 /* Pods-HitArcheryScoringUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringUITests/Pods-HitArcheryScoringUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C0398E7822A9188F0084D5CE /* BowAnimationData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BowAnimationData.json; sourceTree = "<group>"; };
-		C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTabBar.swift; sourceTree = "<group>"; };
 		C0398E7C22A9D23C0084D5CE /* profileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileScreen.swift; sourceTree = "<group>"; };
 		C0398E7E22A9D2F70084D5CE /* historyScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = historyScreen.swift; sourceTree = "<group>"; };
 		C0398E8022A9D50B0084D5CE /* Trophy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Trophy.json; sourceTree = "<group>"; };
@@ -106,6 +105,7 @@
 		C03C55D322A2269D003290C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C059E3CC22B72070000563D4 /* ScoresChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresChartView.swift; sourceTree = "<group>"; };
 		C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
+		C059E3D022B9B665000563D4 /* itemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemExtensions.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -303,12 +303,12 @@
 				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
-				C0398E7A22A9C6FE0084D5CE /* customTabBar.swift */,
 				C0398E8422AC66630084D5CE /* RealmClasses.swift */,
 				C0398E8A22AF86350084D5CE /* customSegues.swift */,
 				C0BA093C22B4F22800AA5791 /* imagePicker.swift */,
 				C059E3CC22B72070000563D4 /* ScoresChartView.swift */,
 				C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */,
+				C059E3D022B9B665000563D4 /* itemExtensions.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -560,7 +560,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0398E8B22AF86350084D5CE /* customSegues.swift in Sources */,
-				C0398E7B22A9C6FE0084D5CE /* customTabBar.swift in Sources */,
 				C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */,
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */,
@@ -576,6 +575,7 @@
 				C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */,
 				C0BA093D22B4F22800AA5791 /* imagePicker.swift in Sources */,
 				C0398E7F22A9D2F70084D5CE /* historyScreen.swift in Sources */,
+				C059E3D122B9B665000563D4 /* itemExtensions.swift in Sources */,
 				C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
 				C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */,

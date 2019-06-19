@@ -20,6 +20,7 @@ class profileScreen: UIViewController {
     @IBOutlet weak var bowLabel: UILabel!
     @IBOutlet weak var roundCountLabel: UILabel!
     @IBOutlet weak var chartView: ScoresChartView!
+    @IBOutlet weak var settingsButton: UIButton!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -37,7 +38,7 @@ class profileScreen: UIViewController {
         profilePicView.layer.cornerRadius = profilePicView.frame.size.height / 2
         profilePicView.clipsToBounds = true
         chartView.contentMode = .scaleAspectFit
-        
+        settingsButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,6 +84,8 @@ class profileScreen: UIViewController {
 
     //MARK: Actions
     @IBAction func tappedEdit(_ sender: UIButton) {
+    }
+    @IBAction func settingsTapped(_ sender: UIButton) {
     }
     
     

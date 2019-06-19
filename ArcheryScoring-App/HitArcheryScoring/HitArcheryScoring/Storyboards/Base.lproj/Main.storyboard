@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mE-yd-5w8">
-                                <rect key="frame" x="15" y="40" width="345" height="43"/>
+                                <rect key="frame" x="15" y="40" width="292" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="43" id="L3k-VJ-gJb"/>
                                 </constraints>
@@ -110,10 +110,22 @@
                                 <rect key="frame" x="15" y="337.5" width="345" height="270.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAu-2V-GQd">
+                                <rect key="frame" x="317" y="40" width="43" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="43" id="NXZ-Sw-ASj"/>
+                                    <constraint firstAttribute="height" constant="43" id="jJ0-IJ-8Qs"/>
+                                </constraints>
+                                <state key="normal" image="Settings"/>
+                                <connections>
+                                    <action selector="settingsTapped:" destination="An0-kS-TpP" eventType="touchUpInside" id="pWE-ZF-Xbe"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="kT4-be-bms" firstAttribute="centerX" secondItem="LhD-qD-HzQ" secondAttribute="centerX" id="19f-ic-tGx"/>
+                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="IAu-2V-GQd" secondAttribute="trailing" constant="15" id="5u7-bP-HQq"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="width" secondItem="LhD-qD-HzQ" secondAttribute="width" id="6rg-N7-nMf"/>
                             <constraint firstItem="PSu-ob-QC5" firstAttribute="top" secondItem="Khy-CO-e5Q" secondAttribute="bottom" constant="5" id="9YE-oT-PaQ"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="PSu-ob-QC5" secondAttribute="trailing" constant="15" id="FmT-y4-xck"/>
@@ -124,6 +136,8 @@
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="bottom" secondItem="6YM-lk-0Ii" secondAttribute="bottom" constant="10" id="SlK-IR-RDi"/>
                             <constraint firstItem="7mE-yd-5w8" firstAttribute="top" secondItem="g2c-Cc-Hbv" secondAttribute="top" constant="20" id="Vyn-CN-gLV"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="centerY" secondItem="LhD-qD-HzQ" secondAttribute="centerY" id="Y4Q-KI-Pxh"/>
+                            <constraint firstItem="IAu-2V-GQd" firstAttribute="leading" secondItem="7mE-yd-5w8" secondAttribute="trailing" constant="10" id="Ycx-Xc-Zox"/>
+                            <constraint firstItem="IAu-2V-GQd" firstAttribute="centerY" secondItem="7mE-yd-5w8" secondAttribute="centerY" id="YfQ-k5-hz6"/>
                             <constraint firstItem="kT4-be-bms" firstAttribute="height" secondItem="LhD-qD-HzQ" secondAttribute="height" id="Ykj-Mi-zPe"/>
                             <constraint firstItem="LhD-qD-HzQ" firstAttribute="top" secondItem="7mE-yd-5w8" secondAttribute="bottom" constant="10" id="d4V-jB-Z0l"/>
                             <constraint firstItem="7mE-yd-5w8" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="dCp-bi-2pa"/>
@@ -137,7 +151,6 @@
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="Khy-CO-e5Q" secondAttribute="trailing" constant="15" id="oa2-3x-ADg"/>
                             <constraint firstItem="rQ6-gr-lrX" firstAttribute="leading" secondItem="g2c-Cc-Hbv" secondAttribute="leading" constant="15" id="osc-tP-zRw"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="6YM-lk-0Ii" secondAttribute="trailing" constant="15" id="vur-tE-xGn"/>
-                            <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="7mE-yd-5w8" secondAttribute="trailing" constant="15" id="wc0-pr-pZ4"/>
                             <constraint firstItem="g2c-Cc-Hbv" firstAttribute="trailing" secondItem="rQ6-gr-lrX" secondAttribute="trailing" constant="15" id="y67-5P-Fjn"/>
                             <constraint firstItem="SPr-eA-5XG" firstAttribute="centerY" secondItem="LhD-qD-HzQ" secondAttribute="centerY" id="yDy-CD-hZy"/>
                         </constraints>
@@ -155,6 +168,7 @@
                         <outlet property="profileLabel" destination="7mE-yd-5w8" id="WN6-Md-oKE"/>
                         <outlet property="profilePicView" destination="LhD-qD-HzQ" id="6oS-CM-CbW"/>
                         <outlet property="roundCountLabel" destination="rQ6-gr-lrX" id="hA1-zs-wze"/>
+                        <outlet property="settingsButton" destination="IAu-2V-GQd" id="8OA-0t-oHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zc-24-xS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -572,6 +586,7 @@
         <image name="EditProfile" width="820" height="820"/>
         <image name="ProfileBorder" width="900" height="900"/>
         <image name="ProfileIcon" width="30" height="30"/>
+        <image name="Settings" width="100" height="100"/>
         <image name="SingleSpotIcon" width="350" height="350"/>
         <image name="SingleSpotIconGhost" width="350" height="350"/>
         <image name="Trophy" width="1114" height="924"/>
