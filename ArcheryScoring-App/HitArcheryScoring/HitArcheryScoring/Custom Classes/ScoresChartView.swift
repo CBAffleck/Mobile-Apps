@@ -67,10 +67,10 @@ class ScoresChartView: MacawView {
         var newNodes: [Node] = []
         
         for i in 1...adjustedData.count {
-            let x = (Double(i) * 46)
+            let x = (Double(i) * 45.5)
             let valueText = Text(text: last5Scores[i-1].roundNum, align: .max, baseline: .mid, place: .move(dx: x, dy: chartBaseY + 15))
             valueText.fill = Color.rgba(r: 24, g: 41, b: 52, a: 1)
-            valueText.font = Font.init(name: "SanFranciscoText", size: 11)
+            valueText.font = Font.init(name: "SanFranciscoText", size: 9)
             newNodes.append(valueText)
         }
         
