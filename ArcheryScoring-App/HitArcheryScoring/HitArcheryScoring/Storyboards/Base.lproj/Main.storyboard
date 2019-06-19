@@ -119,6 +119,7 @@
                                 <state key="normal" image="Settings"/>
                                 <connections>
                                     <action selector="settingsTapped:" destination="An0-kS-TpP" eventType="touchUpInside" id="pWE-ZF-Xbe"/>
+                                    <segue destination="TJE-Ug-ahR" kind="presentation" identifier="toSettingsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="iq7-RW-9FO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -555,6 +556,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YWN-pP-Ckm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2706" y="1196"/>
+        </scene>
+        <!--settingsScreen-->
+        <scene sceneID="9Ny-hc-lJF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="settingsScreen" id="TJE-Ug-ahR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MkT-Iz-qfC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="twm-5G-NW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2314" y="1196"/>
         </scene>
         <!--startScoring-->
         <scene sceneID="gMj-Hb-HZ0">

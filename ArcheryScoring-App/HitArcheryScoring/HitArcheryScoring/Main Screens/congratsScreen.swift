@@ -48,6 +48,10 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CloseFinish"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CloseWindow"), object: nil)
+        
         createEndArray()
         setUpTableView()
         detailTableView.separatorStyle = .none
@@ -145,6 +149,7 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: Actions
     @IBAction func closeTapped(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

@@ -31,6 +31,8 @@
 		C059E3CF22B73EE5000563D4 /* CubicCurveAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */; };
 		C059E3D122B9B665000563D4 /* itemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D022B9B665000563D4 /* itemExtensions.swift */; };
 		C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */; };
+		C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D422B9D175000563D4 /* settingsScreen.swift */; };
+		C059E3D722B9D553000563D4 /* settingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D622B9D553000563D4 /* settingCell.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -108,6 +110,8 @@
 		C059E3CE22B73EE5000563D4 /* CubicCurveAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CubicCurveAlgorithm.swift; sourceTree = "<group>"; };
 		C059E3D022B9B665000563D4 /* itemExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = itemExtensions.swift; sourceTree = "<group>"; };
 		C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = settingsScreen.storyboard; sourceTree = "<group>"; };
+		C059E3D422B9D175000563D4 /* settingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsScreen.swift; sourceTree = "<group>"; };
+		C059E3D622B9D553000563D4 /* settingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingCell.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				C0729FFB22A8A71A00A283FB /* congratsScreen.swift */,
 				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
+				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
 			);
 			path = "Main Screens";
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
 				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
 				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
+				C059E3D622B9D553000563D4 /* settingCell.swift */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
 				C0398E8422AC66630084D5CE /* RealmClasses.swift */,
@@ -569,6 +575,7 @@
 				C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
 				C0BA093B22B4A81F00AA5791 /* editProfile.swift in Sources */,
+				C059E3D722B9D553000563D4 /* settingCell.swift in Sources */,
 				C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */,
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
@@ -584,6 +591,7 @@
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
 				C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */,
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
+				C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */,
 				C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,

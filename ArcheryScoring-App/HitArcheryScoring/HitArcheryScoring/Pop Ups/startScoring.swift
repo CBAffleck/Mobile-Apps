@@ -25,6 +25,7 @@ class startScoring: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissScreen), name: NSNotification.Name(rawValue: "ClosePopUp"), object: nil)
 
         popUpView.layer.cornerRadius = 20
         cancelButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
@@ -39,6 +40,10 @@ class startScoring: UIViewController {
     }
     
     //MARK: Functions
+    @objc func dismissScreen() {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        dismiss(animated: false, completion: nil)
+    }
 
     // MARK: - Navigation
 

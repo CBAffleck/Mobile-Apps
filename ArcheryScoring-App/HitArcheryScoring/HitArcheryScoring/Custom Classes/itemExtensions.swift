@@ -57,3 +57,24 @@ extension UISpringTimingParameters {
     }
     
 }
+
+extension UITableViewCell {
+    
+    func bounce() {
+        let params = UISpringTimingParameters(damping: 0.4, response: 0.2)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
+            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+        }
+        animator.startAnimation()
+    }
+    
+    func bounceBack() {
+        let params = UISpringTimingParameters(damping: 0.4, response: 0.2)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        animator.startAnimation()
+    }
+}

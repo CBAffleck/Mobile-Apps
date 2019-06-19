@@ -50,6 +50,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         dimView.isHidden = true
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissScreen), name: NSNotification.Name(rawValue: "CloseWindow"), object: nil)
         
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)
         setUpTableView()
@@ -234,6 +235,10 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     @objc func dismissEffect() {
         animateOut()
+    }
+    
+    @objc func dismissScreen() {
+        UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
     //MARK: Actions

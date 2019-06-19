@@ -41,6 +41,8 @@ class finishScoring: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissScreen), name: NSNotification.Name(rawValue: "CloseFinish"), object: nil)
+        
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         finishButton.layer.cornerRadius = 10
@@ -133,6 +135,13 @@ class finishScoring: UIViewController {
         
         //Update average for the scoring round
         updatedRoundInfo(round: round)
+    }
+    
+    @objc func dismissScreen() {
+        dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ClosePopUp"), object: nil)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "CloseWindow"), object: nil)
+        })
     }
     
     // MARK: - Navigation

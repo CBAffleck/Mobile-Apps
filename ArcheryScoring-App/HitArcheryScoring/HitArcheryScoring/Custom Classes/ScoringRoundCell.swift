@@ -43,6 +43,7 @@ class ScoringRoundCell: UITableViewCell {
         cellView.layer.borderWidth = 0.75
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
         targetButton.setImage(UIImage(named: round.targetFace + "Icon"), for: .normal)
+        targetButton.adjustsImageWhenHighlighted = false
     }
     
     @IBAction func targetTapped(_ sender: UIButton) {
