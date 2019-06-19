@@ -39,6 +39,8 @@ class profileScreen: UIViewController {
         profilePicView.clipsToBounds = true
         chartView.contentMode = .scaleAspectFit
         settingsButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        editButton.addTarget(self, action: #selector(touchDown), for: [.touchDown, .touchDragEnter])
+        editButton.addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -47,13 +49,25 @@ class profileScreen: UIViewController {
     }
 
     //MARK: Functions
-//    private func play(withDelay: TimeInterval) {
-//        self.perform(#selector(animateViews), with: .none, afterDelay: withDelay)
-//    }
-//
-//    @objc open func animateViews() {
-//        chartView.play()
-//    }
+    @objc private func touchDown() {
+        let params = UISpringTimingParameters(damping: 0.4, response: 0.2)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
+            self.profilePicView.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+            self.profileBorderImg.transform = CGAffineTransform(scaleX: 1.15, y: 1.15)
+        }
+        animator.startAnimation()
+    }
+    
+    @objc private func touchUp() {
+        let params = UISpringTimingParameters(damping: 0.4, response: 0.2)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: params)
+        animator.addAnimations {
+            self.profilePicView.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.profileBorderImg.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }
+        animator.startAnimation()
+    }
     
     func setRoundCountLabel() -> String {
         let numRounds = realm.objects(HistoryRound.self).count

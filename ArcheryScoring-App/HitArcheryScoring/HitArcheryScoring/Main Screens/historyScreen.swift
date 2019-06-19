@@ -86,7 +86,6 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         roundTitle = rounds[indexPath.row].roundTitle
         time = rounds[indexPath.row].time
         date = rounds[indexPath.row].date
-        print(rounds[indexPath.row])
         
         //Convert List<Object> to [[String]]
         var tempScores: [[String]] = []
