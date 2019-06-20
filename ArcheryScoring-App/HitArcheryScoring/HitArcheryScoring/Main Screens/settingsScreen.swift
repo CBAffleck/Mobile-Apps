@@ -20,7 +20,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: Variables
     let realm = try! Realm()
-    let settings = ["Language", "Distance Unit", "Help and Support", "Review on the App Store", "Privacy Policy"]
+    let settings = ["Language", "Distance Unit", "Help and Support", "Review Rise on the App Store", "Privacy Policy"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
