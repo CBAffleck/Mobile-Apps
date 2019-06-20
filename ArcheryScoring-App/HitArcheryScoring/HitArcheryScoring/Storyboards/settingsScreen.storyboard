@@ -49,8 +49,35 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sectionCellID" rowHeight="54" id="NVk-hJ-hbu" customClass="sectionCell" customModule="HitArcheryScoring" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28" width="375" height="54"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NVk-hJ-hbu" id="Z5s-Rp-Xcs">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="53.5"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SECTION" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EA-rj-jKh">
+                                                                    <rect key="frame" x="15" y="21" width="345" height="22"/>
+                                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                                                    <color key="textColor" red="0.69411764705882351" green="0.69411764705882351" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="7EA-rj-jKh" secondAttribute="bottom" id="8rq-40-xty"/>
+                                                                <constraint firstItem="7EA-rj-jKh" firstAttribute="leading" secondItem="Z5s-Rp-Xcs" secondAttribute="leadingMargin" id="IRL-6J-qqH"/>
+                                                                <constraint firstItem="7EA-rj-jKh" firstAttribute="top" secondItem="Z5s-Rp-Xcs" secondAttribute="topMargin" constant="10" id="bre-TZ-oeY"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="7EA-rj-jKh" secondAttribute="trailing" id="r0e-B7-jN7"/>
+                                                            </constraints>
+                                                        </tableViewCellContentView>
+                                                        <connections>
+                                                            <outlet property="cellView" destination="Z5s-Rp-Xcs" id="3re-aU-Yzi"/>
+                                                            <outlet property="titleLabel" destination="7EA-rj-jKh" id="HcW-28-2uR"/>
+                                                        </connections>
+                                                    </tableViewCell>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="settingCellID" id="1ZI-3L-aN4" customClass="settingCell" customModule="HitArcheryScoring" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                                        <rect key="frame" x="0.0" y="82" width="375" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1ZI-3L-aN4" id="gWs-nf-j9f">
                                                             <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -144,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TD-1Y-ODc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="65.217391304347828"/>
+            <point key="canvasLocation" x="525.60000000000002" y="57.121439280359823"/>
         </scene>
     </scenes>
     <resources>

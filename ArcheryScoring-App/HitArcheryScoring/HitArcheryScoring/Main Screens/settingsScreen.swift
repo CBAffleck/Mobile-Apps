@@ -20,7 +20,11 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: Variables
     let realm = try! Realm()
-    let settings = ["Language", "Distance Unit", "Help and Support", "Review Rise on the App Store", "Privacy Policy"]
+    let sections = ["Units", "Help and Support", "Other"]
+    let unitItems = ["Language", "Distance Unit"]
+    let settings = ["Review Rise on the App Store", "Privacy Policy"]
+    let supportItems = ["User Guide", "Request a Feature", "Report a Bug", "Other Help"]
+    var sectionContents: [[String]] = [[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,8 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         closeButton.layer.cornerRadius = 10
         tableView.separatorStyle = .none     //Gets rid of separator line between table cells
         tableView.showsVerticalScrollIndicator = false
+        
+        sectionContents = [unitItems, supportItems, settings]
     }
     
     //MARK: Functions
@@ -38,12 +44,26 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.dataSource = self
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCellID") as! sectionCell
+        cell.setInfo(title: sections[section])
+        return cell.contentView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 54
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settings.count
+        return sectionContents[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let setting = settings[indexPath.row]
+        let setting = sectionContents[indexPath.section][indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCellID") as! settingCell
         cell.setInfo(title: setting)
         return cell
