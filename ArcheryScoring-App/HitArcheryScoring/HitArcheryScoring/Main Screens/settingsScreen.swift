@@ -86,16 +86,18 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.cellForRow(at: indexPath) as! settingCell
         let currTitle = cell.cellTitle
-        if supportItems.contains(currTitle) && currTitle != supportItems[0] {
+        if currTitle == supportItems[0] {
+            //open user guide screen
+        } else if supportItems.contains(currTitle) {
             showMailComposer(title: currTitle)
         } else if currTitle == unitItems[0] {
-            //show language pop up
+            performSegue(withIdentifier: "languageSegue", sender: indexPath)
         } else if currTitle == unitItems[1] {
             performSegue(withIdentifier: "distanceSegue", sender: indexPath)
         } else if currTitle == settings[0] {
-            //open app store link
+            //open app store link in app store
         } else if currTitle == settings[1] {
-            //show privacy policy
+            //show privacy policy screen
         }
     }
     
@@ -113,11 +115,11 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         composer.setToRecipients(["campbell.affleck@gmail.com"])
         composer.setSubject(title)
         if title.contains("Bug") {
-            composer.setMessageBody("Please describe the bug you encountered so that Rise can return to being bug free as soon as possible.\n\nBug Description: ", isHTML: false)
+            composer.setMessageBody("Please describe the bug you encountered so that we can fix it and make Rise bug free again as soon as possible.\n\nBug Description: ", isHTML: false)
         } else if title.contains("Feature") {
-            composer.setMessageBody("User input on the future of Rise is always appreciated, and it plays a large role in determining what features I prioritize when working on updates.\n\nPlease describe the feature you think would make a great addition to the app!\n\nFeature: ", isHTML: false)
+            composer.setMessageBody("User input on the future of Rise is always appreciated, and it plays a large role in determining what features we prioritize when working on updates.\n\nPlease describe the feature you think would make a great addition to the app!\n\nFeature: ", isHTML: false)
         } else if title.contains("Other") {
-            composer.setMessageBody("What can I help you with? I'll try to get back to you as soon as possible.\n\nQuestion: ", isHTML: false)
+            composer.setMessageBody("What can we help you with? We'll try to get back to you as soon as possible.\n\nQuestion: ", isHTML: false)
         }
         
         present(composer, animated: true)

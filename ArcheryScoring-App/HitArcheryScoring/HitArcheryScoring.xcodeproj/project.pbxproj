@@ -37,6 +37,8 @@
 		C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3DF22BB4D99000563D4 /* distanceSetting.swift */; };
 		C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E122BB4ED6000563D4 /* distanceCell.swift */; };
 		C059E3E422BB6099000563D4 /* mailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E322BB6099000563D4 /* mailError.swift */; };
+		C059E3E622BB70E4000563D4 /* languageSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E522BB70E4000563D4 /* languageSetting.swift */; };
+		C059E3E822BB70F2000563D4 /* languageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E722BB70F2000563D4 /* languageCell.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -120,6 +122,8 @@
 		C059E3DF22BB4D99000563D4 /* distanceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceSetting.swift; sourceTree = "<group>"; };
 		C059E3E122BB4ED6000563D4 /* distanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceCell.swift; sourceTree = "<group>"; };
 		C059E3E322BB6099000563D4 /* mailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailError.swift; sourceTree = "<group>"; };
+		C059E3E522BB70E4000563D4 /* languageSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageSetting.swift; sourceTree = "<group>"; };
+		C059E3E722BB70F2000563D4 /* languageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = languageCell.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -281,6 +285,8 @@
 				C059E3DF22BB4D99000563D4 /* distanceSetting.swift */,
 				C059E3E122BB4ED6000563D4 /* distanceCell.swift */,
 				C059E3E322BB6099000563D4 /* mailError.swift */,
+				C059E3E522BB70E4000563D4 /* languageSetting.swift */,
+				C059E3E722BB70F2000563D4 /* languageCell.swift */,
 			);
 			path = "Settings Screens";
 			sourceTree = "<group>";
@@ -603,6 +609,7 @@
 				C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */,
 				C0729FFE22A8EEF700A283FB /* congratsEndCell.swift in Sources */,
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
+				C059E3E622BB70E4000563D4 /* languageSetting.swift in Sources */,
 				C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */,
 				C03C55B222A2269C003290C7 /* AppDelegate.swift in Sources */,
 				C0BA093D22B4F22800AA5791 /* imagePicker.swift in Sources */,
@@ -615,6 +622,7 @@
 				C059E3E422BB6099000563D4 /* mailError.swift in Sources */,
 				C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */,
 				C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */,
+				C059E3E822BB70F2000563D4 /* languageCell.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
 				C059E3DD22BB30CD000563D4 /* sectionCell.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
