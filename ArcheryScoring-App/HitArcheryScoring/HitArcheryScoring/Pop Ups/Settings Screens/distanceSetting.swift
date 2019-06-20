@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class distanceSetting: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -18,6 +19,7 @@ class distanceSetting: UIViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     
     //MARK: Variables
+    let realm = try! Realm()
     let distances = ["Metric (meters)", "Imperial (yards)"]
     var selectedIndexPath : IndexPath = IndexPath(row: 0, section: 0)
     
@@ -76,9 +78,42 @@ class distanceSetting: UIViewController, UITableViewDelegate, UITableViewDataSou
         selectedIndexPath = indexPath
     }
     
+    func updateRoundDistances() {
+        try! realm.write {
+            for round in realm.objects(ScoringRound.self) {
+                if UserDefaults.standard.value(forKey: "DistanceUnit") as! String == distances[0] {
+                    if round.distance.contains("yd") {
+                        if round.distance == "20yd" {
+                            round.distance = "18m"
+                        } else if round.distance == "60yd" {
+                            round.distance = "50m"
+                        } else if round.distance == "80yd" {
+                            round.distance = "70m"
+                        }
+                    }
+                } else {
+                    if round.distance.contains("m") {
+                        if round.distance == "18m" {
+                            round.distance = "20yd"
+                        } else if round.distance == "50m" {
+                            round.distance = "60yd"
+                        } else if round.distance == "70m" {
+                            round.distance = "80yd"
+                        }
+                    }
+                }
+                
+                round.roundName = round.distance + " " + round.roundName.components(separatedBy: " ")[1] + " Round"
+            }
+            print("Updated round distances")
+        }
+    }
+    
     //MARK: Actions
     @IBAction func closeTapped(_ sender: UIButton) {
+        updateRoundDistances()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "settingChanged"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
         dismiss(animated: true, completion: nil)
     }
     

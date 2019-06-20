@@ -74,22 +74,6 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             if indoorRound18m.saveScoringRound() { print("18M Scoring round saved!") }
             else { print("Could not save scoring round.") }
             
-            //Set 70m outdoor scoring round and save to realm
-            let outdoorRound70m = ScoringRound()
-            outdoorRound70m.roundName = "70m Scoring Round"
-            outdoorRound70m.roundNum = 1
-            outdoorRound70m.distance = "70m"
-            outdoorRound70m.lastScored = "--"
-            outdoorRound70m.roundDescription = "6 ends, 6 arrows per end"
-            outdoorRound70m.average = "0"
-            outdoorRound70m.pr = 0
-            outdoorRound70m.targetFace = "SingleSpot"
-            outdoorRound70m.innerTen = "off"
-            outdoorRound70m.endCount = 6
-            outdoorRound70m.arrowsPerEnd = 6
-            if outdoorRound70m.saveScoringRound() { print("70M Scoring round saved!") }
-            else { print("Could not save scoring round.") }
-            
             //Set 50m outdoor scoring round and save to realm
             let outdoorRound50m = ScoringRound()
             outdoorRound50m.roundName = "50m Scoring Round"
@@ -104,6 +88,22 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound50m.endCount = 6
             outdoorRound50m.arrowsPerEnd = 6
             if outdoorRound50m.saveScoringRound() { print("50M Scoring round saved!") }
+            else { print("Could not save scoring round.") }
+            
+            //Set 70m outdoor scoring round and save to realm
+            let outdoorRound70m = ScoringRound()
+            outdoorRound70m.roundName = "70m Scoring Round"
+            outdoorRound70m.roundNum = 1
+            outdoorRound70m.distance = "70m"
+            outdoorRound70m.lastScored = "--"
+            outdoorRound70m.roundDescription = "6 ends, 6 arrows per end"
+            outdoorRound70m.average = "0"
+            outdoorRound70m.pr = 0
+            outdoorRound70m.targetFace = "SingleSpot"
+            outdoorRound70m.innerTen = "off"
+            outdoorRound70m.endCount = 6
+            outdoorRound70m.arrowsPerEnd = 6
+            if outdoorRound70m.saveScoringRound() { print("70M Scoring round saved!") }
             else { print("Could not save scoring round.") }
         }
         
