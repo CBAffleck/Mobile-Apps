@@ -103,6 +103,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     func showMailComposer(title: String) {
         guard MFMailComposeViewController.canSendMail() else {
             //show mail not configured pop up
+            performSegue(withIdentifier: "mailErrorSegue", sender: self)
             print("Mail not configured")
             return
         }

@@ -36,6 +36,7 @@
 		C059E3DD22BB30CD000563D4 /* sectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3DC22BB30CD000563D4 /* sectionCell.swift */; };
 		C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3DF22BB4D99000563D4 /* distanceSetting.swift */; };
 		C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E122BB4ED6000563D4 /* distanceCell.swift */; };
+		C059E3E422BB6099000563D4 /* mailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E322BB6099000563D4 /* mailError.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -118,6 +119,7 @@
 		C059E3DC22BB30CD000563D4 /* sectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionCell.swift; sourceTree = "<group>"; };
 		C059E3DF22BB4D99000563D4 /* distanceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceSetting.swift; sourceTree = "<group>"; };
 		C059E3E122BB4ED6000563D4 /* distanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceCell.swift; sourceTree = "<group>"; };
+		C059E3E322BB6099000563D4 /* mailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mailError.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 			children = (
 				C059E3DF22BB4D99000563D4 /* distanceSetting.swift */,
 				C059E3E122BB4ED6000563D4 /* distanceCell.swift */,
+				C059E3E322BB6099000563D4 /* mailError.swift */,
 			);
 			path = "Settings Screens";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
 				C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */,
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
+				C059E3E422BB6099000563D4 /* mailError.swift in Sources */,
 				C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */,
 				C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,
