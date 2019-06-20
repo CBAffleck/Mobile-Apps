@@ -34,6 +34,8 @@
 		C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D422B9D175000563D4 /* settingsScreen.swift */; };
 		C059E3D722B9D553000563D4 /* settingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3D622B9D553000563D4 /* settingCell.swift */; };
 		C059E3DD22BB30CD000563D4 /* sectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3DC22BB30CD000563D4 /* sectionCell.swift */; };
+		C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3DF22BB4D99000563D4 /* distanceSetting.swift */; };
+		C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C059E3E122BB4ED6000563D4 /* distanceCell.swift */; };
 		C0729FEE22A7605600A283FB /* keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0729FED22A7605600A283FB /* keyboard.xib */; };
 		C0729FF022A7632200A283FB /* keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0729FEF22A7632200A283FB /* keyboard.swift */; };
 		C0729FF222A7C83C00A283FB /* cancelScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */; };
@@ -114,6 +116,8 @@
 		C059E3D422B9D175000563D4 /* settingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsScreen.swift; sourceTree = "<group>"; };
 		C059E3D622B9D553000563D4 /* settingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingCell.swift; sourceTree = "<group>"; };
 		C059E3DC22BB30CD000563D4 /* sectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sectionCell.swift; sourceTree = "<group>"; };
+		C059E3DF22BB4D99000563D4 /* distanceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceSetting.swift; sourceTree = "<group>"; };
+		C059E3E122BB4ED6000563D4 /* distanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = distanceCell.swift; sourceTree = "<group>"; };
 		C0729FED22A7605600A283FB /* keyboard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = keyboard.xib; sourceTree = "<group>"; };
 		C0729FEF22A7632200A283FB /* keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyboard.swift; sourceTree = "<group>"; };
 		C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = cancelScoring.storyboard; sourceTree = "<group>"; };
@@ -269,6 +273,15 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
+		C059E3DE22BB47CF000563D4 /* Settings Screens */ = {
+			isa = PBXGroup;
+			children = (
+				C059E3DF22BB4D99000563D4 /* distanceSetting.swift */,
+				C059E3E122BB4ED6000563D4 /* distanceCell.swift */,
+			);
+			path = "Settings Screens";
+			sourceTree = "<group>";
+		};
 		C07C919822A4EFDF005CCF98 /* Main Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +311,7 @@
 				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
 				C0BA093822B4A80D00AA5791 /* editProfile.storyboard */,
 				C0BA093A22B4A81F00AA5791 /* editProfile.swift */,
+				C059E3DE22BB47CF000563D4 /* Settings Screens */,
 			);
 			path = "Pop Ups";
 			sourceTree = "<group>";
@@ -583,6 +597,7 @@
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
 				C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */,
+				C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */,
 				C0729FFE22A8EEF700A283FB /* congratsEndCell.swift in Sources */,
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C0729FF422A7C85C00A283FB /* cancelScoring.swift in Sources */,
@@ -601,6 +616,7 @@
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
 				C0398E8322AC60320084D5CE /* historyCell.swift in Sources */,
 				C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */,
+				C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
