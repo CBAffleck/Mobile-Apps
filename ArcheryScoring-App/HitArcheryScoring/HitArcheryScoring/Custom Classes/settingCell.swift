@@ -15,6 +15,9 @@ class settingCell: UITableViewCell {
     @IBOutlet weak var shortSettingLabel: UILabel!
     @IBOutlet weak var currChoiceLabel: UILabel!
     
+    //MARK: Variables
+    var cellTitle = ""
+    var subTitle = true
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +26,7 @@ class settingCell: UITableViewCell {
     
     //MARK: Functions
     func setInfo(title: String) {
+        cellTitle = title
         if title == "Language" {
             shortSettingLabel.text = title
             currChoiceLabel.text = UserDefaults.standard.value(forKey: "Language") as? String
@@ -35,6 +39,7 @@ class settingCell: UITableViewCell {
             longSettingLabel.text = title
             shortSettingLabel.isHidden = true
             currChoiceLabel.isHidden = true
+            subTitle = false
         }
     }
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import RealmSwift
+import MessageUI
 
-class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
 
     //MARK: Properties
     @IBOutlet weak var settingsTitleLabel: UILabel!
@@ -71,6 +72,68 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 44
+    }
+    
+    //Handles displaying pop ups or email views depending on what setting cell is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! settingCell
+        let currTitle = cell.cellTitle
+        if supportItems.contains(currTitle) && currTitle != supportItems[0] {
+            showMailComposer(title: currTitle)
+        } else if currTitle == unitItems[0] {
+            //show language pop up
+        } else if currTitle == unitItems[1] {
+            //show distance pop up
+        } else if currTitle == settings[0] {
+            //open app store link
+        } else if currTitle == settings[1] {
+            //show privacy policy
+        }
+    }
+    
+    //Presents the mail composer to the user with prefilled recipient, subject, and message template
+    func showMailComposer(title: String) {
+        guard MFMailComposeViewController.canSendMail() else {
+            //show mail not configured pop up
+            print("Mail not configured")
+            return
+        }
+        
+        let composer = MFMailComposeViewController()
+        composer.mailComposeDelegate = self
+        composer.setToRecipients(["campbell.affleck@gmail.com"])
+        composer.setSubject(title)
+        if title.contains("Bug") {
+            composer.setMessageBody("Please describe the bug you encountered so that RISE can return to being bug free as soon as possible.\n\nBug Description: ", isHTML: false)
+        } else if title.contains("Feature") {
+            composer.setMessageBody("User input on the future of RISE is always appreciated, and it plays a large role in determining what features I prioritize when working on updates.\n\nPlease describe the feature you think would make a great addition to the app!\n\nFeature: ", isHTML: false)
+        } else if title.contains("Other") {
+            composer.setMessageBody("What can I help you with? I'll try to get back to you as soon as possible.\n\nQuestion: ", isHTML: false)
+        }
+        
+        present(composer, animated: true)
+    }
+    
+    //Handles mail app errors and dismissing view
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if let _ = error {
+            //show error pop up
+            controller.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        switch result {
+        case .cancelled:
+            print("Cancelled")
+        case .failed:
+            print("Failed to send")
+        case .saved:
+            print("Saved")
+        case .sent:
+            print("Email sent")
+        }
+        
+        controller.dismiss(animated: true, completion: nil)
     }
 
     /*
