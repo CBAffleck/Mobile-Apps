@@ -62,6 +62,7 @@
 		C0BA093B22B4A81F00AA5791 /* editProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093A22B4A81F00AA5791 /* editProfile.swift */; };
 		C0BA093D22B4F22800AA5791 /* imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093C22B4F22800AA5791 /* imagePicker.swift */; };
 		C0C9284322BC698A00C7BC89 /* privacyPolicySetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9284222BC698A00C7BC89 /* privacyPolicySetting.swift */; };
+		C0C9284522BC94FD00C7BC89 /* tempMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */; };
 		E026034611A3E949BF45F322 /* Pods_HitArcheryScoringTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,7 @@
 		C0BA093A22B4A81F00AA5791 /* editProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfile.swift; sourceTree = "<group>"; };
 		C0BA093C22B4F22800AA5791 /* imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePicker.swift; sourceTree = "<group>"; };
 		C0C9284222BC698A00C7BC89 /* privacyPolicySetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = privacyPolicySetting.swift; sourceTree = "<group>"; };
+		C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = tempMain.storyboard; sourceTree = "<group>"; };
 		CC7C2E2DE7D6FE706931E618 /* Pods-HitArcheryScoring.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoring.release.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoring/Pods-HitArcheryScoring.release.xcconfig"; sourceTree = "<group>"; };
 		D2D6689ED3DCF38E98843A35 /* Pods_HitArcheryScoringTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HitArcheryScoringTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9E77A1FA88BCBB0B0826A24 /* Pods-HitArcheryScoringTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HitArcheryScoringTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HitArcheryScoringTests/Pods-HitArcheryScoringTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */,
 				C0729FF922A8A6FE00A283FB /* congratsScreen.storyboard */,
 				C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */,
+				C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */,
 				C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */,
 				C0729FFA22A8A6FE00A283FB /* congratsScreen.storyboard in Resources */,
+				C0C9284522BC94FD00C7BC89 /* tempMain.storyboard in Resources */,
 				C03C55B722A2269C003290C7 /* Main.storyboard in Resources */,
 				C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */,
 				C0729FEE22A7605600A283FB /* keyboard.xib in Resources */,

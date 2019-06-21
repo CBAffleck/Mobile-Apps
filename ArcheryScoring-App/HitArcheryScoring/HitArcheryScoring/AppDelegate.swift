@@ -17,16 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let tabBarController = self.window?.rootViewController as! UITabBarController
-        tabBarController.selectedIndex = 1
         
         let config = Realm.Configuration(
             schemaVersion: 1,
             migrationBlock: { migration, oldSchemaVersion in
                 if (oldSchemaVersion < 1) {}
+//                if (oldSchemaVersion < 2) {
+//                    migration.enumerateObjects(ofType: UserInfo.className()) { oldObject, newObject in
+//                        newObject!["email"] = ""
+//                    }
+//                }
         })
         Realm.Configuration.defaultConfiguration = config
         let _ = try! Realm()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let viewController = storyboard.instantiateInitialViewController()
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
+        
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        tabBarController.selectedIndex = 1
+        
+        
         return true
     }
 
