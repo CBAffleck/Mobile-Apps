@@ -18,6 +18,7 @@ class settingCell: UITableViewCell {
     //MARK: Variables
     var cellTitle = ""
     var subTitle = true
+    let kVersion = "CFBundleShortVersionString"
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +28,12 @@ class settingCell: UITableViewCell {
     //MARK: Functions
     func setInfo(title: String) {
         cellTitle = title
-        if title == "Language" {
+        if title == "Version" {
+            shortSettingLabel.text = title
+            currChoiceLabel.text = getVersion()
+            longSettingLabel.isHidden = true
+            self.accessoryType = .none
+        } else if title == "Language" {
             shortSettingLabel.text = title
             currChoiceLabel.text = UserDefaults.standard.value(forKey: "Language") as? String
             longSettingLabel.isHidden = true
@@ -41,5 +47,11 @@ class settingCell: UITableViewCell {
             currChoiceLabel.isHidden = true
             subTitle = false
         }
+    }
+    
+    func getVersion() -> String {
+        let dict = Bundle.main.infoDictionary!
+        let version = dict[kVersion] as! String
+        return version
     }
 }

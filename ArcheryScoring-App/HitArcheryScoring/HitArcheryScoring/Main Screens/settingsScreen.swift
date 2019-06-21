@@ -23,7 +23,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     let realm = try! Realm()
     let sections = ["Units", "Help and Support", "Other"]
     let unitItems = ["Language", "Distance Unit"]
-    let settings = ["Review Rise on the App Store", "Privacy Policy"]
+    let settings = ["Review Rise on the App Store", "Privacy Policy", "Version"]
     let supportItems = ["User Guide", "Request a Feature", "Report a Bug", "Other Help"]
     var sectionContents: [[String]] = [[]]
     
@@ -71,6 +71,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let setting = sectionContents[indexPath.section][indexPath.row]
+        print(setting)
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCellID") as! settingCell
         cell.setInfo(title: setting)
         return cell
