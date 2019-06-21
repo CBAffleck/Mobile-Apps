@@ -56,6 +56,7 @@
 		C07C91A622A71B18005CCF98 /* textScoring.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C07C91A522A71B18005CCF98 /* textScoring.storyboard */; };
 		C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A722A71B50005CCF98 /* textScoring.swift */; };
 		C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */; };
+		C0B8B2C022BD786C000EEF93 /* practiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -143,6 +144,7 @@
 		C07C91A522A71B18005CCF98 /* textScoring.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = textScoring.storyboard; sourceTree = "<group>"; };
 		C07C91A722A71B50005CCF98 /* textScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textScoring.swift; sourceTree = "<group>"; };
 		C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threeArrowEndCell.swift; sourceTree = "<group>"; };
+		C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceCell.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
+				C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */,
 				C0398E8222AC60320084D5CE /* historyCell.swift */,
 				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
 				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
@@ -614,6 +617,7 @@
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
 				C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */,
 				C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */,
+				C0B8B2C022BD786C000EEF93 /* practiceCell.swift in Sources */,
 				C0729FFE22A8EEF700A283FB /* congratsEndCell.swift in Sources */,
 				C07C91A422A61EF6005CCF98 /* ScoringRoundCell.swift in Sources */,
 				C059E3E622BB70E4000563D4 /* languageSetting.swift in Sources */,

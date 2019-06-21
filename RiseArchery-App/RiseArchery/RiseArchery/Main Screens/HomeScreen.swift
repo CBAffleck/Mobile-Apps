@@ -33,13 +33,16 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setTargetIcons), name: NSNotification.Name(rawValue: "setTargets"), object: nil)
         
         setUpRealm()
         currUser = realm.objects(UserInfo.self).first!
         createRoundArray()
         setUpTableView()
+        
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        
         self.hideKeyboardOnTap()
     }
     
@@ -136,29 +139,50 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rounds.count
+        if section == 0 {
+            return 1
+        } else {
+            return rounds.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let round = rounds[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! ScoringRoundCell
-        cell.setInfo(round: round)
-        cell.targetButton.tag = indexPath.row
-        cell.delegate = self
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "practiceCellID") as! practiceCell
+            return cell
+        } else {
+            let round = rounds[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cellId") as! ScoringRoundCell
+            cell.setInfo(round: round)
+            cell.targetButton.tag = indexPath.row
+            cell.delegate = self
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 151
+        if indexPath.section == 0 {
+            return 188
+        } else {
+            return 151
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
-        tempRound = cell.roundItem
-        performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
-        animateIn()
-        tableView.deselectRow(at: indexPath, animated: false)
+        if indexPath.section == 0 {
+            tableView.deselectRow(at: indexPath, animated: false)
+        } else {
+            let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
+            tempRound = cell.roundItem
+            performSegue(withIdentifier: "tableToPopUpSegue", sender: indexPath)
+            animateIn()
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -190,9 +214,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @objc func dismissEffect() {
         animateOut()
+    }
+    
+    @objc func setTargetIcons() {
+        animateOut()
         //Set new target face icon on the round that was changed
         for x in 0...rounds.count - 1 {
-            let indexPath = NSIndexPath(row: x, section: 0) as IndexPath
+            let indexPath = NSIndexPath(row: x, section: 1) as IndexPath
             let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
             cell.targetButton.setImage(UIImage(named: rounds[x].targetFace + "Icon"), for: .normal)
         }
@@ -201,11 +229,12 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func reloadData() {
         tableView.reloadData()
     }
+    
 }
 
 extension HomeScreen: ScoringCellDelegate {
     func didTapToScoring(row: Int) {
-        let indexPath = NSIndexPath(row: row, section: 0) as IndexPath
+        let indexPath = NSIndexPath(row: row, section: 1) as IndexPath
         let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
         tempRound = cell.roundItem
         tempTen = cell.roundItem.innerTen
@@ -213,6 +242,20 @@ extension HomeScreen: ScoringCellDelegate {
         performSegue(withIdentifier: "mainToTargetChoiceID", sender: indexPath)
         animateIn()
     }
+}
+
+extension HomeScreen: PracticeCellDelegate {
+    func didTapToPractice() {
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        performSegue(withIdentifier: "mainToPracticeID", sender: indexPath)
+    }
+    
+    func didTapToArrowCount() {
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        performSegue(withIdentifier: "mainToCounterID", sender: indexPath)
+    }
+    
+    
 }
 
 extension UIViewController {

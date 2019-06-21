@@ -85,7 +85,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         
         setUpTableView()
         tableView.isUserInteractionEnabled = false
-        print(currRound)
         targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace)
         targetScrollView.delegate = self
         setZoomScale()
