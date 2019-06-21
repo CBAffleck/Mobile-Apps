@@ -23,6 +23,9 @@ class privacyPolicySetting: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        closeButton.layer.cornerRadius = 10
+        
         bodyView.text = setPolicy()
     }
     

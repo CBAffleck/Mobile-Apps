@@ -167,10 +167,10 @@
                         <outlet property="scrollView" destination="hEx-kz-nHT" id="xTT-RM-ONY"/>
                         <outlet property="settingsTitleLabel" destination="S1g-g4-7HY" id="YSj-Rs-asw"/>
                         <outlet property="tableView" destination="wYd-H1-1gU" id="VRj-a4-PIi"/>
-                        <segue destination="5HK-6z-rwr" kind="custom" identifier="distanceSegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="am6-d4-XR5"/>
+                        <segue destination="5HK-6z-rwr" kind="presentation" identifier="distanceSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="am6-d4-XR5"/>
                         <segue destination="rEQ-Dp-Zd6" kind="presentation" identifier="mailErrorSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7Gw-yY-NZw"/>
-                        <segue destination="9UQ-yz-0bi" kind="custom" identifier="languageSegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="jXV-zr-vXm"/>
-                        <segue destination="3A3-Eq-7Zr" kind="custom" identifier="policySegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="5xs-mp-Qr4"/>
+                        <segue destination="9UQ-yz-0bi" kind="presentation" identifier="languageSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="jXV-zr-vXm"/>
+                        <segue destination="3A3-Eq-7Zr" kind="presentation" identifier="policySegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="5xs-mp-Qr4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TD-1Y-ODc" userLabel="First Responder" sceneMemberID="firstResponder"/>
