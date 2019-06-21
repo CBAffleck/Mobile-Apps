@@ -24,7 +24,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     let sections = ["Units", "Help and Support", "Other"]
     let unitItems = ["Language", "Distance Unit"]
     let settings = ["Review Rise on the App Store", "Privacy Policy", "Version"]
-    let supportItems = ["User Guide", "Request a Feature", "Report a Bug", "Other Help"]
+    let supportItems = ["Request a Feature", "Report a Bug", "Other Help"]
     var sectionContents: [[String]] = [[]]
     
     override func viewDidLoad() {
@@ -71,7 +71,6 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let setting = sectionContents[indexPath.section][indexPath.row]
-        print(setting)
         let cell = tableView.dequeueReusableCell(withIdentifier: "settingCellID") as! settingCell
         cell.setInfo(title: setting)
         return cell
@@ -87,9 +86,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let cell = tableView.cellForRow(at: indexPath) as! settingCell
         let currTitle = cell.cellTitle
-        if currTitle == supportItems[0] {
-            //open user guide screen
-        } else if supportItems.contains(currTitle) {
+        if supportItems.contains(currTitle) {
             showMailComposer(title: currTitle)
         } else if currTitle == unitItems[0] {
             performSegue(withIdentifier: "languageSegue", sender: indexPath)
@@ -98,7 +95,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if currTitle == settings[0] {
             //open app store link in app store
         } else if currTitle == settings[1] {
-            //show privacy policy screen
+            performSegue(withIdentifier: "policySegue", sender: indexPath)
         }
     }
     
@@ -113,7 +110,7 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         let composer = MFMailComposeViewController()
         composer.mailComposeDelegate = self
-        composer.setToRecipients(["campbell.affleck@gmail.com"])
+        composer.setToRecipients(["support@risearchery.com"])
         composer.setSubject(title)
         if title.contains("Bug") {
             composer.setMessageBody("Please describe the bug you encountered so that we can fix it and make Rise bug free again as soon as possible.\n\nBug Description: ", isHTML: false)

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NOF-w5-Tr8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NOF-w5-Tr8">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -46,7 +46,7 @@
                                         <rect key="frame" x="0.0" y="52" width="355" height="415"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CP3-3R-FK2">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="485"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="475"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PROFILE PHOTO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiD-Sf-xQl">
                                                         <rect key="frame" x="10" y="10" width="335" height="21"/>
@@ -252,7 +252,7 @@
                                                     <constraint firstItem="ALb-dH-3GH" firstAttribute="leading" secondItem="CP3-3R-FK2" secondAttribute="leading" constant="10" id="RBx-kh-XYU"/>
                                                     <constraint firstItem="2NL-TB-fBa" firstAttribute="top" secondItem="g1c-Fg-l67" secondAttribute="bottom" constant="10" id="RdR-gA-i94"/>
                                                     <constraint firstItem="qiD-Sf-xQl" firstAttribute="top" secondItem="CP3-3R-FK2" secondAttribute="top" constant="10" id="Spk-JB-eqF"/>
-                                                    <constraint firstAttribute="bottom" secondItem="DLY-VO-5Bj" secondAttribute="bottom" constant="20" id="Tb1-PJ-dzt"/>
+                                                    <constraint firstAttribute="bottom" secondItem="DLY-VO-5Bj" secondAttribute="bottom" constant="10" id="Tb1-PJ-dzt"/>
                                                     <constraint firstAttribute="trailing" secondItem="DLY-VO-5Bj" secondAttribute="trailing" constant="10" id="USL-av-3nE"/>
                                                     <constraint firstAttribute="trailing" secondItem="hen-IB-Sum" secondAttribute="trailing" constant="10" id="USR-9I-Edl"/>
                                                     <constraint firstItem="Wtz-52-IzS" firstAttribute="width" secondItem="W2l-jx-nVY" secondAttribute="width" id="aRw-KC-Dpd"/>

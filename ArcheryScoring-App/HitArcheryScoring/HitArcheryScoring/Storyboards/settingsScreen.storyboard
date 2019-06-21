@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NnK-ln-k6F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NnK-ln-k6F">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -170,6 +170,7 @@
                         <segue destination="5HK-6z-rwr" kind="custom" identifier="distanceSegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="am6-d4-XR5"/>
                         <segue destination="rEQ-Dp-Zd6" kind="presentation" identifier="mailErrorSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="7Gw-yY-NZw"/>
                         <segue destination="9UQ-yz-0bi" kind="custom" identifier="languageSegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="jXV-zr-vXm"/>
+                        <segue destination="3A3-Eq-7Zr" kind="custom" identifier="policySegue" customClass="SlideUpSegue" customModule="HitArcheryScoring" customModuleProvider="target" id="5xs-mp-Qr4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9TD-1Y-ODc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -492,7 +493,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KRO-yV-jN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245.5999999999999" y="62.518740629685162"/>
+            <point key="canvasLocation" x="1246" y="63"/>
+        </scene>
+        <!--Privacy Policy Setting-->
+        <scene sceneID="NKQ-x4-BmE">
+            <objects>
+                <viewController id="3A3-Eq-7Zr" customClass="privacyPolicySetting" customModule="HitArcheryScoring" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FSH-4f-25F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epW-5S-aFV">
+                                <rect key="frame" x="15" y="40" width="345" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="XG8-Gv-ATh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U1Q-DM-5ak">
+                                <rect key="frame" x="15" y="35" width="32" height="32"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Xlb-qx-cG9"/>
+                                    <constraint firstAttribute="width" constant="32" id="zhu-nh-5NQ"/>
+                                </constraints>
+                                <state key="normal" image="CloseIcon"/>
+                                <connections>
+                                    <action selector="closeTapped:" destination="3A3-Eq-7Zr" eventType="touchUpInside" id="bPv-Yc-IVZ"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyz-22-DmP">
+                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L8s-03-20b">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="590"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENERAL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tF-m9-7ai">
+                                                <rect key="frame" x="20" y="10" width="335" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-ia-kxP">
+                                                <rect key="frame" x="20" y="40" width="335" height="542"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">The privacy policy for the current version of Rise is pretty straightforward: any data you enter into the app is stored locally, on your phone, and can not be accessed by anyone else.</string>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="4tF-m9-7ai" firstAttribute="top" secondItem="L8s-03-20b" secondAttribute="top" constant="10" id="82k-wK-jlL"/>
+                                            <constraint firstItem="j1f-ia-kxP" firstAttribute="top" secondItem="4tF-m9-7ai" secondAttribute="bottom" constant="8" id="Ewh-Pi-7CL"/>
+                                            <constraint firstItem="j1f-ia-kxP" firstAttribute="leading" secondItem="L8s-03-20b" secondAttribute="leading" constant="20" id="FI6-OL-q27"/>
+                                            <constraint firstAttribute="bottom" secondItem="j1f-ia-kxP" secondAttribute="bottom" constant="8" id="M8O-MD-Y2T"/>
+                                            <constraint firstAttribute="trailing" secondItem="j1f-ia-kxP" secondAttribute="trailing" constant="20" id="Ntz-5R-PEd"/>
+                                            <constraint firstItem="4tF-m9-7ai" firstAttribute="leading" secondItem="L8s-03-20b" secondAttribute="leading" constant="20" id="fsH-Ag-V2K"/>
+                                            <constraint firstAttribute="trailing" secondItem="4tF-m9-7ai" secondAttribute="trailing" constant="20" id="l7F-Ek-ego"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="L8s-03-20b" secondAttribute="bottom" id="576-gI-pB7"/>
+                                    <constraint firstItem="L8s-03-20b" firstAttribute="height" secondItem="eyz-22-DmP" secondAttribute="height" id="IAY-z8-K4f"/>
+                                    <constraint firstAttribute="trailing" secondItem="L8s-03-20b" secondAttribute="trailing" id="UY8-wo-gC1"/>
+                                    <constraint firstItem="L8s-03-20b" firstAttribute="width" secondItem="eyz-22-DmP" secondAttribute="width" id="Uy1-iW-ZF4"/>
+                                    <constraint firstItem="L8s-03-20b" firstAttribute="leading" secondItem="eyz-22-DmP" secondAttribute="leading" id="iGM-mM-cw3"/>
+                                    <constraint firstItem="L8s-03-20b" firstAttribute="top" secondItem="eyz-22-DmP" secondAttribute="top" id="ydc-wW-7SI"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="epW-5S-aFV" firstAttribute="leading" secondItem="POt-7R-QDe" secondAttribute="leading" constant="15" id="B7p-08-nkV"/>
+                            <constraint firstItem="eyz-22-DmP" firstAttribute="leading" secondItem="POt-7R-QDe" secondAttribute="leading" id="NuA-Sc-1ev"/>
+                            <constraint firstItem="POt-7R-QDe" firstAttribute="trailing" secondItem="eyz-22-DmP" secondAttribute="trailing" id="aBR-IE-Ulg"/>
+                            <constraint firstItem="epW-5S-aFV" firstAttribute="centerY" secondItem="U1Q-DM-5ak" secondAttribute="centerY" id="cFh-y7-Acp"/>
+                            <constraint firstItem="POt-7R-QDe" firstAttribute="trailing" secondItem="epW-5S-aFV" secondAttribute="trailing" constant="15" id="cOp-XD-JQK"/>
+                            <constraint firstItem="POt-7R-QDe" firstAttribute="bottom" secondItem="eyz-22-DmP" secondAttribute="bottom" id="hmO-QA-vj7"/>
+                            <constraint firstItem="U1Q-DM-5ak" firstAttribute="top" secondItem="POt-7R-QDe" secondAttribute="top" constant="15" id="jLb-hU-w1L"/>
+                            <constraint firstItem="U1Q-DM-5ak" firstAttribute="leading" secondItem="POt-7R-QDe" secondAttribute="leading" constant="15" id="s3s-1w-MUQ"/>
+                            <constraint firstItem="eyz-22-DmP" firstAttribute="top" secondItem="U1Q-DM-5ak" secondAttribute="bottom" constant="10" id="tjp-XC-OmC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="POt-7R-QDe"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bodyView" destination="j1f-ia-kxP" id="5Sd-jt-Orm"/>
+                        <outlet property="closeButton" destination="U1Q-DM-5ak" id="w0J-IJ-eWg"/>
+                        <outlet property="contentView" destination="L8s-03-20b" id="9nk-GW-jPu"/>
+                        <outlet property="generalLabel" destination="4tF-m9-7ai" id="3G1-Zz-JDd"/>
+                        <outlet property="scrollView" destination="eyz-22-DmP" id="A3j-tZ-Pp7"/>
+                        <outlet property="titleLabel" destination="epW-5S-aFV" id="rPX-Sf-2H9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHB-6J-Iux" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245.5999999999999" y="794.75262368815595"/>
         </scene>
     </scenes>
     <resources>
