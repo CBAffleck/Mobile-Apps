@@ -61,6 +61,9 @@
 		C0B8B2C622BD86FC000EEF93 /* practiceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */; };
 		C0B8B2C822BD9560000EEF93 /* choosePractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */; };
 		C0B8B2CA22BD959B000EEF93 /* choosePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2C922BD959B000EEF93 /* choosePractice.swift */; };
+		C0B8B2CC22BDC622000EEF93 /* practiceCongrats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */; };
+		C0B8B2CE22BDC648000EEF93 /* practiceCongrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */; };
+		C0B8B2D022BDD16C000EEF93 /* practiceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -153,6 +156,9 @@
 		C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceScreen.swift; sourceTree = "<group>"; };
 		C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = choosePractice.storyboard; sourceTree = "<group>"; };
 		C0B8B2C922BD959B000EEF93 /* choosePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosePractice.swift; sourceTree = "<group>"; };
+		C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceCongrats.storyboard; sourceTree = "<group>"; };
+		C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceCongrats.swift; sourceTree = "<group>"; };
+		C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistoryCell.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 				C07C91A522A71B18005CCF98 /* textScoring.storyboard */,
 				C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */,
 				C0729FF922A8A6FE00A283FB /* congratsScreen.storyboard */,
+				C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */,
 				C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */,
 				C0B8B2C122BD83F0000EEF93 /* practiceScreen.storyboard */,
 				C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */,
@@ -319,6 +326,7 @@
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
 				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
 				C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */,
+				C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */,
 			);
 			path = "Main Screens";
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
 				C059E3D622B9D553000563D4 /* settingCell.swift */,
 				C059E3DC22BB30CD000563D4 /* sectionCell.swift */,
+				C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
 				C0398E8422AC66630084D5CE /* RealmClasses.swift */,
@@ -481,6 +490,7 @@
 				C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C0B8B2C222BD83F0000EEF93 /* practiceScreen.storyboard in Resources */,
+				C0B8B2CC22BDC622000EEF93 /* practiceCongrats.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
 				C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */,
 				C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */,
@@ -628,6 +638,7 @@
 				C059E3D722B9D553000563D4 /* settingCell.swift in Sources */,
 				C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */,
 				C0729FF822A89C2F00A283FB /* finishScoring.swift in Sources */,
+				C0B8B2D022BDD16C000EEF93 /* practiceHistoryCell.swift in Sources */,
 				C0729FF022A7632200A283FB /* keyboard.swift in Sources */,
 				C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */,
 				C059E3E222BB4ED6000563D4 /* distanceCell.swift in Sources */,
@@ -648,6 +659,7 @@
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
 				C059E3E422BB6099000563D4 /* mailError.swift in Sources */,
 				C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */,
+				C0B8B2CE22BDC648000EEF93 /* practiceCongrats.swift in Sources */,
 				C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */,
 				C059E3E822BB70F2000563D4 /* languageCell.swift in Sources */,
 				C0729FFC22A8A71A00A283FB /* congratsScreen.swift in Sources */,

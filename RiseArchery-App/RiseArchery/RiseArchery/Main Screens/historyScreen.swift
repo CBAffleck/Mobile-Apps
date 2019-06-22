@@ -21,6 +21,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     //MARK: Variables
     let realm = try! Realm()
     var rounds : [HistoryRound] = []
+    var practiceRounds : [HistoryPracticeRound] = []
     //HistoryRound variables
     var roundTitle: String = ""
     var time : String = ""
@@ -55,11 +56,17 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         historyTable.showsVerticalScrollIndicator = false
     }
     
-    //Put historyRound objects into an array that cells can be made from
+    //Put objects into an array that cells can be made from
     func makeRoundsArray() {
+        //Populate scoring history array
         let results = realm.objects(HistoryRound.self)
         for result in results {
             rounds.insert(result, at: 0)
+        }
+        //Populate practice history array
+        let practices = realm.objects(HistoryPracticeRound.self)
+        for practice in practices {
+            practiceRounds.insert(practice, at: 0)
         }
     }
     
@@ -69,14 +76,22 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rounds.count
+        if section == 0 { return rounds.count }
+        else            { return practiceRounds.count }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let round = rounds[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
-        cell.setInfo(round: round)
-        return cell
+        if indexPath.section == 0 {
+            let round = rounds[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
+            cell.setInfo(round: round)
+            return cell
+        } else {
+            let round = practiceRounds[indexPath.row]
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "practiceHistoryCellID") as! practiceHistoryCell
+//            cell.setInfo(round: round)
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

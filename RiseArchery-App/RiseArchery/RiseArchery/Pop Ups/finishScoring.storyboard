@@ -42,7 +42,6 @@
                                         </state>
                                         <connections>
                                             <action selector="finishTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="gB2-0b-D47"/>
-                                            <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wB3-Vd-NCU"/>
                                         </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FinishScoring" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-tF-MKQ">
@@ -98,6 +97,8 @@
                         <outlet property="finishView" destination="7TF-Dt-mqr" id="FXK-EG-fnv"/>
                         <outlet property="imageView" destination="9Sa-tF-MKQ" id="f8r-39-MGS"/>
                         <outlet property="resumeButton" destination="e4K-Zm-xMf" id="aQe-Qr-FMB"/>
+                        <segue destination="iGz-SA-H8H" kind="presentation" identifier="finishToPracticeCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="dek-A7-03P"/>
+                        <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="QFd-iA-IRj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKa-X6-hSJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,7 +111,15 @@
                 <viewControllerPlaceholder storyboardIdentifier="finishToCongratsID" storyboardName="congratsScreen" id="sfl-XD-KfY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUK-BW-pzf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="158"/>
+            <point key="canvasLocation" x="477" y="67"/>
+        </scene>
+        <!--practiceCongrats-->
+        <scene sceneID="rG5-1f-dMt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="practiceCongrats" id="iGz-SA-H8H" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sBx-Kx-8HA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="246"/>
         </scene>
     </scenes>
     <resources>

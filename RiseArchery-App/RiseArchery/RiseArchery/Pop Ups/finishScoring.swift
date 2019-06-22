@@ -220,6 +220,14 @@ class finishScoring: UIViewController {
             vc?.headerTitle = headerTitle
             vc?.time = timerValue
             vc?.date = startDate
+        } else if segue.identifier == "finishToPracticeCongratsSegue" {
+            let vc = segue.destination as? practiceCongrats
+            vc?.roundNum = roundNum
+            vc?.headerTitle = headerTitle
+            vc?.time = timerValue
+            vc?.date = startDate
+            vc?.inArrows = arrows
+            vc?.targetImage = targetImage
         }
     }
     
@@ -238,6 +246,8 @@ class finishScoring: UIViewController {
                 removeImage(imageName: "temp" + String(i))
             }
         }
+        if scoringType == "practice" { performSegue(withIdentifier: "finishToPracticeCongratsSegue", sender: self) }
+        else { performSegue(withIdentifier: "finishToCongratsSegue", sender: self) }
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {
