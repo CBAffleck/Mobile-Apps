@@ -409,7 +409,6 @@
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="QW1-eD-s2P"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="1Hq-J9-fyr" secondAttribute="trailing" constant="10" id="U1e-we-56r"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="De1-Xp-Mam" secondAttribute="trailing" constant="10" id="Y9Q-yr-fGK"/>
-                            <constraint firstItem="F2b-gh-7Qu" firstAttribute="bottom" secondItem="4b9-3y-Bue" secondAttribute="bottom" id="ZnT-tO-Djh"/>
                             <constraint firstItem="L3T-e1-bAn" firstAttribute="top" secondItem="4b9-3y-Bue" secondAttribute="top" constant="10" id="emO-pA-kPZ"/>
                             <constraint firstItem="De1-Xp-Mam" firstAttribute="top" secondItem="1Hq-J9-fyr" secondAttribute="bottom" constant="8" id="i4D-Fr-JQh"/>
                             <constraint firstItem="pwd-br-m2g" firstAttribute="leading" secondItem="4b9-3y-Bue" secondAttribute="leading" constant="10" id="l6B-Lu-W4h"/>
@@ -419,6 +418,7 @@
                             <constraint firstItem="F2b-gh-7Qu" firstAttribute="trailing" secondItem="4b9-3y-Bue" secondAttribute="trailing" id="qYk-UB-Aj6"/>
                             <constraint firstItem="F2b-gh-7Qu" firstAttribute="top" secondItem="80x-fn-6bb" secondAttribute="top" id="s2F-Mi-FtY"/>
                             <constraint firstItem="4b9-3y-Bue" firstAttribute="trailing" secondItem="L3T-e1-bAn" secondAttribute="trailing" constant="10" id="sog-wX-Gao"/>
+                            <constraint firstAttribute="bottom" secondItem="F2b-gh-7Qu" secondAttribute="bottom" id="vDe-Vn-g1C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4b9-3y-Bue"/>
                     </view>

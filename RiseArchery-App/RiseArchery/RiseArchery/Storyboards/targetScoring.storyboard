@@ -441,12 +441,12 @@
                             <constraint firstItem="h5S-8A-CIO" firstAttribute="top" secondItem="Lmr-EJ-cFx" secondAttribute="bottom" constant="8" id="QKd-C6-qe1"/>
                             <constraint firstItem="m1k-tD-uNb" firstAttribute="top" secondItem="b0j-pK-FZQ" secondAttribute="bottom" constant="8" id="U1f-qY-5L5"/>
                             <constraint firstItem="vlC-lu-PBY" firstAttribute="trailing" secondItem="b0j-pK-FZQ" secondAttribute="trailing" constant="10" id="VX0-aN-bsD"/>
+                            <constraint firstAttribute="bottom" secondItem="3Xx-4F-88S" secondAttribute="bottom" id="Z8g-SA-loS"/>
                             <constraint firstItem="Lmr-EJ-cFx" firstAttribute="top" secondItem="vlC-lu-PBY" secondAttribute="top" constant="10" id="akw-j5-i4z"/>
                             <constraint firstItem="xUe-y8-hgI" firstAttribute="top" secondItem="h5S-8A-CIO" secondAttribute="bottom" constant="8" id="h86-oa-2hI"/>
                             <constraint firstItem="3Xx-4F-88S" firstAttribute="trailing" secondItem="vlC-lu-PBY" secondAttribute="trailing" id="iBV-Ge-nAZ"/>
                             <constraint firstItem="xUe-y8-hgI" firstAttribute="trailing" secondItem="vlC-lu-PBY" secondAttribute="trailing" id="k9Y-hW-aMu"/>
                             <constraint firstItem="Lmr-EJ-cFx" firstAttribute="leading" secondItem="vlC-lu-PBY" secondAttribute="leading" constant="10" id="pup-KR-EJ2"/>
-                            <constraint firstItem="3Xx-4F-88S" firstAttribute="bottom" secondItem="vlC-lu-PBY" secondAttribute="bottom" id="rkf-QH-Ozd"/>
                             <constraint firstItem="3Xx-4F-88S" firstAttribute="top" secondItem="RlZ-0m-UN5" secondAttribute="top" id="vuT-eQ-o5Q"/>
                             <constraint firstItem="PEz-Xy-ISc" firstAttribute="width" secondItem="HIo-r2-4Ww" secondAttribute="width" id="yxp-ub-dOS"/>
                         </constraints>
