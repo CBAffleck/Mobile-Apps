@@ -49,6 +49,7 @@ class finishScoring: UIViewController {
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         finishButton.layer.cornerRadius = 10
+        if scoringType == "practice" { finishLabel.text = "Finish Practice?" }
         if scoringType != "practice" { calcEndTots() }
     }
     
