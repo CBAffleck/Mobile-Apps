@@ -98,6 +98,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     @objc func resumeTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        animateOut()
     }
     
     //MARK: Keyboard Functions

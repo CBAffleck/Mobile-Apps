@@ -77,7 +77,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelTapped:" destination="ns2-Jy-enF" eventType="touchUpInside" id="KFW-8Q-ZhQ"/>
-                                    <segue destination="rYB-xz-mWH" kind="custom" identifier="targetToCancelSegue" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="yfj-gw-nXV"/>
+                                    <segue destination="rYB-xz-mWH" kind="custom" identifier="practiceToCancelSegue" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="yfj-gw-nXV"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jxL-Iv-KtV">
@@ -96,6 +96,7 @@
                                 </state>
                                 <connections>
                                     <action selector="finishTapped:" destination="ns2-Jy-enF" eventType="touchUpInside" id="6UB-Yr-Jle"/>
+                                    <segue destination="TZe-mB-Euq" kind="custom" identifier="practiceToFinishSegue" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="gag-Jd-55o"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -155,6 +156,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yq6-u2-Nts" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-898" y="588"/>
+        </scene>
+        <!--finishScoring-->
+        <scene sceneID="Ahn-Xr-gHb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="finishScoring" id="TZe-mB-Euq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PH9-ZO-qZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-438" y="587"/>
         </scene>
     </scenes>
     <resources>

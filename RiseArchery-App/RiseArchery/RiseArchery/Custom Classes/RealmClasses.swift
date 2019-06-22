@@ -105,6 +105,7 @@ class UserInfo : Object {
     @objc dynamic var pr18 : Int = 0
     @objc dynamic var pr50 : Int = 0
     @objc dynamic var pr70 : Int = 0
+    @objc dynamic var totalPracticeRounds : Int = 0
     
     //Save function for writing object to realm
     func saveUser() -> Bool {
@@ -154,7 +155,7 @@ class HistoryPracticeRound : Object {
     @objc dynamic var roundNum: Int = 0
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""
-    var arrowScores = List<ArrowEndScores>()
+    var arrowScores = List<Int>()
     var arrowLocations = List<ArrowPos>()
     @objc dynamic var hits : Int = 0
     @objc dynamic var totalScore : Int = 0

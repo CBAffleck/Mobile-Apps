@@ -23,8 +23,11 @@ class finishScoring: UIViewController {
     let realm = try! Realm()
     let round = HistoryRound()
     var currRound = ScoringRound()
+    var practiceRound = PracticeRound()
+    var practiceHistory = HistoryPracticeRound()
     var aScores: [[String]] = []
     var aLocations: [CGPoint] = []
+    var arrows: [Int] = []
     var totalScore = 0
     var hits = 0
     var endTots: [Int] = []
@@ -46,7 +49,7 @@ class finishScoring: UIViewController {
         finishView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         finishButton.layer.cornerRadius = 10
-        calcEndTots()
+        if scoringType != "practice" { calcEndTots() }
     }
     
     //MARK: Functions
@@ -61,6 +64,16 @@ class finishScoring: UIViewController {
             currRound.lastScored = startDate
             currRound.pr = max(currRound.pr, totalScore)
             currUser.totalScoredRounds += 1
+        }
+    }
+    
+    func updatePracticeInfo() {
+        let currUser = realm.objects(UserInfo.self).first!
+        try! realm.write {
+            practiceRound.average = String(format: "%0.2f", Float(currRound.pastScores.sum()) / Float(practiceRound.roundNum))
+            practiceRound.roundNum += 1
+            practiceRound.lastPractice = startDate
+            currUser.totalPracticeRounds += 1
         }
     }
     
@@ -138,6 +151,48 @@ class finishScoring: UIViewController {
         updatedRoundInfo(round: round)
     }
     
+    //Create and save a new practice history round
+    func savePracticeHistory() {
+        let aScoresList = List<Int>()
+        for x in arrows {
+            aScoresList.append(x)
+        }
+        practiceHistory.arrowScores = aScoresList
+        
+        let aPosList = List<ArrowPos>()
+        for x in aLocations {
+            let pos = ArrowPos()
+            pos.xPos = Double(x.x)
+            pos.yPos = Double(x.y)
+            aPosList.append(pos)
+        }
+        practiceHistory.arrowLocations = aPosList
+        
+        practiceHistory.totalScore = totalScore
+        practiceHistory.hits = hits
+        practiceHistory.roundName = headerTitle
+        practiceHistory.time = timerValue
+        practiceHistory.date = startDate
+        
+        let runList = List<Int>()
+        for x in running {
+            runList.append(x)
+        }
+        practiceHistory.targetFace = practiceRound.targetFace
+        practiceHistory.roundNum = practiceRound.roundNum
+        practiceHistory.distance = practiceRound.distance
+        practiceHistory.innerTen = practiceRound.innerTen
+        
+        if practiceHistory.saveHistoryPracticeRound() {
+            print("Practice round saved!")
+        } else {
+            print("Could not save practice round.")
+        }
+        
+        //Update average for the practice round
+        updatePracticeInfo()
+    }
+    
     @objc func dismissScreen() {
         dismiss(animated: true, completion: {
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ClosePopUp"), object: nil)
@@ -171,9 +226,13 @@ class finishScoring: UIViewController {
     @IBAction func finishTapped(_ sender: UIButton) {
         if scoringType == "target" {
             saveImage(imageName: currRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+            saveRound()
+        } else if scoringType == "practice" {
+            saveImage(imageName: practiceRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+            savePracticeHistory()
         }
-        saveRound()
-        if scoringType == "target" && imgCount > 1 {
+        
+        if (scoringType == "target" || scoringType == "practice") && imgCount > 1 {
             for i in 1...imgCount - 1 {
                 removeImage(imageName: "temp" + String(i))
             }

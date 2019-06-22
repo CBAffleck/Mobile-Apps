@@ -150,6 +150,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     
     @objc func resumeTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        animateOut()
     }
     
     func setZoomScale() {

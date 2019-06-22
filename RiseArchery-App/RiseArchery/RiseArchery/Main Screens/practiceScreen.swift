@@ -101,6 +101,7 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     
     @objc func resumeTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        animateOut()
     }
     
     func setZoomScale() {
@@ -261,19 +262,21 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "targetToFinishSegue" {
-//            let vc = segue.destination as? finishScoring
-//            vc?.totalScore = totalScore
-//            vc?.hits = hits
-//            vc?.headerTitle = headerTitle
-//            vc?.timerValue = timerLabel.text!
-//            vc?.startDate = date
-//            vc?.aLocations = arrowLocations
-//            vc?.targetImage = targetImageView.image!
-//            vc?.currRound = currRound
-//            vc?.roundNum = currRound.roundNum
-//            vc?.imgCount = imgCount
-        } else if segue.identifier == "targetToCancelSegue" {
+        if segue.identifier == "practiceToFinishSegue" {
+            let vc = segue.destination as? finishScoring
+            vc?.totalScore = totalScore
+            vc?.hits = hits
+            vc?.headerTitle = headerTitle
+            vc?.timerValue = timerLabel.text!
+            vc?.startDate = date
+            vc?.aLocations = arrowLocations
+            vc?.targetImage = targetImageView.image!
+            vc?.practiceRound = currRound
+            vc?.roundNum = currRound.roundNum
+            vc?.imgCount = imgCount
+            vc?.scoringType = "practice"
+            vc?.arrows = arrows
+        } else if segue.identifier == "practiceToCancelSegue" {
             let vc = segue.destination as? cancelScoring
             vc?.imgCount = imgCount
             vc?.scoringType = "practice"

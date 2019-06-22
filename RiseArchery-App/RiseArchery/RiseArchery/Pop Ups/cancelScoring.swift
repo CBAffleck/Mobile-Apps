@@ -58,7 +58,7 @@ class cancelScoring: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
-        if scoringType == "target" && imgCount > 1 {
+        if (scoringType == "target" || scoringType == "practice") && imgCount > 1 {
             for i in 1...imgCount - 1 {
                 removeImage(imageName: "temp" + String(i))
             }
