@@ -228,6 +228,8 @@ class finishScoring: UIViewController {
             vc?.date = startDate
             vc?.inArrows = arrows
             vc?.targetImage = targetImage
+            vc?.arrowPos = aLocations
+            vc?.targetFace = practiceRound.targetFace
         }
     }
     

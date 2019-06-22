@@ -31,6 +31,8 @@ class practiceCongrats: UIViewController {
     var date = ""
     var targetImage = UIImage()
     var inArrows: [Int] = []
+    var arrowPos: [CGPoint] = []
+    var targetFace: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +78,26 @@ class practiceCongrats: UIViewController {
         }
         descLabel.text = "You completed your " + String(roundNum) + nthNum + headerTitle.prefix(4) + "round!"
     }
+    
+//    func drawArrows() -> UIImage {
+//        var image = UIImage(named: targetFace)!
+//        for point in arrowPos {
+//            image = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: image, atPoint: point)
+//        }
+//        return image
+//    }
+//
+//    func drawImage(image foreGroundImage: UIImage, inImage backgroundImage: UIImage, atPoint point: CGPoint) -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(backgroundImage.size, false, 0.0)
+//        let renderSize: CGFloat = 15
+//        backgroundImage.draw(in: CGRect.init(x: 0, y: 0, width: backgroundImage.size.width, height: backgroundImage.size.height))
+//        let xPoint = point.x - renderSize / 2
+//        let yPoint = point.y - renderSize / 2
+//        foreGroundImage.draw(in: CGRect.init(x: xPoint, y: yPoint, width: renderSize, height: renderSize))
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage!
+//    }
     
     //MARK: Actions
     @IBAction func closeTapped(_ sender: UIButton) {

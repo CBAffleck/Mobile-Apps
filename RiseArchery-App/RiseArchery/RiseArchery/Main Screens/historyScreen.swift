@@ -46,7 +46,9 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         // Do any additional setup after loading the view.
         makeRoundsArray()
-        if !(rounds.count == 0) {
+        if rounds.isEmpty && practiceRounds.isEmpty {
+            alertLabel.isHidden = false
+        } else {
             alertLabel.isHidden = true
         }
         setUpTableView()

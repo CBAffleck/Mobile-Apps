@@ -86,11 +86,11 @@ extension UIViewController {
     //Save target image to documents folder with a filename equal to the name + image number
     func saveImage(imageName : String, image : UIImage) {
         guard let libraryDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else { return }
-        
+
         let fileName = imageName
         let fileURL = libraryDirectory.appendingPathComponent(fileName)
         guard let data = image.jpegData(compressionQuality: 1) else { return }
-        
+
         //Check if file exists, remove if so
         if FileManager.default.fileExists(atPath: fileURL.path) {
             do {
@@ -100,7 +100,7 @@ extension UIViewController {
                 print("Couldn't remove file at path ", removeError)
             }
         }
-        
+
         do {
             try data.write(to: fileURL)
         } catch let error {
@@ -111,10 +111,10 @@ extension UIViewController {
     //Remove target image from documents folder with a given filename
     func removeImage(imageName : String) {
         guard let libraryDirectory = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first else { return }
-        
+
         let fileName = imageName
         let fileURL = libraryDirectory.appendingPathComponent(fileName)
-        
+
         //Check if file exists, remove if so
         if FileManager.default.fileExists(atPath: fileURL.path) {
             do {
@@ -131,7 +131,7 @@ extension UIViewController {
         let libraryDirectory = FileManager.SearchPathDirectory.libraryDirectory
         let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
         let paths = NSSearchPathForDirectoriesInDomains(libraryDirectory, userDomainMask, true)
-        
+
         if let dirPath = paths.first {
             let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
             let image = UIImage(contentsOfFile: imageURL.path)

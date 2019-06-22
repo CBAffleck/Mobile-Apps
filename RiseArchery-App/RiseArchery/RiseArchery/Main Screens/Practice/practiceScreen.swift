@@ -41,6 +41,7 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     let defaults = UserDefaults.standard
     var imgCount = 1
     var distance = ""
+    var lastImages: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,6 +151,12 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
         let point: CGPoint = gesture.location(in: gesture.view)
         let newTarget = drawImage(image: UIImage(named: "ArrowMarkGreen")!, inImage: targetImageView.image!, atPoint: point)
         saveImage(imageName: "temp" + String(imgCount), image: newTarget)
+        if lastImages.count < 6 {
+            lastImages.append(newTarget)
+        } else {
+            lastImages.removeFirst()
+            lastImages.append(newTarget)
+        }
         imgCount += 1
         print(imgCount)
         //        targets.append(newTarget)
@@ -292,16 +299,27 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
             if imgCount > 0 {
                 print(imgCount)
                 removeImage(imageName: "temp" + String(imgCount))
+                if !lastImages.isEmpty {
+                    lastImages.removeLast()
+                }
                 imgCount -= 1
-                let newImage = loadImageFromDiskWith(fileName: "temp" + String(imgCount))
-                //Need to resize because the images saved to disk are loaded from disk as 3000x3000px
-                UIGraphicsBeginImageContext(CGSize(width: 1000, height: 1000))
-                newImage.draw(in: CGRect(x: 0, y: 0, width: 1000, height: 1000))
-                let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace) }
-                else { targetImageView.image = scaledImage }
-                imgCount += 1
+                //Loads last image from memory if it's available still, otherwise loads from the image saved in the library
+                if !lastImages.isEmpty {
+                    let newImage = lastImages.last
+                    if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace) }
+                    else { targetImageView.image = newImage }
+                    imgCount += 1
+                } else {
+                    let newImage = loadImageFromDiskWith(fileName: "temp" + String(imgCount))
+                    //Need to resize because the images saved to disk are loaded from disk as 3000x3000px
+                    UIGraphicsBeginImageContext(CGSize(width: 1000, height: 1000))
+                    newImage.draw(in: CGRect(x: 0, y: 0, width: 1000, height: 1000))
+                    let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+                    UIGraphicsEndImageContext()
+                    if imgCount == 0 { targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace) }
+                    else { targetImageView.image = scaledImage }
+                    imgCount += 1
+                }
             }
             
             //Remove arrow score from total
