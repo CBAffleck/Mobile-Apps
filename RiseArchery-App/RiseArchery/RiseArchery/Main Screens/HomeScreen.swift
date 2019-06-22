@@ -24,6 +24,8 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var tempRound = ScoringRound()
     var tempTen = ""
     var tempFace = ""
+    var practice = PracticeRound()
+    var lastTapped = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setUpRealm()
         currUser = realm.objects(UserInfo.self).first!
         createRoundArray()
+        setPracticeRound()
         setUpTableView()
         
         tableView.separatorStyle = .none
@@ -56,11 +59,13 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             saveImage(imageName: "CompoundSingleSpot", image: UIImage(named: "CompoundSingleSpot")!)
             saveImage(imageName: "Triangle3Spot", image: UIImage(named: "Triangle3Spot")!)
             saveImage(imageName: "Vertical3Spot", image: UIImage(named: "Vertical3Spot")!)
+            
             //Save user defaults for language and distance type
             defaults.set("English", forKey: "Language")
             defaults.set("Metric (meters)", forKey: "DistanceUnit")
             defaults.set("Metric", forKey: "ScoringUnit")
             defaults.set(false, forKey: "isDarkMode")
+            
             //Set 18m indoor scoring round and save to realm
             let indoorRound18m = ScoringRound()
             indoorRound18m.roundName = "18m Scoring Round"
@@ -71,6 +76,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             indoorRound18m.average = "0"
             indoorRound18m.pr = 0
             indoorRound18m.targetFace = "SingleSpot"
+            indoorRound18m.targetIcon = "SingleSpotIcon"
             indoorRound18m.innerTen = "off"
             indoorRound18m.endCount = 10
             indoorRound18m.arrowsPerEnd = 3
@@ -87,6 +93,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound50m.average = "0"
             outdoorRound50m.pr = 0
             outdoorRound50m.targetFace = "SingleSpot"
+            outdoorRound50m.targetIcon = "SingleSpotIcon"
             outdoorRound50m.innerTen = "off"
             outdoorRound50m.endCount = 6
             outdoorRound50m.arrowsPerEnd = 6
@@ -103,6 +110,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             outdoorRound70m.average = "0"
             outdoorRound70m.pr = 0
             outdoorRound70m.targetFace = "SingleSpot"
+            outdoorRound70m.targetIcon = "SingleSpotIcon"
             outdoorRound70m.innerTen = "off"
             outdoorRound70m.endCount = 6
             outdoorRound70m.arrowsPerEnd = 6
@@ -125,12 +133,58 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             else { print("Could not save new user info.") }
             saveImage(imageName: "EditProfile", image: UIImage(named: "EditProfile")!)
         }
+        
+        if realm.objects(PracticeRound.self).first != nil {
+            //Do nothing since info is already set up
+        } else {
+            //Set 18m practice round default
+            let practiceRound18m = PracticeRound()
+            practiceRound18m.roundName = "18m Practice Round"
+            practiceRound18m.roundNum = 1
+            practiceRound18m.distance = "18m"
+            practiceRound18m.lastPractice = "--"
+            practiceRound18m.average = "0"
+            practiceRound18m.targetFace = "SingleSpot"
+            practiceRound18m.innerTen = "off"
+            if practiceRound18m.savePracticeRound() { print("18M Practice round saved!") }
+            else { print("Could not save practice round.") }
+
+            //Set 50m practice round default
+            let practiceRound50m = PracticeRound()
+            practiceRound50m.roundName = "50m Practice Round"
+            practiceRound50m.roundNum = 1
+            practiceRound50m.distance = "50m"
+            practiceRound50m.lastPractice = "--"
+            practiceRound50m.average = "0"
+            practiceRound50m.targetFace = "SingleSpot"
+            practiceRound50m.innerTen = "off"
+            if practiceRound50m.savePracticeRound() { print("50M Practice round saved!") }
+            else { print("Could not save practice round.") }
+
+            //Set 70m practice round default
+            let practiceRound70m = PracticeRound()
+            practiceRound70m.roundName = "70m Practice Round"
+            practiceRound70m.roundNum = 1
+            practiceRound70m.distance = "70m"
+            practiceRound70m.lastPractice = "--"
+            practiceRound70m.average = "0"
+            practiceRound70m.targetFace = "SingleSpot"
+            practiceRound70m.innerTen = "off"
+            if practiceRound70m.savePracticeRound() { print("70M Practice round saved!") }
+            else { print("Could not save practice round.") }
+        }
     }
     
     func createRoundArray() {
         let results = realm.objects(ScoringRound.self)
         for result in results {
             rounds.append(result)
+        }
+    }
+    
+    func setPracticeRound() {
+        for round in realm.objects(PracticeRound.self) {
+            if round.distance == "18m" { practice = round }
         }
     }
     
@@ -154,6 +208,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "practiceCellID") as! practiceCell
+            cell.delegate = self
             return cell
         } else {
             let round = rounds[indexPath.row]
@@ -175,6 +230,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
+            //Do nothing, because button delegates are what prompt segues
             tableView.deselectRow(at: indexPath, animated: false)
         } else {
             let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
@@ -194,6 +250,11 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
             vc?.currRound = tempRound
             vc?.innerTen = tempTen
             vc?.targetFace = tempFace
+        } else if segue.identifier == "mainToPracticeSegue" {
+            let vc = segue.destination as? choosePractice
+            vc?.innerTen = practice.innerTen
+            vc?.targetFace = practice.targetFace
+            vc?.currRound = practice
         }
     }
     
@@ -219,11 +280,9 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @objc func setTargetIcons() {
         animateOut()
         //Set new target face icon on the round that was changed
-        for x in 0...rounds.count - 1 {
-            let indexPath = NSIndexPath(row: x, section: 1) as IndexPath
-            let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
-            cell.targetButton.setImage(UIImage(named: rounds[x].targetFace + "Icon"), for: .normal)
-        }
+        let indexPath = NSIndexPath(row: lastTapped, section: 1) as IndexPath
+        let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
+        cell.targetButton.setImage(UIImage(named: rounds[lastTapped].targetFace + "Icon"), for: .normal)
     }
     
     @objc func reloadData() {
@@ -234,6 +293,7 @@ class HomeScreen: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
 extension HomeScreen: ScoringCellDelegate {
     func didTapToScoring(row: Int) {
+        lastTapped = row
         let indexPath = NSIndexPath(row: row, section: 1) as IndexPath
         let cell = self.tableView.cellForRow(at: indexPath) as! ScoringRoundCell
         tempRound = cell.roundItem
@@ -246,12 +306,14 @@ extension HomeScreen: ScoringCellDelegate {
 
 extension HomeScreen: PracticeCellDelegate {
     func didTapToPractice() {
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        performSegue(withIdentifier: "mainToPracticeID", sender: indexPath)
+        print("Segue to practice")
+        let indexPath = IndexPath(row: 0, section: 0)
+        performSegue(withIdentifier: "mainToPracticeSegue", sender: indexPath)
+        animateIn()
     }
     
     func didTapToArrowCount() {
-//        let indexPath = IndexPath(row: 0, section: 0)
+//        let indexPath = IndexPath(row: 0, section: section)
 //        performSegue(withIdentifier: "mainToCounterID", sender: indexPath)
     }
     

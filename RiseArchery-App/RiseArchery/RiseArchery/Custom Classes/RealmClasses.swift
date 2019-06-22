@@ -22,6 +22,7 @@ class HistoryRound : Object {
     @objc dynamic var relativePR : Int = 0
     @objc dynamic var scoringType : String = ""
     @objc dynamic var targetFace : String = ""
+    @objc dynamic var innerTen : String = "off"
     @objc dynamic var endCount: Int = 0
     @objc dynamic var arrowsPerEnd: Int = 0
     @objc dynamic var roundNum: Int = 0
@@ -71,6 +72,7 @@ class ScoringRound : Object {
     @objc dynamic var average: String = ""
     @objc dynamic var pr: Int = 0
     @objc dynamic var targetFace: String = ""
+    @objc dynamic var targetIcon: String = ""
     @objc dynamic var innerTen : String = "off"
     @objc dynamic var endCount: Int = 0
     @objc dynamic var arrowsPerEnd: Int = 0
@@ -119,24 +121,49 @@ class UserInfo : Object {
     }
 }
 
-//Lets user save a practice session using a target face to record arrow distributions, hits, time, date, arrows per end, distance, etc.
+//Practice round object to be saved in realm and provide easy access to round details
 class PracticeRound : Object {
     
-    @objc dynamic var practiceTitle: String = ""
+    @objc dynamic var roundName: String = ""
+    @objc dynamic var roundNum: Int = 1
+    @objc dynamic var distance: String = ""
+    @objc dynamic var lastPractice: String = ""
+    @objc dynamic var average: String = ""
+    @objc dynamic var targetFace: String = ""
+    @objc dynamic var innerTen : String = "off"
+    
+    //Save function for writing object to realm
+    func savePracticeRound() -> Bool {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+            }
+            return true
+        } catch let error as NSError {
+            print(">>> Realm error: ", error.localizedDescription)
+            return false
+        }
+    }
+}
+
+//Lets user save a practice session using a target face to record arrow distributions, hits, time, date, arrows per end, distance, etc.
+class HistoryPracticeRound : Object {
+    
+    @objc dynamic var roundName: String = ""
+    @objc dynamic var roundNum: Int = 0
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""
     var arrowScores = List<ArrowEndScores>()
     var arrowLocations = List<ArrowPos>()
     @objc dynamic var hits : Int = 0
-    @objc dynamic var scoringType : String = ""
+    @objc dynamic var totalScore : Int = 0
     @objc dynamic var targetFace : String = ""
-    @objc dynamic var endCount: Int = 0
-    @objc dynamic var arrowsPerEnd: Int = 0
-    @objc dynamic var practiceNum: Int = 0
+    @objc dynamic var innerTen : String = "off"
     @objc dynamic var distance: String = ""
     
     //Save function for writing object to realm
-    func savePracticeRound() -> Bool {
+    func saveHistoryPracticeRound() -> Bool {
         do {
             let realm = try Realm()
             try realm.write {

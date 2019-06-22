@@ -34,7 +34,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
     //MARK: Variables
     let realm = try! Realm()
     var currRound = ScoringRound()
-    var currUser = UserInfo()
     var headerTitle = ""
     var totalScore = 0
     var arrows = [Int]()
@@ -62,7 +61,6 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         dimView.alpha = 0
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
-        currUser = realm.objects(UserInfo.self).first!
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls
         for x in 1...currRound.endCount {

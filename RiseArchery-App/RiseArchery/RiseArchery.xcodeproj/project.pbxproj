@@ -57,6 +57,10 @@
 		C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A722A71B50005CCF98 /* textScoring.swift */; };
 		C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */; };
 		C0B8B2C022BD786C000EEF93 /* practiceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */; };
+		C0B8B2C222BD83F0000EEF93 /* practiceScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2C122BD83F0000EEF93 /* practiceScreen.storyboard */; };
+		C0B8B2C622BD86FC000EEF93 /* practiceScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */; };
+		C0B8B2C822BD9560000EEF93 /* choosePractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */; };
+		C0B8B2CA22BD959B000EEF93 /* choosePractice.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2C922BD959B000EEF93 /* choosePractice.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -145,6 +149,10 @@
 		C07C91A722A71B50005CCF98 /* textScoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textScoring.swift; sourceTree = "<group>"; };
 		C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = threeArrowEndCell.swift; sourceTree = "<group>"; };
 		C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceCell.swift; sourceTree = "<group>"; };
+		C0B8B2C122BD83F0000EEF93 /* practiceScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceScreen.storyboard; sourceTree = "<group>"; };
+		C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceScreen.swift; sourceTree = "<group>"; };
+		C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = choosePractice.storyboard; sourceTree = "<group>"; };
+		C0B8B2C922BD959B000EEF93 /* choosePractice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosePractice.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -281,6 +289,7 @@
 				C07C919622A4EFC3005CCF98 /* targetScoring.storyboard */,
 				C0729FF922A8A6FE00A283FB /* congratsScreen.storyboard */,
 				C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */,
+				C0B8B2C122BD83F0000EEF93 /* practiceScreen.storyboard */,
 				C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */,
 			);
 			path = Storyboards;
@@ -309,6 +318,7 @@
 				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
 				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
+				C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */,
 			);
 			path = "Main Screens";
 			sourceTree = "<group>";
@@ -328,6 +338,8 @@
 				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
 				C0BA093822B4A80D00AA5791 /* editProfile.storyboard */,
 				C0BA093A22B4A81F00AA5791 /* editProfile.swift */,
+				C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */,
+				C0B8B2C922BD959B000EEF93 /* choosePractice.swift */,
 				C059E3DE22BB47CF000563D4 /* Settings Screens */,
 			);
 			path = "Pop Ups";
@@ -468,6 +480,7 @@
 				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
 				C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
+				C0B8B2C222BD83F0000EEF93 /* practiceScreen.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
 				C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */,
 				C0398E7922A9188F0084D5CE /* BowAnimationData.json in Resources */,
@@ -476,6 +489,7 @@
 				C07C91A622A71B18005CCF98 /* textScoring.storyboard in Resources */,
 				C03C55B922A2269D003290C7 /* Assets.xcassets in Resources */,
 				C0398E8722ACF3B20084D5CE /* historyTarget.storyboard in Resources */,
+				C0B8B2C822BD9560000EEF93 /* choosePractice.storyboard in Resources */,
 				C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */,
 				C0729FFA22A8A6FE00A283FB /* congratsScreen.storyboard in Resources */,
 				C0C9284522BC94FD00C7BC89 /* tempMain.storyboard in Resources */,
@@ -628,6 +642,7 @@
 				C059E3D122B9B665000563D4 /* itemExtensions.swift in Sources */,
 				C0C9284322BC698A00C7BC89 /* privacyPolicySetting.swift in Sources */,
 				C07C91A822A71B50005CCF98 /* textScoring.swift in Sources */,
+				C0B8B2C622BD86FC000EEF93 /* practiceScreen.swift in Sources */,
 				C07C919A22A4EFFF005CCF98 /* HomeScreen.swift in Sources */,
 				C0398E8F22B094C40084D5CE /* targetFaceChoice.swift in Sources */,
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
@@ -639,6 +654,7 @@
 				C059E3DD22BB30CD000563D4 /* sectionCell.swift in Sources */,
 				C07C91AA22A7251E005CCF98 /* threeArrowEndCell.swift in Sources */,
 				C0398E8322AC60320084D5CE /* historyCell.swift in Sources */,
+				C0B8B2CA22BD959B000EEF93 /* choosePractice.swift in Sources */,
 				C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */,
 				C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */,
 			);
