@@ -30,15 +30,18 @@ class profileScreen: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.dismissPopUp), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         
-        currUser = realm.objects(UserInfo.self).first!
-        nameLabel.text = currUser.firstName + " " + currUser.lastName
-        bowLabel.text = currUser.bowType
+        currUser             = realm.objects(UserInfo.self).first!
+        nameLabel.text       = currUser.firstName + " " + currUser.lastName
+        bowLabel.text        = currUser.bowType
         roundCountLabel.text = setRoundCountLabel()
-        profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)
+        
+        profilePicView.image              = loadImageFromDiskWith(fileName: currUser.profilePic)
         profilePicView.layer.cornerRadius = profilePicView.frame.size.height / 2
-        profilePicView.clipsToBounds = true
+        profilePicView.clipsToBounds      = true
+        
         chartView.contentMode = .scaleAspectFit
         settingsButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
         editButton.addTarget(self, action: #selector(touchDown), for: [.touchDown, .touchDragEnter])
         editButton.addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
     }

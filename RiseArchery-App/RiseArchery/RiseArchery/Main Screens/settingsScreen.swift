@@ -21,9 +21,9 @@ class settingsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: Variables
     let realm = try! Realm()
-    let sections = ["Units", "Help and Support", "Other"]
-    let unitItems = ["Language", "Distance Unit"]
-    let settings = ["Review Rise on the App Store", "Privacy Policy", "Version"]
+    let sections     = ["Units", "Help and Support", "Other"]
+    let unitItems    = ["Language", "Distance Unit"]
+    let settings     = ["Review Rise on the App Store", "Privacy Policy", "Version"]
     let supportItems = ["Request a Feature", "Report a Bug", "Other Help"]
     var sectionContents: [[String]] = [[]]
     

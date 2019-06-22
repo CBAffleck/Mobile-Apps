@@ -38,23 +38,23 @@ class practiceCongrats: UIViewController {
         setDescLabel()
         
         //Set labels to match round data
-        arrowCountLabel.text = "Arrow Count: " + String(inArrows.count)
+        arrowCountLabel.text  = "Arrow Count: " + String(inArrows.count)
         detailTitleLabel.text = headerTitle
-        timeLabel.text = "Time: " + time
-        dateLabel.text = date
+        timeLabel.text        = "Time: " + time
+        dateLabel.text        = date
         
         //Add border to details view
         detailsView.layer.cornerRadius = 20
-        detailsView.layer.borderWidth = 0.75
-        detailsView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
+        detailsView.layer.borderWidth  = 0.75
+        detailsView.layer.borderColor  = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
         
         //Add corner radius to close button and make x smaller
-        closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        closeButton.imageEdgeInsets    = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
         
-        targetImageView.image = targetImage
+        targetImageView.image          = targetImage
         
-        let animation = Animation.named("Trophy")
+        let animation       = Animation.named("Trophy")
         animeView.animation = animation
         animeView.play()
     }

@@ -69,7 +69,7 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func setUpTableView() {
-        historyTable.delegate = self
+        historyTable.delegate   = self
         historyTable.dataSource = self
     }
     
@@ -95,12 +95,12 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let round = rounds[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "historyCellID") as! historyCell
             cell.setInfo(round: round)
             return cell
         } else {
             let round = practiceRounds[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "practiceHistoryCellID") as! practiceHistoryCell
+            let cell  = tableView.dequeueReusableCell(withIdentifier: "practiceHistoryCellID") as! practiceHistoryCell
             cell.setInfo(round: round)
             return cell
         }
@@ -118,46 +118,39 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
             //Convert List<Object> to [[String]]
             var tempScores: [[String]] = []
             for x in selectedRound.arrowScores {
-                if selectedRound.arrowsPerEnd == 3 {
-                    tempScores.append([x.a1, x.a2, x.a3])
-                } else {
-                    tempScores.append([x.a1, x.a2, x.a3, x.a4, x.a5, x.a6])
-                }
+                if selectedRound.arrowsPerEnd == 3 { tempScores.append([x.a1, x.a2, x.a3]) }
+                else { tempScores.append([x.a1, x.a2, x.a3, x.a4, x.a5, x.a6]) }
             }
             
             //Convert List<Object> to [CGPoint]
             var tempPos: [CGPoint] = []
-            for x in selectedRound.arrowLocations {
-                tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
-            }
+            for x in selectedRound.arrowLocations { tempPos.append(CGPoint(x: x.xPos, y: x.yPos)) }
             
             //Convert List<Int> to [Int]
             var tempRuns: [Int] = []
-            for x in selectedRound.runningScores {
-                tempRuns.append(x)
-            }
+            for x in selectedRound.runningScores { tempRuns.append(x) }
             
-            roundTitle = selectedRound.roundTitle
-            time = selectedRound.time
-            date = selectedRound.date
-            arrowScores = tempScores
+            roundTitle     = selectedRound.roundTitle
+            time           = selectedRound.time
+            date           = selectedRound.date
+            arrowScores    = tempScores
             arrowLocations = tempPos
-            runningScores = tempRuns
-            totalScore = selectedRound.totalScore
-            hits = selectedRound.hits
-            relativePR = selectedRound.relativePR
-            scoringType = selectedRound.scoringType
-            targetFace = selectedRound.targetFace
-            endCount = selectedRound.endCount
-            arrowsPerEnd = selectedRound.arrowsPerEnd
+            runningScores  = tempRuns
+            totalScore     = selectedRound.totalScore
+            hits           = selectedRound.hits
+            relativePR     = selectedRound.relativePR
+            scoringType    = selectedRound.scoringType
+            targetFace     = selectedRound.targetFace
+            endCount       = selectedRound.endCount
+            arrowsPerEnd   = selectedRound.arrowsPerEnd
             performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
         } else {
             let selectedRound = practiceRounds[indexPath.row]
-            roundTitle = selectedRound.roundName
-            time = selectedRound.time
-            date = selectedRound.date
-            arrowCount = selectedRound.arrowScores.count
-            targetFace = selectedRound.targetFace
+            roundTitle        = selectedRound.roundName
+            time              = selectedRound.time
+            date              = selectedRound.date
+            arrowCount        = selectedRound.arrowScores.count
+            targetFace        = selectedRound.targetFace
             performSegue(withIdentifier: "historyPracticeSegue", sender: indexPath)
         }
         tableView.deselectRow(at: indexPath, animated: false)
@@ -166,26 +159,26 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "historyTargetSegue" {
             let vc = segue.destination as? historyTarget
-            vc?.roundTitle = roundTitle
-            vc?.time = time
-            vc?.date = date
-            vc?.arrowScores = arrowScores
+            vc?.roundTitle     = roundTitle
+            vc?.time           = time
+            vc?.date           = date
+            vc?.arrowScores    = arrowScores
             vc?.arrowLocations = arrowLocations
-            vc?.runningScores = runningScores
-            vc?.totalScore = totalScore
-            vc?.hits = hits
-            vc?.relativePR = relativePR
-            vc?.scoringType = scoringType
-            vc?.targetFace = targetFace
-            vc?.endCount = endCount
-            vc?.arrowsPerEnd = arrowsPerEnd
+            vc?.runningScores  = runningScores
+            vc?.totalScore     = totalScore
+            vc?.hits           = hits
+            vc?.relativePR     = relativePR
+            vc?.scoringType    = scoringType
+            vc?.targetFace     = targetFace
+            vc?.endCount       = endCount
+            vc?.arrowsPerEnd   = arrowsPerEnd
         } else if segue.identifier == "historyPracticeSegue" {
             let vc = segue.destination as? practiceHistory
-            vc?.roundTitle = roundTitle
-            vc?.time = time
-            vc?.date = date
-            vc?.arrowCount = arrowCount
-            vc?.targetFace = targetFace
+            vc?.roundTitle     = roundTitle
+            vc?.time           = time
+            vc?.date           = date
+            vc?.arrowCount     = arrowCount
+            vc?.targetFace     = targetFace
         }
     }
     

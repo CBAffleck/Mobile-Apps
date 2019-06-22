@@ -117,10 +117,10 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     //Sets target face image constraints
     func updateImageConstraints() {
         if let image = targetImageView.image {
-            let imageWidth = image.size.width
+            let imageWidth  = image.size.width
             let imageHeight = image.size.height
-            let viewWidth = scrollView.bounds.size.width
-            let viewHeight = scrollView.bounds.size.height
+            let viewWidth   = scrollView.bounds.size.width
+            let viewHeight  = scrollView.bounds.size.height
             
             var hPadding = (viewWidth - scrollView.zoomScale * imageWidth) / 2
             if hPadding < 0 { hPadding = 0 }
@@ -128,9 +128,9 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
             var vPadding = (viewHeight - scrollView.zoomScale * imageHeight) / 2
             if vPadding < 0 { vPadding = 0 }
             
-            imageConstraintLeft.constant = hPadding
-            imageConstraintRight.constant = hPadding
-            imageConstraintTop.constant = vPadding
+            imageConstraintLeft.constant   = hPadding
+            imageConstraintRight.constant  = hPadding
+            imageConstraintTop.constant    = vPadding
             imageConstraintBottom.constant = vPadding
             
             view.layoutIfNeeded()
@@ -264,21 +264,21 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
         if segue.identifier == "practiceToFinishSegue" {
             let vc = segue.destination as? finishScoring
-            vc?.totalScore = totalScore
-            vc?.hits = hits
-            vc?.headerTitle = headerTitle
-            vc?.timerValue = timerLabel.text!
-            vc?.startDate = date
-            vc?.aLocations = arrowLocations
-            vc?.targetImage = targetImageView.image!
+            vc?.totalScore    = totalScore
+            vc?.hits          = hits
+            vc?.headerTitle   = headerTitle
+            vc?.timerValue    = timerLabel.text!
+            vc?.startDate     = date
+            vc?.aLocations    = arrowLocations
+            vc?.targetImage   = targetImageView.image!
             vc?.practiceRound = currRound
-            vc?.roundNum = currRound.roundNum
-            vc?.imgCount = imgCount
-            vc?.scoringType = "practice"
-            vc?.arrows = arrows
+            vc?.roundNum      = currRound.roundNum
+            vc?.imgCount      = imgCount
+            vc?.scoringType   = "practice"
+            vc?.arrows        = arrows
         } else if segue.identifier == "practiceToCancelSegue" {
             let vc = segue.destination as? cancelScoring
-            vc?.imgCount = imgCount
+            vc?.imgCount    = imgCount
             vc?.scoringType = "practice"
         }
     }

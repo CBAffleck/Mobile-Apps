@@ -48,28 +48,28 @@ class congratsScreen: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         createEndArray()
         setUpTableView()
-        detailTableView.separatorStyle = .none
+        
+        detailTableView.separatorStyle       = .none
         detailTableView.alwaysBounceVertical = false
-        heightViewTopSpace.constant = 0.37 * UIScreen.main.bounds.height
+        heightViewTopSpace.constant          = 0.37 * UIScreen.main.bounds.height
         setDescLabel()
         
         //Set labels to match round data
-        hitsLabel.text = "Hits: " + String(inHits)
-        totalLabel.text = "Total: " + String(inTotal)
+        hitsLabel.text        = "Hits: " + String(inHits)
+        totalLabel.text       = "Total: " + String(inTotal)
         detailTitleLabel.text = headerTitle
-        timeLabel.text = "Time: " + time
-        dateLabel.text = date
+        timeLabel.text        = "Time: " + time
+        dateLabel.text        = date
         
         //Add border to details view
         detailsView.layer.cornerRadius = 20
-        detailsView.layer.borderWidth = 0.75
-        detailsView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
+        detailsView.layer.borderWidth  = 0.75
+        detailsView.layer.borderColor  = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor
         
         //Add corner radius to close button and make x smaller
-        closeButton.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        closeButton.imageEdgeInsets    = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
         closeButton.layer.cornerRadius = 10
         
         let animation = Animation.named("Trophy")
