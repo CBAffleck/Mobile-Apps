@@ -309,11 +309,10 @@
 		C059E3DE22BB47CF000563D4 /* Settings Screens */ = {
 			isa = PBXGroup;
 			children = (
+				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
 				C059E3DF22BB4D99000563D4 /* distanceSetting.swift */,
-				C059E3E122BB4ED6000563D4 /* distanceCell.swift */,
 				C059E3E322BB6099000563D4 /* mailError.swift */,
 				C059E3E522BB70E4000563D4 /* languageSetting.swift */,
-				C059E3E722BB70F2000563D4 /* languageCell.swift */,
 				C0C9284222BC698A00C7BC89 /* privacyPolicySetting.swift */,
 			);
 			path = "Settings Screens";
@@ -326,7 +325,7 @@
 				C0B8B2D622BDE8AF000EEF93 /* Scoring */,
 				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
-				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
+				C059E3DE22BB47CF000563D4 /* Settings Screens */,
 				C0B8B2D722BDE913000EEF93 /* Practice */,
 			);
 			path = "Main Screens";
@@ -335,23 +334,10 @@
 		C07C919B22A506CC005CCF98 /* Pop Ups */ = {
 			isa = PBXGroup;
 			children = (
-				C07C919C22A50701005CCF98 /* startScoring.storyboard */,
-				C07C919E22A50725005CCF98 /* startScoring.swift */,
-				C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */,
-				C0729FF322A7C85C00A283FB /* cancelScoring.swift */,
-				C0729FF522A89C0600A283FB /* finishScoring.storyboard */,
-				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
-				C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */,
-				C0398E8822ACF3CD0084D5CE /* historyTarget.swift */,
-				C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */,
-				C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */,
-				C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */,
-				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
 				C0BA093822B4A80D00AA5791 /* editProfile.storyboard */,
 				C0BA093A22B4A81F00AA5791 /* editProfile.swift */,
-				C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */,
-				C0B8B2C922BD959B000EEF93 /* choosePractice.swift */,
-				C059E3DE22BB47CF000563D4 /* Settings Screens */,
+				C0B8B2DB22BDEA19000EEF93 /* Scoring Process */,
+				C0B8B2DC22BDEA52000EEF93 /* History */,
 			);
 			path = "Pop Ups";
 			sourceTree = "<group>";
@@ -375,16 +361,10 @@
 		C0B8B2D522BDE657000EEF93 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
-				C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */,
+				C0B8B2D822BDE9B7000EEF93 /* Scoring */,
+				C0B8B2D922BDE9D1000EEF93 /* Practice */,
+				C0B8B2DA22BDE9E7000EEF93 /* Settings */,
 				C0398E8222AC60320084D5CE /* historyCell.swift */,
-				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
-				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
-				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
-				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
-				C059E3D622B9D553000563D4 /* settingCell.swift */,
-				C059E3DC22BB30CD000563D4 /* sectionCell.swift */,
-				C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -406,6 +386,66 @@
 				C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */,
 			);
 			path = Practice;
+			sourceTree = "<group>";
+		};
+		C0B8B2D822BDE9B7000EEF93 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
+				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
+				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
+				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
+				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		C0B8B2D922BDE9D1000EEF93 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */,
+				C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */,
+			);
+			path = Practice;
+			sourceTree = "<group>";
+		};
+		C0B8B2DA22BDE9E7000EEF93 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C059E3D622B9D553000563D4 /* settingCell.swift */,
+				C059E3E122BB4ED6000563D4 /* distanceCell.swift */,
+				C059E3E722BB70F2000563D4 /* languageCell.swift */,
+				C059E3DC22BB30CD000563D4 /* sectionCell.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		C0B8B2DB22BDEA19000EEF93 /* Scoring Process */ = {
+			isa = PBXGroup;
+			children = (
+				C07C919C22A50701005CCF98 /* startScoring.storyboard */,
+				C07C919E22A50725005CCF98 /* startScoring.swift */,
+				C0729FF122A7C83C00A283FB /* cancelScoring.storyboard */,
+				C0729FF322A7C85C00A283FB /* cancelScoring.swift */,
+				C0729FF522A89C0600A283FB /* finishScoring.storyboard */,
+				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
+				C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */,
+				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
+				C0B8B2C722BD9560000EEF93 /* choosePractice.storyboard */,
+				C0B8B2C922BD959B000EEF93 /* choosePractice.swift */,
+			);
+			path = "Scoring Process";
+			sourceTree = "<group>";
+		};
+		C0B8B2DC22BDEA52000EEF93 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */,
+				C0398E8822ACF3CD0084D5CE /* historyTarget.swift */,
+				C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */,
+				C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
