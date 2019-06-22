@@ -64,6 +64,8 @@
 		C0B8B2CC22BDC622000EEF93 /* practiceCongrats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */; };
 		C0B8B2CE22BDC648000EEF93 /* practiceCongrats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */; };
 		C0B8B2D022BDD16C000EEF93 /* practiceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */; };
+		C0B8B2D222BDD947000EEF93 /* practiceHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */; };
+		C0B8B2D422BDD95A000EEF93 /* practiceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -159,6 +161,8 @@
 		C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceCongrats.storyboard; sourceTree = "<group>"; };
 		C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceCongrats.swift; sourceTree = "<group>"; };
 		C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistoryCell.swift; sourceTree = "<group>"; };
+		C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceHistory.storyboard; sourceTree = "<group>"; };
+		C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistory.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -342,6 +346,8 @@
 				C0729FF722A89C2F00A283FB /* finishScoring.swift */,
 				C0398E8622ACF3B20084D5CE /* historyTarget.storyboard */,
 				C0398E8822ACF3CD0084D5CE /* historyTarget.swift */,
+				C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */,
+				C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */,
 				C0398E8C22B094B30084D5CE /* targetFaceChoice.storyboard */,
 				C0398E8E22B094C40084D5CE /* targetFaceChoice.swift */,
 				C0BA093822B4A80D00AA5791 /* editProfile.storyboard */,
@@ -488,6 +494,7 @@
 			files = (
 				C03C55BC22A2269D003290C7 /* LaunchScreen.storyboard in Resources */,
 				C059E3D322B9CD01000563D4 /* settingsScreen.storyboard in Resources */,
+				C0B8B2D222BDD947000EEF93 /* practiceHistory.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C0B8B2C222BD83F0000EEF93 /* practiceScreen.storyboard in Resources */,
 				C0B8B2CC22BDC622000EEF93 /* practiceCongrats.storyboard in Resources */,
@@ -659,6 +666,7 @@
 				C0398E8522AC66630084D5CE /* RealmClasses.swift in Sources */,
 				C059E3E422BB6099000563D4 /* mailError.swift in Sources */,
 				C059E3D522B9D175000563D4 /* settingsScreen.swift in Sources */,
+				C0B8B2D422BDD95A000EEF93 /* practiceHistory.swift in Sources */,
 				C0B8B2CE22BDC648000EEF93 /* practiceCongrats.swift in Sources */,
 				C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */,
 				C059E3E822BB70F2000563D4 /* languageCell.swift in Sources */,

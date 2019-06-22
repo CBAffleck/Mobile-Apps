@@ -237,7 +237,7 @@ class finishScoring: UIViewController {
             saveImage(imageName: currRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
             saveRound()
         } else if scoringType == "practice" {
-            saveImage(imageName: practiceRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+            saveImage(imageName: practiceRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum) + "practice", image: targetImage)
             savePracticeHistory()
         }
         

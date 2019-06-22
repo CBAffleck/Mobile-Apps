@@ -15,13 +15,13 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var historyTable: UITableView!
     @IBOutlet weak var historyTitle: UILabel!
     @IBOutlet weak var alertLabel: UILabel!
-    @IBOutlet weak var dimView: UIView!
     
     
     //MARK: Variables
     let realm = try! Realm()
     var rounds : [HistoryRound] = []
     var practiceRounds : [HistoryPracticeRound] = []
+    let sections = ["Scoring Rounds", "Practices"]
     //HistoryRound variables
     var roundTitle: String = ""
     var time : String = ""
@@ -36,14 +36,12 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var targetFace : String = ""
     var endCount : Int = 0
     var arrowsPerEnd : Int = 0
+    //Other Practice History Round variables
+    var arrowCount : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Pop up background dimming stuff
-        dimView.isHidden = true
-        dimView.alpha = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: NSNotification.Name(rawValue: "reloadData"), object: nil)
 
         // Do any additional setup after loading the view.
@@ -75,6 +73,20 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
         historyTable.dataSource = self
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionCellID") as! sectionCell
+        cell.setInfo(title: sections[section])
+        return cell.contentView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 45
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 { return rounds.count }
         else            { return practiceRounds.count }
@@ -88,54 +100,66 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return cell
         } else {
             let round = practiceRounds[indexPath.row]
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "practiceHistoryCellID") as! practiceHistoryCell
-//            cell.setInfo(round: round)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "practiceHistoryCellID") as! practiceHistoryCell
+            cell.setInfo(round: round)
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 151
+        if indexPath.section == 0 { return 151 }
+        else                      { return 113 }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        roundTitle = rounds[indexPath.row].roundTitle
-        time = rounds[indexPath.row].time
-        date = rounds[indexPath.row].date
-        
-        //Convert List<Object> to [[String]]
-        var tempScores: [[String]] = []
-        for x in rounds[indexPath.row].arrowScores {
-            if rounds[indexPath.row].arrowsPerEnd == 3 {
-                tempScores.append([x.a1, x.a2, x.a3])
-            } else {
-                tempScores.append([x.a1, x.a2, x.a3, x.a4, x.a5, x.a6])
+        if indexPath.section == 0 {
+            let selectedRound = rounds[indexPath.row]
+            
+            //Convert List<Object> to [[String]]
+            var tempScores: [[String]] = []
+            for x in selectedRound.arrowScores {
+                if selectedRound.arrowsPerEnd == 3 {
+                    tempScores.append([x.a1, x.a2, x.a3])
+                } else {
+                    tempScores.append([x.a1, x.a2, x.a3, x.a4, x.a5, x.a6])
+                }
             }
+            
+            //Convert List<Object> to [CGPoint]
+            var tempPos: [CGPoint] = []
+            for x in selectedRound.arrowLocations {
+                tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
+            }
+            
+            //Convert List<Int> to [Int]
+            var tempRuns: [Int] = []
+            for x in selectedRound.runningScores {
+                tempRuns.append(x)
+            }
+            
+            roundTitle = selectedRound.roundTitle
+            time = selectedRound.time
+            date = selectedRound.date
+            arrowScores = tempScores
+            arrowLocations = tempPos
+            runningScores = tempRuns
+            totalScore = selectedRound.totalScore
+            hits = selectedRound.hits
+            relativePR = selectedRound.relativePR
+            scoringType = selectedRound.scoringType
+            targetFace = selectedRound.targetFace
+            endCount = selectedRound.endCount
+            arrowsPerEnd = selectedRound.arrowsPerEnd
+            performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
+        } else {
+            let selectedRound = practiceRounds[indexPath.row]
+            roundTitle = selectedRound.roundName
+            time = selectedRound.time
+            date = selectedRound.date
+            arrowCount = selectedRound.arrowScores.count
+            targetFace = selectedRound.targetFace
+            performSegue(withIdentifier: "historyPracticeSegue", sender: indexPath)
         }
-        arrowScores = tempScores
-        
-        //Convert List<Object> to [CGPoint]
-        var tempPos: [CGPoint] = []
-        for x in rounds[indexPath.row].arrowLocations {
-            tempPos.append(CGPoint(x: x.xPos, y: x.yPos))
-        }
-        arrowLocations = tempPos
-        
-        //Convert List<Int> to [Int]
-        var tempRuns: [Int] = []
-        for x in rounds[indexPath.row].runningScores {
-            tempRuns.append(x)
-        }
-        runningScores = tempRuns
-        totalScore = rounds[indexPath.row].totalScore
-        hits = rounds[indexPath.row].hits
-        relativePR = rounds[indexPath.row].relativePR
-        scoringType = rounds[indexPath.row].scoringType
-        targetFace = rounds[indexPath.row].targetFace
-        endCount = rounds[indexPath.row].endCount
-        arrowsPerEnd = rounds[indexPath.row].arrowsPerEnd
-        performSegue(withIdentifier: "historyTargetSegue", sender: indexPath)
-        animateIn()
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
@@ -155,25 +179,14 @@ class historyScreen: UIViewController, UITableViewDelegate, UITableViewDataSourc
             vc?.targetFace = targetFace
             vc?.endCount = endCount
             vc?.arrowsPerEnd = arrowsPerEnd
+        } else if segue.identifier == "historyPracticeSegue" {
+            let vc = segue.destination as? practiceHistory
+            vc?.roundTitle = roundTitle
+            vc?.time = time
+            vc?.date = date
+            vc?.arrowCount = arrowCount
+            vc?.targetFace = targetFace
         }
-    }
-    
-    func animateIn() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.dimView.isHidden = false
-            self.dimView.alpha = 1
-        })
-    }
-    
-    func animateOut() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.dimView.alpha = 0
-        })
-        self.dimView.isHidden = true
-    }
-    
-    @objc func dismissEffect() {
-        animateOut()
     }
     
     @objc func reloadData() {
