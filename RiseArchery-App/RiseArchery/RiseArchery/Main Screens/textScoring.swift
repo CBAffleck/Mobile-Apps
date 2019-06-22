@@ -49,7 +49,7 @@ class textScoring: UIViewController, UITableViewDelegate, UITableViewDataSource,
         //Pop up background dimming stuff
         dimView.isHidden = true
         dimView.alpha = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
         
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)
         setUpTableView()

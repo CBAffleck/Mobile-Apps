@@ -23,6 +23,7 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var finishButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var dimView: UIView!
     
     //MARK: Variables
     let realm = try! Realm()
@@ -46,6 +47,10 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
 
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)  //Set header title with number
         titleLabel.text = headerTitle
+        
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
         
         targetImageView.image = loadImageFromDiskWith(fileName: currRound.targetFace)
         scrollView.delegate = self
@@ -232,15 +237,48 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
         return newImage!
     }
     
-    /*
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
+    }
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "targetToFinishSegue" {
+//            let vc = segue.destination as? finishScoring
+//            vc?.totalScore = totalScore
+//            vc?.hits = hits
+//            vc?.headerTitle = headerTitle
+//            vc?.timerValue = timerLabel.text!
+//            vc?.startDate = date
+//            vc?.aLocations = arrowLocations
+//            vc?.targetImage = targetImageView.image!
+//            vc?.currRound = currRound
+//            vc?.roundNum = currRound.roundNum
+//            vc?.imgCount = imgCount
+        } else if segue.identifier == "targetToCancelSegue" {
+            let vc = segue.destination as? cancelScoring
+            vc?.imgCount = imgCount
+            vc?.scoringType = "practice"
+        }
     }
-    */
 
     //MARK: Actions
     @IBAction func removeTapped(_ sender: UIButton) {
@@ -278,8 +316,10 @@ class practiceScreen: UIViewController, UIScrollViewDelegate {
     }
     @IBAction func finishTapped(_ sender: UIButton) {
         stopTimer()
+        animateIn()
     }
     @IBAction func cancelTapped(_ sender: UIButton) {
+        animateIn()
     }
     
 }

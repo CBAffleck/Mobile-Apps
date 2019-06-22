@@ -27,6 +27,12 @@ class cancelScoring: UIViewController {
         popUpView.layer.cornerRadius = 20
         resumeButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
+        
+        if scoringType == "practice" {
+            descLabel.text = "If you cancel this practice round you’ll lose all progress. Are you sure you want to cancel?"
+            cancelLabel.text = "Cancel Practice?"
+            cancelButton.setTitle("Cancel Practice", for: .normal)
+        }
     }
     
     //MARK: Functions
@@ -42,7 +48,7 @@ class cancelScoring: UIViewController {
     
     //MARK: Actions
     @IBAction func resumeTapped(_ sender: UIButton) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             self.modalTransitionStyle = .crossDissolve

@@ -59,7 +59,7 @@ class targetScoring: UIViewController, UIScrollViewDelegate, UITableViewDelegate
         //Pop up background dimming stuff
         dimView.isHidden = true
         dimView.alpha = 0
-        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
         
         headerTitle = currRound.roundName + " #" + String(currRound.roundNum)  //Set header title with number
         //Put cells in array so they aren't reused when the tableview scrolls

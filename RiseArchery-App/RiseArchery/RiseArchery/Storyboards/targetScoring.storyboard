@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PEz-Xy-ISc">
-                                <rect key="frame" x="10" y="619" width="172.5" height="36"/>
+                                <rect key="frame" x="10" y="615" width="172.5" height="40"/>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.93333333330000001" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="TOU-8N-oHy"/>
+                                    <constraint firstAttribute="height" constant="40" id="TOU-8N-oHy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Cancel Scoring">
@@ -34,10 +34,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m1k-tD-uNb">
-                                <rect key="frame" x="192.5" y="619" width="172.5" height="36"/>
+                                <rect key="frame" x="192.5" y="615" width="172.5" height="40"/>
                                 <color key="backgroundColor" red="0.22352941179999999" green="0.79607843140000001" blue="0.4549019608" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="bEo-3L-0tO"/>
+                                    <constraint firstAttribute="height" constant="40" id="bEo-3L-0tO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Finish Scoring">
@@ -49,7 +49,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lmr-EJ-cFx">
-                                <rect key="frame" x="10" y="30" width="355" height="249.5"/>
+                                <rect key="frame" x="10" y="30" width="355" height="245.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="zeY-GR-udL">
                                     <rect key="frame" x="0.0" y="0.0" width="355" height="86"/>
@@ -369,7 +369,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Running Total: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIo-r2-4Ww">
-                                <rect key="frame" x="10" y="589" width="172.5" height="22"/>
+                                <rect key="frame" x="10" y="585" width="172.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="qov-c7-uPi"/>
                                 </constraints>
@@ -378,7 +378,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hits: 0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0j-pK-FZQ">
-                                <rect key="frame" x="192.5" y="589" width="172.5" height="22"/>
+                                <rect key="frame" x="192.5" y="585" width="172.5" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="sC3-qG-f0E"/>
                                 </constraints>
@@ -387,7 +387,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" maximumZoomScale="6" translatesAutoresizingMaskIntoConstraints="NO" id="xUe-y8-hgI">
-                                <rect key="frame" x="0.0" y="331.5" width="375" height="249.5"/>
+                                <rect key="frame" x="0.0" y="331.5" width="375" height="245.5"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SingleSpot" translatesAutoresizingMaskIntoConstraints="NO" id="Vxh-Fr-VLs">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
@@ -401,10 +401,10 @@
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5S-8A-CIO">
-                                <rect key="frame" x="80" y="287.5" width="215" height="36"/>
+                                <rect key="frame" x="80" y="283.5" width="215" height="40"/>
                                 <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="b4X-Sb-ZL3"/>
+                                    <constraint firstAttribute="height" constant="40" id="b4X-Sb-ZL3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Remove Arrow">
