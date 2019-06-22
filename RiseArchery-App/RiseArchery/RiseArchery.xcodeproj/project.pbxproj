@@ -323,14 +323,11 @@
 			isa = PBXGroup;
 			children = (
 				C07C919922A4EFFF005CCF98 /* HomeScreen.swift */,
-				C07C91A722A71B50005CCF98 /* textScoring.swift */,
-				C03C55B322A2269C003290C7 /* targetScoring.swift */,
-				C0729FFB22A8A71A00A283FB /* congratsScreen.swift */,
+				C0B8B2D622BDE8AF000EEF93 /* Scoring */,
 				C0398E7C22A9D23C0084D5CE /* profileScreen.swift */,
 				C0398E7E22A9D2F70084D5CE /* historyScreen.swift */,
 				C059E3D422B9D175000563D4 /* settingsScreen.swift */,
-				C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */,
-				C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */,
+				C0B8B2D722BDE913000EEF93 /* Practice */,
 			);
 			path = "Main Screens";
 			sourceTree = "<group>";
@@ -362,16 +359,7 @@
 		C07C91A022A5D4CA005CCF98 /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
-				C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */,
-				C0398E8222AC60320084D5CE /* historyCell.swift */,
-				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
-				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
-				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
-				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
-				C059E3D622B9D553000563D4 /* settingCell.swift */,
-				C059E3DC22BB30CD000563D4 /* sectionCell.swift */,
-				C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */,
+				C0B8B2D522BDE657000EEF93 /* Table Cells */,
 				C0729FED22A7605600A283FB /* keyboard.xib */,
 				C0729FEF22A7632200A283FB /* keyboard.swift */,
 				C0398E8422AC66630084D5CE /* RealmClasses.swift */,
@@ -382,6 +370,42 @@
 				C059E3D022B9B665000563D4 /* itemExtensions.swift */,
 			);
 			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
+		C0B8B2D522BDE657000EEF93 /* Table Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C07C91A322A61EF6005CCF98 /* ScoringRoundCell.swift */,
+				C0B8B2BF22BD786C000EEF93 /* practiceCell.swift */,
+				C0398E8222AC60320084D5CE /* historyCell.swift */,
+				C07C91A922A7251E005CCF98 /* threeArrowEndCell.swift */,
+				C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */,
+				C0729FFD22A8EEF700A283FB /* congratsEndCell.swift */,
+				C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */,
+				C059E3D622B9D553000563D4 /* settingCell.swift */,
+				C059E3DC22BB30CD000563D4 /* sectionCell.swift */,
+				C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */,
+			);
+			path = "Table Cells";
+			sourceTree = "<group>";
+		};
+		C0B8B2D622BDE8AF000EEF93 /* Scoring */ = {
+			isa = PBXGroup;
+			children = (
+				C07C91A722A71B50005CCF98 /* textScoring.swift */,
+				C03C55B322A2269C003290C7 /* targetScoring.swift */,
+				C0729FFB22A8A71A00A283FB /* congratsScreen.swift */,
+			);
+			path = Scoring;
+			sourceTree = "<group>";
+		};
+		C0B8B2D722BDE913000EEF93 /* Practice */ = {
+			isa = PBXGroup;
+			children = (
+				C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */,
+				C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */,
+			);
+			path = Practice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
