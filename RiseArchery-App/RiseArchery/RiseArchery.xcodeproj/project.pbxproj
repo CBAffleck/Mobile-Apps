@@ -66,6 +66,8 @@
 		C0B8B2D022BDD16C000EEF93 /* practiceHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */; };
 		C0B8B2D222BDD947000EEF93 /* practiceHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */; };
 		C0B8B2D422BDD95A000EEF93 /* practiceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */; };
+		C0B8B2DF22BEC5ED000EEF93 /* counterScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2DE22BEC5ED000EEF93 /* counterScreen.storyboard */; };
+		C0B8B2E122BEC600000EEF93 /* counterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2E022BEC600000EEF93 /* counterScreen.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -163,6 +165,8 @@
 		C0B8B2CF22BDD16C000EEF93 /* practiceHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistoryCell.swift; sourceTree = "<group>"; };
 		C0B8B2D122BDD947000EEF93 /* practiceHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = practiceHistory.storyboard; sourceTree = "<group>"; };
 		C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistory.swift; sourceTree = "<group>"; };
+		C0B8B2DE22BEC5ED000EEF93 /* counterScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = counterScreen.storyboard; sourceTree = "<group>"; };
+		C0B8B2E022BEC600000EEF93 /* counterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterScreen.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -301,6 +305,7 @@
 				C0B8B2CB22BDC622000EEF93 /* practiceCongrats.storyboard */,
 				C059E3D222B9CD01000563D4 /* settingsScreen.storyboard */,
 				C0B8B2C122BD83F0000EEF93 /* practiceScreen.storyboard */,
+				C0B8B2DE22BEC5ED000EEF93 /* counterScreen.storyboard */,
 				C0C9284422BC94FD00C7BC89 /* tempMain.storyboard */,
 			);
 			path = Storyboards;
@@ -384,6 +389,7 @@
 			children = (
 				C0B8B2C522BD86FC000EEF93 /* practiceScreen.swift */,
 				C0B8B2CD22BDC648000EEF93 /* practiceCongrats.swift */,
+				C0B8B2E022BEC600000EEF93 /* counterScreen.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -561,6 +567,7 @@
 				C0B8B2D222BDD947000EEF93 /* practiceHistory.storyboard in Resources */,
 				C0729FF622A89C0600A283FB /* finishScoring.storyboard in Resources */,
 				C0B8B2C222BD83F0000EEF93 /* practiceScreen.storyboard in Resources */,
+				C0B8B2DF22BEC5ED000EEF93 /* counterScreen.storyboard in Resources */,
 				C0B8B2CC22BDC622000EEF93 /* practiceCongrats.storyboard in Resources */,
 				C07C919722A4EFC3005CCF98 /* targetScoring.storyboard in Resources */,
 				C0398E8D22B094B30084D5CE /* targetFaceChoice.storyboard in Resources */,
@@ -740,6 +747,7 @@
 				C0398E8322AC60320084D5CE /* historyCell.swift in Sources */,
 				C0B8B2CA22BD959B000EEF93 /* choosePractice.swift in Sources */,
 				C0398E7D22A9D23C0084D5CE /* profileScreen.swift in Sources */,
+				C0B8B2E122BEC600000EEF93 /* counterScreen.swift in Sources */,
 				C059E3E022BB4D99000563D4 /* distanceSetting.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -33,12 +33,18 @@ class ScoringRoundCell: UITableViewCell {
     var roundItem: ScoringRound!
     
     func setInfo(round: ScoringRound) {
-        roundItem = round
-        titleLabel.text = round.roundName
-        lastScoredLabel.text = "Last Scored: " + round.lastScored
+        roundItem             = round
+        titleLabel.text       = round.roundName
+        lastScoredLabel.text  = "Last Scored: " + round.lastScored
         descriptionLabel.text = round.roundDescription
-        avgLabel.text = "Average: " + String(round.average)
-        perLabel.text = "Personal Record: " + String(round.pr)
+        avgLabel.text         = "Average: " + String(round.average)
+        perLabel.text         = "Personal Record: " + String(round.pr)
+        
+//        cellView.layer.shadowColor = UIColor(hue: 0, saturation: 0, brightness: 0, alpha: 0.2).cgColor
+//        cellView.layer.shadowRadius = 6.0
+//        cellView.layer.shadowOpacity = 0.5
+//        cellView.layer.shadowOffset = CGSize(width: 4, height: 4)
+        
         cellView.layer.cornerRadius = 20
         cellView.layer.borderWidth = 0.75
         cellView.layer.borderColor = UIColor(red: 191/255.0, green: 191/255.0, blue: 191/255.0, alpha: 1.0).cgColor

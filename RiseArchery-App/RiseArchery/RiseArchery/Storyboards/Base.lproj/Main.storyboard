@@ -420,6 +420,7 @@
                         <segue destination="8xz-AX-fcy" kind="custom" identifier="tableToPopUpSegue" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="ikj-rz-LfP"/>
                         <segue destination="6dg-bq-tGK" kind="custom" identifier="mainToTargetChoiceID" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="MdB-q2-bUz"/>
                         <segue destination="VyD-i6-ADr" kind="custom" identifier="mainToPracticeSegue" customClass="ScaleSegue" customModule="RiseArchery" customModuleProvider="target" id="Iq1-Dn-GxV"/>
+                        <segue destination="6hJ-O4-esJ" kind="presentation" identifier="mainToCounterSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="fp3-Bp-0FQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpK-rX-LNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -761,13 +762,21 @@
             </objects>
             <point key="canvasLocation" x="-1523" y="1196"/>
         </scene>
+        <!--counterScreen-->
+        <scene sceneID="syP-sR-I8Z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="counterScreen" id="6hJ-O4-esJ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeZ-za-DUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1520" y="1303"/>
+        </scene>
         <!--targetFaceChoice-->
         <scene sceneID="ghe-F8-PqR">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="openTargetChoiceID" storyboardName="targetFaceChoice" id="6dg-bq-tGK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sIY-8e-S5j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1911" y="1303"/>
+            <point key="canvasLocation" x="-1911" y="1302"/>
         </scene>
         <!--historyTarget-->
         <scene sceneID="N29-FG-sUc">

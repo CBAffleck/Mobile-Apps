@@ -306,15 +306,14 @@ extension HomeScreen: ScoringCellDelegate {
 
 extension HomeScreen: PracticeCellDelegate {
     func didTapToPractice() {
-        print("Segue to practice")
         let indexPath = IndexPath(row: 0, section: 0)
         performSegue(withIdentifier: "mainToPracticeSegue", sender: indexPath)
         animateIn()
     }
     
     func didTapToArrowCount() {
-//        let indexPath = IndexPath(row: 0, section: section)
-//        performSegue(withIdentifier: "mainToCounterID", sender: indexPath)
+        let indexPath = IndexPath(row: 0, section: 0)
+        performSegue(withIdentifier: "mainToCounterSegue", sender: indexPath)
     }
     
     
