@@ -32,7 +32,7 @@ class profileScreen: UIViewController {
         
         currUser             = realm.objects(UserInfo.self).first!
         nameLabel.text       = currUser.firstName + " " + currUser.lastName
-        bowLabel.text        = currUser.bowType
+        bowLabel.text        = "Arrows Shot: \(String(currUser.totalArrowsShot))"
         roundCountLabel.text = setRoundCountLabel()
         
         profilePicView.image              = loadImageFromDiskWith(fileName: currUser.profilePic)
@@ -74,14 +74,15 @@ class profileScreen: UIViewController {
     
     func setRoundCountLabel() -> String {
         let numRounds = realm.objects(HistoryRound.self).count
-        if numRounds == 1 { return String(numRounds) + " Round Scored" }
-        else { return String(numRounds) + " Rounds Scored" }
+//        if numRounds == 1 { return String(numRounds) + " Round Scored" }
+//        else { return String(numRounds) + " Rounds Scored" }
+        return "Rounds Scored: \(String(numRounds))"
     }
     
     @objc func dismissPopUp() {
         //Set new target face icon on the round that was changed
         nameLabel.text = currUser.firstName + " " + currUser.lastName
-        bowLabel.text = currUser.bowType
+//        bowLabel.text = currUser.bowType
         if currUser.profilePic == "EditProfile" {
             profilePicView.image = loadImageFromDiskWith(fileName: "EditProfile")
         } else { profilePicView.image = loadImageFromDiskWith(fileName: currUser.profilePic)}
