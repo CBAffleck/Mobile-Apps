@@ -1,6 +1,0 @@
-framework module Pods_RiseArcheryTests {
-  umbrella header "Pods-RiseArcheryTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
