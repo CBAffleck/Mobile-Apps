@@ -32,7 +32,6 @@ class practiceCell: UITableViewCell {
 
     //MARK: Actions
     @IBAction func practiceTapped(_ sender: UIButton) {
-        print("button tapped")
         delegate?.didTapToPractice()
     }
     

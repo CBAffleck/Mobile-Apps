@@ -68,6 +68,8 @@
 		C0B8B2D422BDD95A000EEF93 /* practiceHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */; };
 		C0B8B2DF22BEC5ED000EEF93 /* counterScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2DE22BEC5ED000EEF93 /* counterScreen.storyboard */; };
 		C0B8B2E122BEC600000EEF93 /* counterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2E022BEC600000EEF93 /* counterScreen.swift */; };
+		C0B8B2E522BF18E4000EEF93 /* saveCounter.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8B2E422BF18E4000EEF93 /* saveCounter.storyboard */; };
+		C0B8B2E722BF18F3000EEF93 /* saveCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B8B2E622BF18F3000EEF93 /* saveCounter.swift */; };
 		C0BA093522B32C8D00AA5791 /* sixArrowEndCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */; };
 		C0BA093722B3411400AA5791 /* congratsEndCellSix.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */; };
 		C0BA093922B4A80D00AA5791 /* editProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0BA093822B4A80D00AA5791 /* editProfile.storyboard */; };
@@ -167,6 +169,8 @@
 		C0B8B2D322BDD95A000EEF93 /* practiceHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceHistory.swift; sourceTree = "<group>"; };
 		C0B8B2DE22BEC5ED000EEF93 /* counterScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = counterScreen.storyboard; sourceTree = "<group>"; };
 		C0B8B2E022BEC600000EEF93 /* counterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = counterScreen.swift; sourceTree = "<group>"; };
+		C0B8B2E422BF18E4000EEF93 /* saveCounter.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = saveCounter.storyboard; sourceTree = "<group>"; };
+		C0B8B2E622BF18F3000EEF93 /* saveCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = saveCounter.swift; sourceTree = "<group>"; };
 		C0BA093422B32C8D00AA5791 /* sixArrowEndCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sixArrowEndCell.swift; sourceTree = "<group>"; };
 		C0BA093622B3411400AA5791 /* congratsEndCellSix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = congratsEndCellSix.swift; sourceTree = "<group>"; };
 		C0BA093822B4A80D00AA5791 /* editProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = editProfile.storyboard; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 			children = (
 				C0BA093822B4A80D00AA5791 /* editProfile.storyboard */,
 				C0BA093A22B4A81F00AA5791 /* editProfile.swift */,
+				C0B8B2E422BF18E4000EEF93 /* saveCounter.storyboard */,
+				C0B8B2E622BF18F3000EEF93 /* saveCounter.swift */,
 				C0B8B2DB22BDEA19000EEF93 /* Scoring Process */,
 				C0B8B2DC22BDEA52000EEF93 /* History */,
 			);
@@ -584,6 +590,7 @@
 				C03C55B722A2269C003290C7 /* Main.storyboard in Resources */,
 				C0398E8122A9D50B0084D5CE /* Trophy.json in Resources */,
 				C0729FEE22A7605600A283FB /* keyboard.xib in Resources */,
+				C0B8B2E522BF18E4000EEF93 /* saveCounter.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,6 +719,7 @@
 				C07C919F22A50725005CCF98 /* startScoring.swift in Sources */,
 				C059E3CD22B72070000563D4 /* ScoresChartView.swift in Sources */,
 				C03C55B422A2269C003290C7 /* targetScoring.swift in Sources */,
+				C0B8B2E722BF18F3000EEF93 /* saveCounter.swift in Sources */,
 				C0BA093B22B4A81F00AA5791 /* editProfile.swift in Sources */,
 				C059E3D722B9D553000563D4 /* settingCell.swift in Sources */,
 				C0398E8922ACF3CD0084D5CE /* historyTarget.swift in Sources */,

@@ -19,10 +19,11 @@ class counterScreen: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var dimView: UIView!
     
     //MARK: Variables
     var count = 0
-    
+    var scoringType = "counter"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,10 @@ class counterScreen: UIViewController {
         finishButton.layer.cornerRadius = 10
         cancelButton.layer.cornerRadius = 10
         countLabel.text = String(count)
+        
+        dimView.isHidden = true
+        dimView.alpha = 0
+        NotificationCenter.default.addObserver(self, selector: #selector(self.dismissEffect), name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
     }
 
     //MARK: Functions
@@ -43,10 +48,43 @@ class counterScreen: UIViewController {
         }
     }
     
+    func animateIn() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.isHidden = false
+            self.dimView.alpha = 1
+        })
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.dimView.alpha = 0
+        })
+        self.dimView.isHidden = true
+    }
+    
+    @objc func dismissEffect() {
+        animateOut()
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "counterCancelSegue" {
+            let vc = segue.destination as? cancelScoring
+            vc?.scoringType   = scoringType
+        } else if segue.identifier == "saveCounterSegue" {
+            let vc = segue.destination as? saveCounter
+            vc?.count = count
+        }
+    }
+    
     //MARK: Actions
     @IBAction func cancelTapped(_ sender: UIButton) {
+        animateIn()
     }
     @IBAction func finishTapped(_ sender: UIButton) {
+        animateIn()
     }
     @IBAction func minusTapped(_ sender: UIButton) {
         if count != 0 {

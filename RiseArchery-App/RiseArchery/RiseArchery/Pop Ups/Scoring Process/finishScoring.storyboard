@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7TF-Dt-mqr">
-                                <rect key="frame" x="10" y="223.5" width="355" height="220"/>
+                                <rect key="frame" x="10" y="243.5" width="355" height="180"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Finish Scoring?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-6U-SJ1">
-                                        <rect key="frame" x="20" y="123" width="315" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Finish Scoring?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lQu-6U-SJ1">
+                                        <rect key="frame" x="20" y="20" width="315" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="JW4-dN-IWU"/>
                                         </constraints>
@@ -31,7 +31,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBq-Wi-mtW">
-                                        <rect key="frame" x="180" y="162" width="155" height="38"/>
+                                        <rect key="frame" x="20" y="122" width="315" height="38"/>
                                         <color key="backgroundColor" red="0.22352941176470587" green="0.79607843137254897" blue="0.45490196078431372" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="KXG-VG-qmJ"/>
@@ -44,14 +44,8 @@
                                             <action selector="finishTapped:" destination="tVd-BE-n5D" eventType="touchUpInside" id="gB2-0b-D47"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FinishScoring" translatesAutoresizingMaskIntoConstraints="NO" id="9Sa-tF-MKQ">
-                                        <rect key="frame" x="20" y="15" width="315" height="90"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="90" id="OaS-E4-moJ"/>
-                                        </constraints>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4K-Zm-xMf">
-                                        <rect key="frame" x="20" y="162" width="155" height="38"/>
+                                        <rect key="frame" x="20" y="70" width="315" height="38"/>
                                         <color key="backgroundColor" red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="NRF-mw-RdM"/>
@@ -67,19 +61,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="9Sa-tF-MKQ" secondAttribute="trailing" constant="20" id="7oI-4e-neC"/>
                                     <constraint firstAttribute="bottom" secondItem="LBq-Wi-mtW" secondAttribute="bottom" constant="20" id="Dxb-su-cCE"/>
-                                    <constraint firstItem="9Sa-tF-MKQ" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="JO7-me-Lb5"/>
-                                    <constraint firstItem="9Sa-tF-MKQ" firstAttribute="top" secondItem="7TF-Dt-mqr" secondAttribute="top" constant="15" id="JO9-aN-jOP"/>
+                                    <constraint firstItem="LBq-Wi-mtW" firstAttribute="top" secondItem="e4K-Zm-xMf" secondAttribute="bottom" constant="14" id="EvE-WK-4Tf"/>
+                                    <constraint firstItem="lQu-6U-SJ1" firstAttribute="top" secondItem="7TF-Dt-mqr" secondAttribute="top" constant="20" id="Qpc-ue-Zx0"/>
+                                    <constraint firstAttribute="trailing" secondItem="e4K-Zm-xMf" secondAttribute="trailing" constant="20" id="VPK-s1-8kN"/>
+                                    <constraint firstItem="LBq-Wi-mtW" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="a2j-7D-G4f"/>
                                     <constraint firstAttribute="trailing" secondItem="LBq-Wi-mtW" secondAttribute="trailing" constant="20" id="a3A-V0-dJq"/>
-                                    <constraint firstAttribute="height" constant="220" id="aBN-Ig-Y0V"/>
+                                    <constraint firstAttribute="height" constant="180" id="aBN-Ig-Y0V"/>
                                     <constraint firstItem="lQu-6U-SJ1" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="bOS-ze-YDO"/>
-                                    <constraint firstAttribute="bottom" secondItem="e4K-Zm-xMf" secondAttribute="bottom" constant="20" id="bjg-gv-qAG"/>
-                                    <constraint firstItem="e4K-Zm-xMf" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="dQh-2D-I36"/>
                                     <constraint firstAttribute="trailing" secondItem="lQu-6U-SJ1" secondAttribute="trailing" constant="20" id="gfH-Be-gqd"/>
-                                    <constraint firstItem="lQu-6U-SJ1" firstAttribute="top" secondItem="9Sa-tF-MKQ" secondAttribute="bottom" constant="18" id="gmi-gC-pNl"/>
                                     <constraint firstItem="LBq-Wi-mtW" firstAttribute="width" secondItem="e4K-Zm-xMf" secondAttribute="width" id="nFX-ZH-8dt"/>
-                                    <constraint firstItem="LBq-Wi-mtW" firstAttribute="leading" secondItem="e4K-Zm-xMf" secondAttribute="trailing" constant="5" id="xX3-P0-Me3"/>
+                                    <constraint firstItem="e4K-Zm-xMf" firstAttribute="leading" secondItem="7TF-Dt-mqr" secondAttribute="leading" constant="20" id="zy3-BH-wdA"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -95,7 +87,6 @@
                         <outlet property="finishButton" destination="LBq-Wi-mtW" id="FOJ-uX-jcG"/>
                         <outlet property="finishLabel" destination="lQu-6U-SJ1" id="c5T-ja-r5T"/>
                         <outlet property="finishView" destination="7TF-Dt-mqr" id="FXK-EG-fnv"/>
-                        <outlet property="imageView" destination="9Sa-tF-MKQ" id="f8r-39-MGS"/>
                         <outlet property="resumeButton" destination="e4K-Zm-xMf" id="aQe-Qr-FMB"/>
                         <segue destination="iGz-SA-H8H" kind="presentation" identifier="finishToPracticeCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="dek-A7-03P"/>
                         <segue destination="sfl-XD-KfY" kind="presentation" identifier="finishToCongratsSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="QFd-iA-IRj"/>
@@ -122,7 +113,4 @@
             <point key="canvasLocation" x="477" y="246"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="FinishScoring" width="2012" height="1329"/>
-    </resources>
 </document>
