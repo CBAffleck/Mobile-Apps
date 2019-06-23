@@ -65,6 +65,7 @@ class finishScoring: UIViewController {
             currRound.lastScored = startDate
             currRound.pr = max(currRound.pr, totalScore)
             currUser.totalScoredRounds += 1
+            currUser.totalArrowsShot += (currRound.arrowsPerEnd * currRound.endCount)
         }
     }
     
@@ -75,6 +76,7 @@ class finishScoring: UIViewController {
             practiceRound.roundNum += 1
             practiceRound.lastPractice = startDate
             currUser.totalPracticeRounds += 1
+            currUser.totalArrowsShot += arrows.count
         }
     }
     
@@ -237,6 +239,8 @@ class finishScoring: UIViewController {
     @IBAction func finishTapped(_ sender: UIButton) {
         if scoringType == "target" {
             saveImage(imageName: currRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum), image: targetImage)
+            saveRound()
+        } else if scoringType == "text" {
             saveRound()
         } else if scoringType == "practice" {
             saveImage(imageName: practiceRound.targetFace + String(headerTitle.prefix(3)) + String(roundNum) + "practice", image: targetImage)

@@ -106,6 +106,7 @@ class UserInfo : Object {
     @objc dynamic var pr50 : Int = 0
     @objc dynamic var pr70 : Int = 0
     @objc dynamic var totalPracticeRounds : Int = 0
+    @objc dynamic var totalArrowsShot : Int = 0
     
     //Save function for writing object to realm
     func saveUser() -> Bool {
@@ -179,7 +180,7 @@ class HistoryPracticeRound : Object {
 }
 
 //Object that enables user to save their arrow count for the day, including the date, number, distance, and practice duration
-class ArrowCount : Object {
+class HistoryArrowCount : Object {
     
     @objc dynamic var time : String = ""
     @objc dynamic var date : String = ""

@@ -20,6 +20,9 @@ class saveCounter: UIViewController {
     //MARK: Variables
     let realm = try! Realm()
     var count = 0
+    var time = ""
+    var date = ""
+    var distance = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,23 +33,42 @@ class saveCounter: UIViewController {
     }
     
     //MARK: Functions
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //Create and save a new arrow count history object
+    func saveArrowCountHistory() {
+        let round = HistoryArrowCount()
+        
+        round.numArrows = count
+        round.distance = distance
+        round.date = date
+        round.time = time
+        
+        if round.saveArrowCount() {
+            print("Arrow count saved!")
+        } else {
+            print("Could not save arrow count.")
+        }
+        
+        //Update average for the practice round
+        updateUserInfo()
     }
-    */
+    
+    //Add arrow count to user's total arrow count
+    func updateUserInfo() {
+        let currUser = realm.objects(UserInfo.self).first!
+        try! realm.write {
+            currUser.totalArrowsShot += count
+        }
+    }
     
     //MARK: Actions
     @IBAction func finishTapped(_ sender: UIButton) {
+        saveArrowCountHistory()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadData"), object: nil)
     }
     
     @IBAction func resumeTapped(_ sender: UIButton) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "dismissDimView"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "NotificationID"), object: nil)
         UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
             self.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
             self.modalTransitionStyle = .crossDissolve

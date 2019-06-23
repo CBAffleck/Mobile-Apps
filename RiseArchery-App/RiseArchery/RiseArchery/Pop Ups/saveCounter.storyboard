@@ -42,6 +42,7 @@
                                         </state>
                                         <connections>
                                             <action selector="finishTapped:" destination="DJR-cG-G0T" eventType="touchUpInside" id="hwL-F2-334"/>
+                                            <segue destination="PvN-G6-kak" kind="presentation" identifier="saveCountToMainSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="A3J-jk-PPb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0t-XQ-20e">
@@ -93,6 +94,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qN0-5S-IMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-631" y="170"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="lSD-Gg-HGX">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="PvN-G6-kak" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g4q-Hj-26r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-70" y="169"/>
         </scene>
     </scenes>
 </document>
